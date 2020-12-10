@@ -12,19 +12,19 @@ import functools
 import utila
 import utilatest
 
-import decider_bibliography
-import decider_bibliography.cli
+import decider_bib
+import decider_bib.cli
 
 # pylint:disable=C0103
 run = functools.partial(
     utilatest.run_command,
-    main=decider_bibliography.cli.main,
-    process=decider_bibliography.PROCESS,
+    main=decider_bib.cli.main,
+    process=decider_bib.PROCESS,
     success=True,
 )
 fail = functools.partial(
     utilatest.run_command,
-    main=decider_bibliography.cli.main,
-    process=decider_bibliography.PROCESS,
+    main=decider_bib.cli.main,
+    process=decider_bib.PROCESS,
     success=False,
 )

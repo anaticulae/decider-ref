@@ -14,13 +14,13 @@ import iamraw
 import protocol
 import utila
 
-import decider_bibliography.order
-import decider_bibliography.serialize
-import decider_bibliography.utils
+import decider_bib.order
+import decider_bib.serialize
+import decider_bib.utils
 
 
 def work(table: str) -> typing.Tuple[str, str]:
-    loaded = decider_bibliography.serialize.load_bibliography_reference(table)
+    loaded = decider_bib.serialize.load_bibliography_reference(table)
     linter = protocol.from_module(__name__)
     linting(loaded, linter)
     result = linter.result(unique=True)
@@ -65,18 +65,14 @@ def check_6000_not_sorted_alphabetically(
         references: iamraw.BibliographyReferences,
 ):
     current = [item for item in references]
-    expected = decider_bibliography.order.theissen_sort(current)
+    expected = decider_bib.order.theissen_sort(current)
 
     if current == expected:
         return
 
     # TODO: CHECK REPRESENTATION
-    current = [
-        decider_bibliography.utils.format_bibline(item) for item in current
-    ]
-    expected = [
-        decider_bibliography.utils.format_bibline(item) for item in expected
-    ]
+    current = [decider_bib.utils.format_bibline(item) for item in current]
+    expected = [decider_bib.utils.format_bibline(item) for item in expected]
 
     linter(
         current=utila.NEWLINE.join(current),

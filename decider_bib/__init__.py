@@ -7,15 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
+import decider_bib.path
+import decider_reference
 
-import decider_bibliography
-
-
-def bibliography_user(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(
-        path,
-        decider_bibliography.PROCESS,
-        'order_user',
-        prefix,
-    )
+ROOT = decider_reference.ROOT
+PROCESS = 'decider_reference'

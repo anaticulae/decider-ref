@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import tests.bibliography_
+import tests.bibliography
 
 
-def test_decider_bibliography_cli_help(monkeypatch):
-    tests.bibliography_.run('--help', monkeypatch=monkeypatch)
+def test_decider_bib_cli_help(monkeypatch):
+    tests.bibliography.run('--help', monkeypatch=monkeypatch)

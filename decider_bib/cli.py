@@ -9,7 +9,7 @@
 
 import utila
 
-import decider_bibliography
+import decider_bib
 import decider_reference
 
 DESCRIPTION = ''
@@ -32,11 +32,11 @@ def main():
     utila.featurepack(
         workplan=WORKPLAN,
         root=decider_reference.ROOT,
-        featurepackage='decider_bibliography.features',
+        featurepackage='decider_bib.features',
         config=utila.FeaturePackConfig(
             description=DESCRIPTION,
             multiprocessed=True,
-            name=decider_bibliography.PROCESS,
+            name=decider_bib.PROCESS,
             version=decider_reference.__version__,
         ),
     )

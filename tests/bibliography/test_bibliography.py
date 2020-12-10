@@ -12,17 +12,17 @@ import protocol
 import pytest
 import serializeraw
 
-import decider_bibliography.path
+import decider_bib.path
 import tests
-import tests.bibliography_
+import tests.bibliography
 
 
 def test_bib_sorting_master98(testdir, monkeypatch):
     source = power.link(power.MASTER098_PDF)
     cmd = f'-i {source} --order'
-    tests.bibliography_.run(cmd, monkeypatch=monkeypatch)
+    tests.bibliography.run(cmd, monkeypatch=monkeypatch)
 
-    path = decider_bibliography.path.bibliography_user(testdir.tmpdir)
+    path = decider_bib.path.bibliography_user(testdir.tmpdir)
     result = protocol.select_findings(
         serializeraw.load_findings(path),
         msgid=6000,
@@ -34,9 +34,9 @@ def test_bib_sorting_master98(testdir, monkeypatch):
 def test_bib_sorting_master116(testdir, monkeypatch):
     source = power.link(power.MASTER116_PDF)
     cmd = f'-i {source} --order'
-    tests.bibliography_.run(cmd, monkeypatch=monkeypatch)
+    tests.bibliography.run(cmd, monkeypatch=monkeypatch)
 
-    path = decider_bibliography.path.bibliography_user(testdir.tmpdir)
+    path = decider_bib.path.bibliography_user(testdir.tmpdir)
     result = protocol.select_findings(
         serializeraw.load_findings(path),
         msgid=6000,

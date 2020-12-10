@@ -50,8 +50,8 @@ if __name__ == "__main__":
             'Programming Language :: Python :: 3.8',
         ],
         packages=[
-            'decider_bibliography',
-            'decider_bibliography.features',
+            'decider_bib',
+            'decider_bib.features',
             'decider_reference',
         ],
     )

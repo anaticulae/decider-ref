@@ -9,7 +9,7 @@
 
 import iamraw
 
-import decider_bibliography.order
+import decider_bib.order
 
 
 def test_sort_byname():
@@ -18,7 +18,7 @@ def test_sort_byname():
         iamraw.BibliographyReference.create('Arnold Anton'),
         iamraw.BibliographyReference.create('Fahrendholz Konrad'),
     ]
-    result = decider_bibliography.order.theissen_sort(example)
+    result = decider_bib.order.theissen_sort(example)
     expected = [example[1], example[2], example[0]]
     assert result == expected
 
@@ -29,7 +29,7 @@ def test_sort_byyear():
         iamraw.BibliographyReference.create('Fahrendholz Konrad', year=None),
         iamraw.BibliographyReference.create('Fahrendholz Konrad', year=1987),
     ]
-    result = decider_bibliography.order.theissen_sort(year)
+    result = decider_bib.order.theissen_sort(year)
     expected = [year[2], year[0], year[1]]
     assert result == expected
 
@@ -42,6 +42,6 @@ def test_sort_bynoname():
         iamraw.BibliographyReference.create('Fahrendholz Konrad', year=None),
         iamraw.BibliographyReference.create('Fahrendholz Konrad', year=1987),
     ]
-    result = decider_bibliography.order.theissen_sort(ov)
+    result = decider_bib.order.theissen_sort(ov)
     expected = [ov[3], ov[2], ov[1], ov[0]]
     assert result == expected

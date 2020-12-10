@@ -12,33 +12,28 @@ import protocol
 import pytest
 import serializeraw
 
-import decider_bib.path
-import tests
+import decider_bib
 import tests.bibliography
 
 
-def test_bib_sorting_master98(testdir, monkeypatch):
-    source = power.link(power.MASTER098_PDF)
+def run_order(source, monkeypatch, testdir, msgid=None):
+    source = power.link(source)
     cmd = f'-i {source} --order'
     tests.bibliography.run(cmd, monkeypatch=monkeypatch)
-
     path = decider_bib.path.bibliography_user(testdir.tmpdir)
     result = protocol.select_findings(
         serializeraw.load_findings(path),
-        msgid=6000,
+        msgid=msgid,
     )
-    assert len(result) == 1
+    return result
+
+
+def test_bib_sorting_master98(testdir, monkeypatch):
+    unsorted_bib = run_order(power.MASTER098_PDF, monkeypatch, testdir, {6000})
+    assert len(unsorted_bib) == 1
 
 
 @pytest.mark.xfail(reason='improve bib parser')
 def test_bib_sorting_master116(testdir, monkeypatch):
-    source = power.link(power.MASTER116_PDF)
-    cmd = f'-i {source} --order'
-    tests.bibliography.run(cmd, monkeypatch=monkeypatch)
-
-    path = decider_bib.path.bibliography_user(testdir.tmpdir)
-    result = protocol.select_findings(
-        serializeraw.load_findings(path),
-        msgid=6000,
-    )
-    assert not result  # TODO: VALIDATE LATER
+    unsorted_bib = run_order(power.MASTER116_PDF, monkeypatch, testdir, {6000})
+    assert not unsorted_bib  # TODO: VALIDATE LATER

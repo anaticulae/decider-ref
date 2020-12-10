@@ -8,7 +8,7 @@
 # =============================================================================
 
 import decider_bib.path
-import decider_reference
+import decider_ref
 
-ROOT = decider_reference.ROOT
+ROOT = decider_ref.ROOT
 PROCESS = 'decider_bibliography'

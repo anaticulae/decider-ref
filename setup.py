@@ -20,8 +20,7 @@ with open(os.path.join(ROOT, 'README.md'), mode='rt', encoding=UTF8) as fp:
     README = fp.read()
 
 with open(
-        os.path.join(ROOT, 'decider_reference/__init__.py'),
-        mode='rt',
+        os.path.join(ROOT, 'decider_ref/__init__.py'), mode='rt',
         encoding=UTF8) as fp:
     VERSION = re.search(r'__version__ = \'(.*?)\'', fp.read()).group(1)
 
@@ -40,7 +39,7 @@ if __name__ == "__main__":
         description='checker',
         install_requires=INSTALL_REQUIRES,
         long_description=README,
-        name='decider_reference',
+        name='decider_ref',
         platforms='any',
         url='https://dev.package.checkitweg.de/reference',
         version=VERSION,
@@ -52,7 +51,7 @@ if __name__ == "__main__":
         packages=[
             'decider_bib',
             'decider_bib.features',
-            'decider_reference',
+            'decider_ref',
         ],
         entry_points={
             'console_scripts': [

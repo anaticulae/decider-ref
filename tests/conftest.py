@@ -12,10 +12,10 @@ import power
 import pytest
 import writers
 
-import decider_reference
+import decider_ref
 
-PACKAGE = decider_reference.PACKAGE
-power.setup(decider_reference.ROOT)
+PACKAGE = decider_ref.PACKAGE
+power.setup(decider_ref.ROOT)
 
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 

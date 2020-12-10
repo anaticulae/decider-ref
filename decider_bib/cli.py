@@ -10,7 +10,7 @@
 import utila
 
 import decider_bib
-import decider_reference
+import decider_ref
 
 DESCRIPTION = ''
 
@@ -31,12 +31,12 @@ WORKPLAN = [
 def main():
     utila.featurepack(
         workplan=WORKPLAN,
-        root=decider_reference.ROOT,
+        root=decider_ref.ROOT,
         featurepackage='decider_bib.features',
         config=utila.FeaturePackConfig(
             description=DESCRIPTION,
             multiprocessed=True,
             name=decider_bib.PROCESS,
-            version=decider_reference.__version__,
+            version=decider_ref.__version__,
         ),
     )

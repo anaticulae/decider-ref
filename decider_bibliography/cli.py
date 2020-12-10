@@ -19,7 +19,7 @@ DEVELOPER = 'developer'
 
 WORKPLAN = [
     utila.create_step(
-        'bibliography',
+        'order',
         [
             utila.ResultFile('detector', 'bibliography_detected'),
         ],

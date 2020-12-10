@@ -6,3 +6,16 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
+
+import utila
+
+import decider_bibliography
+
+
+def bibliography_user(path: str, prefix: str = '') -> str:
+    return utila.pathconnector(
+        path,
+        decider_bibliography.PROCESS,
+        'order_user',
+        prefix,
+    )

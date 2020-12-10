@@ -20,7 +20,8 @@ with open(os.path.join(ROOT, 'README.md'), mode='rt', encoding=UTF8) as fp:
     README = fp.read()
 
 with open(
-        os.path.join(ROOT, 'reference/__init__.py'), mode='rt',
+        os.path.join(ROOT, 'decider_reference/__init__.py'),
+        mode='rt',
         encoding=UTF8) as fp:
     VERSION = re.search(r'__version__ = \'(.*?)\'', fp.read()).group(1)
 

@@ -19,7 +19,7 @@ import decider_bib.serialize
 import decider_bib.utils
 
 
-def work(table: str) -> typing.Tuple[str, str]:
+def work(table: str, docref: str) -> typing.Tuple[str, str]:
     loaded = decider_bib.serialize.load_bibliography_reference(table)
     linter = protocol.from_module(__name__)
     linting(loaded, linter)

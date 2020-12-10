@@ -22,6 +22,7 @@ WORKPLAN = [
         'order',
         [
             utila.ResultFile('detector', 'bibliography_detected'),
+            utila.ResultFile('docref', 'bibliography_parsed'),
         ],
         (USER, DEVELOPER),
     ),

@@ -16,6 +16,7 @@ import utila
 
 import decider_bibliography.order
 import decider_bibliography.serialize
+import decider_bibliography.utils
 
 
 def work(table: str) -> typing.Tuple[str, str]:
@@ -70,16 +71,14 @@ def check_6000_not_sorted_alphabetically(
         return
 
     # TODO: CHECK REPRESENTATION
-    current = [format_bibline(item) for item in current]
-    expected = [format_bibline(item) for item in expected]
+    current = [
+        decider_bibliography.utils.format_bibline(item) for item in current
+    ]
+    expected = [
+        decider_bibliography.utils.format_bibline(item) for item in expected
+    ]
 
     linter(
         current=utila.NEWLINE.join(current),
         expected=utila.NEWLINE.join(expected),
     )
-
-
-def format_bibline(item) -> str:
-    if item.reference:
-        return item.reference
-    return f' * {item.author} {item.year} {item.title}'

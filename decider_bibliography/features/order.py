@@ -7,36 +7,24 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import contextlib
 import functools
 import typing
 
 import iamraw
 import protocol
-import serializeraw
 import utila
 
 import decider_bibliography.order
+import decider_bibliography.serialize
 
 
 def work(table: str) -> typing.Tuple[str, str]:
-    loaded = load_bibliography_reference(table)
+    loaded = decider_bibliography.serialize.load_bibliography_reference(table)
     linter = protocol.from_module(__name__)
     linting(loaded, linter)
     result = linter.result(unique=True)
     user, developer = protocol.dump_result(result)
     return user, developer
-
-
-def load_bibliography_reference(path) -> list:
-    loaded = serializeraw.load_bibliography_reference(path)
-    if not loaded:
-        return []
-    with contextlib.suppress(AttributeError):
-        # TODO: REMOVE LATER
-        if isinstance(loaded[0], list):
-            loaded = utila.flatten(loaded)
-    return loaded
 
 
 def linting(
@@ -71,12 +59,6 @@ Erwartet:
 """
 
 
-def format_bibline(item) -> str:
-    if item.reference:
-        return item.reference
-    return f' * {item.author} {item.year} {item.title}'
-
-
 def check_6000_not_sorted_alphabetically(
         linter: callable,
         references: iamraw.BibliographyReferences,
@@ -95,3 +77,9 @@ def check_6000_not_sorted_alphabetically(
         current=utila.NEWLINE.join(current),
         expected=utila.NEWLINE.join(expected),
     )
+
+
+def format_bibline(item) -> str:
+    if item.reference:
+        return item.reference
+    return f' * {item.author} {item.year} {item.title}'

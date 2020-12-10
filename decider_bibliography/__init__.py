@@ -7,4 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import decider_bibliography.path
+import decider_reference
+
+ROOT = decider_reference.ROOT
 PROCESS = 'decider_reference'

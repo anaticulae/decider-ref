@@ -21,17 +21,16 @@ import decider_bib.utils
 
 def work(table: str, docref: str) -> typing.Tuple[str, str]:
     loaded = decider_bib.serialize.load_bibliography_reference(table)
+    docref = decider_bib.serialize.load_bibliography_reference(docref)
+    driver = protocol.driver(bibliography=loaded, textref=docref)
     linter = protocol.from_module(__name__)
-    linting(loaded, linter)
+    linting(linter, driver)
     result = linter.result(unique=True)
     user, developer = protocol.dump_result(result)
     return user, developer
 
 
-def linting(
-        references: iamraw.BibliographyReferences,
-        linter: protocol.Linter,
-):
+def linting(linter: protocol.Linter, driver):
     location = iamraw.Location.from_page(0)
     checkers = protocol.parse_checkers(__name__)
     for checker in checkers:
@@ -40,7 +39,7 @@ def linting(
             msgid=checker.msgid,
             location=location,
         )
-        checker(call, references)
+        checker(call, driver)
 
 
 SOLUTION_6000 = """\
@@ -60,10 +59,8 @@ Erwartet:
 """
 
 
-def check_6000_not_sorted_alphabetically(
-        linter: callable,
-        references: iamraw.BibliographyReferences,
-):
+def check_6000_not_sorted_alphabetically(linter: callable, driver):
+    references: iamraw.BibliographyReferences = driver.bibliography
     current = [item for item in references]
     expected = decider_bib.order.theissen_sort(current)
 

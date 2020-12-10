@@ -11,3 +11,5 @@ utilatest==0.2.2
 
 genex==0.5.4
 power==1.0.0
+
+genref==1.0.0

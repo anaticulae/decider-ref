@@ -11,4 +11,4 @@ import decider_bib.path
 import decider_reference
 
 ROOT = decider_reference.ROOT
-PROCESS = 'decider_reference'
+PROCESS = 'decider_bibliography'

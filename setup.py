@@ -54,4 +54,9 @@ if __name__ == "__main__":
             'decider_bib.features',
             'decider_reference',
         ],
+        entry_points={
+            'console_scripts': [
+                'decider_bibliography = decider_bib.cli:main',
+            ],
+        },
     )

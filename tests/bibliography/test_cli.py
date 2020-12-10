@@ -7,8 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import utila
+
+import decider_bib
 import tests.bibliography
 
 
 def test_decider_bib_cli_help(monkeypatch):
     tests.bibliography.run('--help', monkeypatch=monkeypatch)
+
+
+def test_decider_bib_nomonkey_cli_help():
+    utila.run(f'{decider_bib.PROCESS} --help')

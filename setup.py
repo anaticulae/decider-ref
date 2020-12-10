@@ -51,6 +51,7 @@ if __name__ == "__main__":
         ],
         packages=[
             'decider_bibliography',
+            'decider_bibliography.features',
             'decider_reference',
         ],
     )

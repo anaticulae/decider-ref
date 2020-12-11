@@ -9,18 +9,17 @@
 
 import power
 import protocol
-import pytest
 import serializeraw
 
 import decider_bib
 import tests.bibliography
 
 
-def run_order(source, monkeypatch, testdir, msgid=None):
+def run_label(source, monkeypatch, testdir, msgid=None):
     source = power.link(source)
-    cmd = f'-i {source} --order'
+    cmd = f'-i {source} --label'
     tests.bibliography.run(cmd, monkeypatch=monkeypatch)
-    path = decider_bib.path.decider_bib_order_user(testdir.tmpdir)
+    path = decider_bib.path.decider_bib_label_user(testdir.tmpdir)
     result = protocol.select_findings(
         serializeraw.load_findings(path),
         msgid=msgid,
@@ -28,12 +27,11 @@ def run_order(source, monkeypatch, testdir, msgid=None):
     return result
 
 
-def test_bib_sorting_master98(testdir, monkeypatch):
-    unsorted_bib = run_order(power.MASTER098_PDF, monkeypatch, testdir, {6000})
-    assert len(unsorted_bib) == 1
+def test_bib_no_page(testdir, monkeypatch):
+    nopages = run_label(power.MASTER116_PDF, monkeypatch, testdir, {6061})
+    assert len(nopages) == 71  #TODO: VALIDATE LATER
 
 
-@pytest.mark.xfail(reason='improve bib parser')
-def test_bib_sorting_master116(testdir, monkeypatch):
-    unsorted_bib = run_order(power.MASTER116_PDF, monkeypatch, testdir, {6000})
-    assert not unsorted_bib  # TODO: VALIDATE LATER
+def test_bib_page_number_unprecise(testdir, monkeypatch):
+    unprecise = run_label(power.MASTER116_PDF, monkeypatch, testdir, {6062})
+    assert len(unprecise) == 3  #TODO: VALIDATE LATER

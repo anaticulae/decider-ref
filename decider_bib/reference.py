@@ -7,24 +7,16 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
 
-import decider_bib
-
-
-def decider_bib_order_user(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(
-        path,
-        decider_bib.PROCESS,
-        'order_user',
-        prefix,
-    )
+def has_page(item) -> bool:
+    return 'S.' in item
 
 
-def decider_bib_label_user(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(
-        path,
-        decider_bib.PROCESS,
-        'label_user',
-        prefix,
-    )
+def precise(item) -> bool:
+    if ' ff ' in item:
+        return False
+    if 'ff.' in item:
+        return False
+    if ' ff' in item:
+        return False
+    return True

@@ -19,10 +19,9 @@ import decider_bib.serialize
 import decider_bib.utils
 
 
-def work(table: str, docref: str) -> typing.Tuple[str, str]:
-    loaded = decider_bib.serialize.load_bibliography_reference(table)
-    docref = decider_bib.serialize.load_bibliography_reference(docref)
-    driver = protocol.driver(bibliography=loaded, textref=docref)
+def work(table: str) -> typing.Tuple[str, str]:
+    bibliography = decider_bib.serialize.load_bibliography_reference(table)
+    driver = protocol.driver(bibliography=bibliography)
     linter = protocol.from_module(__name__)
     linting(linter, driver)
     result = linter.result(unique=True)

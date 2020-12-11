@@ -19,19 +19,19 @@ DEVELOPER = 'developer'
 
 WORKPLAN = [
     utila.create_step(
-        'order',
-        [
-            utila.ResultFile('detector', 'bibliography_detected'),
-        ],
-        (USER, DEVELOPER),
-    ),
-    utila.create_step(
         'label',
         [
             utila.ResultFile('detector', 'bibliography_detected'),
             utila.ResultFile('docref', 'bibliography_parsed'),
             utila.ResultFile('words', 'headlines_headlines'),
             utila.ResultFile('words', 'word_result'),
+        ],
+        (USER, DEVELOPER),
+    ),
+    utila.create_step(
+        'table',
+        [
+            utila.ResultFile('detector', 'bibliography_detected'),
         ],
         (USER, DEVELOPER),
     ),

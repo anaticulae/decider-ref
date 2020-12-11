@@ -16,11 +16,11 @@ import decider_bib
 import tests.bibliography
 
 
-def run_order(source, monkeypatch, testdir, msgid=None):
+def run_table(source, monkeypatch, testdir, msgid=None):
     source = power.link(source)
-    cmd = f'-i {source} --order'
+    cmd = f'-i {source} --table'
     tests.bibliography.run(cmd, monkeypatch=monkeypatch)
-    path = decider_bib.path.decider_bib_order_user(testdir.tmpdir)
+    path = decider_bib.path.decider_bib_table_user(testdir.tmpdir)
     result = protocol.select_findings(
         serializeraw.load_findings(path),
         msgid=msgid,
@@ -29,11 +29,11 @@ def run_order(source, monkeypatch, testdir, msgid=None):
 
 
 def test_bib_sorting_master98(testdir, monkeypatch):
-    unsorted_bib = run_order(power.MASTER098_PDF, monkeypatch, testdir, {6000})
+    unsorted_bib = run_table(power.MASTER098_PDF, monkeypatch, testdir, {6000})
     assert len(unsorted_bib) == 1
 
 
 @pytest.mark.xfail(reason='improve bib parser')
 def test_bib_sorting_master116(testdir, monkeypatch):
-    unsorted_bib = run_order(power.MASTER116_PDF, monkeypatch, testdir, {6000})
+    unsorted_bib = run_table(power.MASTER116_PDF, monkeypatch, testdir, {6000})
     assert not unsorted_bib  # TODO: VALIDATE LATER

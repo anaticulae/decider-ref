@@ -74,7 +74,7 @@ Die Referenz **{{reference}}** fehlt im Quellenverzeichnis.
 """
 
 
-def check_6050_bib_table_to_text(linter: callable, driver):
+def check_6050_ref_in_table(linter: callable, driver):
     plains = references_plain(driver.bibtextref, driver.text)
     for reference, plain in zip(driver.bibtextref, plains):
         location = iamraw.Location.from_sentence(

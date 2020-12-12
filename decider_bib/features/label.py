@@ -10,9 +10,11 @@
 import functools
 import typing
 
+import docref.bibliography.parser
 import iamraw
 import protocol
 import serializeraw
+import utila
 import words.utils
 
 import decider_bib.order
@@ -86,6 +88,26 @@ def check_6050_bib_table_to_text(linter: callable, driver):
             ):
                 continue
             linter(location=location, reference=item)
+
+
+SOLUTION_6051 = """\
+Quelle überflüssig
+
+Die Quelle **{{source}}** wird im Text nicht verwendet.
+"""
+
+
+def check_6051_table_in_text(linter: callable, driver):
+    plains = references_plain(driver.bibtextref, driver.text)
+    plains = utila.flatten(plains)
+    plains = {
+        docref.bibliography.parser.parse(item)[0].reference for item in plains
+    }
+    source = list(driver.bibliography)
+    not_required = [item for item in source if item.reference not in plains]
+    for item in not_required:
+        location = iamraw.Location.from_page(page=0)
+        linter(location=location, source=item.reference)
 
 
 SOLUTION_6061 = """\

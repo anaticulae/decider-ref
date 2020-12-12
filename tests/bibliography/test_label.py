@@ -46,3 +46,8 @@ def test_bib_label_exists(testdir, monkeypatch):
     missing = run_label(power.MASTER116_PDF, monkeypatch, testdir, {6050})
     # all reference in text are located in bib table
     assert not missing
+
+
+def test_bib_source_not_required(testdir, monkeypatch):
+    notrequired = run_label(power.MASTER116_PDF, monkeypatch, testdir, {6051})
+    assert len(notrequired) == 11  #TODO: VALIDATE LATER

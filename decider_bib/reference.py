@@ -8,6 +8,7 @@
 # =============================================================================
 
 import docref.bibliography.parser
+import iamraw
 
 
 def has_page(item) -> bool:
@@ -32,3 +33,15 @@ def precise(item) -> bool:
     if ' ff' in item:
         return False
     return True
+
+
+def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
+    parsed = docref.bibliography.parser.parse(reference)
+    if not parsed:
+        return False
+    assert len(parsed) == 1
+    parsed = parsed[0]
+    if parsed.reference:
+        table = {item.reference.lower() for item in table}
+        return parsed.reference.lower() in table
+    return False

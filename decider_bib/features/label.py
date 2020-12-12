@@ -73,7 +73,19 @@ Die Referenz **{{reference}}** fehlt im Quellenverzeichnis.
 
 
 def check_6050_bib_table_to_text(linter: callable, driver):
-    pass
+    plains = references_plain(driver.bibtextref, driver.text)
+    for reference, plain in zip(driver.bibtextref, plains):
+        location = iamraw.Location.from_sentence(
+            sentence=reference.sentence,
+            page=reference.page,
+        )
+        for mark, item in zip(reference.marked, plain):  # pylint:disable=W0612
+            if decider_bib.reference.inside(
+                    reference=item,
+                    table=driver.bibliography,
+            ):
+                continue
+            linter(location=location, reference=item)
 
 
 SOLUTION_6061 = """\

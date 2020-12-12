@@ -40,3 +40,9 @@ def test_bib_no_page_master98(testdir, monkeypatch):
 def test_bib_page_number_unprecise(testdir, monkeypatch):
     unprecise = run_label(power.MASTER116_PDF, monkeypatch, testdir, {6062})
     assert len(unprecise) == 3  #TODO: VALIDATE LATER
+
+
+def test_bib_label_exists(testdir, monkeypatch):
+    missing = run_label(power.MASTER116_PDF, monkeypatch, testdir, {6050})
+    # all reference in text are located in bib table
+    assert not missing

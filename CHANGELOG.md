@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v1.1.0
+
+### Feature
+
+* add step to verify that bib source is not used (80f818ae5e7d)
+* verify that bib label exists in bib table (befcab56a56d)
+* improve bib page check (35d66f8d1cd3)
+* add label step to verify bib refs (4b8ee68d85fb)
+* add parsed text bib refs as step input (bded4fb63d54)
+
 ## v1.0.0
 
 ### Feature

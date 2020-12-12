@@ -24,16 +24,16 @@ import decider_bib.utils
 
 def work(
         table: str,
-        docref: str,
+        docreference: str,
         headlines: str,
         text: str,
         pages: tuple = None,
 ) -> typing.Tuple[str, str]:
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
-    text, docref = load_docref(docref, headlines, text, pages=pages)
+    text, docreference = load_docref(docreference, headlines, text, pages=pages)
     driver = protocol.driver(
         bibliography=bibliography,
-        bibtextref=docref,
+        bibtextref=docreference,
         text=text,
     )
     linter = protocol.from_module(__name__)
@@ -56,15 +56,15 @@ def linting(linter: protocol.Linter, driver):
 
 
 def load_docref(
-        docref: str,
+        docreference: str,
         headlines: str,
         text: str,
         pages: tuple = None,
 ) -> list:
-    docref = serializeraw.load_docref(docref, pages=pages)
+    docreference = serializeraw.load_docref(docreference, pages=pages)
     headlines = serializeraw.load_headlines(headlines, pages=pages)
     text = serializeraw.load_text(text, headlines=headlines, pages=pages)
-    return text, docref
+    return text, docreference
 
 
 SOLUTION_6050 = """\

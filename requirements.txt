@@ -13,3 +13,5 @@ utila==2.16.1
 writers==1.1.4
 # dump and load findings
 protocol==3.1.6
+# docref converter
+words==0.24.0

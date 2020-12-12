@@ -7,9 +7,21 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import docref.bibliography.parser
+
 
 def has_page(item) -> bool:
-    return 'S.' in item
+    """\
+    >>> has_page('[TCL18 S.14]')
+    True
+    >>> has_page('[ABC13]')
+    False
+    """
+    parsed = docref.bibliography.parser.parse(item)
+    if not parsed:
+        # simple backup strategy
+        return 'S.' in item or 'Seite' in item
+    return parsed[0].page is not None
 
 
 def precise(item) -> bool:

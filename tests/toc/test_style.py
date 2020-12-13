@@ -7,12 +7,19 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.2.2
+import power
+import protocol
 
-genex==0.5.4
-power==1.0.0
+import tests.toc
 
-genref==1.0.0
 
-# modify test data
-jam==0.2.18
+def test_toc_style_bachelor76_duplicated_words(testdir, monkeypatch):
+    source = power.link(power.BACHELOR076_PDF)
+    tests.toc.run(f'-i {source} --style', monkeypatch=monkeypatch)
+
+    findings = protocol.findings_from_path(testdir.tmpdir)
+    findings = findings[0].content
+
+    duplicated_words = protocol.select_findings(findings, msgid=1380)
+    assert len(duplicated_words) == 1, str(duplicated_words)
+    assert 'Industrie 4.0' in duplicated_words[0].solution.description

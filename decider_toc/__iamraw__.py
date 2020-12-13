@@ -7,12 +7,26 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.2.2
+import iamraw
+import iamraw.toc
+import utila
 
-genex==0.5.4
-power==1.0.0
 
-genref==1.0.0
+def headlines_totoc(
+        headlines: iamraw.PagesHeadlineList,
+        remove_rawinfo: bool = False,
+) -> 'iamraw.Toc':
+    try:
+        flat = utila.flatten(headlines)
+    except TypeError:
+        # list is already flat
+        flat = headlines
+    for item in flat:
+        # TODO: THINK ABOUT THIS
+        if item.level is None:
+            item.level = 1
+    result = iamraw.toc.create_toc(flat, remove_rawinfo=remove_rawinfo)
+    return result
 
-# modify test data
-jam==0.2.18
+
+iamraw.headlines_totoc = headlines_totoc

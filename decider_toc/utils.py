@@ -7,12 +7,27 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.2.2
+import collections
 
-genex==0.5.4
-power==1.0.0
+import iamraw
+import iamraw.toc
 
-genref==1.0.0
 
-# modify test data
-jam==0.2.18
+class InvalidTocItems(collections.UserList):  # pylint:disable=too-many-ancestors
+    pass
+
+
+def flat(toc: iamraw.Toc):
+    """Remove nested order and deliver a top down list of pages and
+    sections."""
+    result = []
+
+    def godown(item: iamraw.toc.TocLinkMixin):
+        result.append(item)
+        for children in item:
+            godown(children)
+
+    for item in toc:
+        godown(item)
+
+    return result

@@ -7,12 +7,23 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.2.2
+import german
+import iamraw
+import konrad
 
-genex==0.5.4
-power==1.0.0
+import decider_toc.utils
 
-genref==1.0.0
+MAX_WORD_COUNT = 12  # TODO: HOLY VALUE
 
-# modify test data
-jam==0.2.18
+
+def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
+    flatten = decider_toc.utils.flat(toc)
+
+    lines = []
+    for index, item in enumerate(flatten):
+        words = german.split_words(item.title, validate_sentences=False)
+        words = konrad.remove_marks(words)
+        linelength = len(words)
+        if linelength > MAX_WORD_COUNT:
+            lines.append((index, item.title, linelength, item.raw_location))
+    return lines

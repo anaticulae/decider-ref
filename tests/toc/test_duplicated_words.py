@@ -7,12 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.2.2
+import power
+import serializeraw
 
-genex==0.5.4
-power==1.0.0
+import decider_toc.duplicated
 
-genref==1.0.0
 
-# modify test data
-jam==0.2.18
+def test_duplicated_words():
+    source = power.link(power.MASTER098_PDF)
+    toc = serializeraw.load_toc(source)
+    assert toc
+    validated = decider_toc.duplicated.validate(toc)
+    assert len(validated) == 2

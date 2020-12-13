@@ -7,12 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.2.2
+import power
+import protocol
 
-genex==0.5.4
-power==1.0.0
+import tests
 
-genref==1.0.0
 
-# modify test data
-jam==0.2.18
+def test_toc_bachelor90_toc_document_sync(testdir, monkeypatch):
+    source = power.link(power.BACHELOR090_PDF)
+    tests.toc.run(f'-i {source} --sync', monkeypatch=monkeypatch)
+
+    findings = protocol.findings_from_path(testdir.tmpdir)
+    assert len(tests.select(findings, 1330)) == 1

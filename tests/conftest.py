@@ -7,9 +7,13 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import os
+
 import genex
 import power
 import pytest
+import utila
+import utilatest
 import writers
 
 import decider_ref
@@ -24,6 +28,15 @@ WORKER = 6
 RESOURCES = [
     (power.MASTER116_PDF, '0:50,75:115'),
     (power.MASTER098_PDF, '0:10,43:65,88:97'),
+    (power.BACHELOR076_PDF, ':'),
+    (power.MASTER072_PDF, ':'),
+    (power.BACHELOR090_PDF, ':'),
+    (power.MASTER099_PDF, '0:10'),
+    (power.TECH024_PDF, '0:15'),
+]
+
+RESOURCES_NOTOC = [
+    (power.DOCU35_PDF, ':'),
 ]
 
 
@@ -39,6 +52,35 @@ def extract(resources):
         full=True,
         worker=WORKER,
     )
+
+
+def extract_notoc(resources):
+    destination = power.generated(folder='notoc')
+    files = [item[0] for item in resources]
+    # prepare
+    without_titlepage = [
+        os.path.join(destination, f'{item}.pdf')
+        for item in utilatest.simplify_testfile_names(
+            files + [power.REPOSITORY],  # ensure correct parent
+            sort=False,
+        )
+    ]
+    # jam
+    todo = []
+    for inpath, outpath in zip(files, without_titlepage):
+        todo.append(f'jam -i {inpath} -o {outpath} --remove=1:5')
+    # generate
+    for job in genex.todolist(
+            without_titlepage + [destination],  # ensure correct parent
+            destination,
+            groupme=True,
+    ):
+        job = ' && '.join(job)
+        todo.append(job)
+    # avoid race condition that jam is not ready before starting extraction
+    worker = utila.mins(len(files), WORKER)
+
+    utila.run_parallel(todo, worker=worker)
 
 
 def install():

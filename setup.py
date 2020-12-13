@@ -52,10 +52,13 @@ if __name__ == "__main__":
             'decider_bib',
             'decider_bib.features',
             'decider_ref',
+            'decider_toc',
+            'decider_toc.features',
         ],
         entry_points={
             'console_scripts': [
                 'decider_bibliography = decider_bib.cli:main',
+                'decider_toc = decider_toc.cli:main',
             ],
         },
     )

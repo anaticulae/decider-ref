@@ -7,12 +7,11 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.2.2
+import decider_ref
+import decider_toc.__iamraw__
+import decider_toc.path
 
-genex==0.5.4
-power==1.0.0
+ROOT = decider_ref.ROOT
+PROCESS = 'decider_toc'
 
-genref==1.0.0
-
-# modify test data
-jam==0.2.18
+__version__ = decider_ref.__version__

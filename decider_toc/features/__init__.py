@@ -7,12 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.2.2
+import iamraw
 
-genex==0.5.4
-power==1.0.0
-
-genref==1.0.0
-
-# modify test data
-jam==0.2.18
+# TODO: MOVE TO PROTOCOL
+# ERRORS WHICH ARE NOT BOUND ON A SPECIAL PAGE AND ARE SHOW ON A SUMMARY
+# PAGE FOR EXAMPLE THE LAST OR FIRST PAGE.
+# TODO: REPLACE WITH -1 ONE AFTER FIXING PROTOCOL
+OVERVIEW = iamraw.Location.from_page(-1)

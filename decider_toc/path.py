@@ -6,13 +6,3 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
-
-utilatest==0.2.2
-
-genex==0.5.4
-power==1.0.0
-
-genref==1.0.0
-
-# modify test data
-jam==0.2.18

@@ -14,7 +14,7 @@ import iamraw
 import protocol
 import serializeraw
 
-import decider_toc.duplicated as dtd
+import decider_toc.duplicated
 import decider_toc.marks
 
 
@@ -54,7 +54,7 @@ Variieren Sie dieses Wort um die Varianz der Sprache zu vergrößern.
 
 
 def check_1380_toc_duplicated_words(linter, toc: iamraw.Toc):
-    findings = dtd.validate(toc)
+    findings = decider_toc.duplicated.validate(toc)
     for item in findings:
         (word, count), lines = item
         lines = ', '.join([f'{item}' for item in lines])

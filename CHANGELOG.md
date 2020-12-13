@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v1.2.0
+
+### Feature
+
+* move decider toc from decider project (9763c3512152)
+
 ## v1.1.0
 
 ### Feature

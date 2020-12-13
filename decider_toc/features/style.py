@@ -33,9 +33,6 @@ def work(tableofcontent: str) -> typing.Tuple[str, str]:
     return user, developer
 
 
-TOC_CHECKER_ID = 13
-
-
 def linting(toc, linter: protocol.Linter):
     location = iamraw.Location.from_page(1)
     checkers = protocol.parse_checkers(__name__)

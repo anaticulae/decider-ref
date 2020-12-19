@@ -10,9 +10,9 @@
 utila==2.16.1
 
 # generate doc references
-writers==1.1.4
+writers==1.2.0
 # dump and load findings
-protocol==3.1.6
+protocol==3.2.1
 # docref converter
 words==0.24.1
 

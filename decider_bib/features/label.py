@@ -18,6 +18,7 @@ import utila
 import words.utils
 
 import decider_bib.order
+import decider_bib.reference
 import decider_bib.serialize
 import decider_bib.utils
 

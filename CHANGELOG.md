@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v1.2.2
+
+### Fix
+
+* add missing import (53c6d57a963e)
+
 ## v1.2.1
 
 ## v1.2.0

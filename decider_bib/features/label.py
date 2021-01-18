@@ -38,7 +38,10 @@ def work(
         text=text,
     )
     linter = protocol.from_module(__name__)
-    linting(linter, driver)
+    if bibliography:
+        linting(linter, driver)
+    else:
+        utila.error('no bib table parsed: skip decider_bib:label')
     result = linter.result(unique=True)
     user, developer = protocol.dump_result(result)
     return user, developer

@@ -12,6 +12,7 @@ import protocol
 import serializeraw
 
 import decider_bib
+import tests
 import tests.bibliography
 
 
@@ -53,3 +54,19 @@ def test_bib_label_exists(testdir, monkeypatch):
 def test_bib_source_not_required(testdir, monkeypatch):
     notrequired = run_label(power.MASTER116_PDF, monkeypatch, testdir, {6051})
     assert len(notrequired) == 11  #TODO: VALIDATE LATER
+
+
+def test_bib_source_not_found_bachelor56_page6(testdir, monkeypatch):
+    """(Vgl. Borkenstein: 1.13) was parsed not correctly and therefore
+    detected as missing reference. After improving label parser, this
+    behavior is fixed."""
+    bibliography = tests.bibliography.load_bib_table(power.BACHELOR056_PDF)
+    assert bibliography, 'require bib table to run verification'
+    notrequired = run_label(
+        power.BACHELOR056_PDF,
+        monkeypatch,
+        testdir,
+        msgid={6050},
+        pages=6,
+    )
+    assert not notrequired

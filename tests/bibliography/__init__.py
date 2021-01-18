@@ -9,6 +9,8 @@
 
 import functools
 
+import detector.path
+import power
 import utila
 import utilatest
 
@@ -28,3 +30,10 @@ fail = functools.partial(
     process=decider_bib.PROCESS,
     success=False,
 )
+
+
+def load_bib_table(path: str):
+    table = power.link(path)
+    table = detector.path.bibliography_detected(table)
+    bibliography = decider_bib.serialize.load_bibliography_reference(table)
+    return bibliography

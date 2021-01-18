@@ -33,6 +33,7 @@ RESOURCES = [
     (power.BACHELOR090_PDF, ':'),
     (power.MASTER099_PDF, '0:10'),
     (power.TECH024_PDF, '0:15'),
+    (power.BACHELOR056_PDF, '0:15,49:55'),
 ]
 
 RESOURCES_NOTOC = [

@@ -15,7 +15,7 @@ import decider_bib
 import tests.bibliography
 
 
-def run_label(source, monkeypatch, testdir, msgid=None):
+def run_label(source, monkeypatch, testdir, msgid=None, pages=None):
     source = power.link(source)
     cmd = f'-i {source} --label'
     tests.bibliography.run(cmd, monkeypatch=monkeypatch)
@@ -24,6 +24,8 @@ def run_label(source, monkeypatch, testdir, msgid=None):
         serializeraw.load_findings(path),
         msgid=msgid,
     )
+    if pages is not None:
+        result = protocol.select_pages(result, pages)
     return result
 
 

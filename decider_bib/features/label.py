@@ -86,10 +86,18 @@ def check_6050_ref_in_table(linter: callable, driver):
             page=reference.page,
         )
         for mark, item in zip(reference.marked, plain):  # pylint:disable=W0612
-            if decider_bib.reference.inside(
-                    reference=item,
-                    table=driver.bibliography,
-            ):
+            # verify that reference exists
+            inside = decider_bib.reference.inside(
+                reference=item,
+                table=driver.bibliography,
+            )
+            if inside:
+                # reference found
+                continue
+            if inside is None:
+                # Could not parse bib label. Do not inform user about
+                # missing reference when we are not able to parse the
+                # reference.
                 continue
             linter(location=location, reference=item)
 

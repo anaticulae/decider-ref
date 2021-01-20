@@ -9,6 +9,7 @@
 
 import docref.bibliography.parser
 import iamraw
+import utila
 
 
 def has_page(item) -> bool:
@@ -38,7 +39,8 @@ def precise(item) -> bool:
 def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
     parsed = docref.bibliography.parser.parse(reference)
     if not parsed:
-        return False
+        utila.error(f'could not parse reference: {reference}, skip insidecheck')
+        return None
     assert len(parsed) == 1
     parsed = parsed[0]
     if parsed.reference:

@@ -2,6 +2,22 @@
 
 Every noteable change is logged here.
 
+## v1.3.0
+
+### Feature
+
+* add missing bib table log (3a2480dfbd33)
+
+### Fix
+
+* fix theissen sort order (8eda9b308933)
+* skip None reference for bib check (a8700f424147)
+* do not inform user about not parse able reference (91c2b0411833)
+
+### Documentation
+
+* Happy New Year! (a5c85d7f9e5b)
+
 ## v1.2.2
 
 ### Fix

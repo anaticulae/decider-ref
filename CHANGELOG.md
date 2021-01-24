@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v1.4.0
+
+### Feature
+
+* add bib year histogram plotter (ae9750c83496)
+
 ## v1.3.0
 
 ### Feature

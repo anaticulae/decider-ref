@@ -35,6 +35,15 @@ WORKPLAN = [
         ],
         (USER, DEVELOPER),
     ),
+    utila.create_step(
+        name='plot',
+        inputs=[
+            utila.ResultFile('detector', 'bibliography_detected'),
+        ],
+        output=[
+            ('year_histogram', 'png'),
+        ],
+    ),
 ]
 
 

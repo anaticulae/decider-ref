@@ -7,15 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import elements
 import power
 
-import decider_toc.pages as dtp
 import tests
 
 
 def test_toc_pages_validate():
     toc = tests.toc.tableofcontent(power.link(power.TECH024_PDF))
-    validated = dtp.validate(toc)  # pylint:disable=W0612
+    validated = elements.validate_toc(toc)
 
     assert validated == [], validated
 
@@ -26,5 +26,5 @@ def test_toc_pages_validate_with_errors():
     # introduce some errors
     toc.children[1].page = 10
     toc.children[5].page = 20
-    validated = dtp.validate(toc)  # pylint:disable=W0612
+    validated = elements.validate_toc(toc)
     assert len(validated) == 2, validated

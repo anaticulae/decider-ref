@@ -10,13 +10,13 @@
 import functools
 import typing
 
+import elements
 import iamraw
 import protocol
 import serializeraw
 import utila
 
 import decider_toc.level as dtl
-import decider_toc.pages as dtp
 import decider_toc.utils
 
 
@@ -85,7 +85,7 @@ Seite {{current}} folgt auf {{before}}.
 
 
 def check_1360_toc_ascending_pages(linter, toc: iamraw.Toc):
-    page_result: dtp.InvalidPages = dtp.validate(toc)
+    page_result: elements.InvalidPages = elements.validate_toc(toc)
     for item in page_result:
         location = iamraw.Location.from_page(item.raw_location)
         linter(

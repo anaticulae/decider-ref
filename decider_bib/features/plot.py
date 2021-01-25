@@ -34,7 +34,7 @@ def render_year_overview(bibliography) -> bytes:
         width=15.0,
         height=0.75 * golden(15.0),
         grid=True,
-        title='Bibliography',
+        title='Bibliographie',
         xlabel='Jahr',
         ylabel='Anzahl',
     )

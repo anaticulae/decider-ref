@@ -16,28 +16,23 @@ Verify:
     - level
     - text
     - page number
+
+TODO: ADD SOLUTION TO COMPARE TOC AND OUTLINES
 """
 
 import os
-import typing
 
 import iamraw
 import protocol
 import serializeraw
 import utila
 
-import decider_toc.features
-
-# TODO: ADD SOLUTION TO COMPARE TOC AND OUTLINES
-
 
 def work(
         tableofcontent: str,
         outlines: str,
         headlines: str,
-) -> typing.Tuple[str, str]:
-    linter = protocol.from_module(__name__)
-
+) -> protocol.ResultType:
     tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
     outlines = serializeraw.load_toc(outlines)
     headlines = serializeraw.load_headlines(headlines) if os.path.exists(
@@ -49,14 +44,8 @@ def work(
         headlines=headlines,
     )
 
-    # run linter
-    linter.run(driver=driver)
-
-    result = linter.result(unique=False)
-
-    # dump linter result
-    user, developer = protocol.dump_result(result)
-    return user, developer
+    result = protocol.run(__name__, driver=driver)
+    return result
 
 
 SOLUTION_1330 = """\

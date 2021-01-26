@@ -8,7 +8,6 @@
 # =============================================================================
 
 import iamraw
-import iamraw.toc
 import utila
 
 
@@ -25,7 +24,7 @@ def headlines_totoc(
         # TODO: THINK ABOUT THIS
         if item.level is None:
             item.level = 1
-    result = iamraw.toc.create_toc(flat, remove_rawinfo=remove_rawinfo)
+    result = iamraw.create_toc(flat, remove_rawinfo=remove_rawinfo)
     return result
 
 

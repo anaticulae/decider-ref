@@ -2,6 +2,14 @@
 
 Every noteable change is logged here.
 
+## v1.5.0
+
+### Feature
+
+* check more than level one (36d94625f67d)
+* add location to toc finding (03fcd55fbbe4)
+* select best headlines (5b196b00fb8e)
+
 ## v1.4.1
 
 ## v1.4.0

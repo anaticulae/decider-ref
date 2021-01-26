@@ -30,4 +30,5 @@ def test_toc_bachelor37_toc_document_sync(testdir, monkeypatch):
 
     description = findings[0].content[0].solution.description
     assert '* Methode3' in description
+    assert '* Datenanalyse / Statistik' in description
     assert '* Inhalt' not in description

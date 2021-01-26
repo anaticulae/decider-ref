@@ -27,6 +27,8 @@ import protocol
 import serializeraw
 import utila
 
+import decider_toc.utils
+
 
 def work(
         tableofcontent: str,
@@ -85,6 +87,11 @@ def check_1330_toc_document_sync(linter, driver):
     headlines = iamraw.headlines_totoc(headlines)
     toc_firstpage = min([item.raw_location for item in toc])
 
+    toc = decider_toc.utils.flat(toc)
+    headlines = decider_toc.utils.flat(headlines)  # pylint:disable=R0204
+
+    # TODO: ADD BETTER TOC SYNC TO COMPARE CORRECT LEVEL
+    # TODO: RENAME VARIABLES
     # compare first level
     toc_firstlevel = [item.title for item in toc]
     document_firstlevel = [item.title for item in headlines]

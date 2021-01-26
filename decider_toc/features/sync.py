@@ -32,11 +32,11 @@ def work(
         tableofcontent: str,
         outlines: str,
         headlines: str,
+        headlines_oneline: str,
 ) -> protocol.ResultType:
     tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
     outlines = serializeraw.load_toc(outlines)
-    headlines = serializeraw.load_headlines(headlines) if os.path.exists(
-        headlines) else None
+    headlines = load_headlines(headlines, headlines_oneline)
 
     driver = protocol.driver(
         toc=tableofcontent,
@@ -46,6 +46,18 @@ def work(
 
     result = protocol.run(__name__, driver=driver)
     return result
+
+
+def load_headlines(normal: str, oneline: str):
+    headlines, headlines_oneline = [], []
+    if os.path.exists(normal):
+        headlines = serializeraw.load_headlines(normal)
+    if os.path.exists(oneline):
+        headlines_oneline = serializeraw.load_headlines(oneline)
+
+    if len(headlines) > len(headlines_oneline):
+        return headlines
+    return headlines_oneline
 
 
 SOLUTION_1330 = """\

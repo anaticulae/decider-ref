@@ -19,3 +19,15 @@ def test_toc_bachelor90_toc_document_sync(testdir, monkeypatch):
 
     findings = protocol.findings_from_path(testdir.tmpdir)
     assert len(tests.select(findings, 1330)) == 1
+
+
+def test_toc_bachelor37_toc_document_sync(testdir, monkeypatch):
+    source = power.link(power.BACHELOR037_PDF)
+    tests.toc.run(f'-i {source} --sync', monkeypatch=monkeypatch)
+
+    findings = protocol.findings_from_path(testdir.tmpdir)
+    assert len(tests.select(findings, 1330)) == 1
+
+    description = findings[0].content[0].solution.description
+    assert '* Methode3' in description
+    assert '* Inhalt' not in description

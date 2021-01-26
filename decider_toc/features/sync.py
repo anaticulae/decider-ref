@@ -83,23 +83,34 @@ def check_1330_toc_document_sync(linter, driver):
         utila.error('no headlines given')
         return
     headlines = iamraw.headlines_totoc(headlines)
+    toc_firstpage = min([item.raw_location for item in toc])
 
     # compare first level
-    toc_first_level = [item.title for item in toc]
-    document_first_level = [item.title for item in headlines]
+    toc_firstlevel = [item.title for item in toc]
+    document_firstlevel = [item.title for item in headlines]
 
-    if toc_first_level == document_first_level:
+    if toc_firstlevel == document_firstlevel:
         # all first level headlines in toc are equal to detected headlines
         # in document
         return
-    # TODO: ADD LEVEL AND PAGE TO EASE LOCATING HEADLINE
-    # TODO: ADD MISSING IN DOCUMENT
     missing = [
-        item for item in document_first_level if item not in toc_first_level
+        item for item in document_firstlevel if item not in toc_firstlevel
     ]
+    # It is not required to have headline `Inhaltsverzeichnis` in table of
+    # content.
+    # TODO: Add logging?
+    missing = not_missing(missing)
+    if not missing:
+        return
     missing = utila.NEWLINE.join([f'* {item}' for item in missing])
-    linter(location=decider_toc.features.OVERVIEW, missing=missing)
+    linter(location=iamraw.Location.from_page(toc_firstpage), missing=missing)
 
 
-# def check_1335_toc_outlines_sync(linter, driver):
-#     pass
+def not_missing(items: list) -> list:
+    skip = {
+        'inhalt',
+        'inhaltsverzeichnis',
+        'table of content',
+        'table of contents',
+    }
+    return [item for item in items if item.lower() not in skip]

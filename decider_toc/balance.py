@@ -179,8 +179,15 @@ def analyse(items: list) -> Evaluated:
     return result
 
 
-def level_one(items) -> utila.Numbers:
+def level_one(items, arabic: bool = True) -> utila.Numbers:
     pages = [item[0] for item in items if item[1] == LEVEL_ONE]
+    if arabic:
+        pages = [page for page in pages if isinstance(page, int)]
+    else:
+        # TODO: CONVERT TO ROMAN NUMBERS
+        pages = [page for page in pages if not isinstance(page, int)]
+        # TODO: ADD INVALID ROMAN NUMBERS HANDLER
+        pages = utila.arabic(pages)
     result = []
     for current, after in zip(pages[0:-1], pages[1:]):
         result.append(after - current)

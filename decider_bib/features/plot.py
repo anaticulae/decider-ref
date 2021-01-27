@@ -23,11 +23,14 @@ def work(table: str) -> bytes:
     return rendered
 
 
-def render_year_overview(bibliography) -> bytes:
+def render_year_overview(bibliography, year_min=1970, year_max=2025) -> bytes:
     year = [item.year for item in bibliography]
     year = [item for item in year if utila.isnumber(item)]
+    # filter invalid years
+    year = [item for item in year if year_min <= item < year_max]
+    # TODO: DISPLAY EXCLUDES YEAR
+    # TODO: DISPLAY VERY OLD YEARS ON THE BORDER OF THE IMAGE
     year, counted = count(year)
-
     rendered = painter.bar_render(
         x=year,
         y=counted,

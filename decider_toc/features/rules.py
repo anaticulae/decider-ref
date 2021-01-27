@@ -86,6 +86,7 @@ Seite {{current}} folgt auf {{before}}.
 
 def check_1360_toc_ascending_pages(linter, toc: iamraw.Toc):
     page_result: elements.InvalidPages = elements.validate_toc(toc)
+    # TODO: ADD SPECIAL CASE FOR elements.INVALID_ROMAN_NUMBER
     for item in page_result:
         location = iamraw.Location.from_page(item.raw_location)
         linter(

@@ -20,6 +20,10 @@ def work(table: str) -> bytes:
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
 
     rendered = render_year_overview(bibliography)
+    if not rendered:
+        # no bibs available
+        # TODO: REPLACE WITH UTILA.NO_RESULT
+        return b''
     return rendered
 
 
@@ -28,6 +32,9 @@ def render_year_overview(bibliography, year_min=1970, year_max=2025) -> bytes:
     years = [item for item in years if utila.isnumber(item)]
     # filter invalid years
     years = [item for item in years if year_min <= item < year_max]
+    if not years:
+        utila.debug('no bib years given, skip plotting bib')
+        return None
     # TODO: DISPLAY EXCLUDES YEAR
     # TODO: DISPLAY VERY OLD YEARS ON THE BORDER OF THE IMAGE
     years, counted = count(years)

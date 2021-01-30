@@ -22,9 +22,9 @@ def work(abbreviation: str) -> protocol.ResultType:
 
 
 SOLUTION_15010 = """\
-Tabellenverzeichnis nicht alphabetisch sortiert
+Abkürzungsverzeichnis nicht alphabetisch sortiert
 
-Sortieren Sie das Tabellenverzeichnis.
+Sortieren Sie das Abkürzungsverzeichnis.
 
 Gefunden:
 ---------

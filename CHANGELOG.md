@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v1.7.1
+
+### Fix
+
+* add protocol show list to decider_abbreviation (fc69c49bfa38)
+
 ## v1.7.0
 
 ### Feature

@@ -49,6 +49,8 @@ if __name__ == "__main__":
             'Programming Language :: Python :: 3.8',
         ],
         packages=[
+            'decider_abb',
+            'decider_abb.features',
             'decider_bib',
             'decider_bib.features',
             'decider_ref',
@@ -57,6 +59,7 @@ if __name__ == "__main__":
         ],
         entry_points={
             'console_scripts': [
+                'decider_abbreviation = decider_abb.cli:main',
                 'decider_bibliography = decider_bib.cli:main',
                 'decider_toc = decider_toc.cli:main',
             ],

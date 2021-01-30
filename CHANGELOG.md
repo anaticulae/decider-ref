@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v1.5.1
+
+### Feature
+
+* add valid bib year range (be52b394576b)
+
+### Fix
+
+* do not fail on empty bib (5219e3374de9)
+* do not mix Roman and Arabic numbers (a673823d53bd)
+
 ## v1.5.0
 
 ### Feature

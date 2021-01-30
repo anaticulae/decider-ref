@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v1.6.0
+
+### Feature
+
+* add protocol show list (e3aeb8d04b28)
+
 ## v1.5.1
 
 ### Feature

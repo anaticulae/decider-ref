@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import protocol
 import utila
 
 import decider_toc
@@ -57,15 +58,20 @@ WORKPLAN = [
 
 
 def main():
+    hook = protocol.integrate(
+        root=decider_toc.ROOT,
+        features='decider_toc.features',
+    )
     utila.featurepack(
         workplan=WORKPLAN,
         root=decider_toc.ROOT,
         featurepackage='decider_toc.features',
         config=utila.FeaturePackConfig(
+            cli_hook=hook,
             description=DESCRIPTION,
             multiprocessed=True,
-            pages=True,
             name=decider_toc.PROCESS,
+            pages=True,
             version=decider_toc.__version__,
         ),
     )

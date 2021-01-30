@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
+import protocol
 import utila
 
 import decider_bib
@@ -48,11 +49,16 @@ WORKPLAN = [
 
 
 def main():
+    hook = protocol.integrate(
+        root=decider_ref.ROOT,
+        features='decider_bib.features',
+    )
     utila.featurepack(
         workplan=WORKPLAN,
         root=decider_ref.ROOT,
         featurepackage='decider_bib.features',
         config=utila.FeaturePackConfig(
+            cli_hook=hook,
             description=DESCRIPTION,
             multiprocessed=True,
             name=decider_bib.PROCESS,

@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v1.7.0
+
+### Feature
+
+* add decider_abbreviation to judge different tables (0016d5453f52)
+
 ## v1.6.0
 
 ### Feature

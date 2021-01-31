@@ -10,5 +10,8 @@
 
 def format_bibline(item) -> str:
     if item.reference:
-        return item.reference
+        # convert to string to avoid failing when reference is parsed as
+        # int or something. Later, this will not be a problem, cause we
+        # have only valid parsings.
+        return str(item.reference)
     return f' * {item.author} {item.year} {item.title}'

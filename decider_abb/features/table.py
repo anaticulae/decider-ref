@@ -8,6 +8,7 @@
 # =============================================================================
 
 import iamraw
+import konrad
 import protocol
 import serializeraw
 import utila
@@ -57,6 +58,29 @@ def check_15010_not_sorted_alphabetically(linter: callable, driver):
         current=utila.NEWLINE.join(current),
         expected=utila.NEWLINE.join(expected),
     )
+
+
+SOLUTION_15015 = """\
+Allgemein gültige Abkürzung
+
+Die Abkürzung {{abbreviation}} kann als allgemein gültig angenommen werden und \
+muss nicht separat aufgeführt werden. Entfernen Sie die Abkürzung um die \
+Übersichtlichkeit des Inhaltsverzeichnisses zu erhöhen.
+
+Siehe Duden:
+
+TODO: ADD ARTICLE
+"""
+
+
+def check_15015_abbreviation_not_required(linter: callable, driver):
+    """Inform user to remove common abbreviation (exists in DUDEN)."""
+    abbreviations: iamraw.AbbreviationResult = driver.abbrtable
+    for item in abbreviations:
+        name = item.short.lower()
+        if name not in konrad.ABBREVIATION_LOWER:
+            continue
+        linter(abbreviation=item.short)
 
 
 def format_abbreviation_line(item) -> str:

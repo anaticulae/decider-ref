@@ -44,7 +44,12 @@ def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
     assert len(parsed) == 1
     parsed = parsed[0]
     if parsed.reference:
-        table = {item.reference.lower() for item in table}
+        for item in table:
+            if item.reference is not None:
+                # TODO: VALIDATE WHY
+                continue
+            utila.error(f'invalid reference: {item}')
+        table = {item.reference.lower() for item in table if item.reference}
         return parsed.reference.lower() in table
     if parsed.reference is None:
         # TODO: ADD AUTHOR CHECK

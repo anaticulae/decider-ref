@@ -18,8 +18,6 @@ import iamraw
 import protocol
 import serializeraw
 
-import decider_toc.features
-
 
 def work(tableofcontent: str, outlines: str) -> typing.Tuple[str, str]:
     linter = protocol.from_module(__name__)
@@ -57,7 +55,7 @@ def check_1300_toc_existence(linter, driver):
     toc = driver.toc
     if toc.children:
         return
-    linter(location=decider_toc.features.OVERVIEW)
+    linter(location=protocol.OVERVIEW)
 
 
 SOLUTION_1301 = """\
@@ -73,4 +71,4 @@ def check_1301_outlines_existence(linter, driver):
     outlines = driver.outlines
     if outlines:
         return
-    linter(location=decider_toc.features.OVERVIEW)
+    linter(location=protocol.OVERVIEW)

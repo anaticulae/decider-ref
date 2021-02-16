@@ -22,8 +22,7 @@ def work(table: str) -> bytes:
     rendered = render_year_overview(bibliography)
     if not rendered:
         # no bibs available
-        # TODO: REPLACE WITH UTILA.NO_RESULT
-        return b''
+        return utila.NO_RESULT
     return rendered
 
 

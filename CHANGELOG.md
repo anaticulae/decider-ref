@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v1.8.0
+
+### Feature
+
+* disable plot on to few bib items (48760e2a4863)
+* add linter step to detect not required abbreviation (decbeae591b3)
+
+### Fix
+
+* skip invalid bib inside check (3db33d6979a3)
+* do not fail on invalid bib reference (58af1828db99)
+
 ## v1.7.1
 
 ### Fix

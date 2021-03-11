@@ -41,7 +41,7 @@ def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
     if not parsed:
         utila.error(f'could not parse: {reference}, skip insidecheck')
         return None
-    assert len(parsed) == 1
+    assert len(parsed) == 1, str(parsed)
     parsed = parsed[0]
     if parsed.reference:
         for item in table:

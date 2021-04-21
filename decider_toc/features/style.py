@@ -48,7 +48,7 @@ def linting(toc, linter: protocol.Linter):
 SOLUTION_1380 = """\
 Worthäufung im Inhaltsverzeichnis
 
-Das Wort „{{word}}“ wird {{count}} mal in den Zeilen {{lines}} benutzt.
+Das Wort „{{word}}“ wird {{count}} mal in den Zeilen {{lines}} benutzt. \
 Variieren Sie dieses Wort um die Varianz der Sprache zu vergrößern.
 """
 
@@ -72,8 +72,8 @@ Sektion enthält Fragestellung
 
 Die Überschrift {{number}} „{{title}}“ ist als Frage formuliert.
 
-Überschriften zeichnen sich durch Knappheit und Eindeutigkeit aus. Daher
-sollten diese substantivisch, kurz und prägnant und nicht als Teilsatz oder
+Überschriften zeichnen sich durch Knappheit und Eindeutigkeit aus. Daher \
+sollten diese substantivisch, kurz und prägnant und nicht als Teilsatz oder \
 Fragesatz formuliert werden.
 """
 
@@ -90,11 +90,11 @@ def check_1383_toc_contains_question_mark(linter, toc: iamraw.Toc):
 SOLUTION_1384 = """\
 Sektion enthält Anführungszeichen
 
-Die Überschrift {{number}} „{{title}}“ enhält Anführungszeichen. Dies
-deutet auf eine spezielle Bedeutung hin. Dies sollte vermieden werden,
+Die Überschrift {{number}} „{{title}}“ enhält Anführungszeichen. Dies \
+deutet auf eine spezielle Bedeutung hin. Dies sollte vermieden werden, \
 da Überschriften, kurz, prägnant und substantivisch formuliert sein sollen.
 
-Überlegen Sie, wie die Sektion prägnanter und ohne spezielles Vorwissen
+Überlegen Sie, wie die Sektion prägnanter und ohne spezielles Vorwissen \
 verständlich wird.
 """
 

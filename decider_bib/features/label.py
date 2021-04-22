@@ -145,7 +145,7 @@ def check_6061_bib_ref_no_page(linter: callable, driver):
 SOLUTION_6062 = """\
 Seitenangabe unkonkret
 
-Die Seitenzahl **{{reference}}** sollte durch die konkrete Seitenzahl
+Die Seitenzahl **{{reference}}** sollte durch die konkrete Seitenzahl \
 ersetzt werden.
 """
 

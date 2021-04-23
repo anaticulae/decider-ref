@@ -10,6 +10,7 @@
 import functools
 import typing
 
+import configo
 import docref.bibliography.parser
 import iamraw
 import protocol
@@ -161,6 +162,38 @@ def check_6062_bib_ref_inaccurate_page(linter: callable, driver):
             if decider_bib.reference.precise(item):
                 continue
             linter(location=location, reference=item)
+
+
+SOLUTION_6070 = """\
+Label vereinfachten
+
+Vereinfachen Sie das Label und entfernen Sie unnötige Klammern.
+
+Erkannt: ([WA12])
+Besser: [WAS12]
+
+Erkannt: ([HA15], S. 40)
+Besser: [HA15, S. 40]
+"""
+
+SPECIAL_COUNT_MIN_ACTIVE = configo.HV_INT_PLUS(default=5)
+
+
+def check_6070_bib_ref_too_complicated(linter: callable, driver):
+    plains = references_plain(driver.bibtextref, driver.text)
+    collected = []
+    for reference, plain in zip(driver.bibtextref, plains):
+        collected.extend(plain)
+    if not collected:
+        return
+    special = [
+        item for item in collected
+        if item.startswith('([') and item.endswith(')')
+    ]
+    if len(special) < SPECIAL_COUNT_MIN_ACTIVE:
+        return
+    # TODO: ADD HINT FOR EVERY FINDING?
+    linter()
 
 
 def references_plain(references, text) -> list:

@@ -18,6 +18,8 @@ def has_page(item) -> bool:
     True
     >>> has_page('[ABC13]')
     False
+    >>> has_page('([We05], S. 48)')
+    True
     """
     parsed = docref.bibliography.parser.parse(item)
     if not parsed:

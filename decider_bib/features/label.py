@@ -182,7 +182,7 @@ SPECIAL_COUNT_MIN_ACTIVE = configo.HV_INT_PLUS(default=5)
 def check_6070_bib_ref_too_complicated(linter: callable, driver):
     plains = references_plain(driver.bibtextref, driver.text)
     collected = []
-    for reference, plain in zip(driver.bibtextref, plains):
+    for _, plain in zip(driver.bibtextref, plains):
         collected.extend(plain)
     if not collected:
         return

@@ -51,8 +51,8 @@ def linting(toc, linter: protocol.Linter):
 SOLUTION_1351 = """\
 Gliederung zu komplex
 
-Das Dokument weist eine zu detaillierte Untergliederung auf. Eine zu
-feingliedrige Gliederung reduziert die Üebersichtlichkeit und verhindert
+Das Dokument weist eine zu detaillierte Untergliederung auf. Eine zu \
+feingliedrige Gliederung reduziert die Üebersichtlichkeit und verhindert \
 das schnelle Navigieren im Text.
 
 Begrenzen Sie die Gliederung auf maximal 3 Sektionen.
@@ -72,9 +72,9 @@ def check_1351_toc_level_to_deep(linter, toc: iamraw.Toc):
 SOLUTION_1370 = """\
 Abschnitt zu lang
 
-Der Abschnitt „{{headline}}“ ist im Vergleich zu den gleichranggigen
-Abschnitten({{expected}}) zu lang({{current}}). Überdenken Sie die
-Abschnittseinteilung und überlegen Sie sich weitere Teilabschnitte
+Der Abschnitt „{{headline}}“ ist im Vergleich zu den gleichranggigen \
+Abschnitten({{expected}}) zu lang({{current}}). Überdenken Sie die \
+Abschnittseinteilung und überlegen Sie sich weitere Teilabschnitte \
 einzuführen.
 
 {aufbau_gliederung/absatz}
@@ -100,9 +100,9 @@ def check_1370_section_too_long(linter, toc: iamraw.Toc):
 SOLUTION_1371 = """\
 Abschnitt zu kurz
 
-Der Abschnitt „{{headline}}“ ist im Vergleich zu den gleichranggigen
-Abschnitten({{expected}}) zu kurz({{current}}). Überdenken Sie die
-Abschnittseinteilung und überlegen Sie sich Teilabschnitte zusammen zu
+Der Abschnitt „{{headline}}“ ist im Vergleich zu den gleichranggigen \
+Abschnitten({{expected}}) zu kurz({{current}}). Überdenken Sie die \
+Abschnittseinteilung und überlegen Sie sich Teilabschnitte zusammen zu \
 führen.
 
 {aufbau_gliederung/absatz}
@@ -149,7 +149,7 @@ def validate_chapter_length(linter, toc, level, expected):
 SOLUTION_1382 = """\
 Überschrift zu lang
 
-Die Überschrift {{number}} „{{title}}“ ist zu lang und sollte verkürzt
+Die Überschrift {{number}} „{{title}}“ ist zu lang und sollte verkürzt \
 werden.
 """
 

@@ -65,8 +65,8 @@ def load_headlines(normal: str, oneline: str):
 SOLUTION_1330 = """\
 Inhaltsverzeichnis nicht aktuell
 
-Die im Inhaltsverzeichnis verzeichneten Kapitelüberschriften weichen von
-dem im Dokument enthaltenen Überschriften ab. Akutallisieren Sie das
+Die im Inhaltsverzeichnis verzeichneten Kapitelüberschriften weichen von \
+dem im Dokument enthaltenen Überschriften ab. Akutallisieren Sie das \
 Inhaltsverzeichnis.
 
 Folgende Überschriften sind nicht im Inhaltsverzeichnis enthalten:

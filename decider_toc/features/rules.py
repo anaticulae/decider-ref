@@ -50,8 +50,8 @@ def linting(toc, linter: protocol.Linter):
 SOLUTION_1350 = """\
 Kapitel enthält zu wenige Sektionen
 
-Ein Kapitel oder eine Sektion benötigt mindestens zwei
-Teilüberschriften. Falls dies nicht moeglich ist, sollte das
+Ein Kapitel oder eine Sektion benötigt mindestens zwei \
+Teilüberschriften. Falls dies nicht moeglich ist, sollte das \
 Unterkapitel in den Text eingeplegt werden.
 
 {elemente/inhaltsverzeichnis#kapitelstruktur}
@@ -100,8 +100,8 @@ def check_1360_toc_ascending_pages(linter, toc: iamraw.Toc):
 SOLUTION_1365 = """\
 Eidesstattliche Erklärung als Teil der Arbeit
 
-Die Eidesstatttliche Erklärung ist kein Teil der Prüfungsleistung und
-wird somit nicht im Inhaltsverzeichnis aufgeführt und wird ebenfalls
+Die Eidesstatttliche Erklärung ist kein Teil der Prüfungsleistung und \
+wird somit nicht im Inhaltsverzeichnis aufgeführt und wird ebenfalls \
 nicht bei der Seitenzählung berücksichtigt.
 
 {elemente/erklaerung}

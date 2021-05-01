@@ -107,19 +107,6 @@ nicht bei der Seitenzählung berücksichtigt.
 {elemente/erklaerung}
 """
 
-# TODO: MOVE TO KONRAD?
-# TODO: ADD METHOD WHICH CAN JUDGE TYPOS TOO
-# TODO: LOWER
-LEGAL = set(item.lower() for item in [
-    'Eidesstattliche Erklärung',
-    'Eidesstattliche Versicherung',
-])
-
-
-def islegal(item: str) -> bool:
-    item = item.strip().lower()
-    return item in LEGAL
-
 
 def check_1365_toc_legal_inside_toc(linter, toc: iamraw.Toc):
     if not toc:
@@ -135,3 +122,13 @@ def check_1365_toc_legal_inside_toc(linter, toc: iamraw.Toc):
 
     if len(legal_intoc) >= 2:
         utila.error(f'multiple legal toc detected {legal_intoc}')
+
+
+LEGAL = """\
+Eidesstattliche Erklärung
+Eidesstattliche Versicherung
+""".strip().splitlines()
+
+
+def islegal(item: str) -> bool:
+    return utila.similar(LEGAL, item, maxdiff=0.95)

@@ -117,10 +117,27 @@ def check_6051_table_in_text(linter: callable, driver):
         docref.bibliography.parser.parse(item)[0].reference for item in plains
     }
     source = list(driver.bibliography)
+    for item in source:
+        if item.reference:
+            continue
+        utila.error(f'None-Reference: {item}')
     not_required = [item for item in source if item.reference not in plains]
     for item in not_required:
-        location = iamraw.Location.from_page(page=0)
-        linter(location=location, source=item.reference)
+        if item.page is None:
+            utila.error(f'no page reference: {item}')
+            continue
+        if item.raw_pdfpage:
+            location = iamraw.Location.from_page(item.raw_pdfpage)
+        else:
+            location = protocol.OVERVIEW
+        source = item.reference
+        if not source:
+            # skip None-Reference
+            continue
+        linter(
+            location=location,
+            source=source,
+        )
 
 
 SOLUTION_6061 = """\

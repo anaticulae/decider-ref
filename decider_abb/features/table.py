@@ -50,6 +50,8 @@ def check_15010_not_sorted_alphabetically(linter: callable, driver):
     if current == expected:
         return
 
+    location = pagelocation(current[0])
+
     # TODO: CHECK REPRESENTATION
     current = [format_abbreviation_line(item) for item in current]
     expected = [format_abbreviation_line(item) for item in expected]
@@ -57,6 +59,7 @@ def check_15010_not_sorted_alphabetically(linter: callable, driver):
     linter(
         current=utila.NEWLINE.join(current),
         expected=utila.NEWLINE.join(expected),
+        location=location,
     )
 
 
@@ -80,8 +83,18 @@ def check_15015_abbreviation_not_required(linter: callable, driver):
         name = item.short.lower()
         if name not in konrad.ABBREVIATION_LOWER:
             continue
-        linter(abbreviation=item.short)
+        linter(
+            abbreviation=item.short,
+            location=pagelocation(item),
+        )
 
 
 def format_abbreviation_line(item) -> str:
     return f' * {item.short} {item.description}'
+
+
+def pagelocation(item) -> iamraw.Location:
+    pagenumber = protocol.OVERVIEW
+    if item.position:
+        pagenumber = iamraw.Location.from_page(item.position.page)
+    return pagenumber

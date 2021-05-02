@@ -15,10 +15,14 @@ import collections
 import statistics
 import typing
 
+import configo
 import iamraw
 import utila
 
 import decider_toc.utils
+
+# minimum page numbers to evaluate that page is too short or too long
+PAGE_LENGTH_MIN = configo.HV_FLOAT_PLUS(1.0)
 
 TocLine = collections.namedtuple('TocLine', 'page level title')
 TocLines = typing.List[TocLine]
@@ -81,6 +85,11 @@ def validate_level(items: list, balance: Evaluated) -> list:
     for group in items:
         stepresult = []
         for item in group:
+            if balance.median < PAGE_LENGTH_MIN:
+                utila.info(f'median too short {balance.median} to compare '
+                           'page length')
+                stepresult.append((None,))  # TODO: DOES WE REQUIRE THIS?
+                continue
             upper = utila.roundme(balance.median + balance.stdev, digits=1)
             lower = utila.roundme(balance.median - balance.stdev, digits=1)
             if item > upper:

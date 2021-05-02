@@ -145,7 +145,6 @@ def validate_chapter_length(linter, toc, level, expected):
 
 
 # TODO: Link to article
-# TODO: Convert citation marks
 SOLUTION_1382 = """\
 Überschrift zu lang
 

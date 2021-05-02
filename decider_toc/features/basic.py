@@ -59,7 +59,7 @@ def check_1300_toc_existence(linter, driver):
 
 
 SOLUTION_1301 = """\
-Dokument enthält keine `Outlines`
+PDF enthält keine Navigation
 
 TODO: ADD LINK TO TECHNIK
 

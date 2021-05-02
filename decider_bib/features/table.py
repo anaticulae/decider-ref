@@ -66,6 +66,8 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
     if current == expected:
         return
 
+    location = pagelocation(current[0])
+
     # TODO: CHECK REPRESENTATION
     current = [decider_bib.utils.format_bibline(item) for item in current]
     expected = [decider_bib.utils.format_bibline(item) for item in expected]
@@ -73,4 +75,12 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
     linter(
         current=utila.NEWLINE.join(current),
         expected=utila.NEWLINE.join(expected),
+        location=location,
     )
+
+
+def pagelocation(item) -> iamraw.Location:
+    pagenumber = protocol.OVERVIEW
+    if item.raw_pdfpage is not None:
+        pagenumber = iamraw.Location.from_page(item.raw_pdfpage)
+    return pagenumber

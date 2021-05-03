@@ -72,6 +72,20 @@ def load_docref(
     return text, docreference
 
 
+def missing_bibtable_reference(bibtable) -> bool:
+    if not bibtable:
+        return True
+    if len(bibtable) < 10:
+        utila.error(f'too few bib entry: {len(bibtable)}')
+        return True
+    invalid_reference = [item for item in bibtable if not item.reference]
+    rate = len(invalid_reference) / len(bibtable)
+    if rate > 0.2:
+        utila.error(f'too many invalid bib references: {rate}')
+        return True
+    return False
+
+
 SOLUTION_6050 = """\
 Quelle nicht gefunden
 
@@ -80,6 +94,9 @@ Die Referenz **{{reference}}** fehlt im Quellenverzeichnis.
 
 
 def check_6050_ref_in_table(linter: callable, driver):
+    if missing_bibtable_reference(driver.bibliography):
+        utila.log('disable 6050')
+        return
     plains = references_plain(driver.bibtextref, driver.text)
     for reference, plain in zip(driver.bibtextref, plains):
         location = iamraw.Location.from_sentence(

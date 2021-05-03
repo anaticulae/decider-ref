@@ -11,6 +11,7 @@ import collections
 
 import german
 import iamraw
+import knlp
 import konrad
 
 import decider_toc.utils
@@ -39,9 +40,6 @@ def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
 
 DUPLICATES_MIN_COUNT = 5  # TODO: HOLY VALUE
 
-# TODO: REPLACE WITH KONRAD APPROACH
-NO_CONTENT = {'der', 'die', 'das', 'und', 'des', 'den'}
-
 
 def duplicates(lines):
     counter = collections.Counter()
@@ -49,7 +47,7 @@ def duplicates(lines):
         for index in range(len(line)):
             for words in range(index + 1, len(line) + 1):
                 tokens = line[index:words]
-                if len(tokens) == 1 and tokens[0] in NO_CONTENT:
+                if len(tokens) == 1 and tokens[0] in knlp.STOPWORDS:
                     continue
                 sub = ' '.join(tokens)
                 counter[sub] += 1

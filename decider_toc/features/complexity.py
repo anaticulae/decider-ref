@@ -134,6 +134,9 @@ def validate_chapter_length(linter, toc, level, expected):
     for line, judged in zip(level_two, level2):
         if judged[0] != expected:
             continue
+        if judged[0] is None:
+            # check is disabled
+            continue
         title = line.title
         location = iamraw.Location.from_page(line.page)
         linter(

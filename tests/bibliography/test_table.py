@@ -33,6 +33,17 @@ def test_bib_sorting_master98(testdir, monkeypatch):
     assert len(unsorted_bib) == 1
 
 
+def test_bib_order107_unbalanced_brackets(testdir, monkeypatch):
+    unbalacend_brackets = run_table(
+        power.ORDER107_PDF,
+        monkeypatch,
+        testdir,
+        {6010},
+    )
+    # reduce to 1 after having common message
+    assert len(unbalacend_brackets) == 2
+
+
 @pytest.mark.xfail(reason='improve bib parser')
 def test_bib_sorting_master116(testdir, monkeypatch):
     unsorted_bib = run_table(power.MASTER116_PDF, monkeypatch, testdir, {6000})

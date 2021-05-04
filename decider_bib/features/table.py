@@ -79,6 +79,26 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
     )
 
 
+SOLUTION_6010 = """\
+Quellenangabe: Klammern überprüfen
+
+Öffnende und schließende Klammern sind nicht ausbalanciert: {{brackets}}.
+"""
+
+
+def check_6010_unbalanced_brackets(linter: callable, driver):
+    references: iamraw.BibliographyReferences = driver.bibliography
+    for reference in references:
+        raw = reference.raw
+        for pair in ('[]', '()'):
+            if raw.count(pair[0]) == raw.count(pair[1]):
+                continue
+            linter(
+                brackets=pair,
+                location=pagelocation(reference),
+            )
+
+
 def pagelocation(item) -> iamraw.Location:
     pagenumber = protocol.OVERVIEW
     if item.raw_pdfpage is not None:

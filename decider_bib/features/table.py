@@ -8,6 +8,7 @@
 # =============================================================================
 
 import functools
+import re
 import typing
 
 import iamraw
@@ -95,6 +96,28 @@ def check_6010_unbalanced_brackets(linter: callable, driver):
                 continue
             linter(
                 brackets=pair,
+                location=pagelocation(reference),
+            )
+
+
+SOLUTION_6011 = """\
+Quellenangabe: Tippfehler erkannt
+
+Tippfehler „{{typo}}“ in Quellenangabe „{{bib}}“ erkannt.
+"""
+
+
+def check_6011_typo(linter: callable, driver):
+    references: iamraw.BibliographyReferences = driver.bibliography
+    for reference in references:
+        raw = reference.raw
+        for typo in (r':\)', ' : ', r'(\)\:[\w\d])'):
+            matched = re.search(typo, raw)
+            if not matched:
+                continue
+            linter(
+                typo=utila.extract_match(matched),
+                bib=raw,
                 location=pagelocation(reference),
             )
 

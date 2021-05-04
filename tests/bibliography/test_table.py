@@ -44,6 +44,16 @@ def test_bib_order107_unbalanced_brackets(testdir, monkeypatch):
     assert len(unbalacend_brackets) == 2
 
 
+def test_bib_master127_typos(testdir, monkeypatch):
+    typo_detected = run_table(
+        power.MASTER127_PDF,
+        monkeypatch,
+        testdir,
+        {6011},
+    )
+    assert len(typo_detected) == 5
+
+
 @pytest.mark.xfail(reason='improve bib parser')
 def test_bib_sorting_master116(testdir, monkeypatch):
     unsorted_bib = run_table(power.MASTER116_PDF, monkeypatch, testdir, {6000})

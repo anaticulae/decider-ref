@@ -8,6 +8,7 @@
 # =============================================================================
 
 import collections
+import re
 
 import german
 import iamraw
@@ -30,12 +31,40 @@ def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
     for invalid in duplication:
         finding = [
             index for index, line in enumerate(flatten)
-            if invalid[0] in line.title
+            if inside(invalid[0], line.title)
         ]
         if not finding:
             continue
         result.append((invalid, finding))
     return result
+
+
+INSIDE = r"""
+    (^|\W)
+    %s
+    (\W|$)
+"""
+
+
+def inside(item, container) -> bool:
+    """\
+    >>> inside('lebens', 'Heutige Lebens- und Arbeitswelt')
+    True
+    >>> inside('EMS', 'EINLEITUNG UND PROBLEMSTELLUNG')
+    False
+    >>> inside('Einleitung', 'EINLEITUNG UND PROBLEMSTELLUNG')
+    True
+    >>> inside('PROBLEMSTELLUNG', 'EINLEITUNG UND PROBLEMSTELLUNG')
+    True
+    """
+    searched = re.search(
+        INSIDE % item,
+        container,
+        flags=re.VERBOSE | re.IGNORECASE,
+    )
+    if searched != None:
+        return True
+    return False
 
 
 DUPLICATES_MIN_COUNT = 5  # TODO: HOLY VALUE

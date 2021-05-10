@@ -9,6 +9,7 @@
 
 import power
 import protocol
+import utila
 
 import tests.toc
 
@@ -31,7 +32,6 @@ def run_style(source, msgid, testdir, monkeypatch):
     tests.toc.run(f'-i {source} --style', monkeypatch=monkeypatch)
 
     findings = protocol.findings_from_path(testdir.tmpdir)
-    findings = findings[0].content
-
+    findings = utila.flatten_content(findings)
     selected = protocol.select_findings(findings, msgid=msgid)
     return selected

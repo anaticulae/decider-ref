@@ -19,6 +19,13 @@ def test_toc_style_bachelor76_duplicated_words(testdir, monkeypatch):
     assert 'Industrie 4.0' in duplicated[0].solution.description
 
 
+def test_toc_style_bachelor51_duplicated_words(testdir, monkeypatch):
+    """Skip `EMS` detection in `1 EINLEITUNG UND PROBLEMSTELLUNG`."""
+    duplicated = run_style(power.BACHELOR051_PDF, 1380, testdir, monkeypatch)
+    description = duplicated[0].solution.description
+    assert 'wird 5 mal in' in description
+
+
 def run_style(source, msgid, testdir, monkeypatch):
     source = power.link(source)
     tests.toc.run(f'-i {source} --style', monkeypatch=monkeypatch)

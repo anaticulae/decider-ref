@@ -14,12 +14,17 @@ import tests.toc
 
 
 def test_toc_style_bachelor76_duplicated_words(testdir, monkeypatch):
-    source = power.link(power.BACHELOR076_PDF)
+    duplicated = run_style(power.BACHELOR076_PDF, 1380, testdir, monkeypatch)
+    assert len(duplicated) == 1, str(duplicated)
+    assert 'Industrie 4.0' in duplicated[0].solution.description
+
+
+def run_style(source, msgid, testdir, monkeypatch):
+    source = power.link(source)
     tests.toc.run(f'-i {source} --style', monkeypatch=monkeypatch)
 
     findings = protocol.findings_from_path(testdir.tmpdir)
     findings = findings[0].content
 
-    duplicated_words = protocol.select_findings(findings, msgid=1380)
-    assert len(duplicated_words) == 1, str(duplicated_words)
-    assert 'Industrie 4.0' in duplicated_words[0].solution.description
+    selected = protocol.select_findings(findings, msgid=msgid)
+    return selected

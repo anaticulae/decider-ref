@@ -83,7 +83,8 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
 SOLUTION_6010 = """\
 Quellenangabe: Klammern überprüfen
 
-Öffnende und schließende Klammern sind nicht ausbalanciert: {{brackets}}.
+Öffnende und schließende Klammern in  „{{source}}“ sind nicht \
+ausbalanciert: {{brackets}}.
 """
 
 
@@ -96,6 +97,7 @@ def check_6010_unbalanced_brackets(linter: callable, driver):
                 continue
             linter(
                 brackets=pair,
+                source=raw,
                 location=pagelocation(reference),
             )
 

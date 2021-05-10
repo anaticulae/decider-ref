@@ -49,7 +49,8 @@ SOLUTION_1380 = """\
 Worthäufung im Inhaltsverzeichnis
 
 Das Wort „{{word}}“ wird {{count}} mal in den Zeilen {{lines}} benutzt. \
-Variieren Sie dieses Wort um die Varianz der Sprache zu vergrößern.
+Überprüfen Sie Dokumentenstruktur oder variieren Sie gegebenenfalls \
+dieses Wort um die Varianz der Sprache zu vergrößern.
 """
 
 

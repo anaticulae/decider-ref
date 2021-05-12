@@ -35,7 +35,7 @@ Erwartet:
 ---------
 {{expected}}
 
-TODO: ADD LINK
+{elemente/abkuerzungsverzeichnis#alphabetische-sortierung}
 """
 
 
@@ -63,16 +63,14 @@ def check_15010_not_sorted_alphabetically(linter: callable, driver):
     )
 
 
-SOLUTION_15015 = """\
+SOLUTION_R15015 = """\
 Allgemein gültige Abkürzung
 
 Die Abkürzung {{abbreviation}} kann als allgemein gültig angenommen werden und \
 muss nicht separat aufgeführt werden. Entfernen Sie die Abkürzung um die \
-Übersichtlichkeit des Inhaltsverzeichnisses zu erhöhen.
+Übersichtlichkeit des Abkürzungsverzeichnisses zu erhöhen.
 
-Siehe Duden:
-
-TODO: ADD ARTICLE
+{elemente/abkuerzungsverzeichnis#abkurzungsverzeichnis}
 """
 
 

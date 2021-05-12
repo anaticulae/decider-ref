@@ -7,12 +7,12 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.5.2
+utilatest==0.5.3
 
-genex==0.8.0
-power==1.4.5
+genex==0.9.0
+power==1.4.6
 
 genref==1.0.5
 
 # modify test data
-jam==0.2.18
+jam==0.2.19

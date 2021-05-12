@@ -26,7 +26,6 @@ treated as normal author but there must (Hrsg.) added.
 """
 
 import iamraw
-import texmex.alpha
 import utila
 
 
@@ -49,6 +48,6 @@ def author(item: iamraw.BibliographyReference) -> str:
         return 'o. V.'
     if item.author:
         # Person
-        return texmex.alpha.replace(item.author).lower()
+        return utila.replace(item.author).lower()
     # NoPerson
     return item.authors[0].raw.lower()

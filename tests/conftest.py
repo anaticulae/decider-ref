@@ -37,7 +37,7 @@ RESOURCES = [
     (power.BACHELOR056_PDF, '0:15,49:55'),
     (power.BACHELOR063_PDF, '0:20,59'),
     (power.BACHELOR051_PDF, '0:10,40:52'),
-    (power.MASTER091B_PDF, '0:20'),
+    (power.MASTER091B_PDF, '0:20,81:91'),
     (power.MASTER127_PDF, '121:126'),
     (power.ORDER107_PDF, '104:110'),
 ]

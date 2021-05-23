@@ -26,9 +26,10 @@ def work(tableofcontent: str) -> typing.Tuple[str, str]:
 
     tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
 
-    # run linter
-    linting(tableofcontent, linter)
+    driver = protocol.driver(toc=tableofcontent)
 
+    # run linter
+    linting(driver, linter)
     result = linter.result(unique=False)
 
     # dump linter result
@@ -36,7 +37,7 @@ def work(tableofcontent: str) -> typing.Tuple[str, str]:
     return user, developer
 
 
-def linting(toc, linter: protocol.Linter):
+def linting(driver, linter: protocol.Linter):
     location = iamraw.Location.from_page(1)
     checkers = protocol.parse_checkers(__name__)
     for checker in checkers:
@@ -45,7 +46,7 @@ def linting(toc, linter: protocol.Linter):
             msgid=checker.msgid,
             location=location,
         )
-        checker(call, toc)
+        checker(call, driver)
 
 
 SOLUTION_1351 = """\
@@ -61,7 +62,8 @@ Begrenzen Sie die Gliederung auf maximal 3 Sektionen.
 """
 
 
-def check_1351_toc_level_to_deep(linter, toc: iamraw.Toc):
+def check_1351_toc_level_to_deep(linter, driver):
+    toc: iamraw.Toc = driver.toc
     level_result: dtl.TocValidationResult = dtl.validate(toc)
     for item in level_result.level_to_deep:  # pylint:disable=E1133
         # TODO: REMOVE AFTER UPGRADING SERIALIZERAW
@@ -87,7 +89,8 @@ einzuführen.
 """
 
 
-def check_1370_section_too_long(linter, toc: iamraw.Toc):
+def check_1370_section_too_long(linter, driver):
+    toc: iamraw.Toc = driver.toc
     validate_chapter_length(
         linter,
         toc,
@@ -115,7 +118,8 @@ führen.
 """
 
 
-def check_1371_section_too_short(linter, toc: iamraw.Toc):
+def check_1371_section_too_short(linter, driver):
+    toc: iamraw.Toc = driver.toc
     validate_chapter_length(
         linter,
         toc,
@@ -162,7 +166,8 @@ werden.
 """
 
 
-def check_1382_toc_long_lines(linter, toc: iamraw.Toc):
+def check_1382_toc_long_lines(linter, driver):
+    toc: iamraw.Toc = driver.toc
     findings = decider_toc.length.validate(toc)
     for item in findings:
         index, title, _, raw_location = item

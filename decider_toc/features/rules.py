@@ -128,10 +128,10 @@ def check_1365_toc_legal_inside_toc(linter, driver):
         utila.error(f'multiple legal toc detected {legal_intoc}')
 
 
-LEGAL = """\
+LEGAL = utila.splitlines("""\
 Eidesstattliche Erklärung
 Eidesstattliche Versicherung
-""".strip().splitlines()
+""")
 
 
 def islegal(item: str) -> bool:

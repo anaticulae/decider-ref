@@ -40,8 +40,10 @@ def test_bib_order107_unbalanced_brackets(testdir, monkeypatch):
         testdir,
         {6010},
     )
-    # reduce to 1 after having common message
-    assert len(unbalacend_brackets) == 2
+    # 1. (1983]: Gliederung und Benummerung in Texten.
+    # 2. (Zugriff: 22.04.07
+    # reduce to 2 after having common message
+    assert len(unbalacend_brackets) == 3
 
 
 def test_bib_master127_typos(testdir, monkeypatch):

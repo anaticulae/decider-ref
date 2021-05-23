@@ -33,7 +33,7 @@ def run_label(source, monkeypatch, testdir, msgid=None, pages=None):
 
 def test_bib_no_page_master116(testdir, monkeypatch):
     nopages = run_label(power.MASTER116_PDF, monkeypatch, testdir, {6061})
-    assert len(nopages) == 122  # TODO: VALIDATE LATER
+    assert len(nopages) == 116  # TODO: VALIDATE LATER
 
 
 def test_bib_no_page_master98(testdir, monkeypatch):

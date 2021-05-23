@@ -10,6 +10,7 @@
 import power
 import protocol
 
+import decider_toc.features.complexity
 import tests.toc
 
 
@@ -23,3 +24,10 @@ def test_bachelor63_regression_complexity(testdir, monkeypatch):
     findings = protocol.findings_from_path(testdir.tmpdir)
     findings = protocol.select_pages(findings, pages=(6, 7))
     assert findings  # count is not important
+
+
+def test_toc_decider_toc_complexity_regression():
+    """1351 fails with converting ROMAN number to int. In the future
+    this will be resolved with ROMAN-number to pdf-page converter."""
+    source = power.link(power.MASTER116_PDF)
+    tests.toc.lint(source, decider_toc.features.complexity)

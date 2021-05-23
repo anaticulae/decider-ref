@@ -63,32 +63,12 @@ def extract(resources):
 
 
 def extract_notoc(resources):
-    destination = power.generated(folder='notoc')
-    files = [item[0] for item in resources]
-    # prepare
-    without_titlepage = [
-        os.path.join(destination, f'{item}.pdf')
-        for item in utilatest.simplify_testfile_names(
-            files + [power.REPOSITORY],  # ensure correct parent
-            sort=False,
-        )
-    ]
-    # jam
-    todo = []
-    for inpath, outpath in zip(files, without_titlepage):
-        todo.append(f'jam -i {inpath} -o {outpath} --remove=1:5')
-    # generate
-    for job in genex.todolist(
-            without_titlepage + [destination],  # ensure correct parent
-            destination,
-            groupme=True,
-    ):
-        job = ' && '.join(job)
-        todo.append(job)
-    # avoid race condition that jam is not ready before starting extraction
-    worker = utila.mins(len(files), WORKER)
-
-    utila.run_parallel(todo, worker=worker)
+    genex.extract_removepages(
+        resources,
+        removepages='1:5',
+        folder='notoc',
+        groupme=True,
+    )
 
 
 def install():

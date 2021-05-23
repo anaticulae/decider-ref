@@ -11,11 +11,10 @@ import functools
 
 import groupme.path
 import iamraw
+import protocol
 import serializeraw
-import utila
 import utilatest
 
-import decider_toc
 import decider_toc.cli
 
 # pylint:disable=C0103
@@ -37,3 +36,16 @@ def tableofcontent(path: str) -> iamraw.Toc:
     path = groupme.path.toc(path)
     result = serializeraw.load_toc(path)
     return result
+
+
+def lint(path: str, module):
+    toc = tableofcontent(path)
+    linter = protocol.from_module(module.__name__)
+    driver = protocol.driver(
+        toc=toc,
+        outlines=None,
+    )
+    linter.run(driver=driver)
+    result = linter.result(unique=False)
+    failures = sorted(item.msgid for item in result)
+    return failures

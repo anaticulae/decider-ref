@@ -24,9 +24,10 @@ def work(tableofcontent: str) -> typing.Tuple[str, str]:
     linter = protocol.from_module(__name__)
 
     tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
+    driver = protocol.driver(toc=tableofcontent)
 
     # run linter
-    linting(tableofcontent, linter)
+    linting(driver, linter)
 
     result = linter.result(unique=False)
 
@@ -35,7 +36,7 @@ def work(tableofcontent: str) -> typing.Tuple[str, str]:
     return user, developer
 
 
-def linting(toc, linter: protocol.Linter):
+def linting(driver, linter: protocol.Linter):
     location = iamraw.Location.from_page(1)
     checkers = protocol.parse_checkers(__name__)
     for checker in checkers:
@@ -44,7 +45,7 @@ def linting(toc, linter: protocol.Linter):
             msgid=checker.msgid,
             location=location,
         )
-        checker(call, toc)
+        checker(call, driver)
 
 
 SOLUTION_1350 = """\
@@ -58,7 +59,8 @@ Unterkapitel in den Text eingeplegt werden.
 """
 
 
-def check_1350_toc_level_to_few_children(linter, toc: iamraw.Toc):
+def check_1350_toc_level_to_few_children(linter, driver):
+    toc: iamraw.Toc = driver.toc
     level_result: dtl.TocValidationResult = dtl.validate(toc)
     for item in level_result.too_few_children:  # pylint:disable=E1133
         # TODO: REMOVE AFTER UPGRADING SERIALIZERAW
@@ -84,7 +86,8 @@ Seite {{current}} folgt auf {{before}}.
 """
 
 
-def check_1360_toc_ascending_pages(linter, toc: iamraw.Toc):
+def check_1360_toc_ascending_pages(linter, driver):
+    toc: iamraw.Toc = driver.toc
     page_result: elements.InvalidPages = elements.validate_toc(toc)
     # TODO: ADD SPECIAL CASE FOR elements.INVALID_ROMAN_NUMBER
     for item in page_result:
@@ -108,7 +111,8 @@ nicht bei der Seitenzählung berücksichtigt.
 """
 
 
-def check_1365_toc_legal_inside_toc(linter, toc: iamraw.Toc):
+def check_1365_toc_legal_inside_toc(linter, driver):
+    toc: iamraw.Toc = driver.toc
     if not toc:
         return
     toc = decider_toc.utils.flat(toc)

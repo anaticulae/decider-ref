@@ -62,7 +62,7 @@ def inside(item, container) -> bool:
         container,
         flags=re.VERBOSE | re.IGNORECASE,
     )
-    if searched != None:
+    if searched is not None:
         return True
     return False
 

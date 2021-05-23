@@ -94,8 +94,9 @@ def test_toc_validate_deepness(source, too_deep):
 
 def lint(path: str, module):
     toc = tests.toc.tableofcontent(path)
+    driver = protocol.driver(toc=toc)
     linter = protocol.from_module(module.__name__)
-    module.linting(toc=toc, linter=linter)
+    module.linting(driver=driver, linter=linter)
     result = linter.result(unique=False)
     failures = sorted(item.msgid for item in result)
     return failures

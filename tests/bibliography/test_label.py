@@ -9,7 +9,6 @@
 
 import power
 import protocol
-import pytest
 import serializeraw
 
 import decider_bib

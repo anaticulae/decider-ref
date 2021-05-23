@@ -7,13 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import os
 
 import genex
 import power
 import pytest
-import utila
-import utilatest
 import writers
 
 import decider_ref

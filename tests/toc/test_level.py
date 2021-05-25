@@ -11,6 +11,7 @@ import power
 import protocol
 import pytest
 
+import decider_toc.features
 import decider_toc.features.complexity as dtfc
 import decider_toc.features.rules as dtfr
 import decider_toc.level
@@ -93,8 +94,7 @@ def test_toc_validate_deepness(source, too_deep):
 
 
 def lint(path: str, module):
-    toc = tests.toc.tableofcontent(path)
-    driver = protocol.driver(toc=toc)
+    driver = decider_toc.features.create_driver(toc=path)
     linter = protocol.from_module(module.__name__)
     module.linting(driver=driver, linter=linter)
     result = linter.result(unique=False)

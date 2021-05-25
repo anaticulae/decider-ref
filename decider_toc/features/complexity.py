@@ -7,7 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-
 import iamraw
 import protocol
 import utila
@@ -15,7 +14,7 @@ import utila
 import decider_toc.balance
 import decider_toc.features
 import decider_toc.length
-import decider_toc.level as dtl
+import decider_toc.level
 
 
 def work(toc: str) -> protocol.ResultType:
@@ -43,7 +42,7 @@ Begrenzen Sie die Gliederung auf maximal 3 Sektionen.
 
 def check_1351_toc_level_to_deep(linter, driver):
     toc: iamraw.Toc = driver.toc
-    level_result: dtl.TocValidationResult = dtl.validate(toc)
+    level_result: decider_toc.level.TocValidationResult = decider_toc.level.validate(toc) #  yapf:disable
     for item in level_result.level_to_deep:  # pylint:disable=E1133
         # TODO: REMOVE AFTER UPGRADING SERIALIZERAW
         try:

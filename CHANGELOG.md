@@ -2,6 +2,34 @@
 
 Every noteable change is logged here.
 
+## v1.9.0
+
+### Feature
+
+* add description links to linter message (925d6576ab80)
+* make message more user friendly (24162caa90cc)
+* use improve inside approach (4814b9b25fde)
+* add typo error detector (014dba8f55e4)
+* verify opening and closing brackets (5a21470a1f57)
+* disable bib ref check if bib is not parsed properly (439d2d9c28ca)
+* use nltk stopwords (98cdb7169389)
+* disable balance check for very short sections (a50a7db13f73)
+* show bib on detected page (f9383901b33d)
+* show bib linter warning to bib page (bf0bfb1fbd17)
+* add location to detected abbr table message (e83167d5c800)
+* use improved legal checker (4eb75931f89f)
+* add hint to simplify bib label (7fe999a42246)
+
+### Fix
+
+* handle roman numbers later (440af2291f57)
+* clarify linter message (64f27ae1d2fb)
+* skip disabled check (579621035c5b)
+* clarify error message (652e479d2f9f)
+* adjust newlines (b1ad28f95458)
+* fix newlines (821c3e7a3943)
+* adjust newlines (d9f3e998c311)
+
 ## v1.8.1
 
 ## v1.8.0

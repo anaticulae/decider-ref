@@ -7,45 +7,25 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-import typing
 
 import elements
 import iamraw
 import protocol
-import serializeraw
 import utila
 
+import decider_toc.features
 import decider_toc.level as dtl
 import decider_toc.utils
 
 
-def work(tableofcontent: str) -> typing.Tuple[str, str]:
-    linter = protocol.from_module(__name__)
-
-    tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
-    driver = protocol.driver(toc=tableofcontent)
-
-    # run linter
-    linting(driver, linter)
-
-    result = linter.result(unique=False)
-
-    # dump linter result
-    user, developer = protocol.dump_result(result)
-    return user, developer
-
-
-def linting(driver, linter: protocol.Linter):
-    location = iamraw.Location.from_page(1)
-    checkers = protocol.parse_checkers(__name__)
-    for checker in checkers:
-        call = functools.partial(
-            linter.add_finding,
-            msgid=checker.msgid,
-            location=location,
-        )
-        checker(call, driver)
+def work(toc: str) -> protocol.ResultType:
+    driver = decider_toc.features.create_driver(toc)
+    result = protocol.run(
+        __name__,
+        driver=driver,
+        location=iamraw.Location.from_page(1),
+    )
+    return result
 
 
 SOLUTION_1350 = """\

@@ -7,42 +7,22 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-import typing
 
 import iamraw
 import protocol
-import serializeraw
 
 import decider_toc.duplicated
 import decider_toc.marks
 
 
-def work(tableofcontent: str) -> typing.Tuple[str, str]:
-    linter = protocol.from_module(__name__)
-
-    tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
-
-    # run linter
-    linting(tableofcontent, linter)
-
-    result = linter.result(unique=False)
-
-    # dump linter result
-    user, developer = protocol.dump_result(result)
-    return user, developer
-
-
-def linting(toc, linter: protocol.Linter):
-    location = iamraw.Location.from_page(1)
-    checkers = protocol.parse_checkers(__name__)
-    for checker in checkers:
-        call = functools.partial(
-            linter.add_finding,
-            msgid=checker.msgid,
-            location=location,
-        )
-        checker(call, toc)
+def work(toc: str) -> protocol.ResultType:
+    driver = decider_toc.features.create_driver(toc)
+    result = protocol.run(
+        __name__,
+        driver=driver,
+        location=iamraw.Location.from_page(1),
+    )
+    return result
 
 
 SOLUTION_1380 = """\
@@ -54,7 +34,8 @@ dieses Wort um die Varianz der Sprache zu vergrößern.
 """
 
 
-def check_1380_toc_duplicated_words(linter, toc: iamraw.Toc):
+def check_1380_toc_duplicated_words(linter, driver):
+    toc: iamraw.Toc = driver.toc
     findings = decider_toc.duplicated.validate(toc)
     for item in findings:
         (word, count), lines = item
@@ -79,7 +60,8 @@ Fragesatz formuliert werden.
 """
 
 
-def check_1383_toc_contains_question_mark(linter, toc: iamraw.Toc):
+def check_1383_toc_contains_question_mark(linter, driver):
+    toc: iamraw.Toc = driver.toc
     findings = decider_toc.marks.validate_question_mark(toc)
     for item in findings:
         index, title, raw_location = item
@@ -100,7 +82,8 @@ verständlich wird.
 """
 
 
-def check_1384_toc_contains_quotation_mark(linter, toc: iamraw.Toc):
+def check_1384_toc_contains_quotation_mark(linter, driver):
+    toc: iamraw.Toc = driver.toc
     findings = decider_toc.marks.collect_quotation_marks(toc)
     for item in findings:
         index, title, raw_location = item

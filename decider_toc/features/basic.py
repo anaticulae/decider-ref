@@ -12,29 +12,15 @@ Table of content
 ================
 """
 
-import typing
-
-import iamraw
 import protocol
-import serializeraw
+
+import decider_toc.features
 
 
-def work(tableofcontent: str, outlines: str) -> typing.Tuple[str, str]:
-    linter = protocol.from_module(__name__)
-
-    tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
-    outlines = serializeraw.load_toc(outlines)
-
-    driver = protocol.driver(toc=tableofcontent, outlines=outlines)
-
-    # run linter
-    linter.run(driver=driver)
-
-    result = linter.result(unique=False)
-
-    # dump linter result
-    user, developer = protocol.dump_result(result)
-    return user, developer
+def work(toc: str, outlines: str) -> protocol.ResultType:
+    driver = decider_toc.features.create_driver(toc, outlines)
+    result = protocol.run(__name__, driver=driver)
+    return result
 
 
 # TODO: ADD SOLUTION_1300_MS to link how to create table of content in word

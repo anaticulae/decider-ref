@@ -12,29 +12,23 @@ import typing
 
 import iamraw
 import protocol
-import serializeraw
 import utila
 
 import decider_toc.balance
+import decider_toc.features
 import decider_toc.length
 import decider_toc.level as dtl
 import decider_toc.marks
 
 
-def work(tableofcontent: str) -> typing.Tuple[str, str]:
-    linter = protocol.from_module(__name__)
-
-    tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
-
-    driver = protocol.driver(toc=tableofcontent)
-
-    # run linter
-    linting(driver, linter)
-    result = linter.result(unique=False)
-
-    # dump linter result
-    user, developer = protocol.dump_result(result)
-    return user, developer
+def work(toc: str) -> protocol.ResultType:
+    driver = decider_toc.features.create_driver(toc=toc)
+    result = protocol.run(
+        __name__,
+        driver=driver,
+        location=iamraw.Location.from_page(1),
+    )
+    return result
 
 
 def linting(driver, linter: protocol.Linter):

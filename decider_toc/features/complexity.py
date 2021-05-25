@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-import typing
 
 import iamraw
 import protocol
@@ -18,7 +16,6 @@ import decider_toc.balance
 import decider_toc.features
 import decider_toc.length
 import decider_toc.level as dtl
-import decider_toc.marks
 
 
 def work(toc: str) -> protocol.ResultType:
@@ -29,18 +26,6 @@ def work(toc: str) -> protocol.ResultType:
         location=iamraw.Location.from_page(1),
     )
     return result
-
-
-def linting(driver, linter: protocol.Linter):
-    location = iamraw.Location.from_page(1)
-    checkers = protocol.parse_checkers(__name__)
-    for checker in checkers:
-        call = functools.partial(
-            linter.add_finding,
-            msgid=checker.msgid,
-            location=location,
-        )
-        checker(call, driver)
 
 
 SOLUTION_1351 = """\

@@ -114,10 +114,12 @@ def check_1330_toc_document_sync(linter, driver):
 
 
 def not_missing(items: list) -> list:
-    skip = {
-        'inhalt',
-        'inhaltsverzeichnis',
-        'table of content',
-        'table of contents',
-    }
-    return [item for item in items if item.lower() not in skip]
+    return [item for item in items if not utila.verysimilar(item, expected=TOC)]
+
+
+TOC = utila.splitlines("""
+Inhalt
+Inhaltsverzeichnis
+Table of Content
+Table of Contents
+""")

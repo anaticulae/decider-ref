@@ -13,7 +13,7 @@ import pytest
 
 import decider_toc.features.complexity as dtfc
 import decider_toc.features.rules as dtfr
-import decider_toc.level as dtl
+import decider_toc.level
 import tests
 
 TECHNICAL24_INVALID_CHILDREN = 1
@@ -23,7 +23,7 @@ TECHNICAL24_TOO_DEEP = 14
 
 def test_toc_invalid_children(monkeypatch):
     with monkeypatch.context() as context:
-        context.setattr(dtl, 'MAX_TOC_DEEPNESS', 2)
+        context.setattr(decider_toc.level, 'MAX_TOC_DEEPNESS', 2)
         failures = lint(power.link(power.TECH024_PDF), dtfr)
     failures = len(failures)
     assert failures == TECHNICAL24_INVALID_CHILDREN, str(failures)
@@ -31,7 +31,7 @@ def test_toc_invalid_children(monkeypatch):
 
 def test_toc_to_deep(monkeypatch):
     with monkeypatch.context() as context:
-        context.setattr(dtl, 'MAX_TOC_DEEPNESS', 2)
+        context.setattr(decider_toc.level, 'MAX_TOC_DEEPNESS', 2)
         failures = lint(power.link(power.TECH024_PDF), dtfc)
     failures = len([item for item in failures if item in (1351, 1382)])
     expected = sum([
@@ -71,7 +71,7 @@ def master78_too_few_children(invalid):
 ])
 def test_toc_too_few_children(source, invalids, validate):
     toc = tests.toc.tableofcontent(source)
-    validated = dtl.validate_children(toc)
+    validated = decider_toc.level.validate_children(toc)
     assert len(validated) == invalids, str(len(validated))
     if not validate:
         return
@@ -87,7 +87,7 @@ def test_toc_too_few_children(source, invalids, validate):
 def test_toc_validate_deepness(source, too_deep):
     toc = tests.toc.tableofcontent(source)
     maxdeep = 2
-    validated = dtl.validate_deepness(toc, maxdeep=maxdeep)
+    validated = decider_toc.level.validate_deepness(toc, maxdeep=maxdeep)
     # `too_deep` items with 1.2.3
     assert len(validated) == too_deep
 

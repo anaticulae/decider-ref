@@ -25,11 +25,11 @@ import decider_bib.utils
 
 
 def work(
-        table: str,
-        docreference: str,
-        headlines: str,
-        text: str,
-        pages: tuple = None,
+    table: str,
+    docreference: str,
+    headlines: str,
+    text: str,
+    pages: tuple = None,
 ) -> typing.Tuple[str, str]:
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
     text, docreference = load_docref(docreference, headlines, text, pages=pages)
@@ -61,10 +61,10 @@ def linting(linter: protocol.Linter, driver):
 
 
 def load_docref(
-        docreference: str,
-        headlines: str,
-        text: str,
-        pages: tuple = None,
+    docreference: str,
+    headlines: str,
+    text: str,
+    pages: tuple = None,
 ) -> list:
     docreference = serializeraw.load_docref(docreference, pages=pages)
     headlines = serializeraw.load_headlines(headlines, pages=pages)

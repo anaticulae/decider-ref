@@ -31,10 +31,10 @@ import decider_toc.utils
 
 
 def work(
-        tableofcontent: str,
-        outlines: str,
-        headlines: str,
-        headlines_oneline: str,
+    tableofcontent: str,
+    outlines: str,
+    headlines: str,
+    headlines_oneline: str,
 ) -> protocol.ResultType:
     tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
     outlines = serializeraw.load_toc(outlines)

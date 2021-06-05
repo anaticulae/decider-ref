@@ -67,11 +67,10 @@ EXAMPLE = [
 def test_linter_abbreviation_table_unsorted():
     table = iamraw.AbbreviationResult()
     for short, description in EXAMPLE:
-        table.append(
-            iamraw.Abbreviation(
-                short=short,
-                description=description,
-            ))
+        table.append(iamraw.Abbreviation(
+            short=short,
+            description=description,
+        ))
     driver = protocol.driver(abbrtable=table)
 
     linter = abbreviation_linter(

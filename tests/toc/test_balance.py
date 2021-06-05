@@ -84,10 +84,16 @@ def test_toc_master99_level_three(master99_data):  # pylint:disable=W0621
 
 def test_toc_judge(master99_toc):  # pylint:disable=W0621
     judged = decider_toc.balance.judge(master99_toc)
-    expected = decider_toc.balance.JudgedBalance(
-        level1=None,
-        level2=[[(0,), (0,), (0,), (0,)], [(0,), (1, 8, 5.9)],
-                [(1, 8, 5.9), (0,)], [(0,), (0,), (0,), (0,), (0,)],
-                [(0,), (0,), (0,), (1, 15, 5.9)]],
-        level3=[[(0,), (0,)], [(0,), (0,)], [(1, 11, 6.5), (0,)]])
+    expected = decider_toc.balance.JudgedBalance(level1=None,
+                                                 level2=[[(0,), (0,), (0,),
+                                                          (0,)],
+                                                         [(0,), (1, 8, 5.9)],
+                                                         [(1, 8, 5.9), (0,)],
+                                                         [(0,), (0,), (0,),
+                                                          (0,), (0,)],
+                                                         [(0,), (0,), (0,),
+                                                          (1, 15, 5.9)]],
+                                                 level3=[[(0,), (0,)],
+                                                         [(0,), (0,)],
+                                                         [(1, 11, 6.5), (0,)]])
     assert expected == judged

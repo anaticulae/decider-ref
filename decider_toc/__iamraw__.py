@@ -12,8 +12,8 @@ import utila
 
 
 def headlines_totoc(
-        headlines: iamraw.PagesHeadlineList,
-        remove_rawinfo: bool = False,
+    headlines: iamraw.PagesHeadlineList,
+    remove_rawinfo: bool = False,
 ) -> 'iamraw.Toc':
     try:
         flat = utila.flatten(headlines)

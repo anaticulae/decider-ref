@@ -113,7 +113,7 @@ def check_6011_typo(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography
     for reference in references:
         raw = reference.raw
-        for typo in (r':\)', ' : ', r'(\)\:[\w\d])'):
+        for typo in TYPOS:
             matched = re.search(typo, raw)
             if not matched:
                 continue
@@ -122,6 +122,13 @@ def check_6011_typo(linter: callable, driver):
                 bib=raw,
                 location=pagelocation(reference),
             )
+
+
+TYPOS = (
+    r':\)',
+    ' : ',
+    r'(\)\:[\w\d])',
+)
 
 
 def pagelocation(item) -> iamraw.Location:

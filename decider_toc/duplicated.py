@@ -110,10 +110,9 @@ def remove_duplicates(items):
                     count -= item[1]
                     # father can completely cover children
                     break
-                else:
-                    # father is not huge enough, other fathers are
-                    # required to cover children completely
-                    count -= item[1]
+                # father is not huge enough, other fathers are
+                # required to cover children completely
+                count -= item[1]
         else:
             if count > 0:
                 # some words are left, no all can be covered in fathers,

@@ -34,7 +34,7 @@ def collect_mark(toc: iamraw.Toc, mark: konrad.Mark) -> dtu.InvalidTocItems:
     result = []
     for index, item in enumerate(flatten):
         words = german.split_words(item.title, validate_sentences=False)
-        contains_mark = any([item in marks for item in words])
+        contains_mark = any(item in marks for item in words)
         if contains_mark:
             result.append((index, item.title, item.raw_location))
     return result

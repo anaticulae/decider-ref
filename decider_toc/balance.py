@@ -12,6 +12,7 @@
 """
 
 import collections
+import contextlib
 import statistics
 import typing
 
@@ -146,10 +147,8 @@ def data(toc: iamraw.Toc) -> TocLines:
     result = []
     for item in flat:
         page = item.page
-        try:
+        with contextlib.suppress(ValueError):
             page = int(page)
-        except ValueError:
-            page = page
         result.append(TocLine(page, item.level, item.title))
     return result
 

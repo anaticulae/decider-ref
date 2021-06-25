@@ -41,7 +41,7 @@ Erwartet:
 
 def check_15010_not_sorted_alphabetically(linter: callable, driver):
     abbreviations: iamraw.AbbreviationResult = driver.abbrtable
-    current = [item for item in abbreviations]
+    current = list(abbreviations)
     expected = sorted(
         abbreviations,
         key=lambda x: utila.alphabetically(x.short),

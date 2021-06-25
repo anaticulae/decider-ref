@@ -61,7 +61,7 @@ Erwartet:
 
 def check_6000_not_sorted_alphabetically(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography
-    current = [item for item in references]
+    current = list(references)
     expected = decider_bib.order.theissen_sort(current)
 
     if current == expected:

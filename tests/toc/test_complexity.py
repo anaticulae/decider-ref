@@ -9,11 +9,13 @@
 
 import power
 import protocol
+import utilatest
 
 import decider_toc.features.complexity
 import tests.toc
 
 
+@utilatest.requires(power.BACHELOR063_PDF)
 def test_bachelor63_regression_complexity(testdir, monkeypatch):
     """Do not mix roman and arabic numbers in toc length computation.
     TODO: HANDLE ROMAN NUMBERS
@@ -26,6 +28,7 @@ def test_bachelor63_regression_complexity(testdir, monkeypatch):
     assert findings  # count is not important
 
 
+@utilatest.requires(power.MASTER116_PDF)
 def test_toc_decider_toc_complexity_regression():
     """1351 fails with converting ROMAN number to int. In the future
     this will be resolved with ROMAN-number to pdf-page converter."""

@@ -9,10 +9,12 @@
 
 import power
 import serializeraw
+import utilatest
 
 import decider_toc.duplicated
 
 
+@utilatest.requires(power.MASTER098_PDF)
 def test_duplicated_words():
     source = power.link(power.MASTER098_PDF)
     toc = serializeraw.load_toc(source)

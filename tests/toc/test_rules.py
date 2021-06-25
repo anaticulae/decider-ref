@@ -9,10 +9,12 @@
 
 import power
 import protocol
+import utilatest
 
 import tests.toc
 
 
+@utilatest.requires(power.BACHELOR063_PDF)
 def test_rules_bachelor63_regression(testdir, monkeypatch):
     """Ensure to handle roman numbers correctly. Before this regression
     test, roman page number converter fails when running --rules. Bug is

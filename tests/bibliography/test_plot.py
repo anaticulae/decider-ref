@@ -10,10 +10,12 @@
 import os
 
 import power
+import utilatest
 
 import tests
 
 
+@utilatest.requires(power.MASTER072_PDF)
 def test_decider_bib_plot_bib_overview(testdir, monkeypatch):
     source = power.link(power.MASTER072_PDF)
     cmd = f'-i {source} --plot'

@@ -9,12 +9,14 @@
 
 import detector.path
 import power
+import utilatest
 
 import decider_bib.order
 import decider_bib.path
 import decider_bib.serialize
 
 
+@utilatest.requires(power.BACHELOR063_PDF)
 def test_order_bib_bachelor63_theissen():
     source = power.link(power.BACHELOR063_PDF)
     table = detector.path.bibliography_detected(source)

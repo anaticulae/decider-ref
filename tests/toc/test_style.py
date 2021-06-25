@@ -11,6 +11,7 @@ import power
 import protocol
 import pytest
 import utila
+import utilatest
 
 import tests.toc
 
@@ -31,6 +32,7 @@ def test_toc_style_bachelor51_duplicated_words(testdir, monkeypatch):
 
 def run_style(source, msgid, testdir, monkeypatch):
     source = power.link(source)
+    utilatest.fixture_requires(source)
     tests.toc.run(f'-i {source} --style', monkeypatch=monkeypatch)
 
     findings = protocol.findings_from_path(testdir.tmpdir)

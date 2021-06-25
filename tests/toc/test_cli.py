@@ -10,6 +10,7 @@
 import power
 import protocol
 import utila
+import utilatest
 
 import decider_toc
 import tests.toc
@@ -23,6 +24,7 @@ def test_decider_toc_nomonkey_cli_help():
     utila.run(f'{decider_toc.PROCESS} --help')
 
 
+@utilatest.requires(power.MASTER099_PDF)
 def test_toc_cli_master99_headline_too_long(testdir, monkeypatch):
     source = power.link(power.MASTER099_PDF)
     tests.toc.run(f'-i {source}', monkeypatch=monkeypatch)
@@ -31,6 +33,7 @@ def test_toc_cli_master99_headline_too_long(testdir, monkeypatch):
     assert len(tests.select(findings, 1382)) == 1
 
 
+@utilatest.requires(power.MASTER099_PDF)
 def test_toc_cli_master99_chapter_too_long(testdir, monkeypatch):
     source = power.link(power.MASTER099_PDF)
     tests.toc.run(f'-i {source}', monkeypatch=monkeypatch)
@@ -39,6 +42,7 @@ def test_toc_cli_master99_chapter_too_long(testdir, monkeypatch):
     assert len(tests.select(findings, 1370)) == 4
 
 
+@utilatest.requires(power.MASTER098_PDF)
 def test_toc_cli_master98_chapter_too_short(testdir, monkeypatch):
     source = power.link(power.MASTER098_PDF)
     tests.toc.run(f'-i {source}', monkeypatch=monkeypatch)
@@ -47,6 +51,7 @@ def test_toc_cli_master98_chapter_too_short(testdir, monkeypatch):
     assert len(tests.select(findings, 1371)) == 1
 
 
+@utilatest.requires(power.BACHELOR076_PDF)
 def test_toc_cli_bachelor76_legal_inside_toc(testdir, monkeypatch):
     source = power.link(power.BACHELOR076_PDF)
     tests.toc.run(f'-i {source} --rules', monkeypatch=monkeypatch)
@@ -55,6 +60,7 @@ def test_toc_cli_bachelor76_legal_inside_toc(testdir, monkeypatch):
     assert len(tests.select(findings, 1365)) == 1
 
 
+@utilatest.requires(power.BACHELOR076_PDF)
 def test_toc_cli_bachelor76_roman_page_numbers(testdir, monkeypatch):
     """Regression test to verify that roman page numbers does not break
     page distance computation etc."""

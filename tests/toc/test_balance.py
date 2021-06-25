@@ -10,12 +10,14 @@
 import power
 import pytest
 import serializeraw
+import utilatest
 
 import decider_toc.balance
 
 
 @pytest.fixture
 def master98_data():
+    utilatest.fixture_requires(power.MASTER098_PDF)
     source = power.link(power.MASTER098_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
@@ -25,6 +27,7 @@ def master98_data():
 
 @pytest.fixture
 def master99_data():
+    utilatest.fixture_requires(power.MASTER099_PDF)
     source = power.link(power.MASTER099_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
@@ -34,12 +37,14 @@ def master99_data():
 
 @pytest.fixture
 def master99_toc():
+    utilatest.fixture_requires(power.MASTER099_PDF)
     source = power.link(power.MASTER099_PDF)
     toc = serializeraw.load_toc(source)
     return toc
 
 
 def test_toc_section_balance():
+    utilatest.fixture_requires(power.MASTER098_PDF)
     source = power.link(power.MASTER098_PDF)
     toc = serializeraw.load_toc(source)
     balance = decider_toc.balance.section_balance(toc)

@@ -10,6 +10,7 @@
 import power
 import protocol
 import serializeraw
+import utilatest
 
 import decider_bib
 import tests
@@ -18,6 +19,7 @@ import tests.bibliography
 
 def run_label(source, monkeypatch, testdir, msgid=None, pages=None):
     source = power.link(source)
+    utilatest.fixture_requires(source)
     cmd = f'-i {source} --label'
     tests.bibliography.run(cmd, monkeypatch=monkeypatch)
     path = decider_bib.path.decider_bib_label_user(testdir.tmpdir)
@@ -61,6 +63,7 @@ def test_bib_label_improvement(testdir, monkeypatch):
     assert improvement
 
 
+@utilatest.requires(power.BACHELOR056_PDF)
 def test_bib_source_not_found_bachelor56_page6(testdir, monkeypatch):
     """(Vgl. Borkenstein: 1.13) was parsed not correctly and therefore
     detected as missing reference. After improving label parser, this

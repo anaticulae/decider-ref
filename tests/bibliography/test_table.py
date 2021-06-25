@@ -11,6 +11,7 @@ import power
 import protocol
 import pytest
 import serializeraw
+import utilatest
 
 import decider_bib
 import tests.bibliography
@@ -18,6 +19,7 @@ import tests.bibliography
 
 def run_table(source, monkeypatch, testdir, msgid=None):
     source = power.link(source)
+    utilatest.fixture_requires(source)
     cmd = f'-i {source} --table'
     tests.bibliography.run(cmd, monkeypatch=monkeypatch)
     path = decider_bib.path.decider_bib_table_user(testdir.tmpdir)

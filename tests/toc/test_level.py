@@ -12,6 +12,7 @@ import power
 import protocol
 import pytest
 import serializeraw
+import utilatest
 
 import decider_toc.features
 import decider_toc.features.complexity as dtfc
@@ -24,6 +25,7 @@ TECHNICAL24_INVALID_CHILDREN_TO_LONG = 1
 TECHNICAL24_TOO_DEEP = 14
 
 
+@utilatest.requires(power.TECH024_PDF)
 def test_toc_invalid_children(monkeypatch):
     with monkeypatch.context() as context:
         context.setattr(decider_toc.level, 'MAX_TOC_DEEPNESS', 2)
@@ -33,6 +35,7 @@ def test_toc_invalid_children(monkeypatch):
 
 
 @pytest.mark.xfail(reason='result finding unique reduces 15 to 9')
+@utilatest.requires(power.TECH024_PDF)
 def test_toc_to_deep(monkeypatch):
     with monkeypatch.context() as context:
         context.setattr(decider_toc.level, 'MAX_TOC_DEEPNESS', 2)
@@ -73,6 +76,9 @@ def master78_too_few_children(invalid):
         id='master72',
     ),
 ])
+@utilatest.requires(power.TECH024_PDF)
+@utilatest.requires(power.MASTER072_PDF)
+@utilatest.requires(power.MASTER078_PDF)
 def test_toc_too_few_children(source, invalids, validate):
     toc = tests.toc.tableofcontent(source)
     validated = decider_toc.level.validate_children(toc)
@@ -88,6 +94,8 @@ def test_toc_too_few_children(source, invalids, validate):
     pytest.param(power.link(power.MASTER072_PDF), 6, id='master72'),
 ])
 # yapf:enable
+@utilatest.requires(power.TECH024_PDF)
+@utilatest.requires(power.MASTER072_PDF)
 def test_toc_validate_deepness(source, too_deep):
     toc = tests.toc.tableofcontent(source)
     maxdeep = 2

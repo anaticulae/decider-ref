@@ -9,10 +9,12 @@
 
 import power
 import protocol
+import utilatest
 
 import tests
 
 
+@utilatest.requires(power.BACHELOR090_PDF)
 def test_toc_bachelor90_toc_document_sync(testdir, monkeypatch):
     source = power.link(power.BACHELOR090_PDF)
     tests.toc.run(f'-i {source} --sync', monkeypatch=monkeypatch)
@@ -21,6 +23,7 @@ def test_toc_bachelor90_toc_document_sync(testdir, monkeypatch):
     assert len(tests.select(findings, 1330)) == 1
 
 
+@utilatest.requires(power.BACHELOR037_PDF)
 def test_toc_bachelor37_toc_document_sync(testdir, monkeypatch):
     source = power.link(power.BACHELOR037_PDF)
     tests.toc.run(f'-i {source} --sync', monkeypatch=monkeypatch)

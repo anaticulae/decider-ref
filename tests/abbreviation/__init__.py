@@ -34,6 +34,7 @@ fail = functools.partial(
 
 def run_table(source, monkeypatch, testdir, msgid=None, pages=None):
     source = power.link(source)
+    utilatest.fixture_requires(source)
     cmd = f'-i {source} --table'
     run(cmd, monkeypatch=monkeypatch)
     path = decider_abb.path.decider_abb_table_user(testdir.tmpdir)

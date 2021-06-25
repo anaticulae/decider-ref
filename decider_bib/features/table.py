@@ -20,14 +20,14 @@ import decider_bib.serialize
 import decider_bib.utils
 
 
-def work(table: str) -> typing.Tuple[str, str]:
+def work(table: str) -> protocol.ResultType:
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
     driver = protocol.driver(bibliography=bibliography)
-    linter = protocol.from_module(__name__)
-    linting(linter, driver)
-    result = linter.result(unique=True)
-    user, developer = protocol.dump_result(result)
-    return user, developer
+    result = protocol.run(
+        modulename=__name__,
+        driver=driver,
+    )
+    return result
 
 
 def linting(linter: protocol.Linter, driver):

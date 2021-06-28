@@ -56,19 +56,19 @@ def master78_too_few_children(invalid):
 
 @pytest.mark.parametrize('source, invalids, validate', [
     pytest.param(
-        power.link(power.TECH024_PDF),
+        power.TECH024_PDF,
         TECHNICAL24_INVALID_CHILDREN,
         None,
         id='technical24',
     ),
     pytest.param(
-        power.link(power.MASTER078_PDF),
+        power.MASTER078_PDF,
         3,
         master78_too_few_children,
         id='master78',
     ),
     pytest.param(
-        power.link(power.MASTER072_PDF),
+        power.MASTER072_PDF,
         0,
         None,
         id='master72',
@@ -78,6 +78,7 @@ def master78_too_few_children(invalid):
 @utilatest.requires(power.MASTER072_PDF)
 @utilatest.requires(power.MASTER078_PDF)
 def test_toc_too_few_children(source, invalids, validate):
+    source = power.link(source)
     toc = tests.toc.tableofcontent(source)
     validated = decider_toc.level.validate_children(toc)
     assert len(validated) == invalids, str(len(validated))

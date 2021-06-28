@@ -49,7 +49,6 @@ def test_toc_to_deep(monkeypatch):
 
 
 def master78_too_few_children(invalid):
-    # TODO: MASTER78_PDF PARSER IS BUGGY RIGHT NOW
     assert invalid[0].title == 'Grundsätzliche Anforderungen'
     assert invalid[1].title == 'Anbindung der Bussysteme'
     assert invalid[2].title == 'Auswahl passender Busgeräte'
@@ -67,7 +66,6 @@ def master78_too_few_children(invalid):
         3,
         master78_too_few_children,
         id='master78',
-        marks=pytest.mark.xfail(reason='toc extraction does not work properly'),
     ),
     pytest.param(
         power.link(power.MASTER072_PDF),

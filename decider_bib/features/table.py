@@ -61,6 +61,12 @@ Erwartet:
 
 def check_6000_not_sorted_alphabetically(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography
+    if any(not reference.authors for reference in references):
+        utila.error('could not parse all bib refs')
+        for item in references:
+            if not item.authors:
+                utila.error(item)
+        return
     current = list(references)
     expected = decider_bib.order.theissen_sort(current)
     if current == expected:

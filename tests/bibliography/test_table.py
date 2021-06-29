@@ -42,6 +42,14 @@ def test_bib_bachelor75_regression_table(testdir, monkeypatch, capsys):
     assert 'no authors' in utilatest.stderr(capsys)
 
 
+@pytest.mark.xfail(reason='bib table is not fully parsed')
+def test_bib_bachelor75_regression_bib_sort(testdir, monkeypatch):
+    """Bib table is not sorted correctly. In the current state this
+    check is disabled cause of not fully parsed bibs."""
+    findings = run_table(power.BACHELOR075_PDF, monkeypatch, testdir, {6000})
+    assert findings
+
+
 def test_bib_order107_unbalanced_brackets(testdir, monkeypatch):
     unbalacend_brackets = run_table(
         power.ORDER107_PDF,

@@ -7,11 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import re
+
 import utila
+
+LABEL = r'\[\d+\]'
 
 
 def format_bibline(item) -> str:
-    if item.reference:
+    if item.reference and not re.match(LABEL, str(item.reference)):
         # convert to string to avoid failing when reference is parsed as
         # int or something. Later, this will not be a problem, cause we
         # have only valid parsings.

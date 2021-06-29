@@ -83,7 +83,7 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
 SOLUTION_6010 = """\
 Quellenangabe: Klammern überprüfen
 
-Öffnende und schließende Klammern in  „{{source}}“ sind nicht \
+Öffnende und schließende Klammern in „{{source}}“ sind nicht \
 ausbalanciert: {{brackets}}.
 """
 

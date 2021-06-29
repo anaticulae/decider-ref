@@ -9,7 +9,6 @@
 
 import functools
 import re
-import typing
 
 import iamraw
 import protocol
@@ -17,6 +16,7 @@ import utila
 
 import decider_bib.order
 import decider_bib.serialize
+import decider_bib.table
 import decider_bib.utils
 
 
@@ -129,6 +129,23 @@ TYPOS = (
     ' : ',
     r'(\)\:[\w\d])',
 )
+
+SOLUTION_6020 = """\
+Quellenangabe überprüfen
+
+Stil der Quellenangabe **{{bibraw}}** weicht ab.
+"""
+
+
+def check_6020_bib_differs(linter: callable, driver):
+    references: iamraw.BibliographyReferences = driver.bibliography
+    invalid = decider_bib.table.invalid_references(references)
+    for reference in invalid:
+        raw = reference.raw
+        linter(
+            bibraw=raw,
+            location=pagelocation(reference),
+        )
 
 
 def pagelocation(item) -> iamraw.Location:

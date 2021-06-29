@@ -35,6 +35,13 @@ def test_bib_sorting_master98(testdir, monkeypatch):
     assert len(unsorted_bib) == 1
 
 
+def test_bib_bachelor75_regression_table(testdir, monkeypatch, capsys):
+    """Do not fail when parsing empty authors."""
+    run_table(power.BACHELOR075_PDF, monkeypatch, testdir)
+    # TODO: REMOVE CHECK LATER
+    assert 'no authors' in utilatest.stderr(capsys)
+
+
 def test_bib_order107_unbalanced_brackets(testdir, monkeypatch):
     unbalacend_brackets = run_table(
         power.ORDER107_PDF,
@@ -62,3 +69,14 @@ def test_bib_master127_typos(testdir, monkeypatch):
 def test_bib_sorting_master116(testdir, monkeypatch):
     unsorted_bib = run_table(power.MASTER116_PDF, monkeypatch, testdir, {6000})
     assert not unsorted_bib  # TODO: VALIDATE LATER
+
+
+def test_bib_master083_differs(testdir, monkeypatch):
+    """Detect bib entrees which differ from style of other bibs."""
+    detected = run_table(
+        power.MASTER083_PDF,
+        monkeypatch,
+        testdir,
+        {6020},
+    )
+    assert len(detected) == 2

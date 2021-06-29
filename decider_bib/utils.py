@@ -7,6 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import utila
+
 
 def format_bibline(item) -> str:
     if item.reference:
@@ -14,4 +16,5 @@ def format_bibline(item) -> str:
         # int or something. Later, this will not be a problem, cause we
         # have only valid parsings.
         return str(item.reference)
-    return f' * {item.author} {item.year} {item.title}'
+    title = utila.shrink(item.title, maxlength=20)
+    return f' * {item.author} {item.year} {title}'

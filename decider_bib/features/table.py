@@ -63,12 +63,9 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography
     current = list(references)
     expected = decider_bib.order.theissen_sort(current)
-
     if current == expected:
         return
-
     location = pagelocation(current[0])
-
     # TODO: CHECK REPRESENTATION
     current = [decider_bib.utils.format_bibline(item) for item in current]
     expected = [decider_bib.utils.format_bibline(item) for item in expected]

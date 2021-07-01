@@ -39,13 +39,20 @@ def tableofcontent(path: str) -> iamraw.Toc:
 
 
 def lint(path: str, module):
+    result = linter(path, module)
+    failures = sorted(item.msgid for item in result)
+    return failures
+
+
+def linter(path: str, module, msgids=None):
     toc = tableofcontent(path)
-    linter = protocol.from_module(module.__name__)
     driver = protocol.driver(
         toc=toc,
         outlines=None,
     )
-    linter.run(driver=driver)
-    result = linter.result(unique=False)
-    failures = sorted(item.msgid for item in result)
-    return failures
+    findings = protocol.run(
+        module.__name__,
+        driver=driver,
+    )
+    result = serializeraw.load_findings(findings[0], msgids=msgids)
+    return result

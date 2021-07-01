@@ -21,8 +21,13 @@ def test_bachelor63_regression_complexity(testdir, monkeypatch):
     TODO: HANDLE ROMAN NUMBERS
     """
     source = power.link(power.BACHELOR063_PDF)
-    tests.toc.run(f'-i {source} --complexity', monkeypatch=monkeypatch)
-
+    with monkeypatch.context() as context:
+        context.setattr(
+            decider_toc.features.complexity,
+            'MIN_CHAPTER_LENGTH_CHECKER',
+            0.0,
+        )
+        tests.toc.run(f'-i {source} --complexity', monkeypatch=monkeypatch)
     findings = protocol.findings_from_path(testdir.tmpdir)
     findings = protocol.select_pages(findings, pages=(6, 7))
     assert findings  # count is not important

@@ -13,6 +13,7 @@ import utila
 import utilatest
 
 import decider_toc
+import decider_toc.features.complexity
 import tests.toc
 
 
@@ -45,8 +46,13 @@ def test_toc_cli_master99_chapter_too_long(testdir, monkeypatch):
 @utilatest.requires(power.MASTER098_PDF)
 def test_toc_cli_master98_chapter_too_short(testdir, monkeypatch):
     source = power.link(power.MASTER098_PDF)
-    tests.toc.run(f'-i {source}', monkeypatch=monkeypatch)
-
+    with monkeypatch.context() as context:
+        context.setattr(
+            decider_toc.features.complexity,
+            'MIN_CHAPTER_LENGTH_CHECKER',
+            0.0,
+        )
+        tests.toc.run(f'-i {source}', monkeypatch=monkeypatch)
     findings = protocol.findings_from_path(testdir.tmpdir)
     assert len(tests.select(findings, 1371)) == 1
 

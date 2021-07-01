@@ -112,6 +112,9 @@ def check_1371_section_too_short(linter, driver):
     )
 
 
+MIN_CHAPTER_LENGTH_CHECKER = 2.0  # TODO: HOLY VALUE
+
+
 def validate_chapter_length(linter, toc, level, expected):
     balanced = decider_toc.balance.judge(toc)
     level2 = utila.flatten(balanced.level2)
@@ -124,6 +127,8 @@ def validate_chapter_length(linter, toc, level, expected):
             continue
         if judged[0] is None:
             # check is disabled
+            continue
+        if judged[2] <= MIN_CHAPTER_LENGTH_CHECKER:
             continue
         title = line.title
         location = iamraw.Location.from_page(line.page)

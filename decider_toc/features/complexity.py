@@ -30,9 +30,9 @@ def work(toc: str) -> protocol.ResultType:
 SOLUTION_1351 = """\
 Gliederung zu komplex
 
-Das Dokument weist eine zu detaillierte Untergliederung auf. Eine zu \
-feingliedrige Gliederung reduziert die Üebersichtlichkeit und verhindert \
-das schnelle Navigieren im Text.
+Das Dokument weist eine zu detaillierte Untergliederung **{{tocline}}** auf. \
+Eine zu feingliedrige Gliederung reduziert die Üebersichtlichkeit und \
+verhindert das schnelle Navigieren im Text.
 
 Begrenzen Sie die Gliederung auf maximal 3 Sektionen.
 
@@ -44,15 +44,13 @@ def check_1351_toc_level_to_deep(linter, driver):
     toc: iamraw.Toc = driver.toc
     level_result: decider_toc.level.TocValidationResult = decider_toc.level.validate(toc) #  yapf:disable
     for item in level_result.level_to_deep:  # pylint:disable=E1133
-        # TODO: REMOVE AFTER UPGRADING SERIALIZERAW
-        try:
-            location = iamraw.Location.from_page(int(item.page))
-        except ValueError:
-            # TODO: THINK ABOUT CONCEPT TO HANDLE ROMAN PAGE NUMBERS
-            # TODO: INTRODUCE RAW LOCATION?
-            utila.error(f'could not convert roman page number: {item.page}')
-            continue
-        linter(location=location)
+        tocline = item.raw.replace('..', '').replace('. .', '')
+        tocline = utila.shrink(tocline, maxlength=80)
+        location = iamraw.Location.from_page(item.raw_location)
+        linter(
+            location=location,
+            tocline=tocline,
+        )
 
 
 SOLUTION_1370 = """\

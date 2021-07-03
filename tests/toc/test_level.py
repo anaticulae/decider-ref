@@ -34,7 +34,6 @@ def test_toc_invalid_children(monkeypatch):
     assert failures == TECHNICAL24_INVALID_CHILDREN, str(failures)
 
 
-@pytest.mark.xfail(reason='result finding unique reduces 15 to 9')
 @utilatest.requires(power.TECH024_PDF)
 def test_toc_to_deep(monkeypatch):
     with monkeypatch.context() as context:

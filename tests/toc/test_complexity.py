@@ -39,3 +39,11 @@ def test_toc_decider_toc_complexity_regression():
     this will be resolved with ROMAN-number to pdf-page converter."""
     source = power.link(power.MASTER116_PDF)
     tests.toc.lint(source, decider_toc.features.complexity)
+
+
+def test_decider_toc_complexity_bachelor128_regression():
+    """Page 4 is the page of table of content."""
+    source = power.link(power.BACHELOR128_PDF)
+    findings = tests.toc.linter(source, decider_toc.features.complexity)
+    findings = [item for item in findings if item.location.page == 4]
+    assert len(findings) == 2

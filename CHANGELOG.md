@@ -2,6 +2,20 @@
 
 Every noteable change is logged here.
 
+## v1.10.0
+
+### Feature
+
+* move message to detected toc page (e963b7207ed4)
+* disable sorting check for not fully parsed bib (6b37b9cd3d09)
+* do not show number labels as bib reference (250944820a1e)
+* shrink display title (9f0ed3335ccb)
+* validate detected bib entrees (f7fb74a6989a)
+
+### Fix
+
+* skip chapter length checker for too short chapter (c845a938a6d0)
+
 ## v1.9.1
 
 ## v1.9.0

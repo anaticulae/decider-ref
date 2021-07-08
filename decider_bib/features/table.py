@@ -37,6 +37,8 @@ def create_driver(table: str, titlepage: str, pdfinfo: str):
         titlepage = iamraw.TitlePage()
     pages = serializeraw.load_pdfinfo(pdfinfo)
     pages = pages.pages if pages else None
+    # TODO: USE CONTENT SECTION LENGTH INSTEAD OF PAGES. THIS IMPROVES
+    # JUDGEMENT OF THESIS WITH LONG APPENDIX
     driver = protocol.driver(
         bibliography=bibliography,
         titlepage=titlepage,
@@ -130,10 +132,11 @@ def check_6006_too_few_bibs(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography
     if not references:
         return
+    thesis = driver.titlepage.thesis.typ if driver.titlepage.thesis else None
     if not decider_bib.table.too_few(
             references=references,
             pages=driver.pages,
-            thesis=driver.titlepage.thesis,
+            thesis=thesis,
     ):
         return
     location = pagelocation(references[0])
@@ -153,10 +156,11 @@ def check_6007_too_many_bibs(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography
     if not references:
         return
+    thesis = driver.titlepage.thesis.typ if driver.titlepage.thesis else None
     if not decider_bib.table.too_many(
             references=references,
             pages=driver.pages,
-            thesis=driver.titlepage.thesis,
+            thesis=thesis,
     ):
         return
     location = pagelocation(references[0])

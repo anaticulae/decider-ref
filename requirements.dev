@@ -9,8 +9,8 @@
 
 utilatest==0.7.1
 
-genex==0.10.0
-power==1.5.0
+genex==0.11.1
+power==1.6.0
 
 genref==1.0.8
 

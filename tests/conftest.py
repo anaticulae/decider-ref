@@ -40,6 +40,7 @@ RESOURCES = [
     (power.ORDER107_PDF, '104:110'),
     (power.MASTER078_PDF, '0:10'),
     (power.BACHELOR075_PDF, '70:74'),
+    (power.BACHELOR241_PDF, '0:10,235:242'),
 ]
 
 RESOURCES_NOTOC = [

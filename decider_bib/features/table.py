@@ -12,6 +12,7 @@ import re
 
 import iamraw
 import protocol
+import serializeraw
 import utila
 
 import decider_bib.order
@@ -20,14 +21,28 @@ import decider_bib.table
 import decider_bib.utils
 
 
-def work(table: str) -> protocol.ResultType:
-    bibliography = decider_bib.serialize.load_bibliography_reference(table)
-    driver = protocol.driver(bibliography=bibliography)
+def work(table: str, titlepage: str, pdfinfo: str) -> protocol.ResultType:
+    driver = create_driver(table, titlepage, pdfinfo)
     result = protocol.run(
         modulename=__name__,
         driver=driver,
     )
     return result
+
+
+def create_driver(table: str, titlepage: str, pdfinfo: str):
+    bibliography = decider_bib.serialize.load_bibliography_reference(table)
+    titlepage = serializeraw.load_titlepage(titlepage)
+    if not titlepage:
+        titlepage = iamraw.TitlePage()
+    pages = serializeraw.load_pdfinfo(pdfinfo)
+    pages = pages.pages if pages else None
+    driver = protocol.driver(
+        bibliography=bibliography,
+        titlepage=titlepage,
+        pages=pages,
+    )
+    return driver
 
 
 def linting(linter: protocol.Linter, driver):

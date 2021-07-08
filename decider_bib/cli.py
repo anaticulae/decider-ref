@@ -33,6 +33,8 @@ WORKPLAN = [
         'table',
         [
             utila.ResultFile('detector', 'bibliography_detected'),
+            utila.ResultFile('detector', 'titlepage_detected'),
+            utila.File('pdfinfo'),
         ],
         (USER, DEVELOPER),
     ),

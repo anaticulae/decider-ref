@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import configo
 import iamraw
 import utila
 
@@ -35,17 +36,48 @@ def too_old(references: iamraw.BibliographyReferences) -> bool:
     return False
 
 
-def too_many(
+BIBLIOGRAPHY_RANGE_UPPER = configo.HolyTable([
+    (0, 50),
+    (30, 40),
+    (50, 50),
+    (70, 70),
+    (100, 100),
+    (200, 180),
+    (300, 250),
+    (500, 400),
+])
+
+
+def too_many(  # pylint:disable=W0613
     references: iamraw.BibliographyReferences,
     pages: int,
     thesis: iamraw.DocumentType,
 ) -> bool:
-    return False
+    if not pages:
+        return False
+    reference_count = len(references)
+    upper = BIBLIOGRAPHY_RANGE_UPPER(pages)
+    return reference_count > upper
 
 
-def too_few(
+BIBLIOGRAPHY_RANGE_LOWER = configo.HolyTable([
+    (0, 15),
+    (30, 15),
+    (50, 25),
+    (70, 30),
+    (100, 40),
+    (200, 50),
+    (300, 70),
+])
+
+
+def too_few(  # pylint:disable=W0613
     references: iamraw.BibliographyReferences,
     pages: int,
     thesis: iamraw.DocumentType,
 ) -> bool:
-    return False
+    if not pages:
+        return False
+    reference_count = len(references)
+    lower = BIBLIOGRAPHY_RANGE_LOWER(pages)
+    return reference_count < lower

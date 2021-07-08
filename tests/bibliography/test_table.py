@@ -88,3 +88,23 @@ def test_bib_master083_differs(testdir, monkeypatch):
         {6020},
     )
     assert len(detected) == 2
+
+
+def test_bib_table_bachelor241_too_few_bibs(testdir, monkeypatch):
+    detected = run_table(
+        power.BACHELOR241_PDF,
+        monkeypatch,
+        testdir,
+        {6006},
+    )
+    assert len(detected) == 1
+
+
+def test_bib_table_diss266_too_many_bibs(testdir, monkeypatch):
+    detected = run_table(
+        power.DISS266_PDF,
+        monkeypatch,
+        testdir,
+        {6007},
+    )
+    assert len(detected) == 1

@@ -29,3 +29,23 @@ def invalid_references(
 
 def author_length(authors):
     return [len(item.raw) for item in authors]
+
+
+def too_old(references: iamraw.BibliographyReferences) -> bool:
+    return False
+
+
+def too_many(
+    references: iamraw.BibliographyReferences,
+    pages: int,
+    thesis: iamraw.DocumentType,
+) -> bool:
+    return False
+
+
+def too_few(
+    references: iamraw.BibliographyReferences,
+    pages: int,
+    thesis: iamraw.DocumentType,
+) -> bool:
+    return False

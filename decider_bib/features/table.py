@@ -83,6 +83,71 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
     )
 
 
+SOLUTION_6005 = """\
+Quellenverzeichnis veraltet
+
+Die ausgewählten Quellen scheinen nicht dem aktuellen Stand der \
+Forschung zu entsprechen. Überprüfen Sie ob durch weitere Recherche \
+aktuelle Paper/Publikationen zum Thema gefunden werden können.
+"""
+
+
+def check_6006_bibs_too_old(linter: callable, driver):
+    references: iamraw.BibliographyReferences = driver.bibliography
+    if not references:
+        return
+    if not decider_bib.table.too_old(references):
+        return
+    location = pagelocation(references[0])
+    linter(location=location)
+
+
+SOLUTION_6006 = """\
+Anzahl der Quellen zu gering
+
+Die Anzahl der Quellen({{count}}) scheint für den Umfang der Arbeit \
+zu gering zu sein. Halten Sie Rücksprache mit Ihrem wissenschaftlichen \
+Betreuer.
+"""
+
+
+def check_6006_too_few_bibs(linter: callable, driver):
+    references: iamraw.BibliographyReferences = driver.bibliography
+    if not references:
+        return
+    if not decider_bib.table.too_few(
+            references=references,
+            pages=driver.pages,
+            thesis=driver.titlepage.thesis,
+    ):
+        return
+    location = pagelocation(references[0])
+    linter(location=location, count=len(references))
+
+
+SOLUTION_6007 = """\
+Anzahl der Quellen zu hoch
+
+Die Anzahl {{count}} der Quellen erscheint für den Umfang der Arbeit zu \
+hoch. Das Quellenverzeichnis darf nur Quellen enthalten die im Text \
+zitiert/verwendet werden.
+"""
+
+
+def check_6007_too_many_bibs(linter: callable, driver):
+    references: iamraw.BibliographyReferences = driver.bibliography
+    if not references:
+        return
+    if not decider_bib.table.too_many(
+            references=references,
+            pages=driver.pages,
+            thesis=driver.titlepage.thesis,
+    ):
+        return
+    location = pagelocation(references[0])
+    linter(location=location, count=len(references))
+
+
 SOLUTION_6010 = """\
 Quellenangabe: Klammern überprüfen
 

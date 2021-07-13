@@ -6,7 +6,17 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
+"""\
+>>> inside('Einleitung', 'EINLEITUNG UND PROBLEMSTELLUNG')
+True
 
+Regression tests:
+=================
+
+do not fail on special regex character `)`
+>>> inside('Kupfer I)', 'EINLEITUNG')
+False
+"""
 import collections
 import re
 
@@ -52,11 +62,10 @@ def inside(item, container) -> bool:
     True
     >>> inside('EMS', 'EINLEITUNG UND PROBLEMSTELLUNG')
     False
-    >>> inside('Einleitung', 'EINLEITUNG UND PROBLEMSTELLUNG')
-    True
     >>> inside('PROBLEMSTELLUNG', 'EINLEITUNG UND PROBLEMSTELLUNG')
     True
     """
+    item = re.escape(item)
     searched = re.search(
         INSIDE % item,
         container,

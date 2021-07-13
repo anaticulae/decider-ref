@@ -16,7 +16,6 @@ import utilatest
 import tests.toc
 
 
-@pytest.mark.xfail(reason='check later')
 def test_toc_style_bachelor76_duplicated_words(testdir, monkeypatch):
     duplicated = run_style(power.BACHELOR076_PDF, 1380, testdir, monkeypatch)
     assert len(duplicated) == 1, str(duplicated)

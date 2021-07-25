@@ -2,6 +2,19 @@
 
 Every noteable change is logged here.
 
+## v1.11.0
+
+### Feature
+
+* implement bib number checker (9d20b8dab8fe)
+* load more data (5cc60e6a495e)
+* add bib count checker (cb10c723c9dc)
+
+### Fix
+
+* do not fail on regex character (6fc6a9bc61dd)
+* adjust data type (c7d91539a255)
+
 ## v1.10.0
 
 ### Feature

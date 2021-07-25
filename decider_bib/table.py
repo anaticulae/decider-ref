@@ -32,7 +32,7 @@ def author_length(authors):
     return [len(item.raw) for item in authors]
 
 
-def too_old(references: iamraw.BibliographyReferences) -> bool:
+def too_old(references: iamraw.BibliographyReferences) -> bool:  # pylint:disable=W0613
     return False
 
 

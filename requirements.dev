@@ -9,10 +9,10 @@
 
 utilatest==0.7.1
 
-genex==0.11.1
+genex==0.12.1
 power==1.6.0
 
-genref==1.0.8
+genref==1.0.9
 
 # modify test data
 jam==0.3.1

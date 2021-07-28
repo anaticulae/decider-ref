@@ -30,7 +30,6 @@ import decider_toc.utils
 
 def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
     flatten = decider_toc.utils.flat(toc)
-
     lines = []
     for item in flatten:
         words = german.split_words(item.title, validate_sentences=False)

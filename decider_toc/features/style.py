@@ -16,10 +16,11 @@ import decider_toc.marks
 
 def work(toc: str) -> protocol.ResultType:
     driver = decider_toc.features.create_driver(toc)
+    pdflocation = driver.toc[0].raw_location
     result = protocol.run(
         __name__,
         driver=driver,
-        location=iamraw.Location.from_page(1),
+        location=iamraw.Location.from_page(pdflocation),
     )
     return result
 

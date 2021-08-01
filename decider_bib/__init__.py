@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+# ease importing path module when using decider_bib
 import decider_bib.path
 import decider_ref
 

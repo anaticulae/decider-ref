@@ -128,17 +128,13 @@ Die Quelle **{{source}}** wird im Text nicht verwendet.
 
 
 def check_6051_table_in_text(linter: callable, driver):
-    plains = references_plain(driver.bibtextref, driver.text)
-    plains = utila.flatten(plains)
-    plains = {
-        docref.bibliography.parser.parse(item)[0].reference for item in plains
-    }
+    insentence = insentence_reference(driver.text, driver.bibtextref)
     source = list(driver.bibliography)
     for item in source:
         if item.reference:
             continue
         utila.error(f'None-Reference: {item}')
-    not_required = [item for item in source if item.reference not in plains]
+    not_required = [item for item in source if item.reference not in insentence]
     for item in not_required:
         if item.page is None:
             utila.error(f'no page reference: {item}')
@@ -155,6 +151,17 @@ def check_6051_table_in_text(linter: callable, driver):
             location=location,
             source=source,
         )
+
+
+def insentence_reference(text, bibliography):
+    """Prepare references which are located inside sentences."""
+    insentence_ref = references_plain(bibliography, text)
+    insentence_ref = utila.flatten(insentence_ref)
+    result = {
+        docref.bibliography.parser.parse(item)[0].reference
+        for item in insentence_ref
+    }
+    return result
 
 
 SOLUTION_6061 = """\

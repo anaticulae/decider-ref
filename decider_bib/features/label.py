@@ -136,9 +136,10 @@ def check_6051_table_in_text(linter: callable, driver):
         utila.error(f'None-Reference: {item}')
     not_required = [item for item in source if item.reference not in insentence]
     for item in not_required:
-        if item.page is None:
-            utila.error(f'no page reference: {item}')
-            continue
+        # TODO: VERIFY THAT PART OF CODE
+        # if item.page is None:
+        #     utila.error(f'no page reference: {item}')
+        #     continue
         if item.raw_pdfpage:
             location = iamraw.Location.from_page(item.raw_pdfpage)
         else:

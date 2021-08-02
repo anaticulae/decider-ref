@@ -65,6 +65,17 @@ def test_bib_label_improvement(testdir, monkeypatch):
     assert improvement
 
 
+def test_regression_bachelor90(testdir, monkeypatch):
+    """As a result of invalid bib parsing, the linter produces some
+    false postive errors.
+
+    This tests ensures that bib parsing and bib reference parsing is
+    aligned together. If an error occurs, check this parsing.
+    """
+    error = run_label(power.MASTER091B_PDF, monkeypatch, testdir, {6050})
+    assert not error
+
+
 @utilatest.requires(power.BACHELOR056_PDF)
 def test_bib_source_not_found_bachelor56_page6(testdir, monkeypatch):
     """(Vgl. Borkenstein: 1.13) was parsed not correctly and therefore

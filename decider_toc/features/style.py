@@ -16,7 +16,10 @@ import decider_toc.marks
 
 def work(toc: str) -> protocol.ResultType:
     driver = decider_toc.features.create_driver(toc)
-    pdflocation = driver.toc[0].raw_location
+    try:
+        pdflocation = driver.toc[0].raw_location
+    except IndexError:
+        pdflocation = protocol.OVERVIEW.page
     result = protocol.run(
         __name__,
         driver=driver,

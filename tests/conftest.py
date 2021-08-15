@@ -45,7 +45,7 @@ RESOURCES = [
 ]
 
 RESOURCES_NOTOC = [
-    (power.DOCU35_PDF, ':'),
+    (power.DOCU035_PDF, ':'),
 ]
 
 

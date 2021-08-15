@@ -15,10 +15,10 @@ import decider_toc.features.basic
 import tests.toc
 
 
-@utilatest.requires(power.DOCU35_PDF, folder='notoc')
+@utilatest.requires(power.DOCU035_PDF, folder='notoc')
 def test_toc_extraction_no_toc():
     expected_failures = [1300, 1301]
-    source = power.link(power.DOCU35_PDF, folder='notoc')
+    source = power.link(power.DOCU035_PDF, folder='notoc')
     failures = tests.toc.lint(source, decider_toc.features.basic)
     assert failures == expected_failures, str(failures)
 

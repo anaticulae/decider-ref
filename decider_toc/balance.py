@@ -111,11 +111,11 @@ def section_balance(toc: iamraw.Toc) -> Balance:
     balance3 = analyse(level3_flat)
 
     if balance1 is None:
-        utila.error(f'too few elements: {len(level1_flat)} for balance level 1')
+        utila.debug(f'too few elements: {len(level1_flat)} for balance level 1')
     if balance2 is None:
-        utila.error(f'too few elements: {len(level2_flat)} for balance level 2')
+        utila.debug(f'too few elements: {len(level2_flat)} for balance level 2')
     if balance3 is None:
-        utila.error(f'too few elements: {len(level3_flat)} for balance level 3')
+        utila.debug(f'too few elements: {len(level3_flat)} for balance level 3')
 
     return Balance(balance1, balance2, balance3)
 

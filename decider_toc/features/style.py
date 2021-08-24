@@ -55,7 +55,7 @@ def check_1380_toc_duplicated_words(linter, driver):
 SOLUTION_1383 = """\
 Sektion enthält Fragestellung
 
-Die Überschrift {{number}} „{{title}}“ ist als Frage formuliert.
+Die Überschrift **{{title}}** ist als Frage formuliert.
 
 Überschriften zeichnen sich durch Knappheit und Eindeutigkeit aus. Daher \
 sollten diese substantivisch, kurz und prägnant und nicht als Teilsatz oder \
@@ -67,16 +67,16 @@ def check_1383_toc_contains_question_mark(linter, driver):
     toc: iamraw.Toc = driver.toc
     findings = decider_toc.marks.validate_question_mark(toc)
     for item in findings:
-        index, title, raw_location = item
+        _, title, raw_location = item
         location = iamraw.Location.from_page(raw_location)
-        linter(number=index, title=title, location=location)
+        linter(title=title, location=location)
 
 
 # TODO: ADD ARTICLE
 SOLUTION_1384 = """\
 Sektion enthält Anführungszeichen
 
-Die Überschrift {{number}} „{{title}}“ enhält Anführungszeichen. Dies \
+Die Überschrift **{{title}}** enhält Anführungszeichen. Dies \
 deutet auf eine spezielle Bedeutung hin. Dies sollte vermieden werden, \
 da Überschriften, kurz, prägnant und substantivisch formuliert sein sollen.
 
@@ -89,8 +89,6 @@ def check_1384_toc_contains_quotation_mark(linter, driver):
     toc: iamraw.Toc = driver.toc
     findings = decider_toc.marks.collect_quotation_marks(toc)
     for item in findings:
-        index, title, raw_location = item
+        _, title, raw_location = item
         location = iamraw.Location.from_page(raw_location)
-        linter(number=index, title=title, location=location)
-        # TODO
-        # assert 0
+        linter(title=title, location=location)

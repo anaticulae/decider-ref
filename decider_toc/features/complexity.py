@@ -142,7 +142,7 @@ def validate_chapter_length(linter, toc, level, expected):
 SOLUTION_1382 = """\
 Überschrift zu lang
 
-Die Überschrift {{number}} „{{title}}“ ist zu lang und sollte verkürzt \
+Die Überschrift **{{title}}**ist zu lang und sollte verkürzt \
 werden.
 """
 
@@ -151,6 +151,6 @@ def check_1382_toc_long_lines(linter, driver):
     toc: iamraw.Toc = driver.toc
     findings = decider_toc.length.validate(toc)
     for item in findings:
-        index, title, _, raw_location = item
+        __, title, _, raw_location = item
         location = iamraw.Location.from_page(raw_location)
-        linter(number=index, title=title, location=location)
+        linter(title=title, location=location)

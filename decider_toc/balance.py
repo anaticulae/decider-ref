@@ -91,6 +91,7 @@ def validate_level(items: list, balance: Evaluated) -> list:
                            'page length')
                 stepresult.append((None,))  # TODO: DOES WE REQUIRE THIS?
                 continue
+            # TODO: USE CONFIGO TABLE FOR UPPER AND LOWER TABLE
             upper = utila.roundme(balance.median + balance.stdev, digits=1)
             lower = utila.roundme(balance.median - balance.stdev, digits=1)
             if item > upper:

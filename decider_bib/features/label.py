@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import typing
-
 import configo
 import docref.bibliography.parser
 import iamraw
@@ -27,7 +25,7 @@ def work(
     headlines: str,
     text: str,
     pages: tuple = None,
-) -> typing.Tuple[str, str]:
+) -> protocol.ResultType:
     driver = create_driver(table, docreference, headlines, text, pages=pages)
     if driver.bibliography:
         result = protocol.run(modulename=__name__, driver=driver)

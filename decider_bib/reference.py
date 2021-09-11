@@ -69,6 +69,9 @@ def reference_inside(reference: iamraw.BibliographyReference, table) -> bool:
     ... {'[10]', '[11]', '[12]'})
     True
     """
+    if reference.reference is None:
+        # skip none existing reference
+        return False
     if utila.isint(reference.reference):
         reference = f'[{reference.reference}]'
     else:

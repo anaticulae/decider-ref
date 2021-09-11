@@ -81,6 +81,14 @@ def test_label_bib_ref_missing(testdir, monkeypatch):
     assert not linting
 
 
+def test_label_bib_not_required(testdir, monkeypatch):
+    """All bib entrees are required."""
+    linting = run_label(power.BACHELOR075_PDF, monkeypatch, testdir, {6051})
+    for item in linting:
+        print(item)
+    assert not linting
+
+
 def test_regression_bachelor90(testdir, monkeypatch):
     """As a result of invalid bib parsing, the linter produces some
     false postive errors.

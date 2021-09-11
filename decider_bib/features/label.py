@@ -139,7 +139,10 @@ def check_6051_table_in_text(linter: callable, driver):
         if item.reference:
             continue
         utila.error(f'None-Reference: {item}')
-    not_required = [item for item in source if item.reference not in insentence]
+    not_required = [
+        item for item in source
+        if not decider_bib.reference.reference_inside(item, insentence)
+    ]
     for item in not_required:
         # TODO: VERIFY THAT PART OF CODE
         # if item.page is None:
@@ -171,6 +174,9 @@ def insentence_reference(text, bibliography) -> set:
             continue
         # TODO: SUPPORT MORE THAN ONE REFERENCE IN A SENTENCE?
         reference = parsed[0].reference
+        if utila.isint(reference):
+            # convert to valid [10]-intext reference
+            reference = f'[{reference}]'
         result.add(reference)
     return result
 

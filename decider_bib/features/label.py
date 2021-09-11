@@ -7,7 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
 import typing
 
 import configo
@@ -29,27 +28,13 @@ def work(
     text: str,
     pages: tuple = None,
 ) -> typing.Tuple[str, str]:
-    linter = protocol.from_module(__name__)
     driver = create_driver(table, docreference, headlines, text, pages=pages)
     if driver.bibliography:
-        linting(linter, driver)
+        result = protocol.run(modulename=__name__, driver=driver)
     else:
         utila.error('no bib table parsed: skip decider_bib:label')
-    result = linter.result(unique=True)
-    user, developer = protocol.dump_result(result)
-    return user, developer
-
-
-def linting(linter: protocol.Linter, driver):
-    location = iamraw.Location.from_page(0)
-    checkers = protocol.parse_checkers(__name__)
-    for checker in checkers:
-        call = functools.partial(
-            linter.add_finding,
-            msgid=checker.msgid,
-            location=location,
-        )
-        checker(call, driver)
+        result = protocol.RESULT_EMPTY
+    return result
 
 
 def create_driver(

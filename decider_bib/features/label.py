@@ -18,10 +18,8 @@ import serializeraw
 import utila
 import words.utils
 
-import decider_bib.order
 import decider_bib.reference
 import decider_bib.serialize
-import decider_bib.utils
 
 
 def work(
@@ -31,15 +29,9 @@ def work(
     text: str,
     pages: tuple = None,
 ) -> typing.Tuple[str, str]:
-    bibliography = decider_bib.serialize.load_bibliography_reference(table)
-    text, docreference = load_docref(docreference, headlines, text, pages=pages)
-    driver = protocol.driver(
-        bibliography=bibliography,
-        bibtextref=docreference,
-        text=text,
-    )
     linter = protocol.from_module(__name__)
-    if bibliography:
+    driver = create_driver(table, docreference, headlines, text, pages=pages)
+    if driver.bibliography:
         linting(linter, driver)
     else:
         utila.error('no bib table parsed: skip decider_bib:label')
@@ -60,16 +52,23 @@ def linting(linter: protocol.Linter, driver):
         checker(call, driver)
 
 
-def load_docref(
+def create_driver(
+    table: str,
     docreference: str,
     headlines: str,
     text: str,
     pages: tuple = None,
-) -> list:
+):
+    bibliography = decider_bib.serialize.load_bibliography_reference(table)
     docreference = serializeraw.load_docref(docreference, pages=pages)
     headlines = serializeraw.load_headlines(headlines, pages=pages)
     text = serializeraw.load_text(text, headlines=headlines, pages=pages)
-    return text, docreference
+    result = protocol.driver(
+        bibliography=bibliography,
+        bibtextref=docreference,
+        text=text,
+    )
+    return result
 
 
 def missing_bibtable_reference(bibtable) -> bool:

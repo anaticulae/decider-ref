@@ -17,7 +17,7 @@ import decider_toc.marks
 def work(toc: str) -> protocol.ResultType:
     driver = decider_toc.features.create_driver(toc)
     try:
-        pdflocation = driver.toc[0].raw_location
+        pdflocation = driver.toc[0].raw_location  # pylint:disable=E1101
     except IndexError:
         pdflocation = protocol.OVERVIEW.page
     result = protocol.run(

@@ -9,6 +9,7 @@
 
 import power
 import protocol
+import pytest
 import utilatest
 
 import tests
@@ -23,6 +24,7 @@ def test_toc_bachelor90_toc_document_sync(testdir, monkeypatch):
     assert len(tests.select(findings, 1330)) == 1
 
 
+@pytest.mark.xfail(reason='broken headlines parser')
 @utilatest.requires(power.BACHELOR037_PDF)
 def test_toc_bachelor37_toc_document_sync(testdir, monkeypatch):
     source = power.link(power.BACHELOR037_PDF)

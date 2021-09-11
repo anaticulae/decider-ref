@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v1.12.1
+
+### Fix
+
+* adjust table in text lookup (d5d9223f6e44)
+* lookup [10]-bib references correctly (f65c8dd34b98)
+
 ## v1.12.0
 
 ### Feature

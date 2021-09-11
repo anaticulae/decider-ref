@@ -19,14 +19,15 @@ import decider_bib.reference
 import decider_bib.serialize
 
 
-def work(
+def work(  # pylint:disable=W0613
     table: str,
     docreference: str,
     headlines: str,
     text: str,
+    sections: str,
     pages: tuple = None,
 ) -> protocol.ResultType:
-    driver = create_driver(table, docreference, headlines, text, pages=pages)
+    driver = create_driver(**locals())
     if driver.bibliography:
         result = protocol.run(modulename=__name__, driver=driver)
     else:
@@ -40,12 +41,14 @@ def create_driver(
     docreference: str,
     headlines: str,
     text: str,
+    sections: str,
     pages: tuple = None,
 ):
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
     docreference = serializeraw.load_docref(docreference, pages=pages)
     headlines = serializeraw.load_headlines(headlines, pages=pages)
     text = serializeraw.load_text(text, headlines=headlines, pages=pages)
+    sections = serializeraw.load_sections(sections, pages=pages)
     result = protocol.driver(
         bibliography=bibliography,
         bibtextref=docreference,

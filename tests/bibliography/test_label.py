@@ -75,6 +75,12 @@ def test_regression_bachelor75(testdir, monkeypatch):
     assert len(linting) == 21  # NOT VALIDATED
 
 
+def test_label_bib_ref_missing(testdir, monkeypatch):
+    """No missing intext bib reference."""
+    linting = run_label(power.BACHELOR075_PDF, monkeypatch, testdir, {6050})
+    assert not linting
+
+
 def test_regression_bachelor90(testdir, monkeypatch):
     """As a result of invalid bib parsing, the linter produces some
     false postive errors.

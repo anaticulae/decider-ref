@@ -101,6 +101,9 @@ def check_6050_ref_in_table(linter: callable, driver):
         return
     plains = references_plain(driver.bibtextref, driver.text)
     for reference, plain in zip(driver.bibtextref, plains):
+        if reference.page not in driver.nobibs:
+            # bib table page
+            continue
         location = iamraw.Location.from_sentence(
             sentence=reference.sentence,
             page=reference.page,

@@ -54,10 +54,25 @@ def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
         table = {
             str(item.reference).lower() for item in table if item.reference
         }
-        return str(parsed.reference).lower() in table
+        return reference_inside(parsed, table)
     if parsed.reference is None:
         # TODO: ADD AUTHOR CHECK
         utila.error(f'could not determine .reference in: {reference}, '
                     'skip insidecheck')
         return None
+    return False
+
+
+def reference_inside(reference: iamraw.BibliographyReference, table) -> bool:
+    """\
+    >>> reference_inside(iamraw.BibliographyReference(reference=10, raw='[10]'),
+    ... {'[10]', '[11]', '[12]'})
+    True
+    """
+    if utila.isint(reference.reference):
+        reference = f'[{reference.reference}]'
+    else:
+        reference = reference.reference.lower()
+    if reference in table:
+        return True
     return False

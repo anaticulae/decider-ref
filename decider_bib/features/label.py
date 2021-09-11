@@ -47,13 +47,30 @@ def create_driver(
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
     docreference = serializeraw.load_docref(docreference, pages=pages)
     headlines = serializeraw.load_headlines(headlines, pages=pages)
-    text = serializeraw.load_text(text, headlines=headlines, pages=pages)
     sections = serializeraw.load_sections(sections, pages=pages)
+    text = serializeraw.load_text(text, headlines=headlines, pages=pages)
+    nobibs = nobibpages(sections)
+    # create driver
     result = protocol.driver(
         bibliography=bibliography,
         bibtextref=docreference,
         text=text,
+        nobibs=nobibs,
     )
+    return result
+
+
+def nobibpages(sections: iamraw.sections.Sections) -> set:
+    """Determine pages which are not bib-table pages."""
+    end = sections[-1].end + 1
+    collected = set()
+    for part in sections:
+        for item in part:
+            if not isinstance(item, iamraw.sections.Bibliography):
+                continue
+            for page in range(item.start, item.end + 1):
+                collected.add(page)
+    result = {item for item in range(end) if item not in collected}
     return result
 
 
@@ -165,6 +182,9 @@ Der Quellenverweis **{{reference}}** enthält keine Seitenangabe.
 def check_6061_bib_ref_no_page(linter: callable, driver):
     plains = references_plain(driver.bibtextref, driver.text)
     for reference, plain in zip(driver.bibtextref, plains):
+        if reference.page not in driver.nobibs:
+            # bib table page
+            continue
         location = iamraw.Location.from_sentence(
             sentence=reference.sentence,
             page=reference.page,

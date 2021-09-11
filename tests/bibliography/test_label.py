@@ -71,8 +71,8 @@ def test_bib_label_improvement(testdir, monkeypatch):
 
 def test_regression_bachelor75(testdir, monkeypatch):
     """Do not fail on [10]-pattern lookup."""
-    linting = run_label(power.BACHELOR075_PDF, monkeypatch, testdir, {6051})
-    assert len(linting) == 41  # NOT VALIDATED
+    linting = run_label(power.BACHELOR075_PDF, monkeypatch, testdir, {6061})
+    assert len(linting) == 21  # NOT VALIDATED
 
 
 def test_regression_bachelor90(testdir, monkeypatch):

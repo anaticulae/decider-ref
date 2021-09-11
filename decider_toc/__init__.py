@@ -8,7 +8,6 @@
 # =============================================================================
 
 import decider_ref
-import decider_toc.__iamraw__
 import decider_toc.path
 
 ROOT = decider_ref.ROOT

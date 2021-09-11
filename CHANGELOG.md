@@ -2,6 +2,27 @@
 
 Every noteable change is logged here.
 
+## v1.12.0
+
+### Feature
+
+* do not verify bib intext reference in bib table (4d686e7ef67d)
+* add sections input (ac3a1e3b7f65)
+* set default location to first toc page (d692fb0ecdbd)
+
+### Fix
+
+* ensure that int reference are lowered correctly (29a82da51145)
+* skip invalid reference parsing (fdd2ec2ac298)
+* remove useless index number, replace quotation marks (ec12e4083eb7)
+* reduce verbosity (48eef8e2aa0b)
+* handle empty toc (42e3831e9595)
+* remove information about bib parsing error (b1c02c8b4c0d)
+
+### Documentation
+
+* extend interface documentation (b1aee2047945)
+
 ## v1.11.0
 
 ### Feature

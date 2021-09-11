@@ -63,7 +63,10 @@ def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
     return False
 
 
-def reference_inside(reference: iamraw.BibliographyReference, table) -> bool:
+def reference_inside(
+    reference: iamraw.BibliographyReference,
+    table: set,
+) -> bool:
     """\
     >>> reference_inside(iamraw.BibliographyReference(reference=10, raw='[10]'),
     ... {'[10]', '[11]', '[12]'})

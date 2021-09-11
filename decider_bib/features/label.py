@@ -142,10 +142,15 @@ def insentence_reference(text, bibliography) -> set:
     """Prepare references which are located inside sentences."""
     insentence_ref = references_plain(bibliography, text)
     insentence_ref = utila.flatten(insentence_ref)
-    result = {
-        docref.bibliography.parser.parse(item)[0].reference
-        for item in insentence_ref
-    }
+    result = set()
+    for item in insentence_ref:
+        parsed = docref.bibliography.parser.parse(item)
+        if not parsed:
+            utila.error(f'could not parse: {item}')
+            continue
+        # TODO: SUPPORT MORE THAN ONE REFERENCE IN A SENTENCE?
+        reference = parsed[0].reference
+        result.add(reference)
     return result
 
 

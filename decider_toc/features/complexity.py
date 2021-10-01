@@ -142,7 +142,7 @@ def validate_chapter_length(linter, toc, level, expected):
 SOLUTION_1382 = """\
 Überschrift zu lang
 
-Die Überschrift **{{title}}**ist zu lang und sollte verkürzt \
+Die Überschrift **{{title}}** ist zu lang und sollte verkürzt \
 werden.
 """
 

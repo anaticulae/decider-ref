@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v1.12.2
+
+### Fix
+
+* ensure that reference is converted correctly (fd28797b46ea)
+
+### Documentation
+
+* extend interface documentation (3d58e229fbef)
+
 ## v1.12.1
 
 ### Fix

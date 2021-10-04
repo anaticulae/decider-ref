@@ -115,3 +115,8 @@ def test_bib_source_not_found_bachelor56_page6(testdir, monkeypatch):
         pages=6,
     )
     assert not notrequired
+
+
+def test_diss143_numbered_label_6050(testdir, monkeypatch):
+    error = run_label(power.DISS143_PDF, monkeypatch, testdir, {6050})
+    assert not error

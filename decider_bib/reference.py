@@ -51,9 +51,7 @@ def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
                 # TODO: VALIDATE WHY
                 continue
             utila.error(f'invalid reference: {item}')
-        table = {
-            str(item.reference).lower() for item in table if item.reference
-        }
+        table = {convert_reference(item) for item in table if item.reference}
         return reference_inside(parsed, table)
     if parsed.reference is None:
         # TODO: ADD AUTHOR CHECK
@@ -75,10 +73,15 @@ def reference_inside(
     if reference.reference is None:
         # skip none existing reference
         return False
+    reference = convert_reference(reference)
+    if reference in table:
+        return True
+    return False
+
+
+def convert_reference(reference):
     if utila.isint(reference.reference):
         reference = f'[{reference.reference}]'
     else:
         reference = reference.reference.lower()
-    if reference in table:
-        return True
-    return False
+    return reference

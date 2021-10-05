@@ -225,6 +225,34 @@ def check_6062_bib_ref_inaccurate_page(linter: callable, driver):
             linter(location=location, reference=item)
 
 
+SOLUTION_I6063 = """\
+Empfehlung: Quellenangaben konkretisieren
+
+Es wird empfohlen sämtlichen Quellen eine Seitenangabe zuzufügen.
+"""
+
+
+def check_6063_bib_ref_add_pagination(linter: callable, driver):
+    """Add hint to add page numbers.
+
+    If there are too many lintings, disable this lintings.
+    """
+    baselinter: protocol.Linter = linter.func.__self__
+    pagenumber_missing = baselinter.count_findings(msgid=6061)
+    if pagenumber_missing < 30:
+        return
+    intext_ref = len(driver.bibtextref)
+    rate = pagenumber_missing / intext_ref
+    if rate < 0.20:  # TODO: HOLY VALUE
+        return
+    linter(location=protocol.OVERVIEW)
+
+    def disable_6061(findings):
+        return [item for item in findings if item.msgid != 6061]
+
+    baselinter.check_findings(disable_6061)
+
+
 SOLUTION_6070 = """\
 Label vereinfachten
 

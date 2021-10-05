@@ -120,3 +120,8 @@ def test_bib_source_not_found_bachelor56_page6(testdir, monkeypatch):
 def test_diss143_numbered_label_6050(testdir, monkeypatch):
     error = run_label(power.DISS143_PDF, monkeypatch, testdir, {6050})
     assert not error
+
+
+def test_diss143_add_pagination_hint(testdir, monkeypatch):
+    hint = run_label(power.DISS143_PDF, monkeypatch, testdir, {6063})
+    assert len(hint) == 1

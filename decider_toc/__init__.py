@@ -7,6 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import configo
+
 import decider_ref
 import decider_toc.path
 
@@ -14,3 +16,5 @@ ROOT = decider_ref.ROOT
 PROCESS = 'decider_toc'
 
 __version__ = decider_ref.__version__
+
+configo.cloud_lookup(PROCESS)

@@ -24,7 +24,7 @@ def test_bachelor63_regression_complexity(testdir, monkeypatch):
     with monkeypatch.context() as context:
         context.setattr(
             decider_toc.features.complexity,
-            'MIN_CHAPTER_LENGTH_CHECKER',
+            'CHAPTER_LENGTH_CHECKER_MIN',
             0.0,
         )
         tests.toc.run(f'-i {source} --complexity', monkeypatch=monkeypatch)

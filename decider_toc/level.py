@@ -23,7 +23,7 @@ class LevelToDeep(decider_toc.utils.InvalidTocItems):  # pylint:disable=too-many
     pass
 
 
-MAX_TOC_DEEPNESS = configo.HV_INT_PLUS(default=3)
+TOC_DEEPNESS_MAX = configo.HV_INT_PLUS(default=3)
 
 
 @dataclasses.dataclass
@@ -61,7 +61,7 @@ def validate_children(toc: iamraw.Toc) -> TooFewChildren:
 
 def validate_deepness(toc: iamraw.Toc, maxdeep: int = None) -> LevelToDeep:
     if maxdeep is None:
-        maxdeep = MAX_TOC_DEEPNESS
+        maxdeep = TOC_DEEPNESS_MAX
 
     result = LevelToDeep()
 

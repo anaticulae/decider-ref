@@ -11,7 +11,7 @@ import configo
 import iamraw
 import utila
 
-MAX_AUTHOR_LENGTH = configo.HV_INT_PLUS(default=60)
+AUTHOR_LENGTH_MAX = configo.HV_INT_PLUS(default=60)
 
 
 def invalid_references(
@@ -22,7 +22,7 @@ def invalid_references(
         if not reference.authors:
             utila.error(f'no authors: {reference}')
             continue
-        if max(author_length(reference.authors)) < MAX_AUTHOR_LENGTH:
+        if max(author_length(reference.authors)) < AUTHOR_LENGTH_MAX:
             continue
         result.append(reference)
     return result

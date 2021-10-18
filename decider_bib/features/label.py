@@ -267,7 +267,7 @@ Erkannt: ([HA15], S. 40)
 Besser: [HA15, S. 40]
 """
 
-SPECIAL_COUNT_MIN_ACTIVE = configo.HV_INT_PLUS(default=5)
+SPECIAL_COUNT_ACTIVE_MIN = configo.HV_INT_PLUS(default=5)
 
 
 def check_6070_bib_ref_too_complicated(linter: callable, driver):
@@ -281,7 +281,7 @@ def check_6070_bib_ref_too_complicated(linter: callable, driver):
         item for item in collected
         if item.startswith('([') and item.endswith(')')
     ]
-    if len(special) < SPECIAL_COUNT_MIN_ACTIVE:
+    if len(special) < SPECIAL_COUNT_ACTIVE_MIN:
         return
     # TODO: ADD HINT FOR EVERY FINDING?
     linter()

@@ -16,14 +16,14 @@ import utila
 import decider_bib.order
 import decider_bib.serialize
 
-BILIOGRAPHY_MIN_COUNT = configo.HV_INT_PLUS(default=10)
+BILIOGRAPHY_COUNT_MIN = configo.HV_INT_PLUS(default=10)
 
 
 def work(table: str) -> bytes:
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
 
     rendered = None
-    if len(bibliography) >= BILIOGRAPHY_MIN_COUNT:
+    if len(bibliography) >= BILIOGRAPHY_COUNT_MIN:
         rendered = render_year_overview(bibliography)
     else:
         utila.debug(f'too few bib items: {len(bibliography)}')

@@ -111,7 +111,7 @@ def check_1371_section_too_short(linter, driver):
     )
 
 
-MIN_CHAPTER_LENGTH_CHECKER = configo.HV_FLOAT_PLUS(default=2.0)
+CHAPTER_LENGTH_CHECKER_MIN = configo.HV_FLOAT_PLUS(default=2.0)
 
 
 def validate_chapter_length(linter, toc, level, expected):
@@ -127,7 +127,7 @@ def validate_chapter_length(linter, toc, level, expected):
         if judged[0] is None:
             # check is disabled
             continue
-        if judged[2] <= MIN_CHAPTER_LENGTH_CHECKER:
+        if judged[2] <= CHAPTER_LENGTH_CHECKER_MIN:
             continue
         title = line.title
         location = iamraw.Location.from_page(line.page)

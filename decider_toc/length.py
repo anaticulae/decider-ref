@@ -14,7 +14,7 @@ import konrad
 
 import decider_toc.utils
 
-MAX_WORD_COUNT = configo.HV_INT_PLUS(default=12)
+WORD_COUNT_MAX = configo.HV_INT_PLUS(default=12)
 
 
 def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
@@ -25,6 +25,6 @@ def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
         words = german.split_words(item.title, validate_sentences=False)
         words = konrad.remove_marks(words)
         linelength = len(words)
-        if linelength > MAX_WORD_COUNT:
+        if linelength > WORD_COUNT_MAX:
             lines.append((index, item.title, linelength, item.raw_location))
     return lines

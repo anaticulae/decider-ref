@@ -20,6 +20,7 @@ False
 import collections
 import re
 
+import configo
 import german
 import iamraw
 import knlp
@@ -75,7 +76,7 @@ def inside(item, container) -> bool:
     return False
 
 
-DUPLICATES_MIN_COUNT = 5  # TODO: HOLY VALUE
+DUPLICATES_COUNT_MIN = configo.HV_INT_PLUS(default=5)
 
 
 def duplicates(lines):
@@ -89,11 +90,11 @@ def duplicates(lines):
                 sub = ' '.join(tokens)
                 counter[sub] += 1
     most_common = counter.most_common(n=100)
-    result = [item for item in most_common if item[1] >= DUPLICATES_MIN_COUNT]
+    result = [item for item in most_common if item[1] >= DUPLICATES_COUNT_MIN]
     result = remove_duplicates(result)
     # filter again, if after merging a subgroup is not completly covered
     # by parent group.
-    result = [item for item in result if item[1] >= DUPLICATES_MIN_COUNT]
+    result = [item for item in result if item[1] >= DUPLICATES_COUNT_MIN]
     return result
 
 

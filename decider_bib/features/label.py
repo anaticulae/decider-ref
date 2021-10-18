@@ -225,6 +225,8 @@ def check_6062_bib_ref_inaccurate_page(linter: callable, driver):
             linter(location=location, reference=item)
 
 
+MISSING_PAGENUMBER_RATE_MIN = configo.HV_PERCENT_PLUS(default=20)
+
 SOLUTION_I6063 = """\
 Empfehlung: Quellenangaben konkretisieren
 
@@ -243,7 +245,7 @@ def check_6063_bib_ref_add_pagination(linter: callable, driver):
         return
     intext_ref = len(driver.bibtextref)
     rate = pagenumber_missing / intext_ref
-    if rate < 0.20:  # TODO: HOLY VALUE
+    if rate < MISSING_PAGENUMBER_RATE_MIN:
         return
     linter(location=protocol.OVERVIEW)
 

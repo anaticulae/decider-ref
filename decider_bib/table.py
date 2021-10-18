@@ -11,7 +11,7 @@ import configo
 import iamraw
 import utila
 
-MAX_AUTHOR_LENGTH = 60  # TODO: HOLY VALUE
+MAX_AUTHOR_LENGTH = configo.HV_INT_PLUS(default=60)
 
 
 def invalid_references(

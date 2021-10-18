@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import configo
 import iamraw
 import protocol
 import utila
@@ -110,7 +111,7 @@ def check_1371_section_too_short(linter, driver):
     )
 
 
-MIN_CHAPTER_LENGTH_CHECKER = 2.0  # TODO: HOLY VALUE
+MIN_CHAPTER_LENGTH_CHECKER = configo.HV_FLOAT_PLUS(default=2.0)
 
 
 def validate_chapter_length(linter, toc, level, expected):

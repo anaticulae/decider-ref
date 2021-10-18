@@ -23,7 +23,7 @@ class LevelToDeep(decider_toc.utils.InvalidTocItems):  # pylint:disable=too-many
     pass
 
 
-MAX_TOC_DEEPNESS = configo.HV_INT_PLUS(default=3).value
+MAX_TOC_DEEPNESS = configo.HV_INT_PLUS(default=3)
 
 
 @dataclasses.dataclass

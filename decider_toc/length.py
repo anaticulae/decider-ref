@@ -7,13 +7,14 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import configo
 import german
 import iamraw
 import konrad
 
 import decider_toc.utils
 
-MAX_WORD_COUNT = 12  # TODO: HOLY VALUE
+MAX_WORD_COUNT = configo.HV_INT_PLUS(default=12)
 
 
 def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:

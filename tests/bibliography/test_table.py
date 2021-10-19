@@ -41,13 +41,13 @@ def test_bib_bachelor75_regression_table(testdir, monkeypatch):
 
 
 def test_bib_bachelor75_regression_bib_sort(testdir, monkeypatch):
-    """Bib table is not sorted correctly.
+    """Bib table is ??not?? sorted correctly.
 
     In the current state this check is disabled cause of not fully
     parsed bibs.
     """
     findings = run_table(power.BACHELOR075_PDF, monkeypatch, testdir, {6000})
-    assert findings
+    assert not findings
     # TODO: VERIFY ORDER AND DETECTED MISS SORTING OF BIB
 
 

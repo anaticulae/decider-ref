@@ -2,6 +2,14 @@
 
 Every noteable change is logged here.
 
+## v1.13.0
+
+### Feature
+
+* add cloud lookup (12162f3185c0)
+* use holy values (54e7ab55c21d)
+* add hint to add page number to references (d791345c3eae)
+
 ## v1.12.2
 
 ### Fix

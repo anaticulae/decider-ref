@@ -13,10 +13,10 @@ import iamraw
 import protocol
 import serializeraw
 import utila
-import words.utils
 
 import decider_bib.reference
 import decider_bib.serialize
+import decider_bib.utils
 
 
 def work(  # pylint:disable=W0613
@@ -289,10 +289,10 @@ def check_6070_bib_ref_too_complicated(linter: callable, driver):
 
 def references_plain(references, text) -> list:
     result = []
-    sentences = words.utils.sentence_lookup(text)
+    sentences = decider_bib.utils.sentence_lookup(text)
     for ref in references:
         page, sentenceid, marked = ref.page, ref.sentence, ref.marked
-        selected = words.utils.sentence_plain(  # pylint:disable=E1101
+        selected = decider_bib.utils.sentence_plain(  # pylint:disable=E1101
             sentences[page][sentenceid],
             marks=marked,
         )

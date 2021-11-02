@@ -25,7 +25,7 @@ WORKPLAN = [
             utila.ResultFile('detector', 'bibliography_detected'),
             utila.ResultFile('docref', 'bibliography_parsed'),
             utila.ResultFile('words', 'headlines_headlines'),
-            utila.ResultFile('words', 'word_result'),
+            utila.ResultFile('words', 'sentences_sentences'),
             utila.ResultFile('sections', 'section_result'),
         ],
         (USER, DEVELOPER),

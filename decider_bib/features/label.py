@@ -29,7 +29,10 @@ def work(  # pylint:disable=W0613
 ) -> protocol.ResultType:
     driver = create_driver(**locals())
     if driver.bibliography:  # pylint:disable=E1101
-        result = protocol.run(modulename=__name__, driver=driver)
+        result = protocol.run(
+            modulename=__name__,
+            driver=driver,
+        )
     else:
         utila.error('no bib table parsed: skip decider_bib:label')
         result = protocol.RESULT_EMPTY

@@ -19,8 +19,8 @@ import decider_bib.serialize
 BILIOGRAPHY_COUNT_MIN = configo.HV_INT_PLUS(default=10)
 
 
-def work(table: str) -> bytes:
-    bibliography = decider_bib.serialize.load_bibliography_reference(table)
+def work(bibtable: str) -> bytes:
+    bibliography = decider_bib.serialize.load_bibliography_reference(bibtable)
 
     rendered = None
     if len(bibliography) >= BILIOGRAPHY_COUNT_MIN:

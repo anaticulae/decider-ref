@@ -21,8 +21,13 @@ import decider_bib.table
 import decider_bib.utils
 
 
-def work(table: str, titlepage: str, pdfinfo: str) -> protocol.ResultType:
-    driver = create_driver(table, titlepage, pdfinfo)
+def work(
+    bibtable: str,
+    titlepage: str,
+    pdfinfo: str,
+    docinfo: iamraw.DocInfo,
+) -> protocol.ResultType:
+    driver = create_driver(bibtable, titlepage, pdfinfo, docinfo)
     result = protocol.run(
         modulename=__name__,
         driver=driver,
@@ -30,7 +35,7 @@ def work(table: str, titlepage: str, pdfinfo: str) -> protocol.ResultType:
     return result
 
 
-def create_driver(table: str, titlepage: str, pdfinfo: str):
+def create_driver(table: str, titlepage: str, pdfinfo: str, docinfo: str):
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
     titlepage = serializeraw.load_titlepage(titlepage)
     if not titlepage:
@@ -43,6 +48,7 @@ def create_driver(table: str, titlepage: str, pdfinfo: str):
         bibliography=bibliography,
         titlepage=titlepage,
         pages=pages,
+        docinfo=docinfo,
     )
     return driver
 

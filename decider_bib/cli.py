@@ -56,12 +56,16 @@ def main():
         root=decider_ref.ROOT,
         features='decider_bib.features',
     )
+    docinfo = protocol.integrate_docinfo()
     utila.featurepack(
         workplan=WORKPLAN,
         root=decider_ref.ROOT,
         featurepackage='decider_bib.features',
         config=utila.FeaturePackConfig(
-            cli_hook=hook,
+            cli_hook=[
+                docinfo,
+                hook,
+            ],
             description=DESCRIPTION,
             multiprocessed=True,
             name=decider_bib.PROCESS,

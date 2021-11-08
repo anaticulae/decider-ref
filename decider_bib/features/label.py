@@ -20,11 +20,12 @@ import decider_bib.utils
 
 
 def work(  # pylint:disable=W0613
-    table: str,
+    bibtable: str,
     docreference: str,
     headlines: str,
     text: str,
     sections: str,
+    docinfo: iamraw.DocInfo,
     pages: tuple = None,
 ) -> protocol.ResultType:
     driver = create_driver(**locals())
@@ -32,6 +33,7 @@ def work(  # pylint:disable=W0613
         result = protocol.run(
             modulename=__name__,
             driver=driver,
+            document=docinfo,
         )
     else:
         utila.error('no bib table parsed: skip decider_bib:label')
@@ -40,14 +42,15 @@ def work(  # pylint:disable=W0613
 
 
 def create_driver(
-    table: str,
+    bibtable: str,
     docreference: str,
     headlines: str,
     text: str,
     sections: str,
+    docinfo: iamraw.DocInfo,
     pages: tuple = None,
 ):
-    bibliography = decider_bib.serialize.load_bibliography_reference(table)
+    bibliography = decider_bib.serialize.load_bibliography_reference(bibtable)
     docreference = serializeraw.load_docref(docreference, pages=pages)
     headlines = serializeraw.load_headlines(headlines, pages=pages)
     sections = serializeraw.load_sections(sections, pages=pages)
@@ -59,6 +62,7 @@ def create_driver(
         bibtextref=docreference,
         text=text,
         nobibs=nobibs,
+        docinfo=docinfo,
     )
     return result
 

@@ -28,7 +28,7 @@ TECHNICAL24_TOO_DEEP = 14
 @utilatest.requires(power.TECH024_PDF)
 def test_toc_invalid_children(monkeypatch):
     with monkeypatch.context() as context:
-        context.setattr(decider_toc.level, 'TOC_DEEPNESS_MAX', 2)
+        context.setattr(decider_toc.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
         failures = lint(power.link(power.TECH024_PDF), dtfr)
     failures = len(failures)
     assert failures == TECHNICAL24_INVALID_CHILDREN, str(failures)
@@ -37,7 +37,7 @@ def test_toc_invalid_children(monkeypatch):
 @utilatest.requires(power.TECH024_PDF)
 def test_toc_to_deep(monkeypatch):
     with monkeypatch.context() as context:
-        context.setattr(decider_toc.level, 'TOC_DEEPNESS_MAX', 2)
+        context.setattr(decider_toc.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
         failures = lint(power.link(power.TECH024_PDF), dtfc)
     failures = len([item for item in failures if item in (1351, 1382)])
     expected = sum([

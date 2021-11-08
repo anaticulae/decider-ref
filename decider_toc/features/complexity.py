@@ -43,7 +43,7 @@ Begrenzen Sie die Gliederung auf maximal 3 Sektionen.
 
 def check_1351_toc_level_to_deep(linter, driver):
     toc: iamraw.Toc = driver.toc
-    level_result: decider_toc.level.TocValidationResult = decider_toc.level.validate(toc) #  yapf:disable
+    level_result: 'TocValidationResult' = decider_toc.level.validate(toc)
     for item in level_result.level_to_deep:  # pylint:disable=E1133
         tocline = item.raw.replace('..', '').replace('. .', '')
         tocline = utila.shrink(tocline, maxlength=80)

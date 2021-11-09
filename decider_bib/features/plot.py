@@ -21,7 +21,6 @@ BILIOGRAPHY_COUNT_MIN = configo.HV_INT_PLUS(default=10)
 
 def work(bibtable: str) -> bytes:
     bibliography = decider_bib.serialize.load_bibliography_reference(bibtable)
-
     rendered = None
     if len(bibliography) >= BILIOGRAPHY_COUNT_MIN:
         rendered = render_year_overview(bibliography)

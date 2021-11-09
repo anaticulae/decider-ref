@@ -12,9 +12,17 @@ import protocol
 import serializeraw
 
 
-def create_driver(toc: str, outlines: str = None):
+def create_driver(
+    toc: str,
+    outlines: str = None,
+    docinfo: iamraw.DocInfo = None,
+):
     toc: iamraw.Toc = serializeraw.load_toc(toc)
     if outlines:
         outlines = serializeraw.load_toc(outlines)
-    driver = protocol.driver(toc=toc, outlines=outlines)
-    return driver
+    result = protocol.driver(
+        toc=toc,
+        outlines=outlines,
+        docinfo=docinfo,
+    )
+    return result

@@ -19,7 +19,10 @@ import decider_toc.level
 
 
 def work(toc: str, docinfo: iamraw.DocInfo = None) -> protocol.ResultType:
-    driver = decider_toc.features.create_driver(toc=toc)
+    driver = decider_toc.features.create_driver(
+        toc=toc,
+        docinfo=docinfo,
+    )
     result = protocol.run(
         __name__,
         driver=driver,
@@ -27,6 +30,16 @@ def work(toc: str, docinfo: iamraw.DocInfo = None) -> protocol.ResultType:
         document=docinfo,
     )
     return result
+
+
+def complex_document(document) -> bool:
+    if not document:
+        return False
+    if not document.doctype:
+        return False
+    if document.doctype in (iamraw.DocumentType.DISS, iamraw.DocumentType.BOOK):
+        return True
+    return False
 
 
 SOLUTION_1351 = """\
@@ -44,7 +57,13 @@ Begrenzen Sie die Gliederung auf maximal 3 Sektionen.
 
 def check_1351_toc_level_to_deep(linter, driver):
     toc: iamraw.Toc = driver.toc
-    level_result: 'TocValidationResult' = decider_toc.level.validate(toc)
+    deep_max = decider_toc.level.TOC_DEEPNESS_DEFAULT_MAX
+    if complex_document(driver.docinfo):
+        deep_max = decider_toc.level.TOC_DEEPNESS_DISS_MAX
+    level_result: 'TocValidationResult' = decider_toc.level.validate(
+        toc=toc,
+        maxdeep=deep_max,
+    )
     for item in level_result.level_to_deep:  # pylint:disable=E1133
         tocline = item.raw.replace('..', '').replace('. .', '')
         tocline = utila.shrink(tocline, maxlength=80)

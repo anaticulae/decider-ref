@@ -49,6 +49,7 @@ def linter(path: str, module, msgids=None):
     driver = protocol.driver(
         toc=toc,
         outlines=None,
+        docinfo=None,
     )
     findings = protocol.run(
         module.__name__,

@@ -2,6 +2,14 @@
 
 Every noteable change is logged here.
 
+## v1.14.0
+
+### Feature
+
+* make max complexity doctype dependent (b414a74446ca)
+* use new protocol feature (15a681e8daf7)
+* use new sentences extraction (5c1ffcc49582)
+
 ## v1.13.0
 
 ### Feature

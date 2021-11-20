@@ -17,8 +17,12 @@ import protocol
 import decider_toc.features
 
 
-def work(toc: str, outlines: str) -> protocol.ResultType:
-    driver = decider_toc.features.create_driver(toc, outlines)
+def work(toc: str, outlines: str, headlines: str = None) -> protocol.ResultType:
+    driver = decider_toc.features.create_driver(
+        toc,
+        outlines,
+        headlines=headlines,
+    )
     result = protocol.run(__name__, driver=driver)
     return result
 

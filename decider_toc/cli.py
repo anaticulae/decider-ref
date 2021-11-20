@@ -20,6 +20,7 @@ WORKPLAN = [
         [
             utila.ResultFile('groupme', 'toc_toc'),
             utila.ResultFile('rawmaker', 'outlines_outlines'),
+            utila.ResultFile('words', 'headlines_headlines', optional=True),
         ],
         ('user', 'developer'),
     ),

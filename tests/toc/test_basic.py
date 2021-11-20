@@ -23,6 +23,23 @@ def test_toc_extraction_no_toc():
     assert failures == expected_failures, str(failures)
 
 
+@utilatest.requires(power.BACHELOR067_PDF)
+def test_toc_duplicated_level_bachelor067():
+    """\
+    1 Einführung
+    1 Quellcode/Skripte(Auszüge)
+    2 Vorstellung und Architektur übersicht von Spark
+    2 Konfigurationen
+    """
+    source = power.link(power.BACHELOR067_PDF)
+    linted = tests.toc.linter(
+        source,
+        decider_toc.features.basic,
+        msgids=1310,
+    )
+    assert len(linted) == 5
+
+
 def lint(path: str, module):
     toc = tests.toc.tableofcontent(path)
     linter = protocol.from_module(module.__name__)

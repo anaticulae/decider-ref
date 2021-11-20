@@ -46,9 +46,14 @@ def lint(path: str, module):
 
 def linter(path: str, module, msgids=None):
     toc = tableofcontent(path)
+    try:
+        headlines = serializeraw.load_headlines(path)
+    except FileNotFoundError:
+        headlines = None
     driver = protocol.driver(
-        toc=toc,
+        headlines=headlines,
         outlines=None,
+        toc=toc,
         docinfo=None,
     )
     findings = protocol.run(

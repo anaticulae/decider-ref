@@ -12,7 +12,10 @@ Table of content
 ================
 """
 
+import collections
+
 import protocol
+import utila
 
 import decider_toc.features
 
@@ -62,3 +65,46 @@ def check_1301_outlines_existence(linter, driver):
     if outlines:
         return
     linter(location=protocol.OVERVIEW)
+
+
+SOLUTION_1310 = """\
+Inhaltsverzeichnis inkonsistent
+
+Mehrdeutige Bereichsnummber:
+* {{first}}
+* {{second}}
+"""
+
+
+def check_1310_duplicated_level(linter, driver):
+    headlines = driver.headlines
+    if not headlines:
+        return
+    headlines = utila.flatten(headlines)
+    duplicated = collections.defaultdict(list)
+    for headline in headlines:
+        key = headline.raw_level.strip() if headline.raw_level else None
+        if not key:
+            continue
+        duplicated[key].append(headline)
+    for pair in duplicated.values():
+        if len(pair) == 1:
+            continue
+        first, second = pair[0].raw, pair[1].raw
+        linter(
+            first=shorten(first),
+            second=shorten(second),
+            location=protocol.OVERVIEW,
+        )
+
+
+def shorten(text, length_max: int = 30) -> str:
+    """\
+    >>> shorten('ABCDEFGHIJKLMNOPRSTUVWXYZ', length_max=20)
+    'ABCDEFGHIJ [...] STUVWXYZ'
+    """
+    text = text.strip()
+    if len(text) < length_max:
+        return text
+    text = text[0:length_max // 2] + ' [...] ' + text[length_max // 2 + 7:]
+    return text

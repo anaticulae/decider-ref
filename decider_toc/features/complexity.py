@@ -65,13 +65,19 @@ def check_1351_toc_level_to_deep(linter, driver):
         maxdeep=deep_max,
     )
     for item in level_result.level_to_deep:  # pylint:disable=E1133
-        tocline = item.raw.replace('..', '').replace('. .', '')
-        tocline = utila.shrink(tocline, maxlength=80)
+        tocline = tocline_shrink(item.raw)
         location = iamraw.Location.from_page(item.raw_location)
         linter(
             location=location,
             tocline=tocline,
         )
+
+
+def tocline_shrink(raw: str) -> str:
+    raw = raw.replace('..', '').replace('. .', '')
+    raw = raw.strip('.')
+    raw = utila.shrink(raw, maxlength=80)
+    return raw
 
 
 SOLUTION_1370 = """\

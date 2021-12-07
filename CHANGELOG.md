@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v1.15.0
+
+### Feature
+
+* verify duplicated headline level (0fc2ff664118)
+* add headlines as optional resource (d7dd82ea3fc2)
+
 ## v1.14.0
 
 ### Feature

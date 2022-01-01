@@ -110,3 +110,13 @@ def test_bib_table_diss266_too_many_bibs(testdir, monkeypatch):
         {6007},
     )
     assert len(detected) == 1
+
+
+def test_bib_sorted_diss172(testdir, monkeypatch):
+    detected = run_table(
+        power.DISS172_PDF,
+        monkeypatch,
+        testdir,
+        {6000},
+    )
+    assert not detected

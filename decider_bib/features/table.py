@@ -71,6 +71,10 @@ Erwartet:
 
 def check_6000_not_sorted_alphabetically(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography
+    if all_labeled(references):
+        # Labeled bibs with [1] [2] are always sorted
+        utila.debug('all bibs are labeled skip order check 6000')
+        return
     if not all_authors_valid(references):
         utila.error('could not parse all authors, skip 6000')
         return
@@ -98,6 +102,22 @@ def all_authors_valid(references: iamraw.BibliographyReferences) -> bool:
         utila.error(f'could not parse all bib refs: {item}')
         result = False
     return result
+
+
+def all_labeled(references: iamraw.BibliographyReferences) -> bool:
+    if not references:
+        return False
+    ref, noref = utila.partition(
+        key=lambda x: utila.isint(x.reference),
+        items=references,
+    )
+    if not noref:
+        return True
+    rate = utila.rate_sum(len(ref), len(noref))
+    if rate >= 0.75:
+        # TODO: HOLY VALUE
+        return True
+    return False
 
 
 SOLUTION_6005 = """\

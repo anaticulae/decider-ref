@@ -71,11 +71,8 @@ Erwartet:
 
 def check_6000_not_sorted_alphabetically(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography
-    if any(not reference.authors for reference in references):
-        utila.error('could not parse all bib refs')
-        for item in references:
-            if not item.authors:
-                utila.error(item)
+    if not all_authors_valid(references):
+        utila.error('could not parse all authors, skip 6000')
         return
     current = list(references)
     expected = decider_bib.order.theissen_sort(current)
@@ -91,6 +88,16 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
         expected=utila.NEWLINE.join(expected),
         location=location,
     )
+
+
+def all_authors_valid(references: iamraw.BibliographyReferences) -> bool:
+    result = True
+    for item in references:
+        if item.authors:
+            continue
+        utila.error(f'could not parse all bib refs: {item}')
+        result = False
+    return result
 
 
 SOLUTION_6005 = """\

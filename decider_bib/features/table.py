@@ -7,7 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
 import re
 
 import iamraw
@@ -51,18 +50,6 @@ def create_driver(table: str, titlepage: str, pdfinfo: str, docinfo: str):
         docinfo=docinfo,
     )
     return driver
-
-
-def linting(linter: protocol.Linter, driver):
-    location = iamraw.Location.from_page(0)
-    checkers = protocol.parse_checkers(__name__)
-    for checker in checkers:
-        call = functools.partial(
-            linter.add_finding,
-            msgid=checker.msgid,
-            location=location,
-        )
-        checker(call, driver)
 
 
 SOLUTION_6000 = """\

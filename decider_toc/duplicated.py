@@ -85,7 +85,8 @@ def duplicates(lines):
         for index in range(len(line)):
             for words in range(index + 1, len(line) + 1):
                 tokens = line[index:words]
-                if len(tokens) == 1 and tokens[0] in knlp.STOPWORDS:
+                if len(tokens) == 1 and tokens[0].lower() in knlp.STOPWORDS:
+                    # lower: handle UND correctly
                     continue
                 sub = ' '.join(tokens)
                 counter[sub] += 1

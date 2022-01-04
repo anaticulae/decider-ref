@@ -12,6 +12,7 @@ import protocol
 import utila
 import utilatest
 
+import decider_toc.duplicated
 import tests.toc
 
 
@@ -23,7 +24,20 @@ def test_toc_style_bachelor76_duplicated_words(testdir, monkeypatch):
 
 def test_toc_style_bachelor51_duplicated_words(testdir, monkeypatch):
     """Skip `EMS` detection in `1 EINLEITUNG UND PROBLEMSTELLUNG`."""
-    duplicated = run_style(power.BACHELOR051_PDF, 1380, testdir, monkeypatch)
+    with monkeypatch.context() as context:
+        # make this test config independent
+        context.setattr(
+            decider_toc.duplicated,
+            'DUPLICATES_COUNT_MIN',
+            lambda _: 5,
+        )
+        duplicated = run_style(
+            power.BACHELOR051_PDF,
+            1380,
+            testdir,
+            monkeypatch,
+        )
+    assert duplicated, 'check DUPLICATES_COUNT_MIN'
     description = duplicated[0].solution.description
     assert 'wird 5 mal in' in description
 

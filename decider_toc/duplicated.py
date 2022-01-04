@@ -76,10 +76,15 @@ def inside(item, container) -> bool:
     return False
 
 
-DUPLICATES_COUNT_MIN = configo.HV_INT_PLUS(default=5)
+DUPLICATES_COUNT_MIN = configo.HolyTable(items=(
+    (0, 5),
+    (20, 5),
+    (40, 10),
+))
 
 
 def duplicates(lines):
+    duplicated_count_min = DUPLICATES_COUNT_MIN(len(lines))
     counter = collections.Counter()
     for line in lines:
         for index in range(len(line)):
@@ -91,11 +96,11 @@ def duplicates(lines):
                 sub = ' '.join(tokens)
                 counter[sub] += 1
     most_common = counter.most_common(n=100)
-    result = [item for item in most_common if item[1] >= DUPLICATES_COUNT_MIN]
+    result = [item for item in most_common if item[1] >= duplicated_count_min]
     result = remove_duplicates(result)
     # filter again, if after merging a subgroup is not completly covered
     # by parent group.
-    result = [item for item in result if item[1] >= DUPLICATES_COUNT_MIN]
+    result = [item for item in result if item[1] >= duplicated_count_min]
     return result
 
 

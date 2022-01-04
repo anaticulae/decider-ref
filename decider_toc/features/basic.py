@@ -14,6 +14,7 @@ Table of content
 
 import collections
 
+import iamraw
 import protocol
 import utila
 
@@ -108,3 +109,22 @@ def shorten(text, length_max: int = 30) -> str:
         return text
     text = text[0:length_max // 2] + ' [...] ' + text[length_max // 2 + 7:]
     return text
+
+
+SOLUTION_R1315 = """\
+Inhaltsverzeichnis Stil überdenken
+
+Sie verwenden das Abstufungsprinzip. Durch Verwendung des Linienprinzips \
+ist eine eindeutigere Struktur möglich.
+
+{elemente/inhaltsverzeichnis}
+"""
+
+
+def check_1315_stepped_toc(linter, driver):
+    toc: iamraw.Toc = driver.toc
+    if not toc:
+        return
+    if not toc.numbered:
+        return
+    linter(location=protocol.OVERVIEW)

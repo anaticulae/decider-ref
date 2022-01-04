@@ -22,6 +22,7 @@ TODO: ADD SOLUTION TO COMPARE TOC AND OUTLINES
 
 import os
 
+import elements.headline.lookup
 import iamraw
 import protocol
 import serializeraw
@@ -114,12 +115,7 @@ def check_1330_toc_document_sync(linter, driver):
 
 
 def not_missing(items: list) -> list:
-    return [item for item in items if not utila.verysimilar(item, expected=TOC)]
-
-
-TOC = utila.splitlines("""
-Inhalt
-Inhaltsverzeichnis
-Table of Content
-Table of Contents
-""")
+    return [
+        item for item in items
+        if not utila.verysimilar(item, expected=elements.headline.lookup.TOC)
+    ]

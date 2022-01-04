@@ -14,6 +14,7 @@ Table of content
 
 import collections
 
+import configo
 import iamraw
 import protocol
 import utila
@@ -76,6 +77,8 @@ Mehrdeutige Bereichsnummber:
 * {{second}}
 """
 
+SHORTEN_LEGNTH_MAX = configo.HV_INT_PLUS(default=30)
+
 
 def check_1310_duplicated_level(linter, driver):
     headlines = driver.headlines
@@ -93,22 +96,10 @@ def check_1310_duplicated_level(linter, driver):
             continue
         first, second = pair[0].raw, pair[1].raw
         linter(
-            first=shorten(first),
-            second=shorten(second),
+            first=utila.shrink(first, maxlength=SHORTEN_LEGNTH_MAX),
+            second=utila.shrink(second, maxlength=SHORTEN_LEGNTH_MAX),
             location=protocol.OVERVIEW,
         )
-
-
-def shorten(text, length_max: int = 30) -> str:
-    """\
-    >>> shorten('ABCDEFGHIJKLMNOPRSTUVWXYZ', length_max=20)
-    'ABCDEFGHIJ [...] STUVWXYZ'
-    """
-    text = text.strip()
-    if len(text) < length_max:
-        return text
-    text = text[0:length_max // 2] + ' [...] ' + text[length_max // 2 + 7:]
-    return text
 
 
 SOLUTION_R1315 = """\

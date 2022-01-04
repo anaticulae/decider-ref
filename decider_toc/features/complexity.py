@@ -26,7 +26,7 @@ def work(toc: str, docinfo: iamraw.DocInfo = None) -> protocol.ResultType:
     result = protocol.run(
         __name__,
         driver=driver,
-        location=iamraw.Location.from_page(1),
+        location=protocol.OVERVIEW,
         document=docinfo,
     )
     return result

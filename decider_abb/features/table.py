@@ -46,16 +46,14 @@ def check_15010_not_sorted_alphabetically(linter: callable, driver):
         abbreviations,
         key=lambda x: utila.alphabetically(x.short),
     )
-
     if current == expected:
+        # well sorted
         return
-
     location = pagelocation(current[0])
-
     # TODO: CHECK REPRESENTATION
+    # prepare viewable format
     current = [format_abbreviation_line(item) for item in current]
     expected = [format_abbreviation_line(item) for item in expected]
-
     linter(
         current=utila.NEWLINE.join(current),
         expected=utila.NEWLINE.join(expected),

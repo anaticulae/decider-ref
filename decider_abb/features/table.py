@@ -13,6 +13,8 @@ import protocol
 import serializeraw
 import utila
 
+import decider_abb.listdiff
+
 
 def work(abbreviation: str) -> protocol.ResultType:
     abbreviation = serializeraw.load_abbreviation_table(abbreviation)
@@ -27,13 +29,7 @@ Abkürzungsverzeichnis nicht alphabetisch sortiert
 
 Sortieren Sie das Abkürzungsverzeichnis.
 
-Gefunden:
----------
-{{current}}
-
-Erwartet:
----------
-{{expected}}
+{{advice}}
 
 {elemente/abkuerzungsverzeichnis#alphabetische-sortierung}
 """
@@ -50,13 +46,12 @@ def check_15010_not_sorted_alphabetically(linter: callable, driver):
         # well sorted
         return
     location = pagelocation(current[0])
-    # TODO: CHECK REPRESENTATION
     # prepare viewable format
     current = [format_abbreviation_line(item) for item in current]
     expected = [format_abbreviation_line(item) for item in expected]
+    advice = decider_abb.listdiff.diffview(expected, current)
     linter(
-        current=utila.NEWLINE.join(current),
-        expected=utila.NEWLINE.join(expected),
+        advice=advice,
         location=location,
     )
 

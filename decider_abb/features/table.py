@@ -13,7 +13,7 @@ import protocol
 import serializeraw
 import utila
 
-import decider_abb.listdiff
+import decider_ref.listdiff
 
 
 def work(abbreviation: str) -> protocol.ResultType:
@@ -49,7 +49,7 @@ def check_15010_not_sorted_alphabetically(linter: callable, driver):
     # prepare viewable format
     current = [format_abbreviation_line(item) for item in current]
     expected = [format_abbreviation_line(item) for item in expected]
-    advice = decider_abb.listdiff.diffview(expected, current)
+    advice = decider_ref.listdiff.diffview(expected, current)
     linter(
         advice=advice,
         location=location,

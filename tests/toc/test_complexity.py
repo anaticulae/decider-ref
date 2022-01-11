@@ -41,6 +41,7 @@ def test_toc_decider_toc_complexity_regression():
     tests.toc.lint(source, decider_toc.features.complexity)
 
 
+@utilatest.requires(power.BACHELOR128_PDF)
 def test_decider_toc_complexity_bachelor128_regression():
     """Page 4 is the page of table of content."""
     source = power.link(power.BACHELOR128_PDF)

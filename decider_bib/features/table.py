@@ -18,6 +18,7 @@ import decider_bib.order
 import decider_bib.serialize
 import decider_bib.table
 import decider_bib.utils
+import decider_ref.listdiff
 
 
 def work(
@@ -57,13 +58,7 @@ Quellenverzeichnis ist nicht alphabetisch sortiert
 
 Sortieren Sie das Quellenverzeichnis.
 
-Gefunden:
----------
-{{current}}
-
-Erwartet:
----------
-{{expected}}
+{{advice}}
 
 {elemente/literaturverzeichnis}
 """
@@ -86,10 +81,9 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
     # TODO: CHECK REPRESENTATION
     current = [decider_bib.utils.format_bibline(item) for item in current]
     expected = [decider_bib.utils.format_bibline(item) for item in expected]
-
+    advice = decider_ref.listdiff.diffview(expected, current)
     linter(
-        current=utila.NEWLINE.join(current),
-        expected=utila.NEWLINE.join(expected),
+        advice=advice,
         location=location,
     )
 

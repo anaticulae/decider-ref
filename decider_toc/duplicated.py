@@ -25,6 +25,7 @@ import german
 import iamraw
 import knlp
 import konrad
+import utila
 
 import decider_toc.utils
 
@@ -66,10 +67,9 @@ def inside(item, container) -> bool:
     True
     """
     item = re.escape(item)
-    searched = re.search(
+    searched = utila.search(
         INSIDE % item,
         container,
-        flags=re.VERBOSE | re.IGNORECASE,
     )
     if searched is not None:
         return True

@@ -46,7 +46,7 @@ SOLUTION_1351 = """\
 Gliederung zu komplex
 
 Das Dokument weist eine zu detaillierte Untergliederung **{{tocline}}** auf. \
-Eine zu feingliedrige Gliederung reduziert die Üebersichtlichkeit und \
+Eine zu feingliedrige Gliederung reduziert die Übersichtlichkeit und \
 verhindert das schnelle Navigieren im Text.
 
 Begrenzen Sie die Gliederung auf maximal 3 Sektionen.

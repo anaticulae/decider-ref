@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import elements
 import iamraw
 import protocol
 
@@ -16,14 +17,10 @@ import decider_toc.marks
 
 def work(toc: str) -> protocol.ResultType:
     driver = decider_toc.features.create_driver(toc)
-    try:
-        pdflocation = driver.toc[0].raw_location  # pylint:disable=E1101
-    except IndexError:
-        pdflocation = protocol.OVERVIEW.page
     result = protocol.run(
         __name__,
         driver=driver,
-        location=iamraw.Location.from_page(pdflocation),
+        location=protocol.OVERVIEW,
     )
     return result
 
@@ -39,15 +36,18 @@ dieses Wort um die Varianz der Sprache zu vergrößern.
 
 def check_1380_toc_duplicated_words(linter, driver):
     toc: iamraw.Toc = driver.toc
+    toc_flat = elements.toc_flat(toc)
     findings = decider_toc.duplicated.validate(toc)
     for item in findings:
         (word, count), lines = item
+        location = iamraw.Location.from_page(toc_flat[lines[0]].raw_location)
         lines = ', '.join([f'{item}' for item in lines])
         # location = iamraw.Location.from_page(item.raw_location)
         linter(
             word=word,
             count=count,
             lines=lines,
+            location=location,
         )
 
 

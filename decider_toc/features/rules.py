@@ -8,6 +8,7 @@
 # =============================================================================
 
 import elements
+import elements.headline.lookup
 import iamraw
 import protocol
 import utila
@@ -107,10 +108,7 @@ def check_1365_toc_legal_inside_toc(linter, driver):
         utila.error(f'multiple legal toc detected {legal_intoc}')
 
 
-LEGAL = utila.splitlines("""\
-Eidesstattliche Erklärung
-Eidesstattliche Versicherung
-""")
+LEGAL = elements.headline.lookup.LEGAL
 
 
 def islegal(item: str) -> bool:

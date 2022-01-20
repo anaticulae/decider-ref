@@ -14,8 +14,8 @@ import serializeraw
 import utilatest
 
 import decider_toc.features
-import decider_toc.features.complexity as dtfc
-import decider_toc.features.rules as dtfr
+import decider_toc.features.complexity
+import decider_toc.features.rules
 import decider_toc.level
 import tests
 
@@ -28,7 +28,10 @@ TECHNICAL24_TOO_DEEP = 14
 def test_toc_invalid_children(monkeypatch):
     with monkeypatch.context() as context:
         context.setattr(decider_toc.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
-        failures = lint(power.link(power.TECH024_PDF), dtfr)
+        failures = lint(
+            power.link(power.TECH024_PDF),
+            decider_toc.features.rules,
+        )
     failures = len(failures)
     assert failures == TECHNICAL24_INVALID_CHILDREN, str(failures)
 
@@ -37,7 +40,10 @@ def test_toc_invalid_children(monkeypatch):
 def test_toc_to_deep(monkeypatch):
     with monkeypatch.context() as context:
         context.setattr(decider_toc.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
-        failures = lint(power.link(power.TECH024_PDF), dtfc)
+        failures = lint(
+            power.link(power.TECH024_PDF),
+            decider_toc.features.complexity,
+        )
     failures = len([item for item in failures if item in (1351, 1382)])
     expected = sum([
         TECHNICAL24_INVALID_CHILDREN_TO_LONG,

@@ -18,8 +18,11 @@ import decider_toc.level as dtl
 import decider_toc.utils
 
 
-def work(toc: str) -> protocol.ResultType:
-    driver = decider_toc.features.create_driver(toc)
+def work(toc: str, sections: str) -> protocol.ResultType:
+    driver = decider_toc.features.create_driver(
+        toc=toc,
+        sections=sections,
+    )
     result = protocol.run(
         __name__,
         driver=driver,

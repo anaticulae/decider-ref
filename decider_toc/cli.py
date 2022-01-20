@@ -35,6 +35,7 @@ WORKPLAN = [
         'rules',
         [
             utila.ResultFile('groupme', 'toc_toc'),
+            utila.ResultFile('sections', 'section_result'),
         ],
         ('user', 'developer'),
     ),

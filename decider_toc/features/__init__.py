@@ -18,6 +18,7 @@ def create_driver(
     outlines: str = None,
     headlines: str = None,
     docinfo: iamraw.DocInfo = None,
+    sections: str = None,
 ):
     toc: iamraw.Toc = serializeraw.load_toc(toc)
     if utila.exists(headlines):
@@ -28,10 +29,15 @@ def create_driver(
         headlines = serializeraw.load_headlines(headlines)
     else:
         headlines = None
+    if utila.exists(sections):
+        sections = serializeraw.load_sections(sections)
+    else:
+        sections = None
     result = protocol.driver(
+        docinfo=docinfo,
         headlines=headlines,
         outlines=outlines,
+        sections=sections,
         toc=toc,
-        docinfo=docinfo,
     )
     return result

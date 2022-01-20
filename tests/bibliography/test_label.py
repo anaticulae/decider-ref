@@ -125,3 +125,10 @@ def test_diss143_numbered_label_6050(testdir, monkeypatch):
 def test_diss143_add_pagination_hint(testdir, monkeypatch):
     hint = run_label(power.DISS143_PDF, monkeypatch, testdir, {6063})
     assert len(hint) == 1
+
+
+def test_reg_bib_not_required_diss172(testdir, monkeypatch):
+    """All bib entrees are required? TODO: VERIFY"""
+    # TODO: NOT READY YET
+    linting = run_label(power.DISS172_PDF, monkeypatch, testdir, {6051})
+    assert not linting

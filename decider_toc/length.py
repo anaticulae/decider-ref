@@ -8,6 +8,7 @@
 # =============================================================================
 
 import configo
+import elements
 import german
 import iamraw
 import konrad
@@ -18,7 +19,7 @@ WORD_COUNT_MAX = configo.HV_INT_PLUS(default=12)
 
 
 def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
-    flatten = decider_toc.utils.flat(toc)
+    flatten = elements.toc_flat(toc)
 
     lines = []
     for index, item in enumerate(flatten):

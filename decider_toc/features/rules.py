@@ -15,7 +15,6 @@ import utila
 
 import decider_toc.features
 import decider_toc.level as dtl
-import decider_toc.utils
 
 
 def work(toc: str, sections: str) -> protocol.ResultType:
@@ -98,7 +97,7 @@ def check_1365_toc_legal_inside_toc(linter, driver):
     toc: iamraw.Toc = driver.toc
     if not toc:
         return
-    toc = decider_toc.utils.flat(toc)
+    toc = elements.toc_flat(toc)
 
     legal_intoc = [item for item in toc if islegal(item.title)]
     if not legal_intoc:

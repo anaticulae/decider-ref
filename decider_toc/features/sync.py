@@ -22,13 +22,12 @@ TODO: ADD SOLUTION TO COMPARE TOC AND OUTLINES
 
 import os
 
+import elements
 import elements.headline.lookup
 import iamraw
 import protocol
 import serializeraw
 import utila
-
-import decider_toc.utils
 
 
 def work(
@@ -88,8 +87,8 @@ def check_1330_toc_document_sync(linter, driver):
     headlines = iamraw.headlines_totoc(headlines)
     toc_firstpage = min([item.raw_location for item in toc])
 
-    toc = decider_toc.utils.flat(toc)
-    headlines = decider_toc.utils.flat(headlines)  # pylint:disable=R0204
+    toc = elements.toc_flat(toc)
+    headlines = elements.toc_flat(headlines)  # pylint:disable=R0204
 
     # TODO: ADD BETTER TOC SYNC TO COMPARE CORRECT LEVEL
     # TODO: RENAME VARIABLES

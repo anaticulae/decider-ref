@@ -17,10 +17,9 @@ import statistics
 import typing
 
 import configo
+import elements
 import iamraw
 import utila
-
-import decider_toc.utils
 
 # minimum page numbers to evaluate that page is too short or too long
 PAGE_LENGTH_MIN = configo.HV_FLOAT_PLUS(1.0)
@@ -144,7 +143,7 @@ def level(toc: iamraw.Toc, *, flat: bool = True, roman: bool = False) -> Level:
 
 
 def data(toc: iamraw.Toc) -> TocLines:
-    flat = decider_toc.utils.flat(toc)
+    flat = elements.toc_flat(toc)
     result = []
     for item in flat:
         page = item.page

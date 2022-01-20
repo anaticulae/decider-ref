@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import elements
 import german
 import iamraw
 import konrad
@@ -28,7 +29,7 @@ def validate_general_marks(toc: iamraw.Toc) -> dtu.InvalidTocItems:
 
 
 def collect_mark(toc: iamraw.Toc, mark: konrad.Mark) -> dtu.InvalidTocItems:
-    flatten = dtu.flat(toc)
+    flatten = elements.toc_flat(toc)
     marks = [mark] if isinstance(mark, konrad.Mark) else mark
 
     result = []
@@ -41,7 +42,7 @@ def collect_mark(toc: iamraw.Toc, mark: konrad.Mark) -> dtu.InvalidTocItems:
 
 
 def collect_quotation_marks(toc: iamraw.Toc) -> dtu.InvalidTocItems:
-    flatten = dtu.flat(toc)
+    flatten = elements.toc_flat(toc)
     lines = []
     for index, item in enumerate(flatten):
         words = german.split_words(item.title, validate_sentences=False)

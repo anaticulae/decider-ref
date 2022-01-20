@@ -17,9 +17,18 @@ import decider_toc.duplicated
 
 @pytest.mark.xfail(reason='check later')
 @utilatest.requires(power.MASTER098_PDF)
-def test_duplicated_words():
+def test_duplicated_words_master098():
     source = power.link(power.MASTER098_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
     validated = decider_toc.duplicated.validate(toc)
     assert len(validated) == 1  # TODO: VALIDATE LATER
+
+
+@utilatest.requires(power.DISS406_PDF)
+def test_duplicated_words_diss406():
+    source = power.link(power.DISS406_PDF)
+    toc = serializeraw.load_toc(source)
+    assert toc
+    validated = decider_toc.duplicated.validate(toc)
+    assert len(validated) == 4  # NOT VALIDATED

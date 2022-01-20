@@ -69,7 +69,10 @@ def check_1383_toc_contains_question_mark(linter, driver):
     for item in findings:
         _, title, raw_location = item
         location = iamraw.Location.from_page(raw_location)
-        linter(title=title, location=location)
+        linter(
+            title=title,
+            location=location,
+        )
 
 
 # TODO: ADD ARTICLE
@@ -91,4 +94,7 @@ def check_1384_toc_contains_quotation_mark(linter, driver):
     for item in findings:
         _, title, raw_location = item
         location = iamraw.Location.from_page(raw_location)
-        linter(title=title, location=location)
+        linter(
+            title=title,
+            location=location,
+        )

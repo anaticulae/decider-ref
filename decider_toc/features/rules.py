@@ -23,7 +23,7 @@ def work(toc: str) -> protocol.ResultType:
     result = protocol.run(
         __name__,
         driver=driver,
-        location=iamraw.Location.from_page(1),
+        location=protocol.OVERVIEW,
     )
     return result
 

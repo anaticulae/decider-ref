@@ -7,7 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import iamraw
 import power
 import protocol
 import pytest
@@ -104,7 +103,7 @@ def test_toc_validate_deepness(source, too_deep):
 
 def lint(path: str, module):
     driver = decider_toc.features.create_driver(toc=path)
-    location = iamraw.Location.from_page(1)
+    location = protocol.OVERVIEW
     dumped = protocol.run(
         module.__name__,
         driver=driver,

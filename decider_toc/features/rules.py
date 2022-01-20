@@ -116,3 +116,33 @@ LEGAL = elements.headline.lookup.LEGAL
 
 def islegal(item: str) -> bool:
     return utila.similar(LEGAL, item, maxdiff=0.95)
+
+
+SOLUTION_1366 = """\
+Abstract an den Anfang
+
+Das Abstrac/k???t dient zum ersten Kontakt des Lesenden. Daher bietet es \
+sich an dies ganz an den Anfang der Arbeit zu stellen.
+
+Falls die Prürfungsordnung dies anders sieht, bitte orientieren Sie sich \
+an dieser.
+
+{elemente/abstract}
+"""
+
+
+def check_1366_abstract_position(linter, driver):
+    if not driver.sections:
+        return
+    sections = utila.flatten(driver.sections)
+    # TODO: USE COUNT LATER
+    abstract = utila.select_type(sections, iamraw.Abstract)
+    if not abstract:
+        return
+    abstract = abstract[0]
+    # TODO: MAKE DOCUMENT LENGTH DEPEDENT
+    # lastpage = sections[-1].end
+    if abstract.start < 20:  # TODO: HOLY VALUE
+        return
+    location = iamraw.Location.from_page(abstract.start)
+    linter(location=location)

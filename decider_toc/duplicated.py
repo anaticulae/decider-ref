@@ -90,7 +90,9 @@ DUPLICATES_COUNT_MIN = configo.HolyTable(items=(
 
 
 def duplicates(lines, lang=None):
-    stopwords = knlp.STOPWORDS
+    if not lang:
+        lang = 'german'
+    stopwords = knlp.stopwords(lang=lang)
     duplicated_count_min = DUPLICATES_COUNT_MIN(len(lines))
     counter = collections.Counter()
     for line in lines:

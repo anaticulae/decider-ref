@@ -32,14 +32,19 @@ import decider_toc.utils
 
 
 def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
+    lang = decider_toc.utils.toc_lang(toc)
     flatten = elements.toc_flat(toc)
     lines = []
     for item in flatten:
-        words = german.split_words(item.title, validate_sentences=False)
+        words = german.split_words(
+            item.title,
+            validate_sentences=False,
+            lang=lang,
+        )
         words = konrad.remove_marks(words)
         lines.append(words)
     result = []
-    duplication = duplicates(lines)
+    duplication = duplicates(lines, lang=lang)
     for invalid in duplication:
         finding = [
             index for index, line in enumerate(flatten)
@@ -84,14 +89,15 @@ DUPLICATES_COUNT_MIN = configo.HolyTable(items=(
 ))
 
 
-def duplicates(lines):
+def duplicates(lines, lang=None):
+    stopwords = knlp.STOPWORDS
     duplicated_count_min = DUPLICATES_COUNT_MIN(len(lines))
     counter = collections.Counter()
     for line in lines:
         for index in range(len(line)):
             for words in range(index + 1, len(line) + 1):
                 tokens = line[index:words]
-                if len(tokens) == 1 and tokens[0].lower() in knlp.STOPWORDS:
+                if len(tokens) == 1 and tokens[0].lower() in stopwords:
                     # lower: handle UND correctly
                     continue
                 sub = ' '.join(tokens)

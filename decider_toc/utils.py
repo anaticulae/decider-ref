@@ -9,8 +9,10 @@
 
 import collections
 
+import german
 import iamraw
 import iamraw.toc
+import utila
 
 
 class InvalidTocItems(collections.UserList):  # pylint:disable=too-many-ancestors
@@ -30,4 +32,11 @@ def flat(toc: iamraw.Toc):
     for item in toc:
         godown(item)
 
+    return result
+
+
+def toc_lang(toc: iamraw.Toc) -> iamraw.Language:
+    flats = flat(toc)
+    joined = utila.NEWLINE.join([item.raw for item in flats])
+    result = german.lang(joined).language
     return result

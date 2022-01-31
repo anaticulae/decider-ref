@@ -7,21 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import iamraw
 import protocol
+import serializeraw
+import utila
 
-import decider_cap.driver
 
-
-def work(
-    captions: str,
-    docinfo: iamraw.DocInfo,
-    pages: tuple = None,
-) -> protocol.ResultType:
-    driver = decider_cap.driver.create_driver(captions, pages=pages)
-    result = protocol.run(
-        modulename=__name__,
-        driver=driver,
-        document=docinfo,
-    )
+def create_driver(captions: str, pages: tuple = None):
+    if utila.exists(captions):
+        captions = serializeraw.load_captions(captions, pages=pages)
+    else:
+        captions = []
+    result = protocol.driver(captions=captions)
     return result

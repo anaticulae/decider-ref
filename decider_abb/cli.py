@@ -14,15 +14,13 @@ import decider_abb
 
 DESCRIPTION = ''
 
-DEFAULT = ('user', 'developer')
-
 WORKPLAN = [
     utila.create_step(
         'table',
         [
             utila.ResultFile('groupme', 'abbreviation_abbreviation'),
         ],
-        output=DEFAULT,
+        output=protocol.ResultDefault,
     ),
 ]
 

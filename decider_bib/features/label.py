@@ -151,14 +151,7 @@ def check_6051_table_in_text(linter: callable, driver):
         if not decider_bib.reference.reference_inside(item, insentence)
     ]
     for item in not_required:
-        # TODO: VERIFY THAT PART OF CODE
-        # if item.page is None:
-        #     utila.error(f'no page reference: {item}')
-        #     continue
-        if item.raw_pdfpage:
-            location = iamraw.Location.from_page(item.raw_pdfpage)
-        else:
-            location = protocol.OVERVIEW
+        location = iamraw.Location.from_page(item.raw_pdfpage)
         source = item.reference
         if not source:
             # skip None-Reference

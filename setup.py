@@ -56,6 +56,7 @@ if __name__ == "__main__":
             'console_scripts': [
                 'decider_abbreviation = decider_abb.cli:main',
                 'decider_bibliography = decider_bib.cli:main',
+                'decider_caption = decider_cap.cli:main',
                 'decider_toc = decider_toc.cli:main',
             ],
         },

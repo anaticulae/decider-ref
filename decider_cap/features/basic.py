@@ -22,7 +22,10 @@ def work(
     docinfo: iamraw.DocInfo,
     pages: tuple = None,
 ) -> protocol.ResultType:
-    driver = decider_cap.driver.create_driver(captions, pages=pages)
+    driver = decider_cap.driver.create_driver(
+        captions,
+        pages=pages,
+    )
     result = protocol.run(
         modulename=__name__,
         driver=driver,

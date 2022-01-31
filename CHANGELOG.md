@@ -2,6 +2,36 @@
 
 Every noteable change is logged here.
 
+## v1.16.0
+
+### Feature
+
+* use language to select stop words (e0c5c517b432)
+* use toc language to improve toc validation (56c83ddb0c97)
+* add method to determine toc language (ceed48996a70)
+* add abstract position linter (65fcfcb248c6)
+* add sections as data input (6185ae649bdf)
+* use elements LEGAL headline list (f618672820a9)
+* improve bib diff view (bc7593a9b503)
+* add improved list diff view (622a3f1af21e)
+* add method to render simple list diff (ad5b93c4a0e0)
+* make length of shorten configurable (b407027c7f50)
+* add hint to use numbered toc (d0fc0cba7660)
+* make duplicated toc length dependent (f239c9200d33)
+* do not judge stepped toc with complexity checker (ecb5113d7c8c)
+
+### Fix
+
+* align ticket to first page occurrence (edb61faa2c53)
+* use overview as default place if no page is given (e24836bd5518)
+* ignore case (0b8b50789eed)
+* do not judge order of labeled bib table (9e2c79705302)
+
+### Documentation
+
+* adjust modules path (0dd27be0c85e)
+* Happy New Year! (13d790bd73e0)
+
 ## v1.15.0
 
 ### Feature

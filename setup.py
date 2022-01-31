@@ -48,6 +48,8 @@ if __name__ == "__main__":
             'decider_abb.features',
             'decider_bib',
             'decider_bib.features',
+            'decider_cap',
+            'decider_cap.features',
             'decider_ref',
             'decider_toc',
             'decider_toc.features',

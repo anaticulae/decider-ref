@@ -4,6 +4,7 @@ name = decider_ref
 
 source = decider_abb
     decider_bib
+    decider_cap
     decider_toc
 
 [release]

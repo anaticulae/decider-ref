@@ -109,3 +109,24 @@ def check_6206_dotted_tables(linter: callable, driver):
 
 def check_6207_dotted_codes(linter: callable, driver):
     decider_cap.basic.check_dotted(driver.codes, linter)
+
+
+SOLUTION_6210 = """\
+Unterschrift startet nicht mit einem Großbuchstaben
+
+{{text}}
+"""
+SOLUTION_6211 = SOLUTION_6210
+SOLUTION_6212 = SOLUTION_6210
+
+
+def check_6210_upper_figures(linter: callable, driver):
+    decider_cap.basic.check_upper(driver.figures, linter)
+
+
+def check_6211_upper_tables(linter: callable, driver):
+    decider_cap.basic.check_upper(driver.tables, linter)
+
+
+def check_6212_upper_codes(linter: callable, driver):
+    decider_cap.basic.check_upper(driver.codes, linter)

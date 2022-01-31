@@ -68,3 +68,33 @@ def check_dotted(captions, linter):
             text=raw,
             location=location,
         )
+
+
+def isupper(captions) -> bool:
+    if not captions:
+        return False
+    if len(captions) < 5:
+        return False
+    upper, notupper = utila.partition(
+        key=lambda x: x.text.strip()[0].isupper(),
+        items=captions,
+    )
+    if notupper:
+        return True
+    rate = len(upper) / len(captions)
+    if rate < 0.8:  # TODO: HOLY VALUE
+        return False
+    return True
+
+
+def check_upper(captions, linter):
+    if not isupper(captions):
+        return
+    for item in captions:
+        if item.text.strip()[0].isupper():
+            continue
+        location = iamraw.Location.from_page(item.pdfpage)
+        linter(
+            text=item.raw.strip(),
+            location=location,
+        )

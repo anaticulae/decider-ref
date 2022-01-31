@@ -145,7 +145,7 @@ def check_6051_table_in_text(linter: callable, driver):
     for item in source:
         if item.reference:
             continue
-        utila.error(f'None-Reference: {item}')
+        utila.debug(f'None-Reference: {item}')
     not_required = [
         item for item in source
         if not decider_bib.reference.reference_inside(item, insentence)

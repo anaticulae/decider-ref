@@ -39,6 +39,7 @@ def main():
             description=DESCRIPTION,
             multiprocessed=True,
             name=decider_abb.PROCESS,
+            pages=True,
             version=decider_abb.__version__,
         ),
     )

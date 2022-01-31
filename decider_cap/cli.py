@@ -44,6 +44,7 @@ def main():
             description=DESCRIPTION,
             multiprocessed=True,
             name=decider_cap.PROCESS,
+            pages=True,
             version=decider_ref.__version__,
         ),
     )

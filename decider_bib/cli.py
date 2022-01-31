@@ -69,6 +69,7 @@ def main():
             description=DESCRIPTION,
             multiprocessed=True,
             name=decider_bib.PROCESS,
+            pages=True,
             version=decider_ref.__version__,
         ),
     )

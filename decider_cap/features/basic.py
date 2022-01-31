@@ -15,7 +15,6 @@ import utila
 
 import decider_cap.basic
 import decider_cap.driver
-import decider_ref.listdiff
 
 
 def work(
@@ -77,25 +76,12 @@ Unterschriften der Codes falsch numeriert
 
 
 def check_6201_order_figures(linter: callable, driver):
-    check_order(driver.figures, linter)
+    decider_cap.basic.check_order(driver.figures, linter)
 
 
 def check_6202_order_figures(linter: callable, driver):
-    check_order(driver.tables, linter)
+    decider_cap.basic.check_order(driver.tables, linter)
 
 
 def check_6203_order_figures(linter: callable, driver):
-    check_order(driver.codes, linter)
-
-
-def check_order(captions, linter):
-    if not captions:
-        return
-    expected = decider_cap.basic.captions_sort(captions)
-    current = captions
-    if expected == current:
-        return
-    expected = [item.raw[0:75] for item in expected]
-    current = [item.raw[0:75] for item in current]
-    advice = decider_ref.listdiff.diffview(expected, current)
-    linter(advice=advice)
+    decider_cap.basic.check_order(driver.codes, linter)

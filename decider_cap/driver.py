@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import iamraw
 import protocol
 import serializeraw
 import utila
@@ -17,5 +18,14 @@ def create_driver(captions: str, pages: tuple = None):
         captions = serializeraw.load_captions(captions, pages=pages)
     else:
         captions = []
-    result = protocol.driver(captions=captions)
+    flat = utila.flatten_content(captions)
+    figures = [item for item in flat if item.typ == iamraw.CaptionType.FIGURE]
+    codes = [item for item in flat if item.typ == iamraw.CaptionType.CODE]
+    tables = [item for item in flat if item.typ == iamraw.CaptionType.TABLE]
+    result = protocol.driver(
+        captions=captions,
+        codes=codes,
+        figures=figures,
+        tables=tables,
+    )
     return result

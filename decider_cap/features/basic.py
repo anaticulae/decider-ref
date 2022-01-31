@@ -82,9 +82,30 @@ def check_6201_order_figures(linter: callable, driver):
     decider_cap.basic.check_order(driver.figures, linter)
 
 
-def check_6202_order_figures(linter: callable, driver):
+def check_6202_order_tables(linter: callable, driver):
     decider_cap.basic.check_order(driver.tables, linter)
 
 
-def check_6203_order_figures(linter: callable, driver):
+def check_6203_order_codes(linter: callable, driver):
     decider_cap.basic.check_order(driver.codes, linter)
+
+
+SOLUTION_6205 = """\
+Unterschrift endet nicht mit einem Punkt
+
+{{text}}
+"""
+SOLUTION_6206 = SOLUTION_6205
+SOLUTION_6207 = SOLUTION_6205
+
+
+def check_6205_dotted_figures(linter: callable, driver):
+    decider_cap.basic.check_dotted(driver.figures, linter)
+
+
+def check_6206_dotted_tables(linter: callable, driver):
+    decider_cap.basic.check_dotted(driver.tables, linter)
+
+
+def check_6207_dotted_codes(linter: callable, driver):
+    decider_cap.basic.check_dotted(driver.codes, linter)

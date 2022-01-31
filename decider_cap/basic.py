@@ -7,6 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import iamraw
+import utila
+
 import decider_ref.listdiff
 
 
@@ -34,3 +37,34 @@ def check_order(captions, linter):
     current = [item.raw[0:75] for item in current]
     advice = decider_ref.listdiff.diffview(expected, current)
     linter(advice=advice)
+
+
+def isdotted(captions) -> bool:
+    if not captions:
+        return False
+    if len(captions) < 5:
+        return False
+    dotted, notdotted = utila.partition(
+        key=lambda x: x.raw.strip()[-1] == '.',
+        items=captions,
+    )
+    if not notdotted:
+        return True
+    rate = len(dotted) / len(captions)
+    if rate < 0.8:  # TODO: HOLY VALUE
+        return False
+    return True
+
+
+def check_dotted(captions, linter):
+    if not isdotted(captions):
+        return
+    for item in captions:
+        raw = item.raw.strip()
+        if raw[-1] == '.':
+            continue
+        location = iamraw.Location.from_page(item.pdfpage)
+        linter(
+            text=raw,
+            location=location,
+        )

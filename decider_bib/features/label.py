@@ -291,7 +291,7 @@ def check_6070_bib_ref_too_complicated(linter: callable, driver):
     if len(special) < SPECIAL_COUNT_ACTIVE_MIN:
         return
     # TODO: ADD HINT FOR EVERY FINDING?
-    linter()
+    linter(location=protocol.OVERVIEW)
 
 
 def references_plain(references, text) -> list:

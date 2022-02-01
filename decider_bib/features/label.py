@@ -263,7 +263,7 @@ def check_6063_bib_ref_add_pagination(linter: callable, driver):
 
 
 SOLUTION_6070 = """\
-Label vereinfachten
+Label vereinfachen
 
 Vereinfachen Sie das Label und entfernen Sie unnötige Klammern.
 

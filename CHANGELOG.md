@@ -2,6 +2,26 @@
 
 Every noteable change is logged here.
 
+## v1.17.0
+
+### Feature
+
+* add uppercase checker (de860cf14021)
+* add dotted end checker (299295cbf462)
+* add pages flag to harmonize with common interface (fbc301142861)
+* add linter to verify caption order (0936bf0adaed)
+* load caption by type (75d97d59a30c)
+* add caption duplicated step (532ced3b5904)
+* add driver and protocol invocation (e4796cb8dcbd)
+* add basic decider application (60e18b323d6f)
+
+### Fix
+
+* harden start and end check (901f14be193c)
+* decrease verbosity (27ef3007c3b5)
+* fix spelling error (75d82d1cd9af)
+* show finding on overview page (7d8d6dbf7e7d)
+
 ## v1.16.0
 
 ### Feature

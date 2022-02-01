@@ -52,6 +52,7 @@ def test_bib_page_number_unprecise(testdir, monkeypatch):
     assert len(unprecise) == 3  # TODO: VALIDATE LATER
 
 
+@pytest.mark.xfail(reason='broken bib')
 def test_bib_label_exists(testdir, monkeypatch):
     missing = run_label(power.MASTER116_PDF, monkeypatch, testdir, {6050})
     # all reference in text are located in bib table
@@ -82,13 +83,13 @@ def test_label_bib_ref_missing(testdir, monkeypatch):
     assert not linting
 
 
-@pytest.mark.xfail(reason='???')
 def test_label_bib_not_required(testdir, monkeypatch):
     """All bib entrees are required."""
     linting = run_label(power.BACHELOR075_PDF, monkeypatch, testdir, {6051})
     assert not linting
 
 
+@pytest.mark.xfail(reason='broken bib')
 def test_regression_bachelor90(testdir, monkeypatch):
     """As a result of invalid bib parsing, the linter produces some
     false postive errors.
@@ -122,6 +123,7 @@ def test_diss143_numbered_label_6050(testdir, monkeypatch):
     assert not error
 
 
+@pytest.mark.xfail(reason='broken bib')
 def test_diss143_add_pagination_hint(testdir, monkeypatch):
     hint = run_label(power.DISS143_PDF, monkeypatch, testdir, {6063})
     assert len(hint) == 1

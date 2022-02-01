@@ -74,12 +74,12 @@ def test_bib_master127_typos(testdir, monkeypatch):
     assert len(typo_detected) == 5
 
 
-@pytest.mark.xfail(reason='improve bib parser')
 def test_bib_sorting_master116(testdir, monkeypatch):
     unsorted_bib = run_table(power.MASTER116_PDF, monkeypatch, testdir, {6000})
     assert not unsorted_bib  # TODO: VALIDATE LATER
 
 
+@pytest.mark.xfail(reason='broken bib')
 def test_bib_master083_differs(testdir, monkeypatch):
     """Detect bib entrees which differ from style of other bibs."""
     detected = run_table(

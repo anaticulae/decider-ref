@@ -8,6 +8,7 @@
 # =============================================================================
 
 import iamraw
+import protocol
 import utila
 
 import decider_ref.listdiff
@@ -45,7 +46,7 @@ def isdotted(captions) -> bool:
     if len(captions) < 5:
         return False
     dotted, notdotted = utila.partition(
-        key=lambda x: x.raw.strip()[-1] == '.',
+        key=lambda x: dotend(x.raw),
         items=captions,
     )
     if not notdotted:
@@ -56,14 +57,25 @@ def isdotted(captions) -> bool:
     return True
 
 
+def dotend(item: str) -> bool:
+    if not item:
+        return False
+    item = item.strip()
+    if not item:
+        return False
+    if item[-1] == '.':
+        return True
+    return False
+
+
 def check_dotted(captions, linter):
     if not isdotted(captions):
         return
     for item in captions:
         raw = item.raw.strip()
-        if raw[-1] == '.':
+        if dotend(raw):
             continue
-        location = iamraw.Location.from_page(item.pdfpage)
+        location = pagelocation(item)
         linter(
             text=raw,
             location=location,
@@ -76,7 +88,7 @@ def isupper(captions) -> bool:
     if len(captions) < 5:
         return False
     upper, notupper = utila.partition(
-        key=lambda x: x.text.strip()[0].isupper(),
+        key=lambda x: upperstart(x.text),
         items=captions,
     )
     if notupper:
@@ -91,10 +103,28 @@ def check_upper(captions, linter):
     if not isupper(captions):
         return
     for item in captions:
-        if item.text.strip()[0].isupper():
+        if upperstart(item.text):
             continue
-        location = iamraw.Location.from_page(item.pdfpage)
+        location = pagelocation(item)
         linter(
             text=item.raw.strip(),
             location=location,
         )
+
+
+def upperstart(item: str) -> bool:
+    if not item:
+        return False
+    item = item.strip()
+    if not item:
+        return False
+    if item[0].isupper():
+        return True
+    return False
+
+
+def pagelocation(item) -> iamraw.Location:
+    pagenumber = protocol.OVERVIEW
+    if item.pdfpage is not None:
+        pagenumber = iamraw.Location.from_page(item.pdfpage)
+    return pagenumber

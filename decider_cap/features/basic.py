@@ -13,7 +13,9 @@ import iamraw
 import protocol
 import utila
 
+import decider_cap.basic
 import decider_cap.driver
+import decider_ref.listdiff
 
 
 def work(
@@ -53,3 +55,47 @@ def check_6200_duplication(linter: callable, driver):
             count=len(value),
             pages=pages,
         )
+
+
+SOLUTION_6201 = """\
+Unterschriften der Abbildungen falsch numeriert
+
+{{advice}}
+"""
+
+SOLUTION_6202 = """\
+Unterschriften der Tabellen falsch numeriert
+
+{{advice}}
+"""
+
+SOLUTION_6203 = """\
+Unterschriften der Codes falsch numeriert
+
+{{advice}}
+"""
+
+
+def check_6201_order_figures(linter: callable, driver):
+    check_order(driver.figures, linter)
+
+
+def check_6202_order_figures(linter: callable, driver):
+    check_order(driver.tables, linter)
+
+
+def check_6203_order_figures(linter: callable, driver):
+    check_order(driver.codes, linter)
+
+
+def check_order(captions, linter):
+    if not captions:
+        return
+    expected = decider_cap.basic.captions_sort(captions)
+    current = captions
+    if expected == current:
+        return
+    expected = [item.raw[0:75] for item in expected]
+    current = [item.raw[0:75] for item in current]
+    advice = decider_ref.listdiff.diffview(expected, current)
+    linter(advice=advice)

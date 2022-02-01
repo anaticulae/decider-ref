@@ -208,7 +208,10 @@ def check_6061_bib_ref_no_page(linter: callable, driver):
         for mark, item in zip(reference.marked, plain):  # pylint:disable=W0612
             if decider_bib.reference.has_page(item):
                 continue
-            linter(location=location, reference=item)
+            linter(
+                location=location,
+                reference=item,
+            )
 
 
 SOLUTION_6062 = """\
@@ -229,7 +232,10 @@ def check_6062_bib_ref_inaccurate_page(linter: callable, driver):
         for mark, item in zip(reference.marked, plain):  # pylint:disable=W0612
             if decider_bib.reference.precise(item):
                 continue
-            linter(location=location, reference=item)
+            linter(
+                location=location,
+                reference=item,
+            )
 
 
 MISSING_PAGENUMBER_RATE_MIN = configo.HV_PERCENT_PLUS(default=20)

@@ -28,6 +28,14 @@ utila.exists_assert(ARCHIVE)
 
 @pytest.mark.parametrize('source, expected', [
     pytest.param(power.BACHELOR037_PDF, 'bachelor037', id='bachelor037'),
+    pytest.param(power.BACHELOR067_PDF, 'bachelor067', id='bachelor067'),
+    pytest.param(power.BACHELOR076_PDF, 'bachelor076', id='bachelor076'),
+    pytest.param(power.BACHELOR090_PDF, 'bachelor090', id='bachelor090'),
+    pytest.param(power.BACHELOR128_PDF, 'bachelor128', id='bachelor128'),
+    pytest.param(power.DISS143_PDF, 'diss143', id='diss143'),
+    pytest.param(power.MASTER072_PDF, 'master072', id='master072'),
+    pytest.param(power.MASTER098_PDF, 'master098', id='master098'),
+    pytest.param(power.MASTER116_PDF, 'master116', id='master116'),
 ])
 @utilatest.longrun
 def test_validate_huge(source, expected, testdir, monkeypatch):

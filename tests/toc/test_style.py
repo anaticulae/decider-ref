@@ -46,7 +46,7 @@ def run_style(source, msgid, testdir, monkeypatch):
     source = power.link(source)
     utilatest.fixture_requires(source)
     tests.toc.run(f'-i {source} --style', monkeypatch=monkeypatch)
-
+    # load findings
     findings = protocol.findings_from_path(testdir.tmpdir)
     findings = utila.flatten_content(findings)
     selected = protocol.select_findings(findings, msgid=msgid)

@@ -140,7 +140,8 @@ def remove_duplicates(items):
                 count -= item[1]
         else:
             if count > 0:
-                # some words are left, no all can be covered in fathers,
+                # some words are left, not all can be covered in fathers,
                 # children becomes a father itself
                 result.append((candiate, count))
+    result = sorted(result, key=lambda x: len(x[0]), reverse=True)
     return result

@@ -23,6 +23,13 @@ WORKPLAN = [
         ],
         output=protocol.ResultDefault,
     ),
+    utila.create_step(
+        name='style',
+        inputs=[
+            utila.ResultFile('caption', 'result_result'),
+        ],
+        output=protocol.ResultDefault,
+    ),
 ]
 
 

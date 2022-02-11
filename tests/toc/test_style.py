@@ -42,6 +42,14 @@ def test_toc_style_bachelor51_duplicated_words(testdir, monkeypatch):
     assert 'wird 5 mal in' in description
 
 
+def test_toc_words_duplicated_master072(testdir, monkeypatch):
+    """Ensure that subpattern arn't detected twice."""
+    duplicated = run_style(power.MASTER072_PDF, 1380, testdir, monkeypatch)
+    assert len(duplicated) == 2, str(duplicated)
+    assert '„Social Web“' in duplicated[0].solution.description
+    assert '„Social“' in duplicated[1].solution.description
+
+
 def run_style(source, msgid, testdir, monkeypatch):
     source = power.link(source)
     utilatest.fixture_requires(source)

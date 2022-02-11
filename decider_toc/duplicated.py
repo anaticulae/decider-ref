@@ -44,15 +44,23 @@ def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
         )
         words = konrad.remove_marks(words)
         lines.append(words)
+    # decouple from toc source to avoid side effects
+    flatten = [item.title for item in flatten]
     result = []
     duplication = duplicates(lines, lang=lang)
     for invalid in duplication:
         finding = [
             index for index, line in enumerate(flatten)
-            if inside(invalid[0], line.title)
+            if inside(invalid[0], line)
         ]
         if not finding:
             continue
+        for index in finding:
+            # TODO: IS THIS REALLY REQUIRED?
+            flatten[index] = flatten[index].replace(
+                invalid[0],
+                '*' * len(invalid[0]),
+            )
         result.append((invalid, finding))
     return result
 

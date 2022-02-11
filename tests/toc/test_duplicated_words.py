@@ -31,4 +31,5 @@ def test_duplicated_words_diss406():
     toc = serializeraw.load_toc(source)
     assert toc
     validated = decider_toc.duplicated.validate(toc)
-    assert len(validated) == 4  # NOT VALIDATED
+    # DUPLICATES_COUNT_MIN dependent
+    assert len(validated) == 3  # NOT VALIDATED

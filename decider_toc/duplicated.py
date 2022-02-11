@@ -17,6 +17,7 @@ do not fail on special regex character `)`
 >>> inside('Kupfer I)', 'EINLEITUNG')
 False
 """
+
 import collections
 import re
 
@@ -124,7 +125,7 @@ def remove_duplicates(items):
     if not items:
         return []
     # longest items first
-    todo = sorted(items, key=lambda x: x[0], reverse=True)
+    todo = sorted(items, key=lambda x: len(x[0]), reverse=True)
     result, todo = [todo[0]], todo[1:]
     for current in todo:
         candiate, count = current

@@ -116,6 +116,6 @@ def check_1315_stepped_toc(linter, driver):
     toc: iamraw.Toc = driver.toc
     if not toc:
         return
-    if not toc.numbered:
+    if toc.style != iamraw.TocStyle.STEPPED:
         return
     linter(location=protocol.OVERVIEW)

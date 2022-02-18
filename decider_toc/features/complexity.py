@@ -57,7 +57,9 @@ Begrenzen Sie die Gliederung auf maximal 3 Sektionen.
 
 def check_1351_toc_level_to_deep(linter, driver):
     toc: iamraw.Toc = driver.toc
-    if not toc.numbered:
+    if not toc.style:
+        return
+    if toc.style != iamraw.TocStyle.NUMBERED:
         return
     deep_max = decider_toc.level.TOC_DEEPNESS_DEFAULT_MAX
     if complex_document(driver.docinfo):

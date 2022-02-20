@@ -37,8 +37,9 @@ def work(
 
 def create_driver(table: str, titlepage: str, pdfinfo: str, docinfo: str):
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
-    titlepage = serializeraw.load_titlepage(titlepage)
-    if not titlepage:
+    if utila.exists(titlepage):
+        titlepage = serializeraw.load_titlepage(titlepage)
+    else:
         titlepage = iamraw.TitlePage()
     pages = serializeraw.load_pdfinfo(pdfinfo)
     pages = pages.pages if pages else None

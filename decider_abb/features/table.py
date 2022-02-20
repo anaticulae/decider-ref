@@ -17,7 +17,10 @@ import decider_ref.listdiff
 
 
 def work(abbreviation: str) -> protocol.ResultType:
-    abbreviation = serializeraw.load_abbreviation_table(abbreviation)
+    if utila.exists(abbreviation):
+        abbreviation = serializeraw.load_abbreviation_table(abbreviation)
+    else:
+        abbreviation = iamraw.AbbreviationResult()
     driver = protocol.driver(abbrtable=abbreviation)
 
     result = protocol.run(__name__, driver)

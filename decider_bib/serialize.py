@@ -14,6 +14,9 @@ import utila
 
 
 def load_bibliography_reference(path) -> list:
+    if not utila.exists(path):
+        utila.debug(f'bib file does not exists: {path}')
+        return []
     loaded = serializeraw.load_bibliography_reference(path)
     if not loaded:
         return []

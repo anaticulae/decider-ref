@@ -20,7 +20,10 @@ def create_driver(
     docinfo: iamraw.DocInfo = None,
     sections: str = None,
 ):
-    toc: iamraw.Toc = serializeraw.load_toc(toc)
+    if utila.exists(toc):
+        toc: iamraw.Toc = serializeraw.load_toc(toc)
+    else:
+        toc: iamraw.Toc = iamraw.Toc()
     if utila.exists(headlines):
         outlines = serializeraw.load_toc(outlines)
     else:

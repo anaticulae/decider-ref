@@ -13,6 +13,7 @@ import groupme.path
 import iamraw
 import protocol
 import serializeraw
+import utila
 import utilatest
 
 import decider_toc.cli
@@ -34,7 +35,10 @@ fail = functools.partial(
 
 def tableofcontent(path: str) -> iamraw.Toc:
     path = groupme.path.toc(path)
-    result = serializeraw.load_toc(path)
+    if utila.exists(path):
+        result = serializeraw.load_toc(path)
+    else:
+        result = iamraw.Toc()
     return result
 
 

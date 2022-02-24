@@ -2,6 +2,23 @@
 
 Every noteable change is logged here.
 
+## v1.18.0
+
+### Feature
+
+* use improved toc style (7b4b7fa94133)
+* move longest duplication first (b6ebd91e70bb)
+* add style linter to verify looking (08c47b552f9a)
+
+### Fix
+
+* use empty bib if no file is given (874fcf6c1948)
+* use empty toc if file does not exits (eb7e7de21418)
+* do not fail on missing abbr table (9e6d2dfe1c2c)
+* do not fail on missing title page (b7b108e1005e)
+* avoid ghost pattern (8eda815872a3)
+* add len to sort items by length (2fcffea66924)
+
 ## v1.17.0
 
 ### Feature

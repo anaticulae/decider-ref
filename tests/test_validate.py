@@ -37,7 +37,7 @@ utila.exists_assert(ARCHIVE)
     pytest.param(power.MASTER098_PDF, 'master098', id='master098'),
     pytest.param(power.MASTER116_PDF, 'master116', id='master116'),
 ])
-@utilatest.longrun
+@utilatest.nightly
 def test_validate_huge(source, expected, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     Evaluate(

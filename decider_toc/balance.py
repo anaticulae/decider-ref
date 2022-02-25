@@ -147,6 +147,9 @@ def data(toc: iamraw.Toc) -> TocLines:
     result = []
     for item in flat:
         page = item.page
+        if page is None:
+            utila.error(f'None page number: {item}')
+            continue
         with contextlib.suppress(ValueError):
             page = int(page)
         result.append(TocLine(page, item.level, item.title))

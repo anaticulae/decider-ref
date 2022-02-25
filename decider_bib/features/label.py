@@ -29,7 +29,7 @@ def work(  # pylint:disable=W0613
     pages: tuple = None,
 ) -> protocol.ResultType:
     driver = create_driver(**locals())
-    if driver.bibliography:  # pylint:disable=E1101
+    if driver.bibliography.references:  # pylint:disable=E1101
         result = protocol.run(
             modulename=__name__,
             driver=driver,
@@ -103,7 +103,7 @@ Die Referenz **{{reference}}** fehlt im Quellenverzeichnis.
 
 
 def check_6050_ref_in_table(linter: callable, driver):
-    if missing_bibtable_reference(driver.bibliography):
+    if missing_bibtable_reference(driver.bibliography.references):
         utila.log('disable 6050')
         return
     plains = references_plain(driver.bibtextref, driver.text)
@@ -119,7 +119,7 @@ def check_6050_ref_in_table(linter: callable, driver):
             # verify that reference exists
             inside = decider_bib.reference.inside(
                 reference=item,
-                table=driver.bibliography,
+                table=driver.bibliography.references,
             )
             if inside:
                 # reference found
@@ -141,7 +141,7 @@ Die Quelle **{{source}}** wird im Text nicht verwendet.
 
 def check_6051_table_in_text(linter: callable, driver):
     insentence = insentence_reference(driver.text, driver.bibtextref)
-    source = list(driver.bibliography)
+    source = list(driver.bibliography.references)
     for item in source:
         if item.reference:
             continue

@@ -66,7 +66,7 @@ Sortieren Sie das Quellenverzeichnis.
 
 
 def check_6000_not_sorted_alphabetically(linter: callable, driver):
-    references: iamraw.BibliographyReferences = driver.bibliography
+    references: iamraw.BibliographyReferences = driver.bibliography.references
     if all_labeled(references):
         # Labeled bibs with [1] [2] are always sorted
         utila.debug('all bibs are labeled skip order check 6000')
@@ -125,7 +125,7 @@ aktuelle Paper/Publikationen zum Thema gefunden werden können.
 
 
 def check_6006_bibs_too_old(linter: callable, driver):
-    references: iamraw.BibliographyReferences = driver.bibliography
+    references: iamraw.BibliographyReferences = driver.bibliography.references
     if not references:
         return
     if not decider_bib.table.too_old(references):
@@ -144,7 +144,7 @@ Betreuer.
 
 
 def check_6006_too_few_bibs(linter: callable, driver):
-    references: iamraw.BibliographyReferences = driver.bibliography
+    references: iamraw.BibliographyReferences = driver.bibliography.references
     if not references:
         return
     thesis = driver.titlepage.thesis.typ if driver.titlepage.thesis else None
@@ -168,7 +168,7 @@ zitiert/verwendet werden.
 
 
 def check_6007_too_many_bibs(linter: callable, driver):
-    references: iamraw.BibliographyReferences = driver.bibliography
+    references: iamraw.BibliographyReferences = driver.bibliography.references
     if not references:
         return
     thesis = driver.titlepage.thesis.typ if driver.titlepage.thesis else None
@@ -191,7 +191,7 @@ ausbalanciert: {{brackets}}.
 
 
 def check_6010_unbalanced_brackets(linter: callable, driver):
-    references: iamraw.BibliographyReferences = driver.bibliography
+    references: iamraw.BibliographyReferences = driver.bibliography.references
     for reference in references:
         raw = reference.raw
         for pair in ('[]', '()'):
@@ -212,7 +212,7 @@ Tippfehler „{{typo}}“ in Quellenangabe „{{bib}}“ erkannt.
 
 
 def check_6011_typo(linter: callable, driver):
-    references: iamraw.BibliographyReferences = driver.bibliography
+    references: iamraw.BibliographyReferences = driver.bibliography.references
     for reference in references:
         raw = reference.raw
         for typo in TYPOS:
@@ -240,7 +240,7 @@ Stil der Quellenangabe **{{bibraw}}** weicht ab.
 
 
 def check_6020_bib_differs(linter: callable, driver):
-    references: iamraw.BibliographyReferences = driver.bibliography
+    references: iamraw.BibliographyReferences = driver.bibliography.references
     invalid = decider_bib.table.invalid_references(references)
     for reference in invalid:
         raw = reference.raw

@@ -9,6 +9,7 @@
 
 import contextlib
 
+import iamraw
 import serializeraw
 import utila
 
@@ -24,4 +25,8 @@ def load_bibliography_reference(path) -> list:
         # TODO: REMOVE LATER
         if isinstance(loaded[0], list):
             loaded = utila.flatten(loaded)
+    if isinstance(loaded, list):
+        # TODO: REMOVE AFTER UPGRADING
+        loaded: iamraw.BibliographyTable = iamraw.BibliographyTable(
+            references=loaded)
     return loaded

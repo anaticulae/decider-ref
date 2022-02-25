@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v1.18.1
+
+### Fix
+
+* do not fail on missing page number (f3fd079aac52)
+
 ## v1.18.0
 
 ### Feature

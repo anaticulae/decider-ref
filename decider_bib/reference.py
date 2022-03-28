@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import docref.bibliography.parser
+import docref.biblio.parser
 import iamraw
 import utila
 
@@ -21,7 +21,7 @@ def has_page(item) -> bool:
     >>> has_page('([We05], S. 48)')
     True
     """
-    parsed = docref.bibliography.parser.parse(item)
+    parsed = docref.biblio.parser.parse(item)
     if not parsed:
         # simple backup strategy
         return 'S.' in item or 'Seite' in item
@@ -39,7 +39,7 @@ def precise(item) -> bool:
 
 
 def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
-    parsed = docref.bibliography.parser.parse(reference)
+    parsed = docref.biblio.parser.parse(reference)
     if not parsed:
         utila.error(f'could not parse: {reference}, skip insidecheck')
         return None

@@ -8,7 +8,7 @@
 # =============================================================================
 
 import configo
-import docref.bibliography.parser
+import docref.biblio.parser
 import iamraw
 import protocol
 import serializeraw
@@ -168,7 +168,7 @@ def insentence_reference(text, bibliography) -> set:
     insentence_ref = utila.flatten(insentence_ref)
     result = set()
     for item in insentence_ref:
-        parsed = docref.bibliography.parser.parse(item)
+        parsed = docref.biblio.parser.parse(item)
         if not parsed:
             utila.error(f'could not parse: {item}')
             continue

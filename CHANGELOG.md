@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v1.18.2
+
+### Fix
+
+* adjust modules path (fb2aa377de18)
+
 ## v1.18.1
 
 ### Fix

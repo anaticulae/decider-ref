@@ -17,10 +17,10 @@ import utila
 def load_bibliography_reference(path) -> list:
     if not utila.exists(path):
         utila.debug(f'bib file does not exists: {path}')
-        return []
+        return iamraw.BibliographyTable()
     loaded = serializeraw.load_bibliography_reference(path)
     if not loaded:
-        return []
+        return iamraw.BibliographyTable()
     with contextlib.suppress(AttributeError):
         # TODO: REMOVE LATER
         if isinstance(loaded[0], list):

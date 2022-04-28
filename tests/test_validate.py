@@ -8,7 +8,6 @@
 # =============================================================================
 
 import functools
-import os
 
 import power
 import protocol
@@ -22,8 +21,7 @@ import tests.bibliography
 import tests.caption
 import tests.toc
 
-ARCHIVE = os.path.join(decider_ref.ROOT, 'tests/expected')
-utila.exists_assert(ARCHIVE)
+ARCHIVE = utila.join(decider_ref.ROOT, 'tests/expected', exist=True)
 
 
 @pytest.mark.parametrize('source, expected', [
@@ -49,19 +47,12 @@ def test_validate_huge(source, expected, testdir, monkeypatch):
     ).evaluate()
 
 
-def run_extraction(cmd, monkeypatch):  # pylint:disable=W0613
-    tests.abbreviation.run(cmd, monkeypatch=monkeypatch)
-    tests.bibliography.run(cmd, monkeypatch=monkeypatch)
-    tests.caption.run(cmd, monkeypatch=monkeypatch)
-    tests.toc.run(cmd, monkeypatch=monkeypatch)
-
-
 class Evaluate(utilatest.BaseLiner):
 
     def __init__(self, source, pages, expected, workdir, monkeypatch):
         super().__init__(
             program=functools.partial(
-                run_extraction,
+                self.run_extraction,
                 monkeypatch=monkeypatch,
             ),
             step=None,
@@ -87,3 +78,9 @@ class Evaluate(utilatest.BaseLiner):
         findings = sorted(findings, key=utila.alphabetically)
         result = utila.NEWLINE.join(findings)
         return result
+
+    def run_extraction(self, cmd, monkeypatch):  # pylint:disable=W0613,R0201
+        tests.abbreviation.run(cmd, monkeypatch=monkeypatch)
+        tests.bibliography.run(cmd, monkeypatch=monkeypatch)
+        tests.caption.run(cmd, monkeypatch=monkeypatch)
+        tests.toc.run(cmd, monkeypatch=monkeypatch)

@@ -9,7 +9,6 @@
 
 import power
 import protocol
-import pytest
 import serializeraw
 import utilatest
 
@@ -71,10 +70,9 @@ def test_bib_master127_typos(testdir, monkeypatch):
         testdir,
         {6011},
     )
-    assert len(typo_detected) == 5
+    assert len(typo_detected) in (5, 7)
 
 
-@pytest.mark.xfail(reason='investigate later')
 def test_bib_sorting_master116(testdir, monkeypatch):
     unsorted_bib = run_table(power.MASTER116_PDF, monkeypatch, testdir, {6000})
     assert not unsorted_bib  # TODO: VALIDATE LATER
@@ -89,7 +87,7 @@ def test_bib_master083_differs(testdir, monkeypatch):
         {6020},
     )
     # TODO: IMPROVE AND CLARIFY DIFFER CHECKER
-    assert len(detected) in (2, 5)  # TODO: NOT VALIDATED
+    assert len(detected) in (2, 4, 5)  # TODO: NOT VALIDATED
 
 
 def test_bib_table_bachelor241_too_few_bibs(testdir, monkeypatch):

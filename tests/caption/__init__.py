@@ -7,23 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-
 import utilatest
 
 import decider_cap
-import decider_cap.cli
 
-# pylint:disable=C0103
-run = functools.partial(
-    utilatest.run_command,
-    main=decider_cap.cli.main,
-    process=decider_cap.PROCESS,
-    success=True,
-)
-fail = functools.partial(
-    utilatest.run_command,
-    main=decider_cap.cli.main,
-    process=decider_cap.PROCESS,
-    success=False,
-)
+run, fail = utilatest.create_cli_runner(decider_cap)

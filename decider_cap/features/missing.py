@@ -35,47 +35,44 @@ def work(
 
 
 SOLUTION_6300 = """\
-Unterschrift fehlt
+Abbildung: Unterschrift fehlt
 
 Es wurde keine Unterschrift erkannt.
 """
-SOLUTION_6301 = SOLUTION_6300
-SOLUTION_6302 = SOLUTION_6300
+SOLUTION_6301 = """\
+Quellcode: Unterschrift fehlt
+
+Es wurde keine Unterschrift erkannt.
+"""
+SOLUTION_6302 = """\
+Tabelle: Unterschrift fehlt
+
+Es wurde keine Unterschrift erkannt.
+"""
 
 
 def check_6300_missing_figure_caption(linter: callable, driver):
-    if not driver.figureo:
-        utila.debug('no figures, skip 6300')
-        return
-    captions = {item.reference for item in driver.caption}
-    for figure in driver.figureo:
-        if figure.identifier in captions:
-            continue
-        location = iamraw.Location.from_page(figure.page)
-        linter(location=location)
+    missing('figureo', 6300, driver, linter)
 
 
 def check_6301_missing_codero_caption(linter: callable, driver):
-    if not driver.codero:
-        utila.debug('no codero, skip 6301')
-        return
-    captions = {item.reference for item in driver.caption}
-    for codero in driver.codero:
-        if codero.identifier in captions:
-            continue
-        location = iamraw.Location.from_page(codero.page)
-        linter(location=location)
+    missing('codero', 6301, driver, linter)
 
 
 def check_6302_missing_tablero_caption(linter: callable, driver):
-    if not driver.tablero:
-        utila.debug('no tablero, skip 6302')
+    missing('tablero', 6302, driver, linter)
+
+
+def missing(var, msgid: int, driver, linter):
+    data = getattr(driver, var)
+    if not data:
+        utila.debug(f'no {var}, skip {msgid}')
         return
     captions = {item.reference for item in driver.caption}
-    for tablero in driver.tablero:
-        if tablero.identifier in captions:
+    for item in data:
+        if item.identifier in captions:
             continue
-        location = iamraw.Location.from_page(tablero.page)
+        location = iamraw.Location.from_page(item.page)
         linter(location=location)
 
 

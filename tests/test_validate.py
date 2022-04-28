@@ -23,25 +23,28 @@ import tests.toc
 
 ARCHIVE = utila.join(decider_ref.ROOT, 'tests/expected', exist=True)
 
+TODO = [
+    pytest.param(source, id=utila.file_name(source)) for source in [
+        power.BACHELOR037_PDF,
+        power.BACHELOR067_PDF,
+        power.BACHELOR076_PDF,
+        power.BACHELOR090_PDF,
+        power.BACHELOR128_PDF,
+        power.DISS143_PDF,
+        power.MASTER072_PDF,
+        power.MASTER098_PDF,
+        power.MASTER116_PDF,
+    ]
+]
 
-@pytest.mark.parametrize('source, expected', [
-    pytest.param(power.BACHELOR037_PDF, 'bachelor037', id='bachelor037'),
-    pytest.param(power.BACHELOR067_PDF, 'bachelor067', id='bachelor067'),
-    pytest.param(power.BACHELOR076_PDF, 'bachelor076', id='bachelor076'),
-    pytest.param(power.BACHELOR090_PDF, 'bachelor090', id='bachelor090'),
-    pytest.param(power.BACHELOR128_PDF, 'bachelor128', id='bachelor128'),
-    pytest.param(power.DISS143_PDF, 'diss143', id='diss143'),
-    pytest.param(power.MASTER072_PDF, 'master072', id='master072'),
-    pytest.param(power.MASTER098_PDF, 'master098', id='master098'),
-    pytest.param(power.MASTER116_PDF, 'master116', id='master116'),
-])
+
 @utilatest.nightly
-def test_validate_huge(source, expected, testdir, monkeypatch):
+@pytest.mark.parametrize('source', TODO)
+def test_validate_huge(source, testdir, monkeypatch):
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
         pages=':',
-        expected=expected,
         workdir=testdir.tmpdir,
         monkeypatch=monkeypatch,
     ).evaluate()
@@ -49,7 +52,7 @@ def test_validate_huge(source, expected, testdir, monkeypatch):
 
 class Evaluate(utilatest.BaseLiner):
 
-    def __init__(self, source, pages, expected, workdir, monkeypatch):
+    def __init__(self, source, pages, workdir, monkeypatch):
         super().__init__(
             program=functools.partial(
                 self.run_extraction,
@@ -62,7 +65,6 @@ class Evaluate(utilatest.BaseLiner):
             archive=ARCHIVE,
             loader=self.frompath,
             convert_source=False,
-            index=expected,
         )
         self.headlines = power.link(source)
 

@@ -69,6 +69,42 @@ def check_1301_outlines_existence(linter, driver):
     linter(location=protocol.OVERVIEW)
 
 
+SOLUTION_1305 = """\
+Überschrift ohne Inhalt
+
+Die Überschrift {{headline}} ist so allgemein, dass Sie nur eine geringe \
+bzw. keine Information aufweist.
+
+Denken Sie über eine konkretere Überschrift nach, die der Leserin in der \
+Orientierung in der Arbeit weiter hilft.
+
+{elemente/inhaltsverzeichnis}
+"""
+
+
+def check_1305_headlines_without_sense(linter, driver):
+    if not driver.headlines:
+        return
+    headlines = utila.flat(driver.headlines)
+    for item in headlines:
+        title = item.title.lower()
+        if not title in NO_CONTENT:
+            continue
+        # TODO: USE PDFPAGE LATER
+        location = iamraw.Location.from_page(item.page)
+        linter(
+            headline=item.title,
+            location=location,
+        )
+
+
+NO_CONTENT = utila.splitlines("""
+ALLGEMEINES
+ALLGEMEIN
+SONSTIGES
+ÜBERBLICK
+""")
+
 SOLUTION_1310 = """\
 Inhaltsverzeichnis inkonsistent
 

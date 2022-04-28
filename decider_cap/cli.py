@@ -30,6 +30,21 @@ WORKPLAN = [
         ],
         output=protocol.ResultDefault,
     ),
+    utila.create_step(
+        name='missing',
+        inputs=[
+            utila.ResultFile('caption', 'result_result'),
+            utila.ResultFile('codero', 'result_result', optional=True),
+            utila.ResultFile('tablero', 'result_result', optional=True),
+            utila.ResultFile(
+                'rawmaker',
+                'images_images',
+                ext=None,
+                optional=True,
+            ),
+        ],
+        output=protocol.ResultDefault,
+    ),
 ]
 
 

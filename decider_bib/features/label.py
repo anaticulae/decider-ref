@@ -75,7 +75,7 @@ def nobibpages(sections: iamraw.sections.Sections) -> set:
         for item in part:
             if not isinstance(item, iamraw.sections.Bibliography):
                 continue
-            for page in range(item.start, item.end + 1):
+            for page in range(int(item.start), int(item.end + 1)):
                 collected.add(page)
     result = {item for item in range(end) if item not in collected}
     return result

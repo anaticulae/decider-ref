@@ -78,10 +78,8 @@ def master78_too_few_children(invalid):
         id='master72',
     ),
 ])
-@utilatest.requires(power.TECH024_PDF)
-@utilatest.requires(power.MASTER072_PDF)
-@utilatest.requires(power.MASTER078_PDF)
 def test_toc_too_few_children(source, invalids, validate):
+    utilatest.fixture_requires(source)
     source = power.link(source)
     toc = tests.toc.tableofcontent(source)
     validated = decider_toc.level.validate_children(toc)
@@ -91,15 +89,13 @@ def test_toc_too_few_children(source, invalids, validate):
     validate(validated)
 
 
-# yapf:disable
 @pytest.mark.parametrize('source, too_deep', [
-    pytest.param(power.link(power.TECH024_PDF), TECHNICAL24_TOO_DEEP, id='technical24'),
-    pytest.param(power.link(power.MASTER072_PDF), 6, id='master72'),
+    pytest.param(power.TECH024_PDF, TECHNICAL24_TOO_DEEP, id='technical24'),
+    pytest.param(power.MASTER072_PDF, 6, id='master72'),
 ])
-# yapf:enable
-@utilatest.requires(power.TECH024_PDF)
-@utilatest.requires(power.MASTER072_PDF)
 def test_toc_validate_deepness(source, too_deep):
+    utilatest.fixture_requires(source)
+    source = power.link(source)
     toc = tests.toc.tableofcontent(source)
     maxdeep = 2
     validated = decider_toc.level.validate_deepness(toc, maxdeep=maxdeep)

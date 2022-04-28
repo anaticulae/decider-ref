@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v1.19.0
+
+### Feature
+
+* add step to detect no use of captions (52d109595ef7)
+* add missing step (56a6081b8ecd)
+
+### Fix
+
+* load empty bib correctly (abb82dc98ffe)
+
 ## v1.18.2
 
 ### Fix

@@ -31,23 +31,43 @@ import utila
 
 
 def work(
-    tableofcontent: str,
+    toc: str,
     outlines: str,
     headlines: str,
     headlines_oneline: str,
 ) -> protocol.ResultType:
-    tableofcontent: iamraw.Toc = serializeraw.load_toc(tableofcontent)
-    outlines = serializeraw.load_toc(outlines)
-    headlines = load_headlines(headlines, headlines_oneline)
+    driver = create_driver(
+        toc,
+        outlines,
+        headlines,
+        headlines_oneline,
+    )
+    result = protocol.run(
+        __name__,
+        driver=driver,
+    )
+    return result
 
+
+def create_driver(toc, outlines, headlines, headlines_oneline):
+    if utila.exists(toc):
+        toc: iamraw.Toc = serializeraw.load_toc(toc)
+    else:
+        toc: iamraw.Toc = iamraw.Toc()
+    if utila.exists(outlines):
+        outlines = serializeraw.load_toc(outlines)
+    else:
+        outlines = None
+    if utila.exists(headlines):
+        headlines = load_headlines(headlines, headlines_oneline)
+    else:
+        headlines = None
     driver = protocol.driver(
-        toc=tableofcontent,
+        toc=toc,
         outlines=outlines,
         headlines=headlines,
     )
-
-    result = protocol.run(__name__, driver=driver)
-    return result
+    return driver
 
 
 def load_headlines(normal: str, oneline: str):

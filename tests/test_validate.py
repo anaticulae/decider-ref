@@ -19,22 +19,13 @@ import decider_ref
 import tests.abbreviation
 import tests.bibliography
 import tests.caption
+import tests.conftest
 import tests.toc
 
 ARCHIVE = utila.join(decider_ref.ROOT, 'tests/expected', exist=True)
-
 TODO = [
-    pytest.param(source, id=utila.file_name(source)) for source in [
-        power.BACHELOR037_PDF,
-        power.BACHELOR067_PDF,
-        power.BACHELOR076_PDF,
-        power.BACHELOR090_PDF,
-        power.BACHELOR128_PDF,
-        power.DISS143_PDF,
-        power.MASTER072_PDF,
-        power.MASTER098_PDF,
-        power.MASTER116_PDF,
-    ]
+    pytest.param(source, id=utila.file_name(source))
+    for source in tests.conftest.RESOURCES
 ]
 
 

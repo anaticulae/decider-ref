@@ -1,13 +1,111 @@
-01315 00p-1 Inhaltsverzeichnis Stil überdenken
 01330 000p8 Inhaltsverzeichnis nicht aktuell
+01350 0p103 Kapitel enthält zu wenige Sektionen
 01370 00p14 Abschnitt zu lang
 01370 00p16 Abschnitt zu lang
 01370 00p26 Abschnitt zu lang
 01370 00p49 Abschnitt zu lang
 01370 00p56 Abschnitt zu lang
 01370 00p72 Abschnitt zu lang
+06011 0p131 Quellenangabe: Tippfehler erkannt
+06011 0p131 Quellenangabe: Tippfehler erkannt
+06011 0p132 Quellenangabe: Tippfehler erkannt
+06011 0p132 Quellenangabe: Tippfehler erkannt
+06011 0p132 Quellenangabe: Tippfehler erkannt
+06011 0p132 Quellenangabe: Tippfehler erkannt
+06011 0p132 Quellenangabe: Tippfehler erkannt
+06011 0p133 Quellenangabe: Tippfehler erkannt
+06011 0p133 Quellenangabe: Tippfehler erkannt
+06011 0p133 Quellenangabe: Tippfehler erkannt
+06011 0p134 Quellenangabe: Tippfehler erkannt
+06011 0p134 Quellenangabe: Tippfehler erkannt
+06011 0p134 Quellenangabe: Tippfehler erkannt
+06011 0p135 Quellenangabe: Tippfehler erkannt
+06011 0p135 Quellenangabe: Tippfehler erkannt
+06011 0p135 Quellenangabe: Tippfehler erkannt
+06011 0p136 Quellenangabe: Tippfehler erkannt
+06011 0p136 Quellenangabe: Tippfehler erkannt
+06011 0p137 Quellenangabe: Tippfehler erkannt
+06011 0p137 Quellenangabe: Tippfehler erkannt
+06011 0p138 Quellenangabe: Tippfehler erkannt
+06011 0p138 Quellenangabe: Tippfehler erkannt
+06011 0p138 Quellenangabe: Tippfehler erkannt
+06011 0p138 Quellenangabe: Tippfehler erkannt
+06011 0p139 Quellenangabe: Tippfehler erkannt
+06011 0p139 Quellenangabe: Tippfehler erkannt
+06011 0p139 Quellenangabe: Tippfehler erkannt
+06011 0p139 Quellenangabe: Tippfehler erkannt
+06011 0p139 Quellenangabe: Tippfehler erkannt
+06011 0p140 Quellenangabe: Tippfehler erkannt
+06011 0p140 Quellenangabe: Tippfehler erkannt
+06011 0p140 Quellenangabe: Tippfehler erkannt
+06011 0p140 Quellenangabe: Tippfehler erkannt
+06011 0p141 Quellenangabe: Tippfehler erkannt
+06011 0p142 Quellenangabe: Tippfehler erkannt
+06050 s24p33 Quelle nicht gefunden
+06050 s4p89 Quelle nicht gefunden
+06050 s8p80 Quelle nicht gefunden
+06051 0p131 Quelle überflüssig
+06051 0p132 Quelle überflüssig
+06051 0p132 Quelle überflüssig
+06051 0p132 Quelle überflüssig
+06051 0p132 Quelle überflüssig
+06051 0p132 Quelle überflüssig
+06051 0p132 Quelle überflüssig
+06051 0p132 Quelle überflüssig
+06051 0p133 Quelle überflüssig
+06051 0p133 Quelle überflüssig
+06051 0p133 Quelle überflüssig
+06051 0p134 Quelle überflüssig
+06051 0p134 Quelle überflüssig
+06051 0p134 Quelle überflüssig
+06051 0p135 Quelle überflüssig
+06051 0p135 Quelle überflüssig
+06051 0p135 Quelle überflüssig
+06051 0p136 Quelle überflüssig
+06051 0p136 Quelle überflüssig
+06051 0p137 Quelle überflüssig
+06051 0p137 Quelle überflüssig
+06051 0p138 Quelle überflüssig
+06051 0p138 Quelle überflüssig
+06051 0p138 Quelle überflüssig
+06051 0p138 Quelle überflüssig
+06051 0p138 Quelle überflüssig
+06051 0p138 Quelle überflüssig
+06051 0p139 Quelle überflüssig
+06051 0p139 Quelle überflüssig
+06051 0p139 Quelle überflüssig
+06051 0p140 Quelle überflüssig
+06051 0p140 Quelle überflüssig
+06051 0p140 Quelle überflüssig
+06051 0p140 Quelle überflüssig
+06051 0p140 Quelle überflüssig
+06051 0p142 Quelle überflüssig
+06051 0p142 Quelle überflüssig
+06051 0p142 Quelle überflüssig
+06063 00p-1 Empfehlung: Quellenangaben konkretisieren
 06200 000p0 Unterschrift mehrfach verwendet
 06201 000p0 Unterschriften der Abbildungen falsch numeriert
-06210 00p95 Unterschrift startet nicht mit einem Großbuchstaben
+06300 00p16 Abbildung: Unterschrift fehlt
+06300 00p25 Abbildung: Unterschrift fehlt
+06300 00p31 Abbildung: Unterschrift fehlt
+06300 00p36 Abbildung: Unterschrift fehlt
+06300 00p45 Abbildung: Unterschrift fehlt
+06300 00p50 Abbildung: Unterschrift fehlt
+06300 00p52 Abbildung: Unterschrift fehlt
+06300 00p53 Abbildung: Unterschrift fehlt
+06300 00p56 Abbildung: Unterschrift fehlt
+06300 00p62 Abbildung: Unterschrift fehlt
+06300 00p65 Abbildung: Unterschrift fehlt
+06300 00p76 Abbildung: Unterschrift fehlt
+06300 00p85 Abbildung: Unterschrift fehlt
+06300 00p86 Abbildung: Unterschrift fehlt
+06300 00p92 Abbildung: Unterschrift fehlt
+06300 00p94 Abbildung: Unterschrift fehlt
+06300 00p95 Abbildung: Unterschrift fehlt
+06300 0p100 Abbildung: Unterschrift fehlt
+06300 0p103 Abbildung: Unterschrift fehlt
+06300 0p115 Abbildung: Unterschrift fehlt
+06300 0p117 Abbildung: Unterschrift fehlt
+06302 00p52 Tabelle: Unterschrift fehlt
 15010 00p-1 Abkürzungsverzeichnis nicht alphabetisch sortiert
 15015 00p-1 Allgemein gültige Abkürzung

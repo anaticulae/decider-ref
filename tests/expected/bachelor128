@@ -1,5 +1,4 @@
 01301 00p-1 PDF enthält keine Navigation
-01315 00p-1 Inhaltsverzeichnis Stil überdenken
 01330 000p3 Inhaltsverzeichnis nicht aktuell
 01350 00p64 Kapitel enthält zu wenige Sektionen
 01351 000p4 Gliederung zu komplex
@@ -23,5 +22,5 @@
 01384 000p4 Sektion enthält Anführungszeichen
 01384 000p4 Sektion enthält Anführungszeichen
 01384 000p5 Sektion enthält Anführungszeichen
-15010 00p-1 Abkürzungsverzeichnis nicht alphabetisch sortiert
-15015 00p-1 Allgemein gültige Abkürzung
+06300 000p0 Abbildung: Unterschrift fehlt
+06301 00p60 Quellcode: Unterschrift fehlt

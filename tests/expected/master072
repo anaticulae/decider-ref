@@ -1,5 +1,4 @@
 01301 00p-1 PDF enthält keine Navigation
-01315 00p-1 Inhaltsverzeichnis Stil überdenken
 01330 000p1 Inhaltsverzeichnis nicht aktuell
 01365 000p2 Eidesstattliche Erklärung als Teil der Arbeit
 01370 00p12 Abschnitt zu lang
@@ -11,9 +10,8 @@
 01382 000p1 Überschrift zu lang
 01382 000p1 Überschrift zu lang
 06000 00p65 Quellenverzeichnis ist nicht alphabetisch sortiert
-15010 00p-1 Abkürzungsverzeichnis nicht alphabetisch sortiert
-15015 00p-1 Allgemein gültige Abkürzung
-15015 00p-1 Allgemein gültige Abkürzung
-15015 00p-1 Allgemein gültige Abkürzung
-15015 00p-1 Allgemein gültige Abkürzung
-15015 00p-1 Allgemein gültige Abkürzung
+06007 00p65 Anzahl der Quellen zu hoch
+06011 00p66 Quellenangabe: Tippfehler erkannt
+06011 00p68 Quellenangabe: Tippfehler erkannt
+06011 00p70 Quellenangabe: Tippfehler erkannt
+06011 00p70 Quellenangabe: Tippfehler erkannt

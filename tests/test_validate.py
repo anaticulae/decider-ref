@@ -24,9 +24,10 @@ import tests.toc
 
 ARCHIVE = utila.join(decider_ref.ROOT, 'tests/expected', exist=True)
 TODO = [
-    pytest.param(source, id=utila.file_name(source))
+    source[0] if isinstance(source, tuple) else source
     for source in tests.conftest.RESOURCES
 ]
+TODO = [pytest.param(source, id=utila.file_name(source)) for source in TODO]
 
 
 @utilatest.nightly

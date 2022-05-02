@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v1.20.0
+
+### Feature
+
+* add linter step to detect senseless headlines (c8094590da71)
+
+### Fix
+
+* do not fail on multiple pages (a977e1d83c5a)
+* do not fail on missing toc (5cc0e0b035cf)
+
 ## v1.19.0
 
 ### Feature

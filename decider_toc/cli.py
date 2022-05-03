@@ -18,7 +18,7 @@ WORKPLAN = [
     utila.create_step(
         'basic',
         [
-            utila.ResultFile('groupme', 'toc_toc'),
+            utila.ResultFile('reftable', 'toc_toc'),
             utila.ResultFile('rawmaker', 'outlines_outlines'),
             utila.ResultFile('words', 'headlines_headlines', optional=True),
         ],
@@ -27,14 +27,14 @@ WORKPLAN = [
     utila.create_step(
         'complexity',
         [
-            utila.ResultFile('groupme', 'toc_toc'),
+            utila.ResultFile('reftable', 'toc_toc'),
         ],
         protocol.ResultDefault,
     ),
     utila.create_step(
         'rules',
         [
-            utila.ResultFile('groupme', 'toc_toc'),
+            utila.ResultFile('reftable', 'toc_toc'),
             utila.ResultFile('sections', 'section_result'),
         ],
         protocol.ResultDefault,
@@ -42,14 +42,14 @@ WORKPLAN = [
     utila.create_step(
         'style',
         [
-            utila.ResultFile('groupme', 'toc_toc'),
+            utila.ResultFile('reftable', 'toc_toc'),
         ],
         protocol.ResultDefault,
     ),
     utila.create_step(
         'sync',
         [
-            utila.ResultFile('groupme', 'toc_toc'),
+            utila.ResultFile('reftable', 'toc_toc'),
             utila.ResultFile('rawmaker', 'outlines_outlines'),
             utila.ResultFile('words', 'headlines_headlines', optional=True),
             utila.ResultFile('words', 'headlines_oneline', optional=True),

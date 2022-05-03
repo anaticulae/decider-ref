@@ -18,7 +18,7 @@ WORKPLAN = [
     utila.create_step(
         'table',
         [
-            utila.ResultFile('groupme', 'abbreviation_abbreviation'),
+            utila.ResultFile('reftable', 'abbrev_abbrev'),
         ],
         output=protocol.ResultDefault,
     ),

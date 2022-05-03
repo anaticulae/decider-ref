@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v1.20.1
+
+### Feature
+
+* use modern table source (f435a4718098)
+
 ## v1.20.0
 
 ### Feature

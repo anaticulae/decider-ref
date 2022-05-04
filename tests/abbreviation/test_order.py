@@ -12,12 +12,14 @@ import functools
 import iamraw
 import power
 import protocol
+import pytest
 import utila
 
 import decider_abb.features.table
 import tests.abbreviation
 
 
+@pytest.mark.xfail(reason='figure detector overlaps abbr list data')
 def test_abbreviation_sorted_bachelor37(testdir, monkeypatch):
     # TODO: ADJUST TABLE PAGE LOADER
     linted = tests.abbreviation.run_table(

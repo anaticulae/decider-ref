@@ -59,7 +59,7 @@
 06051 0p100 Quelle überflüssig
 06051 0p100 Quelle überflüssig
 06062 s11p31 Seitenangabe unkonkret
-06062 s2p30 Seitenangabe unkonkret
+06062 s3p30 Seitenangabe unkonkret
 06062 s7p14 Seitenangabe unkonkret
 06063 00p-1 Empfehlung: Quellenangaben konkretisieren
 06210 00p30 Unterschrift startet nicht mit einem Großbuchstaben
@@ -70,5 +70,3 @@
 06300 00p92 Abbildung: Unterschrift fehlt
 06300 00p94 Abbildung: Unterschrift fehlt
 06300 0p103 Abbildung: Unterschrift fehlt
-06302 00p95 Tabelle: Unterschrift fehlt
-06302 00p96 Tabelle: Unterschrift fehlt

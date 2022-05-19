@@ -147,6 +147,8 @@ def check_6006_too_few_bibs(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography.references
     if not references:
         return
+    if not driver.titlepage:
+        return
     thesis = driver.titlepage.thesis.typ if driver.titlepage.thesis else None
     if not decider_bib.table.too_few(
             references=references,
@@ -170,6 +172,8 @@ zitiert/verwendet werden.
 def check_6007_too_many_bibs(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography.references
     if not references:
+        return
+    if not driver.titlepage:
         return
     thesis = driver.titlepage.thesis.typ if driver.titlepage.thesis else None
     if not decider_bib.table.too_many(

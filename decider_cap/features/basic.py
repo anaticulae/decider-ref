@@ -130,3 +130,25 @@ def check_6211_upper_tables(linter: callable, driver):
 
 def check_6212_upper_codes(linter: callable, driver):
     decider_cap.basic.check_upper(driver.codes, linter)
+
+
+SOLUTION_6220 = """\
+Unterschrift zu lang
+
+Die Unterschrift **{{text}}** ist zu lang und sollte verkürzt \
+werden.
+"""
+SOLUTION_6221 = SOLUTION_6220
+SOLUTION_6222 = SOLUTION_6220
+
+
+def check_6220_length_figures(linter: callable, driver):
+    decider_cap.basic.check_length(driver.figures, linter)
+
+
+def check_6221_length_tables(linter: callable, driver):
+    decider_cap.basic.check_length(driver.tables, linter)
+
+
+def check_6222_length_codes(linter: callable, driver):
+    decider_cap.basic.check_length(driver.codes, linter)

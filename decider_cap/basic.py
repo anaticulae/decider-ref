@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import configo
 import iamraw
 import protocol
 import utila
@@ -121,6 +122,23 @@ def upperstart(item: str) -> bool:
     if item[0].isupper():
         return True
     return False
+
+
+CAPTION_LENGTH_MAX = configo.HV_INT_PLUS(default=250)
+
+
+def check_length(captions, linter):
+    for item in captions:
+        if not item.text:
+            utila.error(f'invalid caption: {item}')
+            continue
+        if len(item.text) < CAPTION_LENGTH_MAX:
+            continue
+        location = pagelocation(item)
+        linter(
+            text=item.raw.strip(),
+            location=location,
+        )
 
 
 def pagelocation(item) -> iamraw.Location:

@@ -13,6 +13,7 @@
 06007 00p33 Anzahl der Quellen zu hoch
 06201 000p0 Unterschriften der Abbildungen falsch numeriert
 06210 00p16 Unterschrift startet nicht mit einem Großbuchstaben
+06220 00p18 Unterschrift zu lang
 06300 000p0 Abbildung: Unterschrift fehlt
 06300 000p1 Abbildung: Unterschrift fehlt
 06300 00p25 Abbildung: Unterschrift fehlt

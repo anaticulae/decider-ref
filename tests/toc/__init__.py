@@ -7,29 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-
 import iamraw
 import protocol
 import serializeraw
 import utila
 import utilatest
 
-import decider_toc.cli
+import decider_toc
 
-# pylint:disable=C0103
-run = functools.partial(
-    utilatest.run_command,
-    main=decider_toc.cli.main,
-    process=decider_toc.PROCESS,
-    success=True,
-)
-fail = functools.partial(
-    utilatest.run_command,
-    main=decider_toc.cli.main,
-    process=decider_toc.PROCESS,
-    success=False,
-)
+run, fail = utilatest.create_cli_runner(decider_toc)
 
 
 def tableofcontent(path: str) -> iamraw.Toc:

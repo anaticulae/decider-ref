@@ -9,7 +9,6 @@
 
 import functools
 
-import groupme.path
 import iamraw
 import protocol
 import serializeraw
@@ -34,7 +33,7 @@ fail = functools.partial(
 
 
 def tableofcontent(path: str) -> iamraw.Toc:
-    path = groupme.path.toc(path)
+    path = iamraw.path.toc(path)
     if utila.exists(path):
         result = serializeraw.load_toc(path)
     else:

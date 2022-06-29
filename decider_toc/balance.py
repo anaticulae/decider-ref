@@ -24,7 +24,7 @@ import utila
 # minimum page numbers to evaluate that page is too short or too long
 PAGE_LENGTH_MIN = configo.HV_FLOAT_PLUS(1.0)
 
-TocLine = collections.namedtuple('TocLine', 'page level title')
+TocLine = collections.namedtuple('TocLine', 'page level title pdfpage')
 TocLines = typing.List[TocLine]
 
 Evaluated = collections.namedtuple(
@@ -152,7 +152,7 @@ def data(toc: iamraw.Toc) -> TocLines:
             continue
         with contextlib.suppress(ValueError):
             page = int(page)
-        result.append(TocLine(page, item.level, item.title))
+        result.append(TocLine(page, item.level, item.title, item.raw_location))
     return result
 
 

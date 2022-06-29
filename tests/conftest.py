@@ -63,11 +63,9 @@ def pytest_sessionstart():
 def extract(resources):
     genex.extract(
         files=resources,
-        destination=power.generated(),
         full=True,
         base=power.REPOSITORY,
         worker=WORKER,
-        pages=':',
     )
 
 

@@ -18,10 +18,15 @@ import decider_toc.length
 import decider_toc.level
 
 
-def work(toc: str, docinfo: iamraw.DocInfo = None) -> protocol.ResultType:
+def work(
+    toc: str,
+    magic_pages: str,
+    docinfo: iamraw.DocInfo = None,
+) -> protocol.ResultType:
     driver = decider_toc.features.create_driver(
         toc=toc,
         docinfo=docinfo,
+        magic_pages=magic_pages,
     )
     result = protocol.run(
         __name__,

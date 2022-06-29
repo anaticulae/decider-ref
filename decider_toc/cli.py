@@ -28,6 +28,7 @@ WORKPLAN = [
         'complexity',
         [
             utila.ResultFile('reftable', 'toc_toc'),
+            utila.ResultFile('groupme', 'pagenumbers_magic'),
         ],
         protocol.ResultDefault,
     ),

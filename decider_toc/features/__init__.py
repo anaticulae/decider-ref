@@ -19,6 +19,7 @@ def create_driver(
     headlines: str = None,
     docinfo: iamraw.DocInfo = None,
     sections: str = None,
+    magic_pages: str = None,
 ):
     if utila.exists(toc):
         toc: iamraw.Toc = serializeraw.load_toc(toc)
@@ -36,11 +37,17 @@ def create_driver(
         sections = serializeraw.load_sections(sections)
     else:
         sections = None
+    if utila.exists(magic_pages):
+        magic_pages_reverse = serializeraw.load_pagenumbers_magic(magic_pages)
+        magic_pages_reverse = utila.dict_reverse(magic_pages_reverse)
+    else:
+        magic_pages_reverse = None
     result = protocol.driver(
         docinfo=docinfo,
         headlines=headlines,
         outlines=outlines,
         sections=sections,
         toc=toc,
+        magic_pages_reverse=magic_pages_reverse,
     )
     return result

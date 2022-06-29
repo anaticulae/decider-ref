@@ -87,10 +87,11 @@ def tocline_shrink(raw: str) -> str:
 SOLUTION_1370 = """\
 Abschnitt zu lang
 
-Der Abschnitt „{{headline}}“ ist im Vergleich zu den gleichranggigen \
-Abschnitten({{expected}}) zu lang({{current}}). Überdenken Sie die \
-Abschnittseinteilung und überlegen Sie sich weitere Teilabschnitte \
-einzuführen.
+Der Abschnitt **{{headline}}** ist im Vergleich zu den gleichranggigen \
+Abschnitten ({{expected}}) zu lang (**{{current}}**).
+
+Überdenken Sie die Abschnittseinteilung und überlegen Sie sich weitere \
+Teilabschnitte einzuführen.
 
 {aufbau_gliederung/absatz}
 """

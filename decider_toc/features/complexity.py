@@ -165,8 +165,8 @@ def validate_chapter_length(linter, toc, level, expected):
             continue
         if judged[2] <= CHAPTER_LENGTH_CHECKER_MIN:
             continue
+        location = iamraw.Location.from_page(line.pdfpage)
         title = line.title
-        location = iamraw.Location.from_page(line.page)
         linter(
             location=location,
             headline=title,

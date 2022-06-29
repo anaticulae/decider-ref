@@ -2,10 +2,10 @@
 01310 00p-1 Inhaltsverzeichnis inkonsistent
 01310 00p-1 Inhaltsverzeichnis inkonsistent
 01330 000p1 Inhaltsverzeichnis nicht aktuell
-01370 000p9 Abschnitt zu lang
-01370 00p10 Abschnitt zu lang
-01370 00p19 Abschnitt zu lang
-01370 00p29 Abschnitt zu lang
+01370 000p1 Abschnitt zu lang
+01370 000p1 Abschnitt zu lang
+01370 000p1 Abschnitt zu lang
+01370 000p2 Abschnitt zu lang
 06000 00p42 Quellenverzeichnis ist nicht alphabetisch sortiert
 06010 00p44 Quellenangabe: Klammern überprüfen
 06300 000p0 Abbildung: Unterschrift fehlt

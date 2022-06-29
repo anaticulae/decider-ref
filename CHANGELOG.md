@@ -2,6 +2,20 @@
 
 Every noteable change is logged here.
 
+## v1.21.0
+
+### Feature
+
+* add pdfpage of toc line source (46f65d1ec75f)
+* add reverse magic page number callable (c50d19a205fc)
+* load magic page numbers (6e79ac1caf0f)
+* add caption length check (2e29950742af)
+
+### Fix
+
+* move finding to table of content (fb6b091ebdeb)
+* do not fail on missing table (4a34e3941f88)
+
 ## v1.20.2
 
 ## v1.20.1

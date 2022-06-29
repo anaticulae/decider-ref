@@ -2,8 +2,8 @@
 01350 000p4 Kapitel enthält zu wenige Sektionen
 01380 000p1 Worthäufung im Inhaltsverzeichnis
 01382 000p1 Überschrift zu lang
-06200 000p0 Unterschrift mehrfach verwendet
-06200 000p0 Unterschrift mehrfach verwendet
+06200 00p-1 Unterschrift mehrfach verwendet
+06200 00p-1 Unterschrift mehrfach verwendet
 06220 00p14 Unterschrift zu lang
 06221 000p7 Unterschrift zu lang
 06300 000p0 Abbildung: Unterschrift fehlt

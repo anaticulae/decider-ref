@@ -44,7 +44,7 @@ def test_bib_no_page_master116(testdir, monkeypatch):
 
 def test_bib_no_page_master98(testdir, monkeypatch):
     nopages = run_label(power.MASTER098_PDF, monkeypatch, testdir, {6061})
-    assert len(nopages) == 1  # TODO: VALIDATE LATER
+    assert len(nopages) == 9  # TODO: VALIDATE LATER
 
 
 def test_bib_page_number_unprecise(testdir, monkeypatch):

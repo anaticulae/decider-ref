@@ -1,6 +1,6 @@
 01300 00p-1 Dokument enthält kein Inhaltsverzeichnis
-06201 000p0 Unterschriften der Abbildungen falsch numeriert
-06202 000p0 Unterschriften der Tabellen falsch numeriert
+06201 00p-1 Unterschriften der Abbildungen falsch numeriert
+06202 00p-1 Unterschriften der Tabellen falsch numeriert
 06205 0p115 Unterschrift endet nicht mit einem Punkt
 06205 0p137 Unterschrift endet nicht mit einem Punkt
 06206 0p139 Unterschrift endet nicht mit einem Punkt

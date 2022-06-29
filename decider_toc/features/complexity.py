@@ -188,6 +188,9 @@ def check_1382_toc_long_lines(linter, driver):
     toc: iamraw.Toc = driver.toc
     findings = decider_toc.length.validate(toc)
     for item in findings:
-        __, title, _, raw_location = item
+        title, raw_location = item[1], item[3]
         location = iamraw.Location.from_page(raw_location)
-        linter(title=title, location=location)
+        linter(
+            title=title,
+            location=location,
+        )

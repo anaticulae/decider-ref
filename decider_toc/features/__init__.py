@@ -48,6 +48,22 @@ def create_driver(
         outlines=outlines,
         sections=sections,
         toc=toc,
-        magic_pages_reverse=magic_pages_reverse,
+        magic_pages_reverse=PageReverse(magic_pages_reverse),
     )
     return result
+
+
+class PageReverse:
+
+    def __init__(self, pages: dict = None):
+        self.pages = pages if pages else dict()
+
+    def __call__(self, userpage: int):
+        if userpage is None:
+            utila.error('could not reverse None, use OVERVIEW')
+            return protocol.OVERVIEW
+        try:
+            return self.pages[userpage]
+        except KeyError:
+            utila.error(f'could not reverse: {userpage}, use OVERVIEW')
+            return protocol.OVERVIEW

@@ -21,8 +21,9 @@ import configo
 import decider_abb.path
 import decider_ref
 
-ROOT = decider_ref.ROOT
-PROCESS = 'decider_abbreviation'
 __version__ = decider_ref.__version__
+
+ROOT = decider_ref.ROOT
+PROCESS = 'decider_abbrev'
 
 configo.cloud_lookup(PROCESS)

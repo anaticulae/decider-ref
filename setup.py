@@ -56,6 +56,7 @@ if __name__ == "__main__":
         ],
         entry_points={
             'console_scripts': [
+                'decider_abbrev = decider_abb.cli:main',
                 'decider_abbreviation = decider_abb.cli:main',
                 'decider_bibliography = decider_bib.cli:main',
                 'decider_caption = decider_cap.cli:main',

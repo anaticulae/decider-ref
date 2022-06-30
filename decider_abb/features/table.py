@@ -16,8 +16,16 @@ import utila
 import decider_ref.listdiff
 
 
-def work(abbreviation: str) -> protocol.ResultType:
-    driver = create_driver(abbreviation)
+def work(
+    abbrev: str,
+    intext: str,
+    pages: tuple = None,
+) -> protocol.ResultType:
+    driver = create_driver(
+        abbrev,
+        intext,
+        pages=pages,
+    )
     result = protocol.run(
         __name__,
         driver,
@@ -25,12 +33,16 @@ def work(abbreviation: str) -> protocol.ResultType:
     return result
 
 
-def create_driver(abbreviation: str):
-    if utila.exists(abbreviation):
-        abbreviation = serializeraw.load_abbreviation_table(abbreviation)
+def create_driver(abbrev: str, intext: str, pages: tuple = None):
+    if utila.exists(abbrev):
+        table = serializeraw.load_abbreviation_table(abbrev)
     else:
-        abbreviation = iamraw.AbbreviationResult()
-    driver = protocol.driver(abbrtable=abbreviation)
+        table = iamraw.AbbreviationResult()
+    intext = serializeraw.load_text_abbreviations(intext, pages=pages)
+    driver = protocol.driver(
+        abbrtable=table,
+        intext=intext,
+    )
     return driver
 
 

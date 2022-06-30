@@ -19,6 +19,7 @@ WORKPLAN = [
         'table',
         [
             utila.ResultFile('reftable', 'abbrev_abbrev'),
+            utila.ResultFile('words', 'abbreviation_detected'),
         ],
         output=protocol.ResultDefault,
     ),

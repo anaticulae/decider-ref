@@ -19,7 +19,7 @@ run, fail = utilatest.create_cli_runner(decider_toc)
 
 
 def tableofcontent(path: str) -> iamraw.Toc:
-    path = iamraw.path.toc(path)
+    path = iamraw.path.reftable_toc(path)
     if utila.exists(path):
         result = serializeraw.load_toc(path)
     else:

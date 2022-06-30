@@ -22,14 +22,17 @@
 06011 0p135 Quellenangabe: Tippfehler erkannt
 06011 0p135 Quellenangabe: Tippfehler erkannt
 06011 0p135 Quellenangabe: Tippfehler erkannt
-06011 0p136 Quellenangabe: Tippfehler erkannt
+06011 0p135 Quellenangabe: Tippfehler erkannt
+06011 0p135 Quellenangabe: Tippfehler erkannt
 06011 0p136 Quellenangabe: Tippfehler erkannt
 06011 0p137 Quellenangabe: Tippfehler erkannt
 06011 0p137 Quellenangabe: Tippfehler erkannt
+06011 0p137 Quellenangabe: Tippfehler erkannt
 06011 0p138 Quellenangabe: Tippfehler erkannt
 06011 0p138 Quellenangabe: Tippfehler erkannt
 06011 0p138 Quellenangabe: Tippfehler erkannt
 06011 0p138 Quellenangabe: Tippfehler erkannt
+06011 0p139 Quellenangabe: Tippfehler erkannt
 06011 0p139 Quellenangabe: Tippfehler erkannt
 06011 0p139 Quellenangabe: Tippfehler erkannt
 06011 0p139 Quellenangabe: Tippfehler erkannt
@@ -42,7 +45,7 @@
 06011 0p141 Quellenangabe: Tippfehler erkannt
 06011 0p142 Quellenangabe: Tippfehler erkannt
 06050 s24p33 Quelle nicht gefunden
-06050 s4p89 Quelle nicht gefunden
+06050 s7p89 Quelle nicht gefunden
 06050 s8p80 Quelle nicht gefunden
 06051 0p131 Quelle überflüssig
 06051 0p132 Quelle überflüssig
@@ -108,5 +111,6 @@
 06300 0p103 Abbildung: Unterschrift fehlt
 06300 0p115 Abbildung: Unterschrift fehlt
 06300 0p117 Abbildung: Unterschrift fehlt
+06302 00p52 Tabelle: Unterschrift fehlt
 15010 00p-1 Abkürzungsverzeichnis nicht alphabetisch sortiert
 15015 00p-1 Allgemein gültige Abkürzung

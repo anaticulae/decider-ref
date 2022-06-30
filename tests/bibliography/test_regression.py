@@ -7,8 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import iamraw
 import power
 import serializeraw
+import utila
 
 import tests.bibliography
 
@@ -20,7 +22,13 @@ def test_empty_bib(testdir, monkeypatch):
     produces an runtime error.
     """
     source = power.link(power.MASTER049_PDF)
-    todo = 'create empty bib and remove master049 which is now detected correctly'
-    assert not serializeraw.load_bibliography_reference(source), todo
-    cmd = f'-i {source} -o {testdir.tmpdir}'
+    utila.copy_content(source, testdir.tmpdir)
+    utila.directory_unlock(testdir.tmpdir)  # TODO: REMOVE LATER
+    empty = iamraw.BibliographyTable()
+    dumped = serializeraw.dump_bibliography_reference(empty)
+    utila.file_replace(
+        testdir.tmpdir.join('bibliography__result_result.yaml'),
+        content=dumped,
+    )
+    cmd = f'-i {testdir.tmpdir} -o {testdir.tmpdir}'
     tests.bibliography.run(cmd, monkeypatch=monkeypatch)

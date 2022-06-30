@@ -40,7 +40,7 @@ def create_driver(abbrev: str, intext: str, pages: tuple = None):
         table = iamraw.AbbreviationResult()
     intext = serializeraw.load_text_abbreviations(intext, pages=pages)
     driver = protocol.driver(
-        abbrtable=table,
+        abbrevtable=table,
         intext=intext,
     )
     return driver
@@ -58,7 +58,7 @@ Sortieren Sie das Abkürzungsverzeichnis.
 
 
 def check_15010_not_sorted_alphabetically(linter: callable, driver):
-    abbreviations: iamraw.AbbreviationResult = driver.abbrtable
+    abbreviations: iamraw.AbbreviationResult = driver.abbrevtable
     current = list(abbreviations)
     expected = sorted(
         abbreviations,
@@ -91,7 +91,7 @@ muss nicht separat aufgeführt werden. Entfernen Sie die Abkürzung um die \
 
 def check_15015_abbreviation_not_required(linter: callable, driver):
     """Inform user to remove common abbreviation (exists in DUDEN)."""
-    abbreviations: iamraw.AbbreviationResult = driver.abbrtable
+    abbreviations: iamraw.AbbreviationResult = driver.abbrevtable
     for item in abbreviations:
         name = item.short.lower()
         if name not in konrad.ABBREVIATION_LOWER:
@@ -99,6 +99,40 @@ def check_15015_abbreviation_not_required(linter: callable, driver):
         linter(
             abbreviation=item.short,
             location=pagelocation(item),
+        )
+
+
+SOLUTION_R15016 = """\
+Abkürzung nicht vorhanden
+
+Die Abkürzung **{{abbrev}}** ist nicht im Abkürzungsverzeichnis aufgeführt.
+
+{elemente/abkuerzungsverzeichnis#abkurzungsverzeichnis}
+"""
+
+
+def check_15016_abbreviation_missing(linter: callable, driver):
+    abbreviations: iamraw.AbbreviationResult = driver.abbrevtable
+    if len(abbreviations) == 0:  # pylint:disable=compare-to-zero
+        protocol.skip_method('no abbreviation table')
+        return
+    references = utila.flatten_content(driver.intext)
+    references = [
+        item for item in references
+        if item.short.lower() not in konrad.ABBREVIATION_LOWER
+    ]
+    single = utila.Single()
+    collected = [
+        item for item in references if not single.contains(item.short.lower())
+    ]
+    pdfpage = abbreviations.pdfpages[0]
+    location = iamraw.Location.from_page(page=pdfpage)
+    for item in collected:
+        if abbreviations.short_inside(item.short):
+            continue
+        linter(
+            abbrev=item.short,
+            location=location,
         )
 
 

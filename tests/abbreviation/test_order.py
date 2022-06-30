@@ -35,7 +35,7 @@ def test_linter_abbreviation_table_sorted():
     table = iamraw.AbbreviationResult()
     for item in ['Alpha', 'Beta', 'Gamma', 'helm']:
         table.append(iamraw.Abbreviation(item))
-    driver = protocol.driver(abbrtable=table)
+    driver = protocol.driver(abbrevtable=table)
 
     linter = protocol.Linter()
     decider_abb.features.table.check_15010_not_sorted_alphabetically(
@@ -73,7 +73,7 @@ def test_linter_abbreviation_table_unsorted():
             short=short,
             description=description,
         ))
-    driver = protocol.driver(abbrtable=table)
+    driver = protocol.driver(abbrevtable=table)
 
     linter = abbreviation_linter(
         decider_abb.features.table.check_15010_not_sorted_alphabetically)

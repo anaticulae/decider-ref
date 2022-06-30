@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utila>=2.78.0<3.0.0
+utila>=2.79.0<3.0.0
 
 # generate doc references
 writers>=1.4.0<2.0.0
@@ -18,12 +18,12 @@ words>=1.20.1<2.0.0
 texas>=0.13.0<1.0.0
 caption>=0.4.2<1.0.0
 
-iamraw>=4.76.0<5.0.0
+iamraw>=4.77.0<5.0.0
 knlp>=0.6.2<1.0.0
 # define holy values
 configo>=0.19.1<1.0.0
 elements>=0.21.0<1.0.0
 
-konrad>=0.7.2<1.0.0
+konrad>=0.8.0<1.0.0
 
 painter>=0.12.3<1.0.0

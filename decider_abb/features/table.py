@@ -17,14 +17,21 @@ import decider_ref.listdiff
 
 
 def work(abbreviation: str) -> protocol.ResultType:
+    driver = create_driver(abbreviation)
+    result = protocol.run(
+        __name__,
+        driver,
+    )
+    return result
+
+
+def create_driver(abbreviation: str):
     if utila.exists(abbreviation):
         abbreviation = serializeraw.load_abbreviation_table(abbreviation)
     else:
         abbreviation = iamraw.AbbreviationResult()
     driver = protocol.driver(abbrtable=abbreviation)
-
-    result = protocol.run(__name__, driver)
-    return result
+    return driver
 
 
 SOLUTION_15010 = """\

@@ -20,7 +20,7 @@ import tests.abbreviation
 
 
 @pytest.mark.xfail(reason='figure detector overlaps abbr list data')
-def test_abbreviation_sorted_bachelor37(testdir, monkeypatch):
+def test_abbrev_sorted_bachelor37(testdir, monkeypatch):
     # TODO: ADJUST TABLE PAGE LOADER
     linted = tests.abbreviation.run_table(
         power.BACHELOR037_PDF,
@@ -31,7 +31,7 @@ def test_abbreviation_sorted_bachelor37(testdir, monkeypatch):
     assert len(linted) == 1
 
 
-def test_linter_abbreviation_table_sorted():
+def test_abbrev_table_sorted():
     table = iamraw.AbbreviationResult()
     for item in ['Alpha', 'Beta', 'Gamma', 'helm']:
         table.append(iamraw.Abbreviation(item))
@@ -66,7 +66,7 @@ EXAMPLE = [
 ]
 
 
-def test_linter_abbreviation_table_unsorted():
+def test_abbrev_table_unsorted():
     table = iamraw.AbbreviationResult()
     for short, description in EXAMPLE:
         table.append(iamraw.Abbreviation(

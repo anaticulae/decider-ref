@@ -45,7 +45,35 @@ def test_toc_decider_toc_complexity_regression():
 def test_decider_toc_complexity_bachelor128_regression():
     """Page 4 is the page of table of content."""
     source = power.link(power.BACHELOR128_PDF)
-    findings = tests.toc.linter(source, decider_toc.features.complexity)
+    findings = tests.toc.linter(
+        source,
+        decider_toc.features.complexity,
+        msgids=1351,
+    )
     findings = [item for item in findings if item.location.page == 4]
-    complexity_error = 7
-    assert len(findings) == 2 + complexity_error
+    assert len(findings) == 2
+    findings = tests.toc.linter(
+        source,
+        decider_toc.features.complexity,
+        msgids=1370,
+    )
+    findings = [item for item in findings if item.location.page == 4]
+    complexity_error = 3
+    assert len(findings) == complexity_error
+    msg = str(findings)
+    # Das ´Projekt-Demenz-Arnsberg`
+    assert msg.count('**7**') == 1
+    # Verarbeitungen der Erkenntnisse
+    # Auswertung der Interviewergebnisse
+    assert msg.count('**16**') == 2
+
+
+@utilatest.requires(power.BACHELOR077_PDF)
+def test_toc_complexity_bachelor077_regression():
+    source = power.link(power.BACHELOR077_PDF)
+    findings = tests.toc.linter(
+        source,
+        decider_toc.features.complexity,
+        msgids=1370,
+    )
+    assert len(findings) == 4

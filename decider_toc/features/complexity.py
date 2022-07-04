@@ -152,12 +152,10 @@ CHAPTER_LENGTH_CHECKER_MIN = configo.HV_FLOAT_PLUS(default=2.0)
 
 def validate_chapter_length(linter, toc, level, expected):
     balanced = decider_toc.balance.judge(toc)
-    level2 = utila.flatten(balanced.level2)
+    level_x_balanced = utila.flatten(getattr(balanced, f'level{level}'))
     flat = decider_toc.balance.data(toc)
-
-    level_two = [item for item in flat if item.level == level]
-
-    for line, judged in zip(level_two, level2):
+    level_x = [item for item in flat if item.level == level]
+    for line, judged in zip(level_x, level_x_balanced):
         if judged[0] != expected:
             continue
         if judged[0] is None:

@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v1.22.0
+
+### Feature
+
+* verify that all abbreviation are given in abbrev table (9397b421443e)
+* add abbreviation intext reference (8fa4ed202edf)
+* shorten cli invocation (6997c495dc25)
+
+### Fix
+
+* adjust level access (931fc5d6581a)
+
 ## v1.21.0
 
 ### Feature

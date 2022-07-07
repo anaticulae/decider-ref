@@ -1,65 +1,65 @@
-01301 00p-1 PDF enthält keine Navigation
-01330 000p6 Inhaltsverzeichnis nicht aktuell
-01360 000p7 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
-01360 000p7 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
-01365 000p6 Eidesstattliche Erklärung als Teil der Arbeit
-01370 000p6 Abschnitt zu lang
-01370 000p6 Abschnitt zu lang
-01370 000p6 Abschnitt zu lang
-01370 000p6 Abschnitt zu lang
-01370 000p7 Abschnitt zu lang
-01370 000p7 Abschnitt zu lang
-01370 000p7 Abschnitt zu lang
-01384 000p7 Sektion enthält Anführungszeichen
-06006 00p59 Anzahl der Quellen zu gering
-06050 0s2p8 Quelle nicht gefunden
-06050 0s4p9 Quelle nicht gefunden
-06050 0s4p9 Quelle nicht gefunden
-06050 0s6p9 Quelle nicht gefunden
-06050 0sp17 Quelle nicht gefunden
-06050 s11p12 Quelle nicht gefunden
-06050 s12p9 Quelle nicht gefunden
-06050 s13p13 Quelle nicht gefunden
-06050 s14p14 Quelle nicht gefunden
-06050 s15p10 Quelle nicht gefunden
-06050 s18p9 Quelle nicht gefunden
-06050 s3p15 Quelle nicht gefunden
-06050 s4p16 Quelle nicht gefunden
-06050 s5p10 Quelle nicht gefunden
-06050 s5p13 Quelle nicht gefunden
-06050 s6p11 Quelle nicht gefunden
-06050 s8p11 Quelle nicht gefunden
-06050 s8p13 Quelle nicht gefunden
-06050 s8p14 Quelle nicht gefunden
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06051 00p59 Quelle überflüssig
-06061 0s2p8 Seitenangabe fehlt
-06061 0s4p9 Seitenangabe fehlt
-06061 0s4p9 Seitenangabe fehlt
-06061 0s6p9 Seitenangabe fehlt
-06061 0sp17 Seitenangabe fehlt
-06061 s11p12 Seitenangabe fehlt
-06061 s12p9 Seitenangabe fehlt
-06061 s13p13 Seitenangabe fehlt
-06061 s14p14 Seitenangabe fehlt
-06061 s15p10 Seitenangabe fehlt
-06061 s18p9 Seitenangabe fehlt
-06061 s3p15 Seitenangabe fehlt
-06061 s4p16 Seitenangabe fehlt
-06061 s5p10 Seitenangabe fehlt
-06061 s5p13 Seitenangabe fehlt
-06061 s6p11 Seitenangabe fehlt
-06061 s8p11 Seitenangabe fehlt
-06061 s8p13 Seitenangabe fehlt
-06061 s8p14 Seitenangabe fehlt
-06300 000p0 Abbildung: Unterschrift fehlt
+01301 p-1 PDF enthält keine Navigation
+01330 p6 Inhaltsverzeichnis nicht aktuell
+01360 p7 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
+01360 p7 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
+01365 p6 Eidesstattliche Erklärung als Teil der Arbeit
+01370 p6 Abschnitt zu lang
+01370 p6 Abschnitt zu lang
+01370 p6 Abschnitt zu lang
+01370 p6 Abschnitt zu lang
+01370 p7 Abschnitt zu lang
+01370 p7 Abschnitt zu lang
+01370 p7 Abschnitt zu lang
+01384 p7 Sektion enthält Anführungszeichen
+06006 p59 Anzahl der Quellen zu gering
+06050 p10s15 Quelle nicht gefunden
+06050 p10s5 Quelle nicht gefunden
+06050 p11s6 Quelle nicht gefunden
+06050 p11s8 Quelle nicht gefunden
+06050 p12s11 Quelle nicht gefunden
+06050 p13s13 Quelle nicht gefunden
+06050 p13s5 Quelle nicht gefunden
+06050 p13s8 Quelle nicht gefunden
+06050 p14s14 Quelle nicht gefunden
+06050 p14s8 Quelle nicht gefunden
+06050 p15s3 Quelle nicht gefunden
+06050 p16s4 Quelle nicht gefunden
+06050 p17s0 Quelle nicht gefunden
+06050 p8s2 Quelle nicht gefunden
+06050 p9s12 Quelle nicht gefunden
+06050 p9s18 Quelle nicht gefunden
+06050 p9s4 Quelle nicht gefunden
+06050 p9s4 Quelle nicht gefunden
+06050 p9s6 Quelle nicht gefunden
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06051 p59 Quelle überflüssig
+06061 p10s15 Seitenangabe fehlt
+06061 p10s5 Seitenangabe fehlt
+06061 p11s6 Seitenangabe fehlt
+06061 p11s8 Seitenangabe fehlt
+06061 p12s11 Seitenangabe fehlt
+06061 p13s13 Seitenangabe fehlt
+06061 p13s5 Seitenangabe fehlt
+06061 p13s8 Seitenangabe fehlt
+06061 p14s14 Seitenangabe fehlt
+06061 p14s8 Seitenangabe fehlt
+06061 p15s3 Seitenangabe fehlt
+06061 p16s4 Seitenangabe fehlt
+06061 p17s0 Seitenangabe fehlt
+06061 p8s2 Seitenangabe fehlt
+06061 p9s12 Seitenangabe fehlt
+06061 p9s18 Seitenangabe fehlt
+06061 p9s4 Seitenangabe fehlt
+06061 p9s4 Seitenangabe fehlt
+06061 p9s6 Seitenangabe fehlt
+06300 p0 Abbildung: Unterschrift fehlt

@@ -1,17 +1,17 @@
-01301 00p-1 PDF enthält keine Navigation
-01310 00p-1 Inhaltsverzeichnis inkonsistent
-01310 00p-1 Inhaltsverzeichnis inkonsistent
-01330 000p1 Inhaltsverzeichnis nicht aktuell
-01370 000p1 Abschnitt zu lang
-01370 000p2 Abschnitt zu lang
-06000 00p42 Quellenverzeichnis ist nicht alphabetisch sortiert
-06010 00p44 Quellenangabe: Klammern überprüfen
-06300 000p0 Abbildung: Unterschrift fehlt
-06300 00p48 Abbildung: Unterschrift fehlt
-06300 00p49 Abbildung: Unterschrift fehlt
-06300 00p50 Abbildung: Unterschrift fehlt
-06302 00p47 Tabelle: Unterschrift fehlt
-06302 00p48 Tabelle: Unterschrift fehlt
-06302 00p49 Tabelle: Unterschrift fehlt
-06302 00p50 Tabelle: Unterschrift fehlt
-06303 00p-1 Empfehlung: Unterschriften verwenden
+01301 p-1 PDF enthält keine Navigation
+01310 p-1 Inhaltsverzeichnis inkonsistent
+01310 p-1 Inhaltsverzeichnis inkonsistent
+01330 p1 Inhaltsverzeichnis nicht aktuell
+01370 p1 Abschnitt zu lang
+01370 p2 Abschnitt zu lang
+06000 p42 Quellenverzeichnis ist nicht alphabetisch sortiert
+06010 p44 Quellenangabe: Klammern überprüfen
+06300 p0 Abbildung: Unterschrift fehlt
+06300 p48 Abbildung: Unterschrift fehlt
+06300 p49 Abbildung: Unterschrift fehlt
+06300 p50 Abbildung: Unterschrift fehlt
+06302 p47 Tabelle: Unterschrift fehlt
+06302 p48 Tabelle: Unterschrift fehlt
+06302 p49 Tabelle: Unterschrift fehlt
+06302 p50 Tabelle: Unterschrift fehlt
+06303 p-1 Empfehlung: Unterschriften verwenden

@@ -1,15 +1,15 @@
-01301 00p-1 PDF enthält keine Navigation
-01330 000p1 Inhaltsverzeichnis nicht aktuell
-01365 000p2 Eidesstattliche Erklärung als Teil der Arbeit
-01370 000p1 Abschnitt zu lang
-01370 000p1 Abschnitt zu lang
-01370 000p1 Abschnitt zu lang
-01370 000p1 Abschnitt zu lang
-01370 000p2 Abschnitt zu lang
-01380 000p1 Worthäufung im Inhaltsverzeichnis
-01380 000p1 Worthäufung im Inhaltsverzeichnis
-01382 000p1 Überschrift zu lang
-01382 000p1 Überschrift zu lang
-06000 00p65 Quellenverzeichnis ist nicht alphabetisch sortiert
-06007 00p65 Anzahl der Quellen zu hoch
-06063 00p-1 Empfehlung: Quellenangaben konkretisieren
+01301 p-1 PDF enthält keine Navigation
+01330 p1 Inhaltsverzeichnis nicht aktuell
+01365 p2 Eidesstattliche Erklärung als Teil der Arbeit
+01370 p1 Abschnitt zu lang
+01370 p1 Abschnitt zu lang
+01370 p1 Abschnitt zu lang
+01370 p1 Abschnitt zu lang
+01370 p2 Abschnitt zu lang
+01380 p1 Worthäufung im Inhaltsverzeichnis
+01380 p1 Worthäufung im Inhaltsverzeichnis
+01382 p1 Überschrift zu lang
+01382 p1 Überschrift zu lang
+06000 p65 Quellenverzeichnis ist nicht alphabetisch sortiert
+06007 p65 Anzahl der Quellen zu hoch
+06063 p-1 Empfehlung: Quellenangaben konkretisieren

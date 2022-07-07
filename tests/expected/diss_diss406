@@ -1,35 +1,35 @@
-01301 00p-1 PDF enthält keine Navigation
-01315 00p-1 Inhaltsverzeichnis Stil überdenken
-01350 00p69 Kapitel enthält zu wenige Sektionen
-01350 0p245 Kapitel enthält zu wenige Sektionen
-01350 0p288 Kapitel enthält zu wenige Sektionen
-01370 000p3 Abschnitt zu lang
-01370 000p5 Abschnitt zu lang
-01370 000p6 Abschnitt zu lang
-01370 000p6 Abschnitt zu lang
-01370 000p7 Abschnitt zu lang
-01370 000p8 Abschnitt zu lang
-01370 000p8 Abschnitt zu lang
-01370 000p8 Abschnitt zu lang
-01370 000p9 Abschnitt zu lang
-01370 000p9 Abschnitt zu lang
-01370 000p9 Abschnitt zu lang
-01370 00p10 Abschnitt zu lang
-01370 00p10 Abschnitt zu lang
-01380 000p3 Worthäufung im Inhaltsverzeichnis
-01380 000p4 Worthäufung im Inhaltsverzeichnis
-01380 000p6 Worthäufung im Inhaltsverzeichnis
-01382 000p3 Überschrift zu lang
-01382 000p8 Überschrift zu lang
-01382 000p9 Überschrift zu lang
-01382 000p9 Überschrift zu lang
-01382 00p10 Überschrift zu lang
-01382 00p11 Überschrift zu lang
-01383 000p3 Sektion enthält Fragestellung
-01383 000p3 Sektion enthält Fragestellung
-01383 000p5 Sektion enthält Fragestellung
-01383 000p5 Sektion enthält Fragestellung
-01383 000p6 Sektion enthält Fragestellung
-01383 000p6 Sektion enthält Fragestellung
-01383 000p6 Sektion enthält Fragestellung
-01384 000p5 Sektion enthält Anführungszeichen
+01301 p-1 PDF enthält keine Navigation
+01315 p-1 Inhaltsverzeichnis Stil überdenken
+01350 p245 Kapitel enthält zu wenige Sektionen
+01350 p288 Kapitel enthält zu wenige Sektionen
+01350 p69 Kapitel enthält zu wenige Sektionen
+01370 p10 Abschnitt zu lang
+01370 p10 Abschnitt zu lang
+01370 p3 Abschnitt zu lang
+01370 p5 Abschnitt zu lang
+01370 p6 Abschnitt zu lang
+01370 p6 Abschnitt zu lang
+01370 p7 Abschnitt zu lang
+01370 p8 Abschnitt zu lang
+01370 p8 Abschnitt zu lang
+01370 p8 Abschnitt zu lang
+01370 p9 Abschnitt zu lang
+01370 p9 Abschnitt zu lang
+01370 p9 Abschnitt zu lang
+01380 p3 Worthäufung im Inhaltsverzeichnis
+01380 p4 Worthäufung im Inhaltsverzeichnis
+01380 p6 Worthäufung im Inhaltsverzeichnis
+01382 p10 Überschrift zu lang
+01382 p11 Überschrift zu lang
+01382 p3 Überschrift zu lang
+01382 p8 Überschrift zu lang
+01382 p9 Überschrift zu lang
+01382 p9 Überschrift zu lang
+01383 p3 Sektion enthält Fragestellung
+01383 p3 Sektion enthält Fragestellung
+01383 p5 Sektion enthält Fragestellung
+01383 p5 Sektion enthält Fragestellung
+01383 p6 Sektion enthält Fragestellung
+01383 p6 Sektion enthält Fragestellung
+01383 p6 Sektion enthält Fragestellung
+01384 p5 Sektion enthält Anführungszeichen

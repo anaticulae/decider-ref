@@ -1,13 +1,13 @@
-01301 00p-1 PDF enthält keine Navigation
-01310 00p-1 Inhaltsverzeichnis inkonsistent
-01310 00p-1 Inhaltsverzeichnis inkonsistent
-01310 00p-1 Inhaltsverzeichnis inkonsistent
-01330 000p2 Inhaltsverzeichnis nicht aktuell
-01351 000p2 Gliederung zu komplex
-01351 000p2 Gliederung zu komplex
-01370 000p2 Abschnitt zu lang
-01370 000p3 Abschnitt zu lang
-01370 000p3 Abschnitt zu lang
-01370 000p3 Abschnitt zu lang
-06000 00p49 Quellenverzeichnis ist nicht alphabetisch sortiert
-06300 000p0 Abbildung: Unterschrift fehlt
+01301 p-1 PDF enthält keine Navigation
+01310 p-1 Inhaltsverzeichnis inkonsistent
+01310 p-1 Inhaltsverzeichnis inkonsistent
+01310 p-1 Inhaltsverzeichnis inkonsistent
+01330 p2 Inhaltsverzeichnis nicht aktuell
+01351 p2 Gliederung zu komplex
+01351 p2 Gliederung zu komplex
+01370 p2 Abschnitt zu lang
+01370 p3 Abschnitt zu lang
+01370 p3 Abschnitt zu lang
+01370 p3 Abschnitt zu lang
+06000 p49 Quellenverzeichnis ist nicht alphabetisch sortiert
+06300 p0 Abbildung: Unterschrift fehlt

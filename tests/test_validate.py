@@ -66,7 +66,7 @@ class Evaluate(utilatest.BaseLiner):
     def raw(self, value) -> str:
         findings = utila.flatten_content(value)
         findings = [
-            f'{str(item.msgid).zfill(5)} {item.location.raw().zfill(5)} {item.solution.title}'
+            f'{str(item.msgid).zfill(5)} {str(item.location)} {item.solution.title}'
             for item in findings
         ]
         findings = sorted(findings, key=utila.alphabetically)

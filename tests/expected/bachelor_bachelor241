@@ -1,22 +1,22 @@
-01301 00p-1 PDF enthält keine Navigation
-01350 00p23 Kapitel enthält zu wenige Sektionen
-01360 000p4 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
-01360 000p6 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
-01360 000p6 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
-01360 000p7 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
-01365 000p4 Eidesstattliche Erklärung als Teil der Arbeit
-01370 000p7 Abschnitt zu lang
-01370 000p7 Abschnitt zu lang
-01380 000p4 Worthäufung im Inhaltsverzeichnis
-01380 000p4 Worthäufung im Inhaltsverzeichnis
-01380 000p4 Worthäufung im Inhaltsverzeichnis
-01380 000p4 Worthäufung im Inhaltsverzeichnis
-01383 000p5 Sektion enthält Fragestellung
-01384 000p5 Sektion enthält Anführungszeichen
-01384 000p5 Sektion enthält Anführungszeichen
-06000 0p239 Quellenverzeichnis ist nicht alphabetisch sortiert
-06006 0p239 Anzahl der Quellen zu gering
-06300 000p0 Abbildung: Unterschrift fehlt
-06301 0p235 Quellcode: Unterschrift fehlt
-06301 0p236 Quellcode: Unterschrift fehlt
-06301 0p237 Quellcode: Unterschrift fehlt
+01301 p-1 PDF enthält keine Navigation
+01350 p23 Kapitel enthält zu wenige Sektionen
+01360 p4 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
+01360 p6 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
+01360 p6 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
+01360 p7 Inhaltsverzeichnis enthält nicht nur aufsteigende Seitenzahlen
+01365 p4 Eidesstattliche Erklärung als Teil der Arbeit
+01370 p7 Abschnitt zu lang
+01370 p7 Abschnitt zu lang
+01380 p4 Worthäufung im Inhaltsverzeichnis
+01380 p4 Worthäufung im Inhaltsverzeichnis
+01380 p4 Worthäufung im Inhaltsverzeichnis
+01380 p4 Worthäufung im Inhaltsverzeichnis
+01383 p5 Sektion enthält Fragestellung
+01384 p5 Sektion enthält Anführungszeichen
+01384 p5 Sektion enthält Anführungszeichen
+06000 p239 Quellenverzeichnis ist nicht alphabetisch sortiert
+06006 p239 Anzahl der Quellen zu gering
+06300 p0 Abbildung: Unterschrift fehlt
+06301 p235 Quellcode: Unterschrift fehlt
+06301 p236 Quellcode: Unterschrift fehlt
+06301 p237 Quellcode: Unterschrift fehlt

@@ -22,8 +22,11 @@ def test_empty_bib(testdir, monkeypatch):
     produces an runtime error.
     """
     source = power.link(power.MASTER049_PDF)
-    utila.copy_content(source, testdir.tmpdir)
-    utila.directory_unlock(testdir.tmpdir)  # TODO: REMOVE LATER
+    utila.copy_content(
+        source,
+        testdir.tmpdir,
+        unlock=True,
+    )
     empty = iamraw.BibliographyTable()
     dumped = serializeraw.dump_bibliography_reference(empty)
     utila.file_replace(

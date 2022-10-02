@@ -10,6 +10,7 @@
 import genex
 import power
 import pytest
+import utilatest
 import writers
 
 import decider_ref
@@ -18,8 +19,6 @@ PACKAGE = decider_ref.PACKAGE
 power.setup(decider_ref.ROOT)
 
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
-
-WORKER = 6
 
 RESOURCES = [
     (power.BACHELOR051_PDF, '0:10,40:52'),
@@ -51,6 +50,7 @@ RESOURCES = [
     power.MASTER072_PDF,
     power.TECH019_PDF,
 ]
+WORKER = utilatest.worker_count(5, onci=len(RESOURCES))
 
 RESOURCES_NOTOC = [
     (power.DOCU035_PDF, ':'),
@@ -77,6 +77,7 @@ def extract_notoc(resources):
         removepages='1:5',
         folder='notoc',
         groupme=True,
+        worker=len(resources),
     )
 
 

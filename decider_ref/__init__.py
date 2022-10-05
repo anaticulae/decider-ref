@@ -9,7 +9,7 @@
 
 import os
 
-__version__ = '1.22.0'
+__version__ = '1.23.0'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PACKAGE = 'decider_ref'

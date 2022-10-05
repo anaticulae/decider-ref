@@ -2,6 +2,19 @@
 
 Every noteable change is logged here.
 
+## v1.23.0 (2022-10-05)
+
+### Chore
+
+* add missing resource generator (8eddbb433313)
+* add missing chapter (435cd4a4c8df)
+* add separate generate step (3ef0d8a8cd8f)
+* do not run as privileged user (214c811895c9)
+* upgrade requirements.txt (3c6b3aeebceb)
+* add Jenkinsfile (3c9376914458)
+* increase worker count on CI (c6a68300d4fa)
+* upgrade requirements.txt (4c19225191d9)
+
 ## v1.22.0
 
 ### Feature

@@ -13,8 +13,8 @@ import decider_abb
 import tests.abbreviation
 
 
-def test_decider_abbr_cli_help(monkeypatch):
-    tests.abbreviation.run('--help', monkeypatch=monkeypatch)
+def test_decider_abbr_cli_help(mp):
+    tests.abbreviation.run('--help', mp=mp)
 
 
 def test_decider_abbr_nomonkey_cli_help():

@@ -16,21 +16,21 @@ import tests
 
 
 @utilatest.requires(power.BACHELOR090_PDF)
-def test_toc_bachelor90_toc_document_sync(testdir, monkeypatch):
+def test_toc_bachelor90_toc_document_sync(td, mp):
     source = power.link(power.BACHELOR090_PDF)
-    tests.toc.run(f'-i {source} --sync', monkeypatch=monkeypatch)
+    tests.toc.run(f'-i {source} --sync', mp=mp)
 
-    findings = protocol.findings_from_path(testdir.tmpdir)
+    findings = protocol.findings_from_path(td.tmpdir)
     assert len(tests.select(findings, 1330)) == 1
 
 
 @pytest.mark.xfail(reason='broken headlines parser')
 @utilatest.requires(power.BACHELOR037_PDF)
-def test_toc_bachelor37_toc_document_sync(testdir, monkeypatch):
+def test_toc_bachelor37_toc_document_sync(td, mp):
     source = power.link(power.BACHELOR037_PDF)
-    tests.toc.run(f'-i {source} --sync', monkeypatch=monkeypatch)
+    tests.toc.run(f'-i {source} --sync', mp=mp)
 
-    findings = protocol.findings_from_path(testdir.tmpdir)
+    findings = protocol.findings_from_path(td.tmpdir)
     assert len(tests.select(findings, 1330)) == 1
 
     description = findings[0].content[0].solution.description

@@ -15,11 +15,11 @@ import tests.caption
 
 
 @pytest.mark.xfail(reason='duplicated caption parsing')
-def test_caption_basic_diss172(testdir, monkeypatch):
+def test_caption_basic_diss172(td, mp):
     source = power.link(power.DISS172_PDF)
     tests.caption.run(
-        f'-i {source} -o {testdir.tmpdir} --basic',
-        monkeypatch=monkeypatch,
+        f'-i {source} -o {td.tmpdir} --basic',
+        mp=mp,
     )
-    findings = protocol.findings_from_path(testdir.tmpdir)
+    findings = protocol.findings_from_path(td.tmpdir)
     assert not findings

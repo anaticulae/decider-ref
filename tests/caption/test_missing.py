@@ -13,22 +13,22 @@ import protocol
 import tests.caption
 
 
-def test_caption_missing_some_tech019(testdir, monkeypatch):
+def test_caption_missing_some_tech019(td, mp):
     source = power.link(power.TECH019_PDF)
     tests.caption.run(
-        f'-i {source} -o {testdir.tmpdir} --missing',
-        monkeypatch=monkeypatch,
+        f'-i {source} -o {td.tmpdir} --missing',
+        mp=mp,
     )
-    findings = protocol.findings_from_path(testdir.tmpdir)
+    findings = protocol.findings_from_path(td.tmpdir)
     assert findings
 
 
-def test_caption_missing_all_caption_tech019(testdir, monkeypatch):
+def test_caption_missing_all_caption_tech019(td, mp):
     source = power.link(power.TECH019_PDF)
     tests.caption.run(
-        f'-i {source} -o {testdir.tmpdir} --missing',
-        monkeypatch=monkeypatch,
+        f'-i {source} -o {td.tmpdir} --missing',
+        mp=mp,
     )
-    findings = protocol.findings_from_path(testdir.tmpdir, msgid=6303)
+    findings = protocol.findings_from_path(td.tmpdir, msgid=6303)
     assert len(findings) == 1
     assert findings

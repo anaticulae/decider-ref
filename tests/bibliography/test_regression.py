@@ -15,7 +15,7 @@ import utila
 import tests.bibliography
 
 
-def test_empty_bib(testdir, monkeypatch):
+def test_empty_bib(td, mp):
     """Run decider with empty bib.
 
     Before this patch, loading data creates invalid data structure which
@@ -24,14 +24,14 @@ def test_empty_bib(testdir, monkeypatch):
     source = power.link(power.MASTER049_PDF)
     utila.copy_content(
         source,
-        testdir.tmpdir,
+        td.tmpdir,
         unlock=True,
     )
     empty = iamraw.BibliographyTable()
     dumped = serializeraw.dump_bibliography_reference(empty)
     utila.file_replace(
-        testdir.tmpdir.join('bibliography__result_result.yaml'),
+        td.tmpdir.join('bibliography__result_result.yaml'),
         content=dumped,
     )
-    cmd = f'-i {testdir.tmpdir} -o {testdir.tmpdir}'
-    tests.bibliography.run(cmd, monkeypatch=monkeypatch)
+    cmd = f'-i {td.tmpdir} -o {td.tmpdir}'
+    tests.bibliography.run(cmd, mp=mp)

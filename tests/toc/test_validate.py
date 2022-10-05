@@ -16,10 +16,10 @@ import tests.toc
 
 
 @utilatest.requires(power.DISS406_PDF)
-def test_toc_diff406(testdir, monkeypatch):
+def test_toc_diff406(td, mp):
     source = power.link(power.DISS406_PDF)
-    tests.toc.run(f'-i {source}', monkeypatch=monkeypatch)
-    findings = protocol.findings_from_path(testdir.tmpdir)
+    tests.toc.run(f'-i {source}', mp=mp)
+    findings = protocol.findings_from_path(td.tmpdir)
     findings = utila.flatten_content(findings)
     assert findings
     # After supporting S. 120 as page numbers 1360 should not occurrs anymore

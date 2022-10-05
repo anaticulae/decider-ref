@@ -16,19 +16,19 @@ import tests.toc
 
 
 @utilatest.requires(power.BACHELOR063_PDF)
-def test_bachelor63_regression_complexity(testdir, monkeypatch):
+def test_bachelor63_regression_complexity(td, mp):
     """Do not mix roman and arabic numbers in toc length computation.
     TODO: HANDLE ROMAN NUMBERS
     """
     source = power.link(power.BACHELOR063_PDF)
-    with monkeypatch.context() as context:
+    with mp.context() as context:
         context.setattr(
             decider_toc.features.complexity,
             'CHAPTER_LENGTH_CHECKER_MIN',
             0.0,
         )
-        tests.toc.run(f'-i {source} --complexity', monkeypatch=monkeypatch)
-    findings = protocol.findings_from_path(testdir.tmpdir)
+        tests.toc.run(f'-i {source} --complexity', mp=mp)
+    findings = protocol.findings_from_path(td.tmpdir)
     findings = protocol.select_pages(findings, pages=(6, 7))
     assert findings  # count is not important
 

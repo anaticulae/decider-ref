@@ -12,13 +12,13 @@ import power
 import tests.abbreviation
 
 
-def test_abbrev_bachelor028_intable(testdir, monkeypatch):
+def test_abbrev_bachelor028_intable(td, mp):
     """Bachelor028 does not contain any ref table therefore we do not
     expect any linting here."""
     linted = tests.abbreviation.run_table(
         power.BACHELOR028_PDF,
-        monkeypatch,
-        testdir,
+        mp,
+        td,
         msgid=15016,
     )
     assert not linted

@@ -20,12 +20,12 @@ import tests.abbreviation
 
 
 @pytest.mark.xfail(reason='figure detector overlaps abbr list data')
-def test_abbrev_sorted_bachelor37(testdir, monkeypatch):
+def test_abbrev_sorted_bachelor37(td, mp):
     # TODO: ADJUST TABLE PAGE LOADER
     linted = tests.abbreviation.run_table(
         power.BACHELOR037_PDF,
-        monkeypatch,
-        testdir,
+        mp,
+        td,
         msgid=15010,
     )
     assert len(linted) == 1

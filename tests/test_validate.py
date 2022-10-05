@@ -32,23 +32,23 @@ TODO = [pytest.param(source, id=utila.file_name(source)) for source in TODO]
 
 @utilatest.nightly
 @pytest.mark.parametrize('source', TODO)
-def test_validate_huge(source, testdir, monkeypatch):
+def test_validate_huge(source, td, mp):
     utilatest.fixture_requires(source)
     Evaluate(
         source=source,
         pages=':',
-        workdir=testdir.tmpdir,
-        monkeypatch=monkeypatch,
+        workdir=td.tmpdir,
+        mp=mp,
     ).evaluate()
 
 
 class Evaluate(utilatest.BaseLiner):
 
-    def __init__(self, source, pages, workdir, monkeypatch):
+    def __init__(self, source, pages, workdir, mp):
         super().__init__(
             program=functools.partial(
                 self.run_extraction,
-                monkeypatch=monkeypatch,
+                mp=mp,
             ),
             step=None,
             pages=pages,
@@ -73,8 +73,8 @@ class Evaluate(utilatest.BaseLiner):
         result = utila.NEWLINE.join(findings)
         return result
 
-    def run_extraction(self, cmd, monkeypatch):  # pylint:disable=W0613,R0201
-        tests.abbreviation.run(cmd, monkeypatch=monkeypatch)
-        tests.bibliography.run(cmd, monkeypatch=monkeypatch)
-        tests.caption.run(cmd, monkeypatch=monkeypatch)
-        tests.toc.run(cmd, monkeypatch=monkeypatch)
+    def run_extraction(self, cmd, mp):  # pylint:disable=W0613,R0201
+        tests.abbreviation.run(cmd, mp=mp)
+        tests.bibliography.run(cmd, mp=mp)
+        tests.caption.run(cmd, mp=mp)
+        tests.toc.run(cmd, mp=mp)

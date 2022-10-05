@@ -16,8 +16,8 @@ import tests
 
 
 @utilatest.requires(power.MASTER072_PDF)
-def test_decider_bib_plot_bib_overview(testdir, monkeypatch):
+def test_decider_bib_plot_bib_overview(td, mp):  # pylint:disable=W0613
     source = power.link(power.MASTER072_PDF)
     cmd = f'-i {source} --plot'
-    tests.bibliography.run(cmd, monkeypatch=monkeypatch)
+    tests.bibliography.run(cmd, mp=mp)
     assert os.path.exists('decider_bibliography__plot_year_histogram.png')

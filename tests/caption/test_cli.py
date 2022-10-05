@@ -13,8 +13,8 @@ import decider_cap
 import tests.caption
 
 
-def test_cap_cli_help(monkeypatch):
-    tests.caption.run('--help', monkeypatch=monkeypatch)
+def test_cap_cli_help(mp):
+    tests.caption.run('--help', mp=mp)
 
 
 def test_cap_nomonkey_cli_help():

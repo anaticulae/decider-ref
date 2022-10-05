@@ -16,12 +16,12 @@ import decider_bib
 import tests.bibliography
 
 
-def run_table(source, monkeypatch, testdir, msgid=None):
+def run_table(source, mp, td, msgid=None):
     source = power.link(source)
     utilatest.fixture_requires(source)
     cmd = f'-i {source} --table'
-    tests.bibliography.run(cmd, monkeypatch=monkeypatch)
-    path = decider_bib.path.decider_bib_table_user(testdir.tmpdir)
+    tests.bibliography.run(cmd, mp=mp)
+    path = decider_bib.path.decider_bib_table_user(td.tmpdir)
     result = protocol.select_findings(
         serializeraw.load_findings(path),
         msgid=msgid,
@@ -29,32 +29,32 @@ def run_table(source, monkeypatch, testdir, msgid=None):
     return result
 
 
-def test_bib_sorting_master98(testdir, monkeypatch):
-    unsorted_bib = run_table(power.MASTER098_PDF, monkeypatch, testdir, {6000})
+def test_bib_sorting_master98(td, mp):
+    unsorted_bib = run_table(power.MASTER098_PDF, mp, td, {6000})
     assert len(unsorted_bib) == 1
 
 
-def test_bib_bachelor75_regression_table(testdir, monkeypatch):
+def test_bib_bachelor75_regression_table(td, mp):
     """Do not fail when parsing empty authors."""
-    run_table(power.BACHELOR075_PDF, monkeypatch, testdir)
+    run_table(power.BACHELOR075_PDF, mp, td)
 
 
-def test_bib_bachelor75_regression_bib_sort(testdir, monkeypatch):
+def test_bib_bachelor75_regression_bib_sort(td, mp):
     """Bib table is ??not?? sorted correctly.
 
     In the current state this check is disabled cause of not fully
     parsed bibs.
     """
-    findings = run_table(power.BACHELOR075_PDF, monkeypatch, testdir, {6000})
+    findings = run_table(power.BACHELOR075_PDF, mp, td, {6000})
     assert not findings
     # TODO: VERIFY ORDER AND DETECTED MISS SORTING OF BIB
 
 
-def test_bib_order107_unbalanced_brackets(testdir, monkeypatch):
+def test_bib_order107_unbalanced_brackets(td, mp):
     unbalacend_brackets = run_table(
         power.ORDER107_PDF,
-        monkeypatch,
-        testdir,
+        mp,
+        td,
         {6010},
     )
     # 1. (1983]: Gliederung und Benummerung in Texten.
@@ -63,58 +63,58 @@ def test_bib_order107_unbalanced_brackets(testdir, monkeypatch):
     assert len(unbalacend_brackets) == 3
 
 
-def test_bib_master127_typos(testdir, monkeypatch):
+def test_bib_master127_typos(td, mp):
     typo_detected = run_table(
         power.MASTER127_PDF,
-        monkeypatch,
-        testdir,
+        mp,
+        td,
         {6011},
     )
     assert len(typo_detected) in (5, 7)
 
 
-def test_bib_sorting_master116(testdir, monkeypatch):
-    unsorted_bib = run_table(power.MASTER116_PDF, monkeypatch, testdir, {6000})
+def test_bib_sorting_master116(td, mp):
+    unsorted_bib = run_table(power.MASTER116_PDF, mp, td, {6000})
     assert not unsorted_bib  # TODO: VALIDATE LATER
 
 
-def test_bib_master083_differs(testdir, monkeypatch):
+def test_bib_master083_differs(td, mp):
     """Detect bib entrees which differ from style of other bibs."""
     detected = run_table(
         power.MASTER083_PDF,
-        monkeypatch,
-        testdir,
+        mp,
+        td,
         {6020},
     )
     # TODO: IMPROVE AND CLARIFY DIFFER CHECKER
     assert len(detected) in (2, 4, 5)  # TODO: NOT VALIDATED
 
 
-def test_bib_table_bachelor241_too_few_bibs(testdir, monkeypatch):
+def test_bib_table_bachelor241_too_few_bibs(td, mp):
     detected = run_table(
         power.BACHELOR241_PDF,
-        monkeypatch,
-        testdir,
+        mp,
+        td,
         {6006},
     )
     assert len(detected) == 1
 
 
-def test_bib_table_diss266_too_many_bibs(testdir, monkeypatch):
+def test_bib_table_diss266_too_many_bibs(td, mp):
     detected = run_table(
         power.DISS266_PDF,
-        monkeypatch,
-        testdir,
+        mp,
+        td,
         {6007},
     )
     assert len(detected) == 1
 
 
-def test_bib_sorted_diss172(testdir, monkeypatch):
+def test_bib_sorted_diss172(td, mp):
     detected = run_table(
         power.DISS172_PDF,
-        monkeypatch,
-        testdir,
+        mp,
+        td,
         {6000},
     )
     assert not detected

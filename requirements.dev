@@ -16,5 +16,6 @@ genref==1.3.8
 # TODO: REMOVE LATER
 detector>=0.39.2<1.0.0
 reftable>=0.4.0<1.0.0
+chapter>=0.2.1<1.0.0
 # modify test data
 jam==0.5.1

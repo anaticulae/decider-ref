@@ -79,6 +79,7 @@ def extract_notoc(resources):
         removepages='1:5',
         folder='notoc',
         groupme=True,
+        footnote=True,
         worker=len(resources),
     )
 

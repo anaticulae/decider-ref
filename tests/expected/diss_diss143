@@ -44,9 +44,9 @@
 06011 p140 Quellenangabe: Tippfehler erkannt
 06011 p141 Quellenangabe: Tippfehler erkannt
 06011 p142 Quellenangabe: Tippfehler erkannt
-06050 p33s24 Quelle nicht gefunden
+06050 p33s16 Quelle nicht gefunden
 06050 p80s8 Quelle nicht gefunden
-06050 p89s7 Quelle nicht gefunden
+06050 p89s9 Quelle nicht gefunden
 06051 p131 Quelle überflüssig
 06051 p132 Quelle überflüssig
 06051 p132 Quelle überflüssig
@@ -88,6 +88,7 @@
 06063 p-1 Empfehlung: Quellenangaben konkretisieren
 06200 p-1 Unterschrift mehrfach verwendet
 06201 p-1 Unterschriften der Abbildungen falsch numeriert
+06220 p25 Unterschrift zu lang
 06220 p64 Unterschrift zu lang
 06220 p97 Unterschrift zu lang
 06300 p100 Abbildung: Unterschrift fehlt
@@ -95,7 +96,6 @@
 06300 p115 Abbildung: Unterschrift fehlt
 06300 p117 Abbildung: Unterschrift fehlt
 06300 p16 Abbildung: Unterschrift fehlt
-06300 p25 Abbildung: Unterschrift fehlt
 06300 p31 Abbildung: Unterschrift fehlt
 06300 p36 Abbildung: Unterschrift fehlt
 06300 p45 Abbildung: Unterschrift fehlt
@@ -106,15 +106,14 @@
 06300 p62 Abbildung: Unterschrift fehlt
 06300 p65 Abbildung: Unterschrift fehlt
 06300 p76 Abbildung: Unterschrift fehlt
+06300 p78 Abbildung: Unterschrift fehlt
 06300 p85 Abbildung: Unterschrift fehlt
 06300 p86 Abbildung: Unterschrift fehlt
 06300 p92 Abbildung: Unterschrift fehlt
 06300 p94 Abbildung: Unterschrift fehlt
 06300 p95 Abbildung: Unterschrift fehlt
-06302 p52 Tabelle: Unterschrift fehlt
 15010 p-1 Abkürzungsverzeichnis nicht alphabetisch sortiert
 15015 p-1 Allgemein gültige Abkürzung
-15016 p17 Abkürzung nicht vorhanden
 15016 p17 Abkürzung nicht vorhanden
 15016 p17 Abkürzung nicht vorhanden
 15016 p17 Abkürzung nicht vorhanden

@@ -1,15 +1,11 @@
+01300 p-1 Dokument enthält kein Inhaltsverzeichnis
 01301 p-1 PDF enthält keine Navigation
-01330 p1 Inhaltsverzeichnis nicht aktuell
-01365 p2 Eidesstattliche Erklärung als Teil der Arbeit
-01370 p1 Abschnitt zu lang
-01370 p1 Abschnitt zu lang
-01370 p1 Abschnitt zu lang
-01370 p1 Abschnitt zu lang
-01370 p2 Abschnitt zu lang
-01380 p1 Worthäufung im Inhaltsverzeichnis
-01380 p1 Worthäufung im Inhaltsverzeichnis
-01382 p1 Überschrift zu lang
-01382 p1 Überschrift zu lang
 06000 p65 Quellenverzeichnis ist nicht alphabetisch sortiert
 06007 p65 Anzahl der Quellen zu hoch
+06010 p66 Quellenangabe: Klammern überprüfen
 06063 p-1 Empfehlung: Quellenangaben konkretisieren
+06300 p0 Abbildung: Unterschrift fehlt
+06300 p1 Abbildung: Unterschrift fehlt
+06300 p21 Abbildung: Unterschrift fehlt
+06300 p64 Abbildung: Unterschrift fehlt
+06301 p66 Quellcode: Unterschrift fehlt

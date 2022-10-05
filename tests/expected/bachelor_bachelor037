@@ -7,20 +7,23 @@
 01383 p4 Sektion enthält Fragestellung
 06000 p33 Quellenverzeichnis ist nicht alphabetisch sortiert
 06007 p33 Anzahl der Quellen zu hoch
+06020 p33 Quellenangabe überprüfen
+06020 p33 Quellenangabe überprüfen
+06020 p34 Quellenangabe überprüfen
+06020 p34 Quellenangabe überprüfen
+06020 p36 Quellenangabe überprüfen
+06020 p36 Quellenangabe überprüfen
+06020 p36 Quellenangabe überprüfen
+06020 p36 Quellenangabe überprüfen
+06020 p36 Quellenangabe überprüfen
 06063 p-1 Empfehlung: Quellenangaben konkretisieren
 06201 p-1 Unterschriften der Abbildungen falsch numeriert
 06210 p16 Unterschrift startet nicht mit einem Großbuchstaben
 06220 p18 Unterschrift zu lang
 06300 p0 Abbildung: Unterschrift fehlt
 06300 p1 Abbildung: Unterschrift fehlt
-06300 p25 Abbildung: Unterschrift fehlt
 06302 p27 Tabelle: Unterschrift fehlt
-15015 p1 Allgemein gültige Abkürzung
-15015 p1 Allgemein gültige Abkürzung
-15015 p1 Allgemein gültige Abkürzung
-15015 p1 Allgemein gültige Abkürzung
-15016 p1 Abkürzung nicht vorhanden
-15016 p1 Abkürzung nicht vorhanden
+15010 p-1 Abkürzungsverzeichnis nicht alphabetisch sortiert
 15016 p1 Abkürzung nicht vorhanden
 15016 p1 Abkürzung nicht vorhanden
 15016 p1 Abkürzung nicht vorhanden

@@ -78,6 +78,7 @@ def test_regression_bachelor75(td, mp):
     assert len(linting) == 21  # NOT VALIDATED
 
 
+@pytest.mark.xfail(reason='software integration')
 def test_label_bib_ref_missing(td, mp):
     """No missing intext bib reference."""
     linting = run_label(power.BACHELOR075_PDF, mp, td, {6050})

@@ -51,8 +51,8 @@ def test_toc_words_duplicated_master072(td, mp):
 
 
 def run_style(source, msgid, td, mp):
-    source = power.link(source)
     utilatest.fixture_requires(source)
+    source = power.link(source)
     tests.toc.run(f'-i {source} --style', mp=mp)
     # load findings
     findings = protocol.findings_from_path(td.tmpdir)

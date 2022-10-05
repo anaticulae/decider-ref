@@ -11,10 +11,12 @@ import iamraw
 import power
 import serializeraw
 import utila
+import utilatest
 
 import tests.bibliography
 
 
+@utilatest.requires(power.MASTER049_PDF)
 def test_empty_bib(td, mp):
     """Run decider with empty bib.
 

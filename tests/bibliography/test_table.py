@@ -17,8 +17,8 @@ import tests.bibliography
 
 
 def run_table(source, mp, td, msgid=None):
-    source = power.link(source)
     utilatest.fixture_requires(source)
+    source = power.link(source)
     cmd = f'-i {source} --table'
     tests.bibliography.run(cmd, mp=mp)
     path = decider_bib.path.decider_bib_table_user(td.tmpdir)

@@ -19,6 +19,7 @@ import tests.bibliography
 
 
 def run_label(source, mp, td, msgid=None, pages=None):
+    utilatest.fixture_requires(source)
     source = power.link(source)
     utilatest.fixture_requires(source)
     cmd = f'-i {source} --label'

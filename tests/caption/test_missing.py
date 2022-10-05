@@ -9,10 +9,12 @@
 
 import power
 import protocol
+import utilatest
 
 import tests.caption
 
 
+@utilatest.requires(power.TECH019_PDF)
 def test_caption_missing_some_tech019(td, mp):
     source = power.link(power.TECH019_PDF)
     tests.caption.run(
@@ -23,6 +25,7 @@ def test_caption_missing_some_tech019(td, mp):
     assert findings
 
 
+@utilatest.requires(power.TECH019_PDF)
 def test_caption_missing_all_caption_tech019(td, mp):
     source = power.link(power.TECH019_PDF)
     tests.caption.run(

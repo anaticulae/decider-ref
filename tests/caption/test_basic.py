@@ -10,11 +10,13 @@
 import power
 import protocol
 import pytest
+import utilatest
 
 import tests.caption
 
 
 @pytest.mark.xfail(reason='duplicated caption parsing')
+@utilatest.requires(power.DISS172_PDF)
 def test_caption_basic_diss172(td, mp):
     source = power.link(power.DISS172_PDF)
     tests.caption.run(

@@ -7,29 +7,14 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import functools
-
 import detector.path
 import power
-import utila
 import utilatest
 
 import decider_bib
-import decider_bib.cli
+import decider_bib.serialize
 
-# pylint:disable=C0103
-run = functools.partial(
-    utilatest.run_command,
-    main=decider_bib.cli.main,
-    process=decider_bib.PROCESS,
-    success=True,
-)
-fail = functools.partial(
-    utilatest.run_command,
-    main=decider_bib.cli.main,
-    process=decider_bib.PROCESS,
-    success=False,
-)
+run, fail = utilatest.create_cli_runner(decider_bib)
 
 
 def load_bib_table(path: str):

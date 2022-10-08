@@ -1,4 +1,4 @@
-# changelog
+# Changelog
 
 Every noteable change is logged here.
 
@@ -375,4 +375,3 @@ Every noteable change is logged here.
 * adjust setup path (888493955616)
 
 ## v0.0.0 Initial release
-

@@ -105,17 +105,14 @@ def check_1330_toc_document_sync(linter, driver):
         utila.error('no headlines given')
         return
     headlines = iamraw.headlines_totoc(headlines)
-    toc_firstpage = min([item.raw_location for item in toc])
-
+    toc_firstpage = min((item.raw_location for item in toc))
     toc = elements.toc_flat(toc)
     headlines = elements.toc_flat(headlines)  # pylint:disable=R0204
-
     # TODO: ADD BETTER TOC SYNC TO COMPARE CORRECT LEVEL
     # TODO: RENAME VARIABLES
     # compare first level
     toc_firstlevel = [item.title for item in toc]
     document_firstlevel = [item.title for item in headlines]
-
     if toc_firstlevel == document_firstlevel:
         # all first level headlines in toc are equal to detected headlines
         # in document

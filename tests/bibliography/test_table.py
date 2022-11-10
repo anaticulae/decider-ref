@@ -70,7 +70,7 @@ def test_bib_master127_typos(td, mp):
         td,
         {6011},
     )
-    assert len(typo_detected) in (5, 7)
+    assert len(typo_detected) in {5, 7}
 
 
 def test_bib_sorting_master116(td, mp):
@@ -87,7 +87,7 @@ def test_bib_master083_differs(td, mp):
         {6020},
     )
     # TODO: IMPROVE AND CLARIFY DIFFER CHECKER
-    assert len(detected) in (2, 4, 5)  # TODO: NOT VALIDATED
+    assert len(detected) in {2, 4, 5}  # TODO: NOT VALIDATED
 
 
 def test_bib_table_bachelor241_too_few_bibs(td, mp):

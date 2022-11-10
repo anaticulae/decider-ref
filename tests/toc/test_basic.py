@@ -37,7 +37,7 @@ def test_toc_duplicated_level_bachelor067():
         decider_toc.features.basic,
         msgids=1310,
     )
-    assert len(linted) in (5, 6)
+    assert len(linted) in {5, 6}
 
 
 def lint(path: str, module):

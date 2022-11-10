@@ -14,7 +14,6 @@
 import collections
 import contextlib
 import statistics
-import typing
 
 import configo
 import elements
@@ -25,7 +24,7 @@ import utila
 PAGE_LENGTH_MIN = configo.HV_FLOAT_PLUS(1.0)
 
 TocLine = collections.namedtuple('TocLine', 'page level title pdfpage')
-TocLines = typing.List[TocLine]
+TocLines = list[TocLine]
 
 Evaluated = collections.namedtuple(
     'Evaluated',
@@ -132,10 +131,10 @@ def level(toc: iamraw.Toc, *, flat: bool = True, roman: bool = False) -> Level:
     level1 = [item for item in level_one(extracted) if item is not None]
 
     level2 = level_two(extracted)
-    level2_flat = utila.flatten(level2)
+    level2_flat = utila.flat(level2)
 
     level3 = level_three(extracted)
-    level3_flat = utila.flatten(level3)
+    level3_flat = utila.flat(level3)
 
     if flat:
         return Level(level1, level2_flat, level3_flat)

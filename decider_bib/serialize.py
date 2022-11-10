@@ -24,7 +24,7 @@ def load_bibliography_reference(path) -> list:
     with contextlib.suppress(AttributeError):
         # TODO: REMOVE LATER
         if isinstance(loaded[0], list):
-            loaded = utila.flatten(loaded)
+            loaded = utila.flat(loaded)
     if isinstance(loaded, list):
         # TODO: REMOVE AFTER UPGRADING
         loaded: iamraw.BibliographyTable = iamraw.BibliographyTable(

@@ -36,7 +36,7 @@ def theissen_sort(items):
     # sort by year
     items = sorted(
         items,
-        key=lambda x: utila.INF if x.year in ('no year', None) else x.year,
+        key=lambda x: utila.INF if x.year in ('no year', None) else x.year,  # pylint:disable=R6201
     )
     # sort by author name
     items = sorted(items, key=author)

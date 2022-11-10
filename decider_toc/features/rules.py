@@ -133,7 +133,7 @@ an dieser.
 def check_1366_abstract_position(linter, driver):
     if not driver.sections:
         return
-    sections = utila.flatten(driver.sections)
+    sections = utila.flat(driver.sections)
     # TODO: USE COUNT LATER
     abstract = utila.select_type(sections, iamraw.Abstract)
     if not abstract:

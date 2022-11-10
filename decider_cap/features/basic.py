@@ -51,7 +51,7 @@ def check_6200_duplication(linter: callable, driver):
     for key, value in collected.items():
         if len(value) <= 1:
             continue
-        pages = utila.from_tuple(utila.make_unique(value), ',')
+        pages = utila.from_tuple(utila.unique(value), ',')
         linter(
             line=key,
             count=len(value),

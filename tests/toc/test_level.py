@@ -44,7 +44,7 @@ def test_toc_to_deep(mp):
             power.link(power.TECH024_PDF),
             decider_toc.features.complexity,
         )
-    failures = len([item for item in failures if item in (1351, 1382)])
+    failures = len([item for item in failures if item in {1351, 1382}])
     expected = sum([
         TECHNICAL24_INVALID_CHILDREN_TO_LONG,
         TECHNICAL24_TOO_DEEP,

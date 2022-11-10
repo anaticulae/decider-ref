@@ -56,7 +56,7 @@ def create_driver(
 class PageReverse:
 
     def __init__(self, pages: dict = None):
-        self.pages = pages if pages else dict()
+        self.pages = pages if pages else {}
 
     def __call__(self, userpage: int):
         if userpage is None:

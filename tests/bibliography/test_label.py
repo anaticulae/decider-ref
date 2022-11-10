@@ -45,12 +45,12 @@ def test_bib_no_page_master116(td, mp):
 
 def test_bib_no_page_master98(td, mp):
     nopages = run_label(power.MASTER098_PDF, mp, td, {6061})
-    assert len(nopages) in (10, 9)  # TODO: VALIDATE LATER
+    assert len(nopages) in {10, 9}  # TODO: VALIDATE LATER
 
 
 def test_bib_page_number_unprecise(td, mp):
     unprecise = run_label(power.MASTER116_PDF, mp, td, {6062})
-    assert len(unprecise) in (2, 3)  # TODO: VALIDATE LATER
+    assert len(unprecise) in {2, 3}  # TODO: VALIDATE LATER
 
 
 @pytest.mark.xfail(reason='enable later')

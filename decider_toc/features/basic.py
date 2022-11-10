@@ -120,7 +120,7 @@ def check_1310_duplicated_level(linter, driver):
     headlines = driver.headlines
     if not headlines:
         return
-    headlines = utila.flatten(headlines)
+    headlines = utila.flat(headlines)
     duplicated = collections.defaultdict(list)
     for headline in headlines:
         key = headline.raw_level.strip() if headline.raw_level else None

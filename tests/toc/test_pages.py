@@ -18,7 +18,7 @@ import tests
 def test_toc_pages_validate():
     toc = tests.toc.tableofcontent(power.link(power.TECH024_PDF))
     validated = elements.validate_toc(toc)
-    assert validated == [], validated
+    assert not validated, validated
 
 
 @utilatest.requires(power.TECH024_PDF)

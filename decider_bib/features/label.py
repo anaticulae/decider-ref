@@ -165,7 +165,7 @@ def check_6051_table_in_text(linter: callable, driver):
 def insentence_reference(text, bibliography) -> set:
     """Prepare references which are located inside sentences."""
     insentence_ref = references_plain(bibliography, text)
-    insentence_ref = utila.flatten(insentence_ref)
+    insentence_ref = utila.flat(insentence_ref)
     result = set()
     for item in insentence_ref:
         parsed = docref.biblio.parser.parse(item)

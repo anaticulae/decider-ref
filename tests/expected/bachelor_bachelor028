@@ -5,9 +5,9 @@
 01382 p1 Überschrift zu lang
 01383 p1 Sektion enthält Fragestellung
 06000 p23 Quellenverzeichnis ist nicht alphabetisch sortiert
-06007 p23 Anzahl der Quellen zu hoch
 06011 p24 Quellenangabe: Tippfehler erkannt
 06020 p27 Quellenangabe überprüfen
 06063 p-1 Empfehlung: Quellenangaben konkretisieren
+06300 p0 Abbildung: Unterschrift fehlt
 06302 p18 Tabelle: Unterschrift fehlt
 06302 p19 Tabelle: Unterschrift fehlt

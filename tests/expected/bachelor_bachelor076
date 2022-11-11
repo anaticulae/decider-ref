@@ -1,10 +1,4 @@
 01301 p-1 PDF enthält keine Navigation
-01310 p-1 Inhaltsverzeichnis inkonsistent
-01310 p-1 Inhaltsverzeichnis inkonsistent
-01310 p-1 Inhaltsverzeichnis inkonsistent
-01310 p-1 Inhaltsverzeichnis inkonsistent
-01310 p-1 Inhaltsverzeichnis inkonsistent
-01330 p1 Inhaltsverzeichnis nicht aktuell
 01365 p1 Eidesstattliche Erklärung als Teil der Arbeit
 01370 p1 Abschnitt zu lang
 01370 p1 Abschnitt zu lang
@@ -20,6 +14,7 @@
 06011 p69 Quellenangabe: Tippfehler erkannt
 06020 p68 Quellenangabe überprüfen
 06063 p-1 Empfehlung: Quellenangaben konkretisieren
+06201 p-1 Unterschriften der Abbildungen falsch numeriert
 06300 p0 Abbildung: Unterschrift fehlt
 15010 p2 Abkürzungsverzeichnis nicht alphabetisch sortiert
 15016 p2 Abkürzung nicht vorhanden

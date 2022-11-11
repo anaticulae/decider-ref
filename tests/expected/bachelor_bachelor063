@@ -20,7 +20,7 @@
 06050 p13s13 Quelle nicht gefunden
 06050 p13s5 Quelle nicht gefunden
 06050 p13s8 Quelle nicht gefunden
-06050 p14s14 Quelle nicht gefunden
+06050 p14s15 Quelle nicht gefunden
 06050 p14s8 Quelle nicht gefunden
 06050 p15s3 Quelle nicht gefunden
 06050 p16s4 Quelle nicht gefunden
@@ -51,7 +51,7 @@
 06061 p13s13 Seitenangabe fehlt
 06061 p13s5 Seitenangabe fehlt
 06061 p13s8 Seitenangabe fehlt
-06061 p14s14 Seitenangabe fehlt
+06061 p14s15 Seitenangabe fehlt
 06061 p14s8 Seitenangabe fehlt
 06061 p15s3 Seitenangabe fehlt
 06061 p16s4 Seitenangabe fehlt
@@ -63,3 +63,4 @@
 06061 p9s4 Seitenangabe fehlt
 06061 p9s6 Seitenangabe fehlt
 06300 p0 Abbildung: Unterschrift fehlt
+06300 p1 Abbildung: Unterschrift fehlt

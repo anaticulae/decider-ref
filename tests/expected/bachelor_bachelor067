@@ -6,55 +6,16 @@
 01310 p-1 Inhaltsverzeichnis inkonsistent
 01310 p-1 Inhaltsverzeichnis inkonsistent
 01330 p3 Inhaltsverzeichnis nicht aktuell
-01350 p55 Kapitel enthält zu wenige Sektionen
 01370 p3 Abschnitt zu lang
 01370 p3 Abschnitt zu lang
 01370 p3 Abschnitt zu lang
 01370 p3 Abschnitt zu lang
 01370 p3 Abschnitt zu lang
-01370 p3 Abschnitt zu lang
-01370 p3 Abschnitt zu lang
-06006 p63 Anzahl der Quellen zu gering
-06011 p63 Quellenangabe: Tippfehler erkannt
-06011 p63 Quellenangabe: Tippfehler erkannt
-06011 p63 Quellenangabe: Tippfehler erkannt
-06011 p64 Quellenangabe: Tippfehler erkannt
-06050 p11s1 Quelle nicht gefunden
-06050 p12s11 Quelle nicht gefunden
-06050 p14s0 Quelle nicht gefunden
-06050 p14s1 Quelle nicht gefunden
-06050 p14s9 Quelle nicht gefunden
-06050 p14s9 Quelle nicht gefunden
-06050 p16s11 Quelle nicht gefunden
-06050 p16s13 Quelle nicht gefunden
-06050 p17s2 Quelle nicht gefunden
-06050 p28s3 Quelle nicht gefunden
-06050 p30s8 Quelle nicht gefunden
-06050 p31s2 Quelle nicht gefunden
-06050 p32s3 Quelle nicht gefunden
-06050 p39s6 Quelle nicht gefunden
-06050 p55s4 Quelle nicht gefunden
-06050 p8s0 Quelle nicht gefunden
-06050 p8s1 Quelle nicht gefunden
-06050 p8s2 Quelle nicht gefunden
-06050 p8s2 Quelle nicht gefunden
-06050 p8s3 Quelle nicht gefunden
-06050 p8s3 Quelle nicht gefunden
-06050 p8s4 Quelle nicht gefunden
-06050 p9s3 Quelle nicht gefunden
-06051 p63 Quelle überflüssig
-06051 p63 Quelle überflüssig
-06051 p63 Quelle überflüssig
-06051 p63 Quelle überflüssig
-06051 p63 Quelle überflüssig
-06051 p64 Quelle überflüssig
-06051 p64 Quelle überflüssig
-06051 p64 Quelle überflüssig
-06051 p64 Quelle überflüssig
-06051 p64 Quelle überflüssig
-06051 p64 Quelle überflüssig
-06051 p64 Quelle überflüssig
-06051 p64 Quelle überflüssig
+06006 p65 Anzahl der Quellen zu gering
+06011 p65 Quellenangabe: Tippfehler erkannt
+06051 p65 Quelle überflüssig
+06051 p65 Quelle überflüssig
+06051 p65 Quelle überflüssig
 06061 p11s1 Seitenangabe fehlt
 06061 p12s11 Seitenangabe fehlt
 06061 p14s0 Seitenangabe fehlt
@@ -79,16 +40,6 @@
 06061 p8s4 Seitenangabe fehlt
 06061 p9s3 Seitenangabe fehlt
 06070 p-1 Label vereinfachen
-06200 p-1 Unterschrift mehrfach verwendet
-06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
-06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
-06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
-06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
-06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
-06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
-06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
-06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
-06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
 06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
 06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben
 06212 p-1 Unterschrift startet nicht mit einem Großbuchstaben

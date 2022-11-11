@@ -1,14 +1,13 @@
 01301 p-1 PDF enthält keine Navigation
+01310 p-1 Inhaltsverzeichnis inkonsistent
+01310 p-1 Inhaltsverzeichnis inkonsistent
+01330 p1 Inhaltsverzeichnis nicht aktuell
 01350 p4 Kapitel enthält zu wenige Sektionen
 01380 p1 Worthäufung im Inhaltsverzeichnis
 01382 p1 Überschrift zu lang
-06200 p-1 Unterschrift mehrfach verwendet
-06200 p-1 Unterschrift mehrfach verwendet
 06220 p14 Unterschrift zu lang
-06221 p7 Unterschrift zu lang
 06300 p0 Abbildung: Unterschrift fehlt
 06300 p10 Abbildung: Unterschrift fehlt
 06300 p14 Abbildung: Unterschrift fehlt
 06300 p3 Abbildung: Unterschrift fehlt
-06302 p10 Tabelle: Unterschrift fehlt
-06302 p7 Tabelle: Unterschrift fehlt
+06300 p6 Abbildung: Unterschrift fehlt

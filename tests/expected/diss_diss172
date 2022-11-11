@@ -5,12 +5,12 @@
 06011 p158 Quellenangabe: Tippfehler erkannt
 06020 p154 Quellenangabe überprüfen
 06020 p162 Quellenangabe überprüfen
-06050 p112s93 Quelle nicht gefunden
-06050 p115s12 Quelle nicht gefunden
-06050 p116s10 Quelle nicht gefunden
+06050 p112s3 Quelle nicht gefunden
+06050 p115s11 Quelle nicht gefunden
+06050 p116s11 Quelle nicht gefunden
 06050 p117s8 Quelle nicht gefunden
-06050 p118s4 Quelle nicht gefunden
-06050 p119s1 Quelle nicht gefunden
+06050 p118s5 Quelle nicht gefunden
+06050 p119s2 Quelle nicht gefunden
 06050 p121s5 Quelle nicht gefunden
 06050 p121s6 Quelle nicht gefunden
 06050 p121s9 Quelle nicht gefunden
@@ -141,6 +141,6 @@
 06205 p137 Unterschrift endet nicht mit einem Punkt
 06206 p139 Unterschrift endet nicht mit einem Punkt
 06210 p118 Unterschrift startet nicht mit einem Großbuchstaben
+06221 p100 Unterschrift zu lang
 06300 p117 Abbildung: Unterschrift fehlt
 06300 p139 Abbildung: Unterschrift fehlt
-06301 p112 Quellcode: Unterschrift fehlt

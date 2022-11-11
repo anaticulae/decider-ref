@@ -9,12 +9,9 @@
 01370 p2 Abschnitt zu lang
 01380 p1 Worthäufung im Inhaltsverzeichnis
 06300 p0 Abbildung: Unterschrift fehlt
-15010 p5 Abkürzungsverzeichnis nicht alphabetisch sortiert
-15015 p5 Allgemein gültige Abkürzung
-15015 p5 Allgemein gültige Abkürzung
-15015 p5 Allgemein gültige Abkürzung
-15015 p5 Allgemein gültige Abkürzung
-15015 p5 Allgemein gültige Abkürzung
+06300 p3 Abbildung: Unterschrift fehlt
+06300 p4 Abbildung: Unterschrift fehlt
+06300 p5 Abbildung: Unterschrift fehlt
 15016 p5 Abkürzung nicht vorhanden
 15016 p5 Abkürzung nicht vorhanden
 15016 p5 Abkürzung nicht vorhanden

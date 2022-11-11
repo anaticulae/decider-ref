@@ -2,6 +2,24 @@
 
 Every noteable change is logged here.
 
+## v1.22.1 (2022-11-11)
+
+### Chore
+
+* add missing generator (af186d516c0f)
+* save resources if all fails (e76809643b9c)
+* add pipe library (eab2a3a892bf)
+* upgrade requirements.txt (57043ce1b57b)
+* convert nightly to all (ea0cc13b8a29)
+* upgrade environment (292f75741e38)
+* add missing chapter (435cd4a4c8df)
+* add separate generate step (3ef0d8a8cd8f)
+* do not run as privileged user (214c811895c9)
+* upgrade requirements.txt (3c6b3aeebceb)
+* add Jenkinsfile (3c9376914458)
+* increase worker count on CI (c6a68300d4fa)
+* upgrade requirements.txt (4c19225191d9)
+
 ## v1.22.0
 
 ### Feature

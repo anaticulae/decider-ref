@@ -7,9 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import importlib.metadata
 import os
 
-__version__ = '1.22.1'
+__version__ = importlib.metadata.version('decider_ref')
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PACKAGE = 'decider_ref'

@@ -21,6 +21,7 @@ def test_decider_toc_cli_help(mp):
     tests.toc.run('--help', mp=mp)
 
 
+@utilatest.hasprog(decider_toc.PROCESS)
 def test_decider_toc_nomonkey_cli_help():
     utila.run(f'{decider_toc.PROCESS} --help')
 

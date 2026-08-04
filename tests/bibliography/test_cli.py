@@ -8,6 +8,7 @@
 # =============================================================================
 
 import utila
+import utilatest
 
 import decider_bib
 import tests.bibliography
@@ -17,5 +18,6 @@ def test_decider_bib_cli_help(mp):
     tests.bibliography.run('--help', mp=mp)
 
 
+@utilatest.hasprog(decider_bib.PROCESS)
 def test_decider_bib_nomonkey_cli_help():
     utila.run(f'{decider_bib.PROCESS} --help')

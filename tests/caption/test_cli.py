@@ -8,6 +8,7 @@
 # =============================================================================
 
 import utila
+import utilatest
 
 import decider_cap
 import tests.caption
@@ -17,5 +18,6 @@ def test_cap_cli_help(mp):
     tests.caption.run('--help', mp=mp)
 
 
+@utilatest.hasprog(decider_cap.PROCESS)
 def test_cap_nomonkey_cli_help():
     utila.run(f'{decider_cap.PROCESS} --help')

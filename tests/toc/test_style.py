@@ -9,10 +9,10 @@
 
 import power
 import protocol
+import pytest
 import utila
 import utilatest
 
-import pytest
 import decider_toc.duplicated
 import tests.toc
 

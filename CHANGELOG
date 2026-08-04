@@ -115,7 +115,7 @@ Every noteable change is logged here.
 * add linter to verify caption order (0936bf0adaed)
 * load caption by type (75d97d59a30c)
 * add caption duplicated step (532ced3b5904)
-* add driver and protocol invocation (e4796cb8dcbd)
+* add driver and protoerror invocation (e4796cb8dcbd)
 * add basic decider application (60e18b323d6f)
 
 ### Fix
@@ -167,7 +167,7 @@ Every noteable change is logged here.
 ### Feature
 
 * make max complexity doctype dependent (b414a74446ca)
-* use new protocol feature (15a681e8daf7)
+* use new protoerror feature (15a681e8daf7)
 * use new sentences extraction (5c1ffcc49582)
 
 ## v1.13.0
@@ -291,7 +291,7 @@ Every noteable change is logged here.
 
 ### Fix
 
-* add protocol show list to decider_abbreviation (fc69c49bfa38)
+* add protoerror show list to decider_abbreviation (fc69c49bfa38)
 
 ## v1.7.0
 
@@ -303,7 +303,7 @@ Every noteable change is logged here.
 
 ### Feature
 
-* add protocol show list (e3aeb8d04b28)
+* add protoerror show list (e3aeb8d04b28)
 
 ## v1.5.1
 

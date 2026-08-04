@@ -7,15 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import elements
-import german
+import germania
 import iamraw
 import konrad
 
 import decider_toc.utils
 
-WORD_COUNT_MAX = configo.HV_INT_PLUS(default=12)
+WORD_COUNT_MAX = configos.HV_INT_PLUS(default=12)
 
 
 def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
@@ -23,7 +23,7 @@ def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
 
     lines = []
     for index, item in enumerate(flatten):
-        words = german.split_words(item.title, validate_sentences=False)
+        words = germania.split_words(item.title, validate_sentences=False)
         words = konrad.remove_marks(words)
         linelength = len(words)
         if linelength > WORD_COUNT_MAX:

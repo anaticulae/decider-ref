@@ -10,9 +10,9 @@
 import collections
 import re
 
-import german
+import germania
 import konrad
-import utila
+import utilo
 
 LABEL = r'\[\d+\]'
 
@@ -23,7 +23,7 @@ def format_bibline(item) -> str:
         # int or something. Later, this will not be a problem, cause we
         # have only valid parsings.
         return str(item.reference)
-    title = utila.shrink(item.title, maxlength=20)
+    title = utilo.shrink(item.title, maxlength=20)
     return f' * {item.author} {item.year} {title}'
 
 
@@ -53,9 +53,9 @@ def sentence_lookup(text) -> dict:
 
 def sentence_plain(sentence, marks) -> list:
     result = []
-    splitted = german.word_tokenize(sentence, validate_sentences=False)
+    splitted = germania.word_tokenize(sentence, validate_sentences=False)
     for start, end in marks:
-        selected = [splitted[item] for item in utila.rtuple(start, end)]
+        selected = [splitted[item] for item in utilo.rtuple(start, end)]
         selected = selection_plain(selected)
         result.append(selected)
     return result

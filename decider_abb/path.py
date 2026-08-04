@@ -7,10 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
+import utilo
 
 import decider_abb
 
 
 def decider_abb_table_user(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(path, decider_abb.PROCESS, 'table_user', prefix)
+    return utilo.pathconnector(path, decider_abb.PROCESS, 'table_user', prefix)

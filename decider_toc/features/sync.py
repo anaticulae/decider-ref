@@ -25,9 +25,9 @@ import os
 import elements
 import elements.headline.lookup
 import iamraw
-import protocol
+import protoerror
 import serializeraw
-import utila
+import utilo
 
 
 def work(
@@ -35,14 +35,14 @@ def work(
     outlines: str,
     headlines: str,
     headlines_oneline: str,
-) -> protocol.ResultType:
+) -> protoerror.ResultType:
     driver = create_driver(
         toc,
         outlines,
         headlines,
         headlines_oneline,
     )
-    result = protocol.run(
+    result = protoerror.run(
         __name__,
         driver=driver,
     )
@@ -50,19 +50,19 @@ def work(
 
 
 def create_driver(toc, outlines, headlines, headlines_oneline):
-    if utila.exists(toc):
+    if utilo.exists(toc):
         toc: iamraw.Toc = serializeraw.load_toc(toc)
     else:
         toc: iamraw.Toc = iamraw.Toc()
-    if utila.exists(outlines):
+    if utilo.exists(outlines):
         outlines = serializeraw.load_toc(outlines)
     else:
         outlines = None
-    if utila.exists(headlines):
+    if utilo.exists(headlines):
         headlines = load_headlines(headlines, headlines_oneline)
     else:
         headlines = None
-    driver = protocol.driver(
+    driver = protoerror.driver(
         toc=toc,
         outlines=outlines,
         headlines=headlines,
@@ -98,11 +98,11 @@ Folgende Überschriften sind nicht im Inhaltsverzeichnis enthalten:
 def check_1330_toc_document_sync(linter, driver):
     toc = driver.toc
     if not toc:
-        utila.error('no toc')
+        utilo.error('no toc')
         return
     headlines = driver.headlines
     if not headlines:
-        utila.error('no headlines given')
+        utilo.error('no headlines given')
         return
     headlines = iamraw.headlines_totoc(headlines)
     toc_firstpage = min((item.raw_location for item in toc))
@@ -126,12 +126,12 @@ def check_1330_toc_document_sync(linter, driver):
     missing = not_missing(missing)
     if not missing:
         return
-    missing = utila.NEWLINE.join([f'* {item}' for item in missing])
+    missing = utilo.NEWLINE.join([f'* {item}' for item in missing])
     linter(location=iamraw.Location.from_page(toc_firstpage), missing=missing)
 
 
 def not_missing(items: list) -> list:
     return [
         item for item in items
-        if not utila.verysimilar(item, expected=elements.headline.lookup.TOC)
+        if not utilo.verysimilar(item, expected=elements.headline.lookup.TOC)
     ]

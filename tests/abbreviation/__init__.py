@@ -7,27 +7,27 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import protocol
+import hoverpower
+import protoerror
 import serializeraw
-import utilatest
+import utilotest
 
 import decider_abb
 
-run, fail = utilatest.create_cli_runner(decider_abb)
+run, fail = utilotest.create_cli_runner(decider_abb)
 
 
 def run_table(source, mp, td, msgid=None, pages=None):
-    utilatest.fixture_requires(source)
-    source = power.link(source)
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
+    source = hoverpower.link(source)
+    utilotest.fixture_requires(source)
     cmd = f'-i {source} --table'
     run(cmd, mp=mp)
     path = decider_abb.path.decider_abb_table_user(td.tmpdir)
-    result = protocol.select_findings(
+    result = protoerror.select_findings(
         serializeraw.load_findings(path),
         msgid=msgid,
     )
     if pages is not None:
-        result = protocol.select_pages(result, pages)
+        result = protoerror.select_pages(result, pages)
     return result

@@ -7,11 +7,11 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import protocol
+import hoverpower
+import protoerror
 import pytest
 import serializeraw
-import utilatest
+import utilotest
 
 import decider_toc.features
 import decider_toc.features.complexity
@@ -24,24 +24,24 @@ TECHNICAL24_INVALID_CHILDREN_TO_LONG = 1
 TECHNICAL24_TOO_DEEP = 14
 
 
-@utilatest.requires(power.TECH024_PDF)
+@utilotest.requires(hoverpower.TECH024_PDF)
 def test_toc_invalid_children(mp):
     with mp.context() as context:
         context.setattr(decider_toc.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
         failures = lint(
-            power.link(power.TECH024_PDF),
+            hoverpower.link(hoverpower.TECH024_PDF),
             decider_toc.features.rules,
         )
     failures = len(failures)
     assert failures == TECHNICAL24_INVALID_CHILDREN, str(failures)
 
 
-@utilatest.requires(power.TECH024_PDF)
+@utilotest.requires(hoverpower.TECH024_PDF)
 def test_toc_to_deep(mp):
     with mp.context() as context:
         context.setattr(decider_toc.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
         failures = lint(
-            power.link(power.TECH024_PDF),
+            hoverpower.link(hoverpower.TECH024_PDF),
             decider_toc.features.complexity,
         )
     failures = len([item for item in failures if item in {1351, 1382}])
@@ -60,27 +60,27 @@ def master78_too_few_children(invalid):
 
 @pytest.mark.parametrize('source, invalids, validate', [
     pytest.param(
-        power.TECH024_PDF,
+        hoverpower.TECH024_PDF,
         TECHNICAL24_INVALID_CHILDREN,
         None,
         id='technical24',
     ),
     pytest.param(
-        power.MASTER078_PDF,
+        hoverpower.MASTER078_PDF,
         3,
         master78_too_few_children,
         id='master78',
     ),
     pytest.param(
-        power.MASTER072_PDF,
+        hoverpower.MASTER072_PDF,
         0,
         None,
         id='master72',
     ),
 ])
 def test_toc_too_few_children(source, invalids, validate):
-    utilatest.fixture_requires(source)
-    source = power.link(source)
+    utilotest.fixture_requires(source)
+    source = hoverpower.link(source)
     toc = tests.toc.tableofcontent(source)
     validated = decider_toc.level.validate_children(toc)
     assert len(validated) == invalids, str(len(validated))
@@ -90,15 +90,16 @@ def test_toc_too_few_children(source, invalids, validate):
 
 
 @pytest.mark.parametrize('source, too_deep', [
-    pytest.param(power.TECH024_PDF, TECHNICAL24_TOO_DEEP, id='technical24'),
-    pytest.param(power.MASTER072_PDF,
+    pytest.param(hoverpower.TECH024_PDF, TECHNICAL24_TOO_DEEP,
+                 id='technical24'),
+    pytest.param(hoverpower.MASTER072_PDF,
                  6,
                  id='master72',
                  marks=pytest.mark.xfail(reason='???')),
 ])
 def test_toc_validate_deepness(source, too_deep):
-    utilatest.fixture_requires(source)
-    source = power.link(source)
+    utilotest.fixture_requires(source)
+    source = hoverpower.link(source)
     toc = tests.toc.tableofcontent(source)
     maxdeep = 2
     validated = decider_toc.level.validate_deepness(toc, maxdeep=maxdeep)
@@ -108,8 +109,8 @@ def test_toc_validate_deepness(source, too_deep):
 
 def lint(path: str, module):
     driver = decider_toc.features.create_driver(toc=path)
-    location = protocol.OVERVIEW
-    dumped = protocol.run(
+    location = protoerror.OVERVIEW
+    dumped = protoerror.run(
         module.__name__,
         driver=driver,
         location=location,

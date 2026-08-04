@@ -7,22 +7,22 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import protocol
+import hoverpower
+import protoerror
 import serializeraw
-import utilatest
+import utilotest
 
 import decider_bib
 import tests.bibliography
 
 
 def run_table(source, mp, td, msgid=None):
-    utilatest.fixture_requires(source)
-    source = power.link(source)
+    utilotest.fixture_requires(source)
+    source = hoverpower.link(source)
     cmd = f'-i {source} --table'
     tests.bibliography.run(cmd, mp=mp)
     path = decider_bib.path.decider_bib_table_user(td.tmpdir)
-    result = protocol.select_findings(
+    result = protoerror.select_findings(
         serializeraw.load_findings(path),
         msgid=msgid,
     )
@@ -30,13 +30,13 @@ def run_table(source, mp, td, msgid=None):
 
 
 def test_bib_sorting_master98(td, mp):
-    unsorted_bib = run_table(power.MASTER098_PDF, mp, td, {6000})
+    unsorted_bib = run_table(hoverpower.MASTER098_PDF, mp, td, {6000})
     assert len(unsorted_bib) == 1
 
 
 def test_bib_bachelor75_regression_table(td, mp):
     """Do not fail when parsing empty authors."""
-    run_table(power.BACHELOR075_PDF, mp, td)
+    run_table(hoverpower.BACHELOR075_PDF, mp, td)
 
 
 def test_bib_bachelor75_regression_bib_sort(td, mp):
@@ -45,14 +45,14 @@ def test_bib_bachelor75_regression_bib_sort(td, mp):
     In the current state this check is disabled cause of not fully
     parsed bibs.
     """
-    findings = run_table(power.BACHELOR075_PDF, mp, td, {6000})
+    findings = run_table(hoverpower.BACHELOR075_PDF, mp, td, {6000})
     assert not findings
     # TODO: VERIFY ORDER AND DETECTED MISS SORTING OF BIB
 
 
 def test_bib_order107_unbalanced_brackets(td, mp):
     unbalacend_brackets = run_table(
-        power.ORDER107_PDF,
+        hoverpower.ORDER107_PDF,
         mp,
         td,
         {6010},
@@ -65,7 +65,7 @@ def test_bib_order107_unbalanced_brackets(td, mp):
 
 def test_bib_master127_typos(td, mp):
     typo_detected = run_table(
-        power.MASTER127_PDF,
+        hoverpower.MASTER127_PDF,
         mp,
         td,
         {6011},
@@ -74,14 +74,14 @@ def test_bib_master127_typos(td, mp):
 
 
 def test_bib_sorting_master116(td, mp):
-    unsorted_bib = run_table(power.MASTER116_PDF, mp, td, {6000})
+    unsorted_bib = run_table(hoverpower.MASTER116_PDF, mp, td, {6000})
     assert not unsorted_bib  # TODO: VALIDATE LATER
 
 
 def test_bib_master083_differs(td, mp):
     """Detect bib entrees which differ from style of other bibs."""
     detected = run_table(
-        power.MASTER083_PDF,
+        hoverpower.MASTER083_PDF,
         mp,
         td,
         {6020},
@@ -92,7 +92,7 @@ def test_bib_master083_differs(td, mp):
 
 def test_bib_table_bachelor241_too_few_bibs(td, mp):
     detected = run_table(
-        power.BACHELOR241_PDF,
+        hoverpower.BACHELOR241_PDF,
         mp,
         td,
         {6006},
@@ -102,7 +102,7 @@ def test_bib_table_bachelor241_too_few_bibs(td, mp):
 
 def test_bib_table_diss266_too_many_bibs(td, mp):
     detected = run_table(
-        power.DISS266_PDF,
+        hoverpower.DISS266_PDF,
         mp,
         td,
         {6007},
@@ -112,7 +112,7 @@ def test_bib_table_diss266_too_many_bibs(td, mp):
 
 def test_bib_sorted_diss172(td, mp):
     detected = run_table(
-        power.DISS172_PDF,
+        hoverpower.DISS172_PDF,
         mp,
         td,
         {6000},

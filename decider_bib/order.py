@@ -26,7 +26,7 @@ treated as normal author but there must (Hrsg.) added.
 """
 
 import iamraw
-import utila
+import utilo
 
 
 def theissen_sort(items):
@@ -36,7 +36,7 @@ def theissen_sort(items):
     # sort by year
     items = sorted(
         items,
-        key=lambda x: utila.INF if x.year in ('no year', None) else x.year,  # pylint:disable=R6201
+        key=lambda x: utilo.INF if x.year in ('no year', None) else x.year,  # pylint:disable=R6201
     )
     # sort by author name
     items = sorted(items, key=author)
@@ -48,6 +48,6 @@ def author(item: iamraw.BibliographyReference) -> str:
         return 'o. V.'
     if item.author:
         # Person
-        return utila.replace(item.author).lower()
+        return utilo.replace(item.author).lower()
     # NoPerson
     return item.authors[0].raw.lower()

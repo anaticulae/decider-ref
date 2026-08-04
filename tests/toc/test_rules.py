@@ -7,21 +7,21 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import protocol
-import utilatest
+import hoverpower
+import protoerror
+import utilotest
 
 import tests.toc
 
 
-@utilatest.requires(power.BACHELOR063_PDF)
+@utilotest.requires(hoverpower.BACHELOR063_PDF)
 def test_rules_bachelor63_regression(td, mp):
     """Ensure to handle roman numbers correctly. Before this regression
     test, roman page number converter fails when running --rules. Bug is
     fixed in lower level API by upgrading."""
-    source = power.link(power.BACHELOR063_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR063_PDF)
     tests.toc.run(f'-i {source} --rules', mp=mp)
 
-    findings = protocol.findings_from_path(td.tmpdir)
-    findings = protocol.select(findings, pages=7, msgid=1360)
+    findings = protoerror.findings_from_path(td.tmpdir)
+    findings = protoerror.select(findings, pages=7, msgid=1360)
     assert len(findings) == 2  # VALIDATE LATER

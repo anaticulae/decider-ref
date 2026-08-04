@@ -7,70 +7,70 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_toc
 
 DESCRIPTION = ''
 
 WORKPLAN = [
-    utila.create_step(
+    utilo.create_step(
         'basic',
         [
-            utila.ResultFile('reftable', 'toc_toc'),
-            utila.ResultFile('rawmaker', 'outlines_outlines'),
-            utila.ResultFile('words', 'headlines_headlines', optional=True),
+            utilo.ResultFile('reftable', 'toc_toc'),
+            utilo.ResultFile('rawmaker', 'outlines_outlines'),
+            utilo.ResultFile('words', 'headlines_headlines', optional=True),
         ],
-        protocol.ResultDefault,
+        protoerror.ResultDefault,
     ),
-    utila.create_step(
+    utilo.create_step(
         'complexity',
         [
-            utila.ResultFile('reftable', 'toc_toc'),
-            utila.ResultFile('groupme', 'pagenumbers_magic'),
+            utilo.ResultFile('reftable', 'toc_toc'),
+            utilo.ResultFile('groupme', 'pagenumbers_magic'),
         ],
-        protocol.ResultDefault,
+        protoerror.ResultDefault,
     ),
-    utila.create_step(
+    utilo.create_step(
         'rules',
         [
-            utila.ResultFile('reftable', 'toc_toc'),
-            utila.ResultFile('sections', 'section_result'),
+            utilo.ResultFile('reftable', 'toc_toc'),
+            utilo.ResultFile('sections', 'section_result'),
         ],
-        protocol.ResultDefault,
+        protoerror.ResultDefault,
     ),
-    utila.create_step(
+    utilo.create_step(
         'style',
         [
-            utila.ResultFile('reftable', 'toc_toc'),
+            utilo.ResultFile('reftable', 'toc_toc'),
         ],
-        protocol.ResultDefault,
+        protoerror.ResultDefault,
     ),
-    utila.create_step(
+    utilo.create_step(
         'sync',
         [
-            utila.ResultFile('reftable', 'toc_toc'),
-            utila.ResultFile('rawmaker', 'outlines_outlines'),
-            utila.ResultFile('words', 'headlines_headlines', optional=True),
-            utila.ResultFile('words', 'headlines_oneline', optional=True),
+            utilo.ResultFile('reftable', 'toc_toc'),
+            utilo.ResultFile('rawmaker', 'outlines_outlines'),
+            utilo.ResultFile('words', 'headlines_headlines', optional=True),
+            utilo.ResultFile('words', 'headlines_oneline', optional=True),
         ],
-        protocol.ResultDefault,
+        protoerror.ResultDefault,
     ),
 ]
 
 
 def main():
-    hook = protocol.integrate(
+    hook = protoerror.integrate(
         root=decider_toc.ROOT,
         features='decider_toc.features',
     )
-    docinfo = protocol.integrate_docinfo()
-    utila.featurepack(
+    docinfo = protoerror.integrate_docinfo()
+    utilo.featurepack(
         workplan=WORKPLAN,
         root=decider_toc.ROOT,
         featurepackage='decider_toc.features',
-        config=utila.FeaturePackConfig(
+        config=utilo.FeaturePackConfig(
             cli_hook=[
                 docinfo,
                 hook,

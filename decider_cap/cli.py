@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_cap
 import decider_ref
@@ -16,49 +16,49 @@ import decider_ref
 DESCRIPTION = ''
 
 WORKPLAN = [
-    utila.create_step(
+    utilo.create_step(
         name='basic',
         inputs=[
-            utila.ResultFile('caption', 'result_result'),
+            utilo.ResultFile('caption', 'result_result'),
         ],
-        output=protocol.ResultDefault,
+        output=protoerror.ResultDefault,
     ),
-    utila.create_step(
+    utilo.create_step(
         name='style',
         inputs=[
-            utila.ResultFile('caption', 'result_result'),
+            utilo.ResultFile('caption', 'result_result'),
         ],
-        output=protocol.ResultDefault,
+        output=protoerror.ResultDefault,
     ),
-    utila.create_step(
+    utilo.create_step(
         name='missing',
         inputs=[
-            utila.ResultFile('caption', 'result_result'),
-            utila.ResultFile('codero', 'result_result', optional=True),
-            utila.ResultFile('tablero', 'result_result', optional=True),
-            utila.ResultFile(
+            utilo.ResultFile('caption', 'result_result'),
+            utilo.ResultFile('codero', 'result_result', optional=True),
+            utilo.ResultFile('tablero', 'result_result', optional=True),
+            utilo.ResultFile(
                 'rawmaker',
                 'images_images',
                 ext=None,
                 optional=True,
             ),
         ],
-        output=protocol.ResultDefault,
+        output=protoerror.ResultDefault,
     ),
 ]
 
 
 def main():
-    hook = protocol.integrate(
+    hook = protoerror.integrate(
         root=decider_ref.ROOT,
         features='decider_cap.features',
     )
-    docinfo = protocol.integrate_docinfo()
-    utila.featurepack(
+    docinfo = protoerror.integrate_docinfo()
+    utilo.featurepack(
         workplan=WORKPLAN,
         root=decider_ref.ROOT,
         featurepackage='decider_cap.features',
-        config=utila.FeaturePackConfig(
+        config=utilo.FeaturePackConfig(
             cli_hook=[
                 docinfo,
                 hook,

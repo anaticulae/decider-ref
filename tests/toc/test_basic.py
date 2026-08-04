@@ -7,23 +7,23 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import protocol
-import utilatest
+import hoverpower
+import protoerror
+import utilotest
 
 import decider_toc.features.basic
 import tests.toc
 
 
-@utilatest.requires(power.DOCU035_PDF, folder='notoc')
+@utilotest.requires(hoverpower.DOCU035_PDF, folder='notoc')
 def test_toc_extraction_no_toc():
     expected_failures = [1300, 1301]
-    source = power.link(power.DOCU035_PDF, folder='notoc')
+    source = hoverpower.link(hoverpower.DOCU035_PDF, folder='notoc')
     failures = tests.toc.lint(source, decider_toc.features.basic)
     assert failures == expected_failures, str(failures)
 
 
-@utilatest.requires(power.BACHELOR067_PDF)
+@utilotest.requires(hoverpower.BACHELOR067_PDF)
 def test_toc_duplicated_level_bachelor067():
     """\
     1 Einführung
@@ -31,7 +31,7 @@ def test_toc_duplicated_level_bachelor067():
     2 Vorstellung und Architektur übersicht von Spark
     2 Konfigurationen
     """
-    source = power.link(power.BACHELOR067_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR067_PDF)
     linted = tests.toc.linter(
         source,
         decider_toc.features.basic,
@@ -42,8 +42,8 @@ def test_toc_duplicated_level_bachelor067():
 
 def lint(path: str, module):
     toc = tests.toc.tableofcontent(path)
-    linter = protocol.from_module(module.__name__)
-    driver = protocol.driver(
+    linter = protoerror.from_module(module.__name__)
+    driver = protoerror.driver(
         toc=toc,
         outlines=None,
     )

@@ -7,11 +7,11 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import iamraw
-import utila
+import utilo
 
-AUTHOR_LENGTH_MAX = configo.HV_INT_PLUS(default=60)
+AUTHOR_LENGTH_MAX = configos.HV_INT_PLUS(default=60)
 
 
 def invalid_references(
@@ -20,7 +20,7 @@ def invalid_references(
     result = []
     for reference in references:
         if not reference.authors:
-            utila.error(f'no authors: {reference}')
+            utilo.error(f'no authors: {reference}')
             continue
         if max(author_length(reference.authors)) < AUTHOR_LENGTH_MAX:
             continue
@@ -36,7 +36,7 @@ def too_old(references: iamraw.BibliographyReferences) -> bool:  # pylint:disabl
     return False
 
 
-BIBLIOGRAPHY_RANGE_UPPER = configo.HolyTable([
+BIBLIOGRAPHY_RANGE_UPPER = configos.HolyTable([
     (0, 50),
     (30, 40),
     (50, 50),
@@ -60,7 +60,7 @@ def too_many(  # pylint:disable=W0613
     return reference_count > upper
 
 
-BIBLIOGRAPHY_RANGE_LOWER = configo.HolyTable([
+BIBLIOGRAPHY_RANGE_LOWER = configos.HolyTable([
     (0, 15),
     (30, 15),
     (50, 25),

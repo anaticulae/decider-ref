@@ -7,20 +7,20 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import protocol
-import utila
-import utilatest
+import hoverpower
+import protoerror
+import utilo
+import utilotest
 
 import tests.toc
 
 
-@utilatest.requires(power.DISS406_PDF)
+@utilotest.requires(hoverpower.DISS406_PDF)
 def test_toc_diff406(td, mp):
-    source = power.link(power.DISS406_PDF)
+    source = hoverpower.link(hoverpower.DISS406_PDF)
     tests.toc.run(f'-i {source}', mp=mp)
-    findings = protocol.findings_from_path(td.tmpdir)
-    findings = utila.flatten_content(findings)
+    findings = protoerror.findings_from_path(td.tmpdir)
+    findings = utilo.flatten_content(findings)
     assert findings
     # After supporting S. 120 as page numbers 1360 should not occurrs anymore
-    assert not protocol.select_findings(findings, msgid=1360)
+    assert not protoerror.select_findings(findings, msgid=1360)

@@ -7,18 +7,18 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import pytest
 import serializeraw
-import utilatest
+import utilotest
 
 import decider_toc.duplicated
 
 
 @pytest.mark.xfail(reason='check later')
-@utilatest.requires(power.MASTER098_PDF)
+@utilotest.requires(hoverpower.MASTER098_PDF)
 def test_duplicated_words_master098():
-    source = power.link(power.MASTER098_PDF)
+    source = hoverpower.link(hoverpower.MASTER098_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
     validated = decider_toc.duplicated.validate(toc)
@@ -26,9 +26,9 @@ def test_duplicated_words_master098():
 
 
 @pytest.mark.xfail(reason='check later')
-@utilatest.requires(power.DISS406_PDF)
+@utilotest.requires(hoverpower.DISS406_PDF)
 def test_duplicated_words_diss406():
-    source = power.link(power.DISS406_PDF)
+    source = hoverpower.link(hoverpower.DISS406_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
     validated = decider_toc.duplicated.validate(toc)

@@ -10,22 +10,22 @@
 import elements
 import elements.headline.lookup
 import iamraw
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_toc.features
 import decider_toc.level as dtl
 
 
-def work(toc: str, sections: str) -> protocol.ResultType:
+def work(toc: str, sections: str) -> protoerror.ResultType:
     driver = decider_toc.features.create_driver(
         toc=toc,
         sections=sections,
     )
-    result = protocol.run(
+    result = protoerror.run(
         __name__,
         driver=driver,
-        location=protocol.OVERVIEW,
+        location=protoerror.OVERVIEW,
     )
     return result
 
@@ -51,7 +51,7 @@ def check_1350_toc_level_to_few_children(linter, driver):
         except ValueError:
             # TODO: THINK ABOUT CONCEPT TO HANDLE ROMAN PAGE NUMBERS
             # TODO: INTRODUCE RAW LOCATION?
-            utila.error(f'could not convert roman page number: {item.page}')
+            utilo.error(f'could not convert roman page number: {item.page}')
             continue
         linter(location=location)
 
@@ -107,14 +107,14 @@ def check_1365_toc_legal_inside_toc(linter, driver):
     linter(location=location)
 
     if len(legal_intoc) >= 2:
-        utila.error(f'multiple legal toc detected {legal_intoc}')
+        utilo.error(f'multiple legal toc detected {legal_intoc}')
 
 
 LEGAL = elements.headline.lookup.LEGAL
 
 
 def islegal(item: str) -> bool:
-    return utila.similar(LEGAL, item, maxdiff=0.95)
+    return utilo.similar(LEGAL, item, maxdiff=0.95)
 
 
 SOLUTION_1366 = """\
@@ -133,9 +133,9 @@ an dieser.
 def check_1366_abstract_position(linter, driver):
     if not driver.sections:
         return
-    sections = utila.flat(driver.sections)
+    sections = utilo.flat(driver.sections)
     # TODO: USE COUNT LATER
-    abstract = utila.select_type(sections, iamraw.Abstract)
+    abstract = utilo.select_type(sections, iamraw.Abstract)
     if not abstract:
         return
     abstract = abstract[0]

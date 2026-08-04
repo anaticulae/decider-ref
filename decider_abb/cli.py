@@ -7,35 +7,35 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_abb
 
 DESCRIPTION = ''
 
 WORKPLAN = [
-    utila.create_step(
+    utilo.create_step(
         'table',
         [
-            utila.ResultFile('reftable', 'abbrev_abbrev'),
-            utila.ResultFile('words', 'abbreviation_detected'),
+            utilo.ResultFile('reftable', 'abbrev_abbrev'),
+            utilo.ResultFile('words', 'abbreviation_detected'),
         ],
-        output=protocol.ResultDefault,
+        output=protoerror.ResultDefault,
     ),
 ]
 
 
 def main():
-    hook = protocol.integrate(
+    hook = protoerror.integrate(
         root=decider_abb.ROOT,
         features='decider_abb.features',
     )
-    utila.featurepack(
+    utilo.featurepack(
         workplan=WORKPLAN,
         root=decider_abb.ROOT,
         featurepackage='decider_abb.features',
-        config=utila.FeaturePackConfig(
+        config=utilo.FeaturePackConfig(
             cli_hook=hook,
             description=DESCRIPTION,
             multiprocessed=True,

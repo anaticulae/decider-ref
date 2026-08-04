@@ -21,13 +21,13 @@ False
 import collections
 import re
 
-import configo
+import configos
 import elements
-import german
+import germania
 import iamraw
 import knlp
 import konrad
-import utila
+import utilo
 
 import decider_toc.utils
 
@@ -37,7 +37,7 @@ def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
     flatten = elements.toc_flat(toc)
     lines = []
     for item in flatten:
-        words = german.split_words(
+        words = germania.split_words(
             item.title,
             validate_sentences=False,
             lang=lang,
@@ -82,7 +82,7 @@ def inside(item, container) -> bool:
     True
     """
     item = re.escape(item)
-    searched = utila.search(
+    searched = utilo.search(
         INSIDE % item,
         container,
     )
@@ -91,7 +91,7 @@ def inside(item, container) -> bool:
     return False
 
 
-DUPLICATES_COUNT_MIN = configo.HolyTable(items=(
+DUPLICATES_COUNT_MIN = configos.HolyTable(items=(
     (0, 5),
     (20, 5),
     (40, 10),
@@ -100,7 +100,7 @@ DUPLICATES_COUNT_MIN = configo.HolyTable(items=(
 
 def duplicates(lines, lang=None):
     if not lang:
-        lang = 'german'
+        lang = 'germania'
     stopwords = knlp.stopwords(lang=lang)
     duplicated_count_min = DUPLICATES_COUNT_MIN(len(lines))
     counter = collections.Counter()

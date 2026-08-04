@@ -7,31 +7,31 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import hoverpower
 import iamraw
-import power
 import serializeraw
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import tests.bibliography
 
 
-@utilatest.requires(power.MASTER049_PDF)
+@utilotest.requires(hoverpower.MASTER049_PDF)
 def test_empty_bib(td, mp):
     """Run decider with empty bib.
 
     Before this patch, loading data creates invalid data structure which
     produces an runtime error.
     """
-    source = power.link(power.MASTER049_PDF)
-    utila.copy_content(
+    source = hoverpower.link(hoverpower.MASTER049_PDF)
+    utilo.copy_content(
         source,
         td.tmpdir,
         unlock=True,
     )
     empty = iamraw.BibliographyTable()
     dumped = serializeraw.dump_bibliography_reference(empty)
-    utila.file_replace(
+    utilo.file_replace(
         td.tmpdir.join('bibliography__result_result.yaml'),
         content=dumped,
     )

@@ -9,11 +9,11 @@
 
 import functools
 
-import power
-import protocol
+import hoverpower
+import protoerror
 import pytest
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import decider_ref
 import tests.abbreviation
@@ -22,18 +22,18 @@ import tests.caption
 import tests.conftest
 import tests.toc
 
-ARCHIVE = utila.join(decider_ref.ROOT, 'tests/expected', exist=True)
+ARCHIVE = utilo.join(decider_ref.ROOT, 'tests/expected', exist=True)
 TODO = [
     source[0] if isinstance(source, tuple) else source
     for source in tests.conftest.RESOURCES
 ]
-TODO = [pytest.param(source, id=utila.file_name(source)) for source in TODO]
+TODO = [pytest.param(source, id=utilo.file_name(source)) for source in TODO]
 
 
-@utilatest.nightly
+@utilotest.nightly
 @pytest.mark.parametrize('source', TODO)
 def test_validate_huge(source, td, mp):
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
     Evaluate(
         source=source,
         pages=':',
@@ -42,7 +42,7 @@ def test_validate_huge(source, td, mp):
     ).evaluate()
 
 
-class Evaluate(utilatest.BaseLiner):
+class Evaluate(utilotest.BaseLiner):
 
     def __init__(self, source, pages, workdir, mp):
         super().__init__(
@@ -52,25 +52,25 @@ class Evaluate(utilatest.BaseLiner):
             ),
             step=None,
             pages=pages,
-            source=power.link(source),
+            source=hoverpower.link(source),
             workdir=workdir,
             archive=ARCHIVE,
             loader=self.frompath,
             convert_source=False,
         )
-        self.headlines = power.link(source)
+        self.headlines = hoverpower.link(source)
 
     def frompath(self, path):  # pylint:disable=R0201
-        return protocol.findings_from_path(path)
+        return protoerror.findings_from_path(path)
 
     def raw(self, value) -> str:
-        findings = utila.flatten_content(value)
+        findings = utilo.flatten_content(value)
         findings = [
             f'{str(item.msgid).zfill(5)} {str(item.location)} {item.solution.title}'
             for item in findings
         ]
-        findings = sorted(findings, key=utila.alphabetically)
-        result = utila.NEWLINE.join(findings)
+        findings = sorted(findings, key=utilo.alphabetically)
+        result = utilo.NEWLINE.join(findings)
         return result
 
     def run_extraction(self, cmd, mp):  # pylint:disable=W0613,R0201

@@ -7,10 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import iamraw
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_toc.balance
 import decider_toc.features
@@ -22,16 +22,16 @@ def work(
     toc: str,
     magic_pages: str,
     docinfo: iamraw.DocInfo = None,
-) -> protocol.ResultType:
+) -> protoerror.ResultType:
     driver = decider_toc.features.create_driver(
         toc=toc,
         docinfo=docinfo,
         magic_pages=magic_pages,
     )
-    result = protocol.run(
+    result = protoerror.run(
         __name__,
         driver=driver,
-        location=protocol.OVERVIEW,
+        location=protoerror.OVERVIEW,
         document=docinfo,
     )
     return result
@@ -85,7 +85,7 @@ def check_1351_toc_level_to_deep(linter, driver):
 def tocline_shrink(raw: str) -> str:
     raw = raw.replace('..', '').replace('. .', '')
     raw = raw.strip('.')
-    raw = utila.shrink(raw, maxlength=80)
+    raw = utilo.shrink(raw, maxlength=80)
     return raw
 
 
@@ -147,12 +147,12 @@ def check_1371_section_too_short(linter, driver):
     )
 
 
-CHAPTER_LENGTH_CHECKER_MIN = configo.HV_FLOAT_PLUS(default=2.0)
+CHAPTER_LENGTH_CHECKER_MIN = configos.HV_FLOAT_PLUS(default=2.0)
 
 
 def validate_chapter_length(linter, toc, level, expected):
     balanced = decider_toc.balance.judge(toc)
-    level_x_balanced = utila.flat(getattr(balanced, f'level{level}'))
+    level_x_balanced = utilo.flat(getattr(balanced, f'level{level}'))
     flat = decider_toc.balance.data(toc)
     level_x = [item for item in flat if item.level == level]
     for line, judged in zip(level_x, level_x_balanced):

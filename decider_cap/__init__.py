@@ -7,11 +7,11 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 
 import decider_ref
 
 ROOT = decider_ref.ROOT
 PROCESS = 'decider_caption'
 
-configo.cloud_lookup(PROCESS)
+configos.cloud_lookup(PROCESS)

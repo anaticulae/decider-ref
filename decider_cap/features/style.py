@@ -8,8 +8,8 @@
 # =============================================================================
 
 import iamraw
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_cap.basic
 import decider_cap.driver
@@ -19,12 +19,12 @@ def work(
     captions: str,
     docinfo: iamraw.DocInfo,
     pages: tuple = None,
-) -> protocol.ResultType:
+) -> protoerror.ResultType:
     driver = decider_cap.driver.create_driver(
         captions,
         pages=pages,
     )
-    result = protocol.run(
+    result = protoerror.run(
         modulename=__name__,
         driver=driver,
         document=docinfo,
@@ -43,7 +43,7 @@ dem beschriebenen Objekt.
 
 
 def check_6250_overlap(linter: callable, driver):
-    for caption in utila.flatten_content(driver.captions):
+    for caption in utilo.flatten_content(driver.captions):
         if not caption.overlap:
             continue
         linter(

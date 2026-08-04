@@ -14,21 +14,23 @@ Table of content
 
 import collections
 
-import configo
+import configos
 import iamraw
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_toc.features
 
 
-def work(toc: str, outlines: str, headlines: str = None) -> protocol.ResultType:
+def work(toc: str,
+         outlines: str,
+         headlines: str = None) -> protoerror.ResultType:
     driver = decider_toc.features.create_driver(
         toc,
         outlines,
         headlines=headlines,
     )
-    result = protocol.run(__name__, driver=driver)
+    result = protoerror.run(__name__, driver=driver)
     return result
 
 
@@ -50,7 +52,7 @@ def check_1300_toc_existence(linter, driver):
     toc = driver.toc
     if toc.children:
         return
-    linter(location=protocol.OVERVIEW)
+    linter(location=protoerror.OVERVIEW)
 
 
 SOLUTION_1301 = """\
@@ -66,7 +68,7 @@ def check_1301_outlines_existence(linter, driver):
     outlines = driver.outlines
     if outlines:
         return
-    linter(location=protocol.OVERVIEW)
+    linter(location=protoerror.OVERVIEW)
 
 
 SOLUTION_1305 = """\
@@ -85,7 +87,7 @@ Orientierung in der Arbeit weiter hilft.
 def check_1305_headlines_without_sense(linter, driver):
     if not driver.headlines:
         return
-    headlines = utila.flat(driver.headlines)
+    headlines = utilo.flat(driver.headlines)
     for item in headlines:
         title = item.title.lower()
         if not title in NO_CONTENT:
@@ -98,7 +100,7 @@ def check_1305_headlines_without_sense(linter, driver):
         )
 
 
-NO_CONTENT = utila.splitlines("""
+NO_CONTENT = utilo.splitlines("""
 ALLGEMEINES
 ALLGEMEIN
 SONSTIGES
@@ -113,14 +115,14 @@ Mehrdeutige Bereichsnummber:
 * {{second}}
 """
 
-SHORTEN_LEGNTH_MAX = configo.HV_INT_PLUS(default=30)
+SHORTEN_LEGNTH_MAX = configos.HV_INT_PLUS(default=30)
 
 
 def check_1310_duplicated_level(linter, driver):
     headlines = driver.headlines
     if not headlines:
         return
-    headlines = utila.flat(headlines)
+    headlines = utilo.flat(headlines)
     duplicated = collections.defaultdict(list)
     for headline in headlines:
         key = headline.raw_level.strip() if headline.raw_level else None
@@ -132,9 +134,9 @@ def check_1310_duplicated_level(linter, driver):
             continue
         first, second = pair[0].raw, pair[1].raw
         linter(
-            first=utila.shrink(first, maxlength=SHORTEN_LEGNTH_MAX),
-            second=utila.shrink(second, maxlength=SHORTEN_LEGNTH_MAX),
-            location=protocol.OVERVIEW,
+            first=utilo.shrink(first, maxlength=SHORTEN_LEGNTH_MAX),
+            second=utilo.shrink(second, maxlength=SHORTEN_LEGNTH_MAX),
+            location=protoerror.OVERVIEW,
         )
 
 
@@ -154,4 +156,4 @@ def check_1315_stepped_toc(linter, driver):
         return
     if toc.style != iamraw.TocStyle.STEPPED:
         return
-    linter(location=protocol.OVERVIEW)
+    linter(location=protoerror.OVERVIEW)

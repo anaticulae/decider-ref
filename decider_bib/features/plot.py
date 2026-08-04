@@ -9,14 +9,14 @@
 
 import collections
 
-import configo
+import configos
 import painter
-import utila
+import utilo
 
 import decider_bib.order
 import decider_bib.serialize
 
-BILIOGRAPHY_COUNT_MIN = configo.HV_INT_PLUS(default=10)
+BILIOGRAPHY_COUNT_MIN = configos.HV_INT_PLUS(default=10)
 
 
 def work(bibtable: str) -> bytes:
@@ -25,20 +25,20 @@ def work(bibtable: str) -> bytes:
     if len(bibliography.references) >= BILIOGRAPHY_COUNT_MIN:
         rendered = render_year_overview(bibliography)
     else:
-        utila.debug(f'too few bib items: {len(bibliography)}')
+        utilo.debug(f'too few bib items: {len(bibliography)}')
     if not rendered:
         # no bibs available
-        return utila.NO_RESULT
+        return utilo.NO_RESULT
     return rendered
 
 
 def render_year_overview(bibliography, year_min=1970, year_max=2025) -> bytes:
     years = [item.year for item in bibliography]
-    years = [item for item in years if utila.isnumber(item)]
+    years = [item for item in years if utilo.isnumber(item)]
     # filter invalid years
     years = [item for item in years if year_min <= item < year_max]
     if not years:
-        utila.debug('no bib years given, skip plotting bib')
+        utilo.debug('no bib years given, skip plotting bib')
         return None
     # TODO: DISPLAY EXCLUDES YEAR
     # TODO: DISPLAY VERY OLD YEARS ON THE BORDER OF THE IMAGE
@@ -58,7 +58,7 @@ def render_year_overview(bibliography, year_min=1970, year_max=2025) -> bytes:
 
 
 def golden(longest: float) -> float:
-    # TODO: REPLACE WITH UTILA
+    # TODO: REPLACE WITH utilo
     return longest / 1.618
 
 

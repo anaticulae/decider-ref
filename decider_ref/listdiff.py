@@ -24,7 +24,7 @@ H
 
 import difflib
 
-import utila
+import utilo
 
 MINUS = '--- '
 PLUS = '+++ '
@@ -45,6 +45,6 @@ def diffview(expected: list, current: list, html: bool = True) -> str:
             f'<b>{item[1:].strip()}</b>' if item[0] == '+' else item
             for item in raw
         ]
-    result = utila.strip(*raw)
-    result = utila.NEWLINE.join(result)
+    result = utilo.strip(*raw)
+    result = utilo.NEWLINE.join(result)
     return result

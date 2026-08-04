@@ -8,7 +8,7 @@
 # =============================================================================
 
 import elements
-import german
+import germania
 import iamraw
 import konrad
 
@@ -34,7 +34,7 @@ def collect_mark(toc: iamraw.Toc, mark: konrad.Mark) -> dtu.InvalidTocItems:
 
     result = []
     for index, item in enumerate(flatten):
-        words = german.split_words(item.title, validate_sentences=False)
+        words = germania.split_words(item.title, validate_sentences=False)
         contains_mark = any(item in marks for item in words)
         if contains_mark:
             result.append((index, item.title, item.raw_location))
@@ -45,8 +45,8 @@ def collect_quotation_marks(toc: iamraw.Toc) -> dtu.InvalidTocItems:
     flatten = elements.toc_flat(toc)
     lines = []
     for index, item in enumerate(flatten):
-        words = german.split_words(item.title, validate_sentences=False)
-        if not german.contain_quotation_marks(words):
+        words = germania.split_words(item.title, validate_sentences=False)
+        if not germania.contain_quotation_marks(words):
             continue
         lines.append((index, item.title, item.raw_location))
     return lines

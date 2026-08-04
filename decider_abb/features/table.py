@@ -9,9 +9,9 @@
 
 import iamraw
 import konrad
-import protocol
+import protoerror
 import serializeraw
-import utila
+import utilo
 
 import decider_ref.listdiff
 
@@ -20,13 +20,13 @@ def work(
     abbrev: str,
     intext: str,
     pages: tuple = None,
-) -> protocol.ResultType:
+) -> protoerror.ResultType:
     driver = create_driver(
         abbrev,
         intext,
         pages=pages,
     )
-    result = protocol.run(
+    result = protoerror.run(
         __name__,
         driver,
     )
@@ -34,12 +34,12 @@ def work(
 
 
 def create_driver(abbrev: str, intext: str, pages: tuple = None):
-    if utila.exists(abbrev):
+    if utilo.exists(abbrev):
         table = serializeraw.load_abbreviation_table(abbrev)
     else:
         table = iamraw.AbbreviationResult()
     intext = serializeraw.load_text_abbreviations(intext, pages=pages)
-    driver = protocol.driver(
+    driver = protoerror.driver(
         abbrevtable=table,
         intext=intext,
     )
@@ -62,7 +62,7 @@ def check_15010_not_sorted_alphabetically(linter: callable, driver):
     current = list(abbreviations)
     expected = sorted(
         abbreviations,
-        key=lambda x: utila.alphabetically(x.short),
+        key=lambda x: utilo.alphabetically(x.short),
     )
     if current == expected:
         # well sorted
@@ -114,14 +114,14 @@ Die Abkürzung **{{abbrev}}** ist nicht im Abkürzungsverzeichnis aufgeführt.
 def check_15016_abbreviation_missing(linter: callable, driver):
     abbreviations: iamraw.AbbreviationResult = driver.abbrevtable
     if len(abbreviations) == 0:  # pylint:disable=compare-to-zero
-        protocol.skip_method('no abbreviation table')
+        protoerror.skip_method('no abbreviation table')
         return
-    references = utila.flatten_content(driver.intext)
+    references = utilo.flatten_content(driver.intext)
     references = [
         item for item in references
         if item.short.lower() not in konrad.ABBREVIATION_LOWER
     ]
-    single = utila.Single()
+    single = utilo.Single()
     collected = [
         item for item in references if not single.contains(item.short.lower())
     ]
@@ -141,7 +141,7 @@ def format_abbreviation_line(item) -> str:
 
 
 def pagelocation(item) -> iamraw.Location:
-    pagenumber = protocol.OVERVIEW
+    pagenumber = protoerror.OVERVIEW
     if item.position:
         pagenumber = iamraw.Location.from_page(item.position.page)
     return pagenumber

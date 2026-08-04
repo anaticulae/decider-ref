@@ -7,18 +7,18 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import pytest
 import serializeraw
-import utilatest
+import utilotest
 
 import decider_toc.balance
 
 
 @pytest.fixture
 def master98_data():
-    utilatest.fixture_requires(power.MASTER098_PDF)
-    source = power.link(power.MASTER098_PDF)
+    utilotest.fixture_requires(hoverpower.MASTER098_PDF)
+    source = hoverpower.link(hoverpower.MASTER098_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
     flat = decider_toc.balance.data(toc)
@@ -27,8 +27,8 @@ def master98_data():
 
 @pytest.fixture
 def master99_data():
-    utilatest.fixture_requires(power.MASTER099_PDF)
-    source = power.link(power.MASTER099_PDF)
+    utilotest.fixture_requires(hoverpower.MASTER099_PDF)
+    source = hoverpower.link(hoverpower.MASTER099_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
     flat = decider_toc.balance.data(toc)
@@ -37,15 +37,15 @@ def master99_data():
 
 @pytest.fixture
 def master99_toc():
-    utilatest.fixture_requires(power.MASTER099_PDF)
-    source = power.link(power.MASTER099_PDF)
+    utilotest.fixture_requires(hoverpower.MASTER099_PDF)
+    source = hoverpower.link(hoverpower.MASTER099_PDF)
     toc = serializeraw.load_toc(source)
     return toc
 
 
 def test_toc_section_balance():
-    utilatest.fixture_requires(power.MASTER098_PDF)
-    source = power.link(power.MASTER098_PDF)
+    utilotest.fixture_requires(hoverpower.MASTER098_PDF)
+    source = hoverpower.link(hoverpower.MASTER098_PDF)
     toc = serializeraw.load_toc(source)
     balance = decider_toc.balance.section_balance(toc)
     assert balance.level1

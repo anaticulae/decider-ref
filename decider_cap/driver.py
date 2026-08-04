@@ -8,21 +8,21 @@
 # =============================================================================
 
 import iamraw
-import protocol
+import protoerror
 import serializeraw
-import utila
+import utilo
 
 
 def create_driver(captions: str, pages: tuple = None):
-    if utila.exists(captions):
+    if utilo.exists(captions):
         captions = serializeraw.load_captions(captions, pages=pages)
     else:
         captions = []
-    flat = utila.flatten_content(captions)
+    flat = utilo.flatten_content(captions)
     figures = [item for item in flat if item.typ == iamraw.CaptionType.FIGURE]
     codes = [item for item in flat if item.typ == iamraw.CaptionType.CODE]
     tables = [item for item in flat if item.typ == iamraw.CaptionType.TABLE]
-    result = protocol.driver(
+    result = protoerror.driver(
         captions=captions,
         codes=codes,
         figures=figures,

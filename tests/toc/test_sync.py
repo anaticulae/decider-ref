@@ -7,30 +7,30 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import protocol
+import hoverpower
+import protoerror
 import pytest
-import utilatest
+import utilotest
 
 import tests
 
 
-@utilatest.requires(power.BACHELOR090_PDF)
+@utilotest.requires(hoverpower.BACHELOR090_PDF)
 def test_toc_bachelor90_toc_document_sync(td, mp):
-    source = power.link(power.BACHELOR090_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR090_PDF)
     tests.toc.run(f'-i {source} --sync', mp=mp)
 
-    findings = protocol.findings_from_path(td.tmpdir)
+    findings = protoerror.findings_from_path(td.tmpdir)
     assert len(tests.select(findings, 1330)) == 1
 
 
 @pytest.mark.xfail(reason='broken headlines parser')
-@utilatest.requires(power.BACHELOR037_PDF)
+@utilotest.requires(hoverpower.BACHELOR037_PDF)
 def test_toc_bachelor37_toc_document_sync(td, mp):
-    source = power.link(power.BACHELOR037_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR037_PDF)
     tests.toc.run(f'-i {source} --sync', mp=mp)
 
-    findings = protocol.findings_from_path(td.tmpdir)
+    findings = protoerror.findings_from_path(td.tmpdir)
     assert len(tests.select(findings, 1330)) == 1
 
     description = findings[0].content[0].solution.description

@@ -10,9 +10,9 @@
 import re
 
 import iamraw
-import protocol
+import protoerror
 import serializeraw
-import utila
+import utilo
 
 import decider_bib.order
 import decider_bib.serialize
@@ -26,9 +26,9 @@ def work(
     titlepage: str,
     pdfinfo: str,
     docinfo: iamraw.DocInfo,
-) -> protocol.ResultType:
+) -> protoerror.ResultType:
     driver = create_driver(bibtable, titlepage, pdfinfo, docinfo)
-    result = protocol.run(
+    result = protoerror.run(
         modulename=__name__,
         driver=driver,
     )
@@ -37,7 +37,7 @@ def work(
 
 def create_driver(table: str, titlepage: str, pdfinfo: str, docinfo: str):
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
-    if utila.exists(titlepage):
+    if utilo.exists(titlepage):
         titlepage = serializeraw.load_titlepage(titlepage)
     else:
         titlepage = iamraw.TitlePage()
@@ -45,7 +45,7 @@ def create_driver(table: str, titlepage: str, pdfinfo: str, docinfo: str):
     pages = pages.pages if pages else None
     # TODO: USE CONTENT SECTION LENGTH INSTEAD OF PAGES. THIS IMPROVES
     # JUDGEMENT OF THESIS WITH LONG APPENDIX
-    driver = protocol.driver(
+    driver = protoerror.driver(
         bibliography=bibliography,
         titlepage=titlepage,
         pages=pages,
@@ -69,10 +69,10 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography.references
     if all_labeled(references):
         # Labeled bibs with [1] [2] are always sorted
-        utila.debug('all bibs are labeled skip order check 6000')
+        utilo.debug('all bibs are labeled skip order check 6000')
         return
     if not all_authors_valid(references):
-        utila.error('could not parse all authors, skip 6000')
+        utilo.error('could not parse all authors, skip 6000')
         return
     current = list(references)
     expected = decider_bib.order.theissen_sort(current)
@@ -94,7 +94,7 @@ def all_authors_valid(references: iamraw.BibliographyReferences) -> bool:
     for item in references:
         if item.authors:
             continue
-        utila.error(f'could not parse all bib refs: {item}')
+        utilo.error(f'could not parse all bib refs: {item}')
         result = False
     return result
 
@@ -102,13 +102,13 @@ def all_authors_valid(references: iamraw.BibliographyReferences) -> bool:
 def all_labeled(references: iamraw.BibliographyReferences) -> bool:
     if not references:
         return False
-    ref, noref = utila.partition(
-        key=lambda x: utila.isint(x.reference),
+    ref, noref = utilo.partition(
+        key=lambda x: utilo.isint(x.reference),
         items=references,
     )
     if not noref:
         return True
-    rate = utila.rate_sum(len(ref), len(noref))
+    rate = utilo.rate_sum(len(ref), len(noref))
     if rate >= 0.75:
         # TODO: HOLY VALUE
         return True
@@ -224,7 +224,7 @@ def check_6011_typo(linter: callable, driver):
             if not matched:
                 continue
             linter(
-                typo=utila.extract_match(matched),
+                typo=utilo.extract_match(matched),
                 bib=raw,
                 location=pagelocation(reference),
             )
@@ -255,7 +255,7 @@ def check_6020_bib_differs(linter: callable, driver):
 
 
 def pagelocation(item) -> iamraw.Location:
-    pagenumber = protocol.OVERVIEW
+    pagenumber = protoerror.OVERVIEW
     if item.raw_pdfpage is not None:
         pagenumber = iamraw.Location.from_page(item.raw_pdfpage)
     return pagenumber

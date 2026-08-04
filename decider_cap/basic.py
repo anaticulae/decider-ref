@@ -7,10 +7,10 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import iamraw
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_ref.listdiff
 
@@ -46,7 +46,7 @@ def isdotted(captions) -> bool:
         return False
     if len(captions) < 5:
         return False
-    dotted, notdotted = utila.partition(
+    dotted, notdotted = utilo.partition(
         key=lambda x: dotend(x.raw),
         items=captions,
     )
@@ -88,7 +88,7 @@ def isupper(captions) -> bool:
         return False
     if len(captions) < 5:
         return False
-    upper, notupper = utila.partition(
+    upper, notupper = utilo.partition(
         key=lambda x: upperstart(x.text),
         items=captions,
     )
@@ -124,13 +124,13 @@ def upperstart(item: str) -> bool:
     return False
 
 
-CAPTION_LENGTH_MAX = configo.HV_INT_PLUS(default=250)
+CAPTION_LENGTH_MAX = configos.HV_INT_PLUS(default=250)
 
 
 def check_length(captions, linter):
     for item in captions:
         if not item.text:
-            utila.error(f'invalid caption: {item}')
+            utilo.error(f'invalid caption: {item}')
             continue
         if len(item.text) < CAPTION_LENGTH_MAX:
             continue
@@ -142,7 +142,7 @@ def check_length(captions, linter):
 
 
 def pagelocation(item) -> iamraw.Location:
-    pagenumber = protocol.OVERVIEW
+    pagenumber = protoerror.OVERVIEW
     if item.pdfpage is not None:
         pagenumber = iamraw.Location.from_page(item.pdfpage)
     return pagenumber

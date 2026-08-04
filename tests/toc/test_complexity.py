@@ -7,20 +7,20 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import protocol
-import utilatest
+import hoverpower
+import protoerror
+import utilotest
 
 import decider_toc.features.complexity
 import tests.toc
 
 
-@utilatest.requires(power.BACHELOR063_PDF)
+@utilotest.requires(hoverpower.BACHELOR063_PDF)
 def test_bachelor63_regression_complexity(td, mp):
     """Do not mix roman and arabic numbers in toc length computation.
     TODO: HANDLE ROMAN NUMBERS
     """
-    source = power.link(power.BACHELOR063_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR063_PDF)
     with mp.context() as context:
         context.setattr(
             decider_toc.features.complexity,
@@ -28,23 +28,23 @@ def test_bachelor63_regression_complexity(td, mp):
             0.0,
         )
         tests.toc.run(f'-i {source} --complexity', mp=mp)
-    findings = protocol.findings_from_path(td.tmpdir)
-    findings = protocol.select_pages(findings, pages=(6, 7))
+    findings = protoerror.findings_from_path(td.tmpdir)
+    findings = protoerror.select_pages(findings, pages=(6, 7))
     assert findings  # count is not important
 
 
-@utilatest.requires(power.MASTER116_PDF)
+@utilotest.requires(hoverpower.MASTER116_PDF)
 def test_toc_decider_toc_complexity_regression():
     """1351 fails with converting ROMAN number to int. In the future
     this will be resolved with ROMAN-number to pdf-page converter."""
-    source = power.link(power.MASTER116_PDF)
+    source = hoverpower.link(hoverpower.MASTER116_PDF)
     tests.toc.lint(source, decider_toc.features.complexity)
 
 
-@utilatest.requires(power.BACHELOR128_PDF)
+@utilotest.requires(hoverpower.BACHELOR128_PDF)
 def test_decider_toc_complexity_bachelor128_regression():
     """Page 4 is the page of table of content."""
-    source = power.link(power.BACHELOR128_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR128_PDF)
     findings = tests.toc.linter(
         source,
         decider_toc.features.complexity,
@@ -68,9 +68,9 @@ def test_decider_toc_complexity_bachelor128_regression():
     assert msg.count('**16**') == 2
 
 
-@utilatest.requires(power.BACHELOR077_PDF)
+@utilotest.requires(hoverpower.BACHELOR077_PDF)
 def test_toc_complexity_bachelor077_regression():
-    source = power.link(power.BACHELOR077_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR077_PDF)
     findings = tests.toc.linter(
         source,
         decider_toc.features.complexity,

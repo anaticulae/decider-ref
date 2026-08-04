@@ -9,10 +9,10 @@
 
 import functools
 
+import hoverpower
 import iamraw
-import power
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_abb.features.table
 import tests.abbreviation
@@ -21,7 +21,7 @@ import tests.abbreviation
 def test_abbrev_sorted_bachelor37(td, mp):
     # TODO: ADJUST TABLE PAGE LOADER
     linted = tests.abbreviation.run_table(
-        power.BACHELOR037_PDF,
+        hoverpower.BACHELOR037_PDF,
         mp,
         td,
         msgid=15010,
@@ -33,9 +33,9 @@ def test_abbrev_table_sorted():
     table = iamraw.AbbreviationResult()
     for item in ['Alpha', 'Beta', 'Gamma', 'helm']:
         table.append(iamraw.Abbreviation(item))
-    driver = protocol.driver(abbrevtable=table)
+    driver = protoerror.driver(abbrevtable=table)
 
-    linter = protocol.Linter()
+    linter = protoerror.Linter()
     decider_abb.features.table.check_15010_not_sorted_alphabetically(
         linter.add_finding,
         driver,
@@ -44,7 +44,7 @@ def test_abbrev_table_sorted():
 
 
 def abbreviation_linter(method):
-    linter = protocol.from_module(decider_abb.features.table)
+    linter = protoerror.from_module(decider_abb.features.table)
     location = iamraw.Location.from_page(5)
     msgid = vars(method)['msgid']
     call = functools.partial(
@@ -71,7 +71,7 @@ def test_abbrev_table_unsorted():
             short=short,
             description=description,
         ))
-    driver = protocol.driver(abbrevtable=table)
+    driver = protoerror.driver(abbrevtable=table)
 
     linter = abbreviation_linter(
         decider_abb.features.table.check_15010_not_sorted_alphabetically)
@@ -82,4 +82,4 @@ def test_abbrev_table_unsorted():
     assert len(linter.findings) == 1, str(linter.findings)
 
     description = linter.findings[0].solution.description
-    assert utila.istemplate_replaced(description), description
+    assert utilo.istemplate_replaced(description), description

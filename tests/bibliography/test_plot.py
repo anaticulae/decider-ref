@@ -9,15 +9,15 @@
 
 import os
 
-import power
-import utilatest
+import hoverpower
+import utilotest
 
 import tests
 
 
-@utilatest.requires(power.MASTER072_PDF)
+@utilotest.requires(hoverpower.MASTER072_PDF)
 def test_decider_bib_plot_bib_overview(td, mp):  # pylint:disable=W0613
-    source = power.link(power.MASTER072_PDF)
+    source = hoverpower.link(hoverpower.MASTER072_PDF)
     cmd = f'-i {source} --plot'
     tests.bibliography.run(cmd, mp=mp)
     assert os.path.exists('decider_bibliography__plot_year_histogram.png')

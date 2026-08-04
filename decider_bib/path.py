@@ -7,14 +7,14 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
+import utilo
 
 import decider_bib
 
 
 def decider_bib_label_user(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(path, decider_bib.PROCESS, 'label_user', prefix)
+    return utilo.pathconnector(path, decider_bib.PROCESS, 'label_user', prefix)
 
 
 def decider_bib_table_user(path: str, prefix: str = '') -> str:
-    return utila.pathconnector(path, decider_bib.PROCESS, 'table_user', prefix)
+    return utilo.pathconnector(path, decider_bib.PROCESS, 'table_user', prefix)

@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_bib
 import decider_ref
@@ -19,30 +19,30 @@ USER = 'user'
 DEVELOPER = 'developer'
 
 WORKPLAN = [
-    utila.create_step(
+    utilo.create_step(
         'label',
         [
-            utila.ResultFile('detector', 'bibliography_detected'),
-            utila.ResultFile('docref', 'bibliography_parsed'),
-            utila.ResultFile('words', 'headlines_headlines'),
-            utila.ResultFile('words', 'sentences_sentences'),
-            utila.ResultFile('sections', 'section_result'),
+            utilo.ResultFile('detector', 'bibliography_detected'),
+            utilo.ResultFile('docref', 'bibliography_parsed'),
+            utilo.ResultFile('words', 'headlines_headlines'),
+            utilo.ResultFile('words', 'sentences_sentences'),
+            utilo.ResultFile('sections', 'section_result'),
         ],
         (USER, DEVELOPER),
     ),
-    utila.create_step(
+    utilo.create_step(
         'table',
         [
-            utila.ResultFile('detector', 'bibliography_detected'),
-            utila.ResultFile('detector', 'titlepage_detected'),
-            utila.File('pdfinfo'),
+            utilo.ResultFile('detector', 'bibliography_detected'),
+            utilo.ResultFile('detector', 'titlepage_detected'),
+            utilo.File('pdfinfo'),
         ],
         (USER, DEVELOPER),
     ),
-    utila.create_step(
+    utilo.create_step(
         name='plot',
         inputs=[
-            utila.ResultFile('detector', 'bibliography_detected'),
+            utilo.ResultFile('detector', 'bibliography_detected'),
         ],
         output=[
             ('year_histogram', 'png'),
@@ -52,16 +52,16 @@ WORKPLAN = [
 
 
 def main():
-    hook = protocol.integrate(
+    hook = protoerror.integrate(
         root=decider_ref.ROOT,
         features='decider_bib.features',
     )
-    docinfo = protocol.integrate_docinfo()
-    utila.featurepack(
+    docinfo = protoerror.integrate_docinfo()
+    utilo.featurepack(
         workplan=WORKPLAN,
         root=decider_ref.ROOT,
         featurepackage='decider_bib.features',
-        config=utila.FeaturePackConfig(
+        config=utilo.FeaturePackConfig(
             cli_hook=[
                 docinfo,
                 hook,

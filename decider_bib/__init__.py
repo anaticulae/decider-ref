@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 
 # ease importing path module when using decider_bib
 import decider_bib.path
@@ -16,4 +16,4 @@ import decider_ref
 ROOT = decider_ref.ROOT
 PROCESS = 'decider_bibliography'
 
-configo.cloud_lookup(PROCESS)
+configos.cloud_lookup(PROCESS)

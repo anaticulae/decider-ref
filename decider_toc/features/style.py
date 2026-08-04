@@ -9,18 +9,18 @@
 
 import elements
 import iamraw
-import protocol
+import protoerror
 
 import decider_toc.duplicated
 import decider_toc.marks
 
 
-def work(toc: str) -> protocol.ResultType:
+def work(toc: str) -> protoerror.ResultType:
     driver = decider_toc.features.create_driver(toc)
-    result = protocol.run(
+    result = protoerror.run(
         __name__,
         driver=driver,
-        location=protocol.OVERVIEW,
+        location=protoerror.OVERVIEW,
     )
     return result
 

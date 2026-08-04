@@ -16,7 +16,7 @@ TODO: INFORM ABOUT NOT USED ABBREVIATION
 TODO: VERIFY FIRST USAGE
 """
 
-import configo
+import configos
 
 import decider_abb.path
 import decider_ref
@@ -26,4 +26,4 @@ __version__ = decider_ref.__version__
 ROOT = decider_ref.ROOT
 PROCESS = 'decider_abbrev'
 
-configo.cloud_lookup(PROCESS)
+configos.cloud_lookup(PROCESS)

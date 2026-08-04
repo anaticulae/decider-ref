@@ -8,9 +8,9 @@
 # =============================================================================
 
 import detector.path
-import power
+import hoverpower
 import pytest
-import utilatest
+import utilotest
 
 import decider_bib.order
 import decider_bib.path
@@ -18,9 +18,9 @@ import decider_bib.serialize
 
 
 @pytest.mark.xfail(reason='broken bib')
-@utilatest.requires(power.BACHELOR063_PDF)
+@utilotest.requires(hoverpower.BACHELOR063_PDF)
 def test_order_bib_bachelor63_theissen():
-    source = power.link(power.BACHELOR063_PDF)
+    source = hoverpower.link(hoverpower.BACHELOR063_PDF)
     table = detector.path.bibliography_detected(source)
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
     theissen = decider_bib.order.theissen_sort(bibliography)

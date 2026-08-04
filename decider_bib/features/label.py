@@ -7,12 +7,12 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import docref.biblio.parser
 import iamraw
-import protocol
+import protoerror
 import serializeraw
-import utila
+import utilo
 
 import decider_bib.reference
 import decider_bib.serialize
@@ -27,17 +27,17 @@ def work(  # pylint:disable=W0613
     sections: str,
     docinfo: iamraw.DocInfo,
     pages: tuple = None,
-) -> protocol.ResultType:
+) -> protoerror.ResultType:
     driver = create_driver(**locals())
     if driver.bibliography.references:  # pylint:disable=E1101
-        result = protocol.run(
+        result = protoerror.run(
             modulename=__name__,
             driver=driver,
             document=docinfo,
         )
     else:
-        utila.error('no bib table parsed: skip decider_bib:label')
-        result = protocol.RESULT_EMPTY
+        utilo.error('no bib table parsed: skip decider_bib:label')
+        result = protoerror.RESULT_EMPTY
     return result
 
 
@@ -57,7 +57,7 @@ def create_driver(
     text = serializeraw.load_text(text, headlines=headlines, pages=pages)
     nobibs = nobibpages(sections)
     # create driver
-    result = protocol.driver(
+    result = protoerror.driver(
         bibliography=bibliography,
         bibtextref=docreference,
         text=text,
@@ -85,12 +85,12 @@ def missing_bibtable_reference(bibtable) -> bool:
     if not bibtable:
         return True
     if len(bibtable) < 10:
-        utila.error(f'too few bib entry: {len(bibtable)}')
+        utilo.error(f'too few bib entry: {len(bibtable)}')
         return True
     invalid_reference = [item for item in bibtable if not item.reference]
     rate = len(invalid_reference) / len(bibtable)
     if rate > 0.2:
-        utila.error(f'too many invalid bib references: {rate}')
+        utilo.error(f'too many invalid bib references: {rate}')
         return True
     return False
 
@@ -104,7 +104,7 @@ Die Referenz **{{reference}}** fehlt im Quellenverzeichnis.
 
 def check_6050_ref_in_table(linter: callable, driver):
     if missing_bibtable_reference(driver.bibliography.references):
-        utila.log('disable 6050')
+        utilo.log('disable 6050')
         return
     plains = references_plain(driver.bibtextref, driver.text)
     for reference, plain in zip(driver.bibtextref, plains):
@@ -145,7 +145,7 @@ def check_6051_table_in_text(linter: callable, driver):
     for item in source:
         if item.reference:
             continue
-        utila.debug(f'None-Reference: {item}')
+        utilo.debug(f'None-Reference: {item}')
     not_required = [
         item for item in source
         if not decider_bib.reference.reference_inside(item, insentence)
@@ -165,16 +165,16 @@ def check_6051_table_in_text(linter: callable, driver):
 def insentence_reference(text, bibliography) -> set:
     """Prepare references which are located inside sentences."""
     insentence_ref = references_plain(bibliography, text)
-    insentence_ref = utila.flat(insentence_ref)
+    insentence_ref = utilo.flat(insentence_ref)
     result = set()
     for item in insentence_ref:
         parsed = docref.biblio.parser.parse(item)
         if not parsed:
-            utila.error(f'could not parse: {item}')
+            utilo.error(f'could not parse: {item}')
             continue
         # TODO: SUPPORT MORE THAN ONE REFERENCE IN A SENTENCE?
         reference = parsed[0].reference
-        if utila.isint(reference):
+        if utilo.isint(reference):
             # convert to valid [10]-intext reference
             reference = f'[{reference}]'
         result.add(reference)
@@ -231,7 +231,7 @@ def check_6062_bib_ref_inaccurate_page(linter: callable, driver):
             )
 
 
-MISSING_PAGENUMBER_RATE_MIN = configo.HV_PERCENT_PLUS(default=20)
+MISSING_PAGENUMBER_RATE_MIN = configos.HV_PERCENT_PLUS(default=20)
 
 SOLUTION_I6063 = """\
 Empfehlung: Quellenangaben konkretisieren
@@ -245,7 +245,7 @@ def check_6063_bib_ref_add_pagination(linter: callable, driver):
 
     If there are too many lintings, disable this lintings.
     """
-    baselinter: protocol.Linter = linter.func.__self__
+    baselinter: protoerror.Linter = linter.func.__self__
     pagenumber_missing = baselinter.count_findings(msgid=6061)
     if pagenumber_missing < 30:
         return
@@ -253,7 +253,7 @@ def check_6063_bib_ref_add_pagination(linter: callable, driver):
     rate = pagenumber_missing / intext_ref
     if rate < MISSING_PAGENUMBER_RATE_MIN:
         return
-    linter(location=protocol.OVERVIEW)
+    linter(location=protoerror.OVERVIEW)
 
     def disable_6061(findings):
         return [item for item in findings if item.msgid != 6061]
@@ -273,7 +273,7 @@ Erkannt: ([HA15], S. 40)
 Besser: [HA15, S. 40]
 """
 
-SPECIAL_COUNT_ACTIVE_MIN = configo.HV_INT_PLUS(default=5)
+SPECIAL_COUNT_ACTIVE_MIN = configos.HV_INT_PLUS(default=5)
 
 
 def check_6070_bib_ref_too_complicated(linter: callable, driver):
@@ -290,7 +290,7 @@ def check_6070_bib_ref_too_complicated(linter: callable, driver):
     if len(special) < SPECIAL_COUNT_ACTIVE_MIN:
         return
     # TODO: ADD HINT FOR EVERY FINDING?
-    linter(location=protocol.OVERVIEW)
+    linter(location=protoerror.OVERVIEW)
 
 
 def references_plain(references, text) -> list:

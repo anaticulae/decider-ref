@@ -15,13 +15,13 @@ import collections
 import contextlib
 import statistics
 
-import configo
+import configos
 import elements
 import iamraw
-import utila
+import utilo
 
 # minimum page numbers to evaluate that page is too short or too long
-PAGE_LENGTH_MIN = configo.HV_FLOAT_PLUS(1.0)
+PAGE_LENGTH_MIN = configos.HV_FLOAT_PLUS(1.0)
 
 TocLine = collections.namedtuple('TocLine', 'page level title pdfpage')
 TocLines = list[TocLine]
@@ -85,13 +85,13 @@ def validate_level(items: list, balance: Evaluated) -> list:
         stepresult = []
         for item in group:
             if balance.median < PAGE_LENGTH_MIN:
-                utila.info(f'median too short {balance.median} to compare '
+                utilo.info(f'median too short {balance.median} to compare '
                            'page length')
                 stepresult.append((None,))  # TODO: DOES WE REQUIRE THIS?
                 continue
-            # TODO: USE CONFIGO TABLE FOR UPPER AND LOWER TABLE
-            upper = utila.roundme(balance.median + balance.stdev, digits=1)
-            lower = utila.roundme(balance.median - balance.stdev, digits=1)
+            # TODO: USE configos TABLE FOR UPPER AND LOWER TABLE
+            upper = utilo.roundme(balance.median + balance.stdev, digits=1)
+            lower = utilo.roundme(balance.median - balance.stdev, digits=1)
             if item > upper:
                 stepresult.append((TOO_LONG, item, upper))
             elif item < lower:
@@ -110,11 +110,11 @@ def section_balance(toc: iamraw.Toc) -> Balance:
     balance3 = analyse(level3_flat)
 
     if balance1 is None:
-        utila.debug(f'too few elements: {len(level1_flat)} for balance level 1')
+        utilo.debug(f'too few elements: {len(level1_flat)} for balance level 1')
     if balance2 is None:
-        utila.debug(f'too few elements: {len(level2_flat)} for balance level 2')
+        utilo.debug(f'too few elements: {len(level2_flat)} for balance level 2')
     if balance3 is None:
-        utila.debug(f'too few elements: {len(level3_flat)} for balance level 3')
+        utilo.debug(f'too few elements: {len(level3_flat)} for balance level 3')
 
     return Balance(balance1, balance2, balance3)
 
@@ -125,16 +125,16 @@ def level(toc: iamraw.Toc, *, flat: bool = True, roman: bool = False) -> Level:
 
     # filter use roman or arabic numbers
     extracted = [
-        item for item in extracted if utila.isroman(item.page) == roman
+        item for item in extracted if utilo.isroman(item.page) == roman
     ]
 
     level1 = [item for item in level_one(extracted) if item is not None]
 
     level2 = level_two(extracted)
-    level2_flat = utila.flat(level2)
+    level2_flat = utilo.flat(level2)
 
     level3 = level_three(extracted)
-    level3_flat = utila.flat(level3)
+    level3_flat = utilo.flat(level3)
 
     if flat:
         return Level(level1, level2_flat, level3_flat)
@@ -147,7 +147,7 @@ def data(toc: iamraw.Toc) -> TocLines:
     for item in flat:
         page = item.page
         if page is None:
-            utila.error(f'None page number: {item}')
+            utilo.error(f'None page number: {item}')
             continue
         with contextlib.suppress(ValueError):
             page = int(page)
@@ -168,7 +168,7 @@ def analyse(items: list) -> Evaluated:
     max_ = max(items)
     min_ = min(items)
 
-    mean, variance, stdev, median, max_, min_ = utila.roundme(
+    mean, variance, stdev, median, max_, min_ = utilo.roundme(
         mean,
         variance,
         stdev,
@@ -189,7 +189,7 @@ def analyse(items: list) -> Evaluated:
     return result
 
 
-def level_one(items, arabic: bool = True) -> utila.Numbers:
+def level_one(items, arabic: bool = True) -> utilo.Numbers:
     pages = [item[0] for item in items if item[1] == LEVEL_ONE]
     if arabic:
         pages = [page for page in pages if isinstance(page, int)]
@@ -197,7 +197,7 @@ def level_one(items, arabic: bool = True) -> utila.Numbers:
         # TODO: CONVERT TO ROMAN NUMBERS
         pages = [page for page in pages if not isinstance(page, int)]
         # TODO: ADD INVALID ROMAN NUMBERS HANDLER
-        pages = utila.arabic(pages)
+        pages = utilo.arabic(pages)
     result = []
     for current, after in zip(pages[0:-1], pages[1:]):
         result.append(after - current)

@@ -11,12 +11,12 @@ import contextlib
 
 import iamraw
 import serializeraw
-import utila
+import utilo
 
 
 def load_bibliography_reference(path) -> list:
-    if not utila.exists(path):
-        utila.debug(f'bib file does not exists: {path}')
+    if not utilo.exists(path):
+        utilo.debug(f'bib file does not exists: {path}')
         return iamraw.BibliographyTable()
     loaded = serializeraw.load_bibliography_reference(path)
     if not loaded:
@@ -24,7 +24,7 @@ def load_bibliography_reference(path) -> list:
     with contextlib.suppress(AttributeError):
         # TODO: REMOVE LATER
         if isinstance(loaded[0], list):
-            loaded = utila.flat(loaded)
+            loaded = utilo.flat(loaded)
     if isinstance(loaded, list):
         # TODO: REMOVE AFTER UPGRADING
         loaded: iamraw.BibliographyTable = iamraw.BibliographyTable(

@@ -8,19 +8,19 @@
 # =============================================================================
 
 import iamraw
-import protocol
+import protoerror
 import serializeraw
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import decider_toc
 
-run, fail = utilatest.create_cli_runner(decider_toc)
+run, fail = utilotest.create_cli_runner(decider_toc)
 
 
 def tableofcontent(path: str) -> iamraw.Toc:
     path = iamraw.path.reftable_toc(path)
-    if utila.exists(path):
+    if utilo.exists(path):
         result = serializeraw.load_toc(path)
     else:
         result = iamraw.Toc()
@@ -39,13 +39,13 @@ def linter(path: str, module, msgids=None):
         headlines = serializeraw.load_headlines(path)
     except FileNotFoundError:
         headlines = None
-    driver = protocol.driver(
+    driver = protoerror.driver(
         headlines=headlines,
         outlines=None,
         toc=toc,
         docinfo=None,
     )
-    findings = protocol.run(
+    findings = protoerror.run(
         module.__name__,
         driver=driver,
     )

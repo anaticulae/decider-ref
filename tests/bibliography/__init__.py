@@ -8,17 +8,17 @@
 # =============================================================================
 
 import detector.path
-import power
-import utilatest
+import hoverpower
+import utilotest
 
 import decider_bib
 import decider_bib.serialize
 
-run, fail = utilatest.create_cli_runner(decider_bib)
+run, fail = utilotest.create_cli_runner(decider_bib)
 
 
 def load_bib_table(path: str):
-    table = power.link(path)
+    table = hoverpower.link(path)
     table = detector.path.bibliography_detected(table)
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
     return bibliography

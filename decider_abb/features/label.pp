@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import protocol
+import protoerror
 
 
-def work(abbreviation: str, pages: tuple = None) -> protocol.ResultType:  # pylint:disable=W0613
+def work(abbreviation: str, pages: tuple = None) -> protoerror.ResultType:  # pylint:disable=W0613
     return '', ''

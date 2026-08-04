@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import decider_cap
 import tests.caption
@@ -18,6 +18,6 @@ def test_cap_cli_help(mp):
     tests.caption.run('--help', mp=mp)
 
 
-@utilatest.hasprog(decider_cap.PROCESS)
+@utilotest.hasprog(decider_cap.PROCESS)
 def test_cap_nomonkey_cli_help():
-    utila.run(f'{decider_cap.PROCESS} --help')
+    utilo.run(f'{decider_cap.PROCESS} --help')

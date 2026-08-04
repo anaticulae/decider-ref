@@ -10,8 +10,8 @@
 import collections
 
 import iamraw
-import protocol
-import utila
+import protoerror
+import utilo
 
 import decider_cap.basic
 import decider_cap.driver
@@ -21,12 +21,12 @@ def work(
     captions: str,
     docinfo: iamraw.DocInfo,
     pages: tuple = None,
-) -> protocol.ResultType:
+) -> protoerror.ResultType:
     driver = decider_cap.driver.create_driver(
         captions,
         pages=pages,
     )
-    result = protocol.run(
+    result = protoerror.run(
         modulename=__name__,
         driver=driver,
         document=docinfo,
@@ -51,7 +51,7 @@ def check_6200_duplication(linter: callable, driver):
     for key, value in collected.items():
         if len(value) <= 1:
             continue
-        pages = utila.from_tuple(utila.unique(value), ',')
+        pages = utilo.from_tuple(utilo.unique(value), ',')
         linter(
             line=key,
             count=len(value),

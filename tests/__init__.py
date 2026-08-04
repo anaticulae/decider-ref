@@ -7,15 +7,15 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
-import utila
+import utilo
 
 
-# TODO: MOVE TO PROTOCOL
+# TODO: MOVE TO protoerror
 def select(items, selected=None):
     if isinstance(selected, int):
         selected = [selected]
     content = [item.content for item in items]
-    flatten = utila.flat(content)
+    flatten = utilo.flat(content)
     ids = [item.msgid for item in flatten]
     if selected:
         ids = [item for item in ids if item in selected]

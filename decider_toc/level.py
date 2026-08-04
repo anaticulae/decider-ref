@@ -9,7 +9,7 @@
 
 import dataclasses
 
-import configo
+import configos
 import iamraw
 
 import decider_toc.utils
@@ -23,8 +23,8 @@ class LevelToDeep(decider_toc.utils.InvalidTocItems):  # pylint:disable=too-many
     pass
 
 
-TOC_DEEPNESS_DEFAULT_MAX = configo.HV_INT_PLUS(default=3)
-TOC_DEEPNESS_DISS_MAX = configo.HV_INT_PLUS(default=4)
+TOC_DEEPNESS_DEFAULT_MAX = configos.HV_INT_PLUS(default=3)
+TOC_DEEPNESS_DISS_MAX = configos.HV_INT_PLUS(default=4)
 
 
 @dataclasses.dataclass

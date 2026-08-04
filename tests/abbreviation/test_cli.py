@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import decider_abb
 import tests.abbreviation
@@ -18,6 +18,6 @@ def test_decider_abbr_cli_help(mp):
     tests.abbreviation.run('--help', mp=mp)
 
 
-@utilatest.hasprog(decider_abb.PROCESS)
+@utilotest.hasprog(decider_abb.PROCESS)
 def test_decider_abbr_nomonkey_cli_help():
-    utila.run(f'{decider_abb.PROCESS} --help')
+    utilo.run(f'{decider_abb.PROCESS} --help')

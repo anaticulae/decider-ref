@@ -9,7 +9,7 @@
 
 import docref.biblio.parser
 import iamraw
-import utila
+import utilo
 
 
 def has_page(item) -> bool:
@@ -41,7 +41,7 @@ def precise(item) -> bool:
 def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
     parsed = docref.biblio.parser.parse(reference)
     if not parsed:
-        utila.error(f'could not parse: {reference}, skip insidecheck')
+        utilo.error(f'could not parse: {reference}, skip insidecheck')
         return None
     assert len(parsed) == 1, str(parsed)
     parsed = parsed[0]
@@ -50,12 +50,12 @@ def inside(reference: str, table: iamraw.BibliographyReferences) -> bool:
             if item.reference is not None:
                 # TODO: VALIDATE WHY
                 continue
-            utila.error(f'invalid reference: {item}')
+            utilo.error(f'invalid reference: {item}')
         table = {convert_reference(item) for item in table if item.reference}
         return reference_inside(parsed, table)
     if parsed.reference is None:
         # TODO: ADD AUTHOR CHECK
-        utila.error(f'could not determine .reference in: {reference}, '
+        utilo.error(f'could not determine .reference in: {reference}, '
                     'skip insidecheck')
         return None
     return False
@@ -80,7 +80,7 @@ def reference_inside(
 
 
 def convert_reference(reference):
-    if utila.isint(reference.reference):
+    if utilo.isint(reference.reference):
         reference = f'[{reference.reference}]'
     else:
         reference = reference.reference.lower()

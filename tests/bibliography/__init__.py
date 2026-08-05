@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import detector.path
 import hoverpower
+import indagator.path
 import utilotest
 
 import decider_bib
@@ -19,6 +19,6 @@ run, fail = utilotest.create_cli_runner(decider_bib)
 
 def load_bib_table(path: str):
     table = hoverpower.link(path)
-    table = detector.path.bibliography_detected(table)
+    table = indagator.path.bibliography_detected(table)
     bibliography = decider_bib.serialize.load_bibliography_reference(table)
     return bibliography

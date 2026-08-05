@@ -68,7 +68,6 @@ def extract(resources):
     gennex.extract(
         files=resources,
         full=True,
-        base=hoverpower.REPOSITORY,
         worker=WORKER,
     )
 

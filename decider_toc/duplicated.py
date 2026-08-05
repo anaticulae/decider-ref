@@ -21,12 +21,12 @@ False
 import collections
 import re
 
+import analp
 import configos
-import elements
+import elementae
 import germania
 import iamraw
-import knlp
-import konrad
+import konradus
 import utilo
 
 import decider_toc.utils
@@ -34,7 +34,7 @@ import decider_toc.utils
 
 def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
     lang = decider_toc.utils.toc_lang(toc)
-    flatten = elements.toc_flat(toc)
+    flatten = elementae.toc_flat(toc)
     lines = []
     for item in flatten:
         words = germania.split_words(
@@ -42,7 +42,7 @@ def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
             validate_sentences=False,
             lang=lang,
         )
-        words = konrad.remove_marks(words)
+        words = konradus.remove_marks(words)
         lines.append(words)
     # decouple from toc source to avoid side effects
     flatten = [item.title for item in flatten]
@@ -101,7 +101,7 @@ DUPLICATES_COUNT_MIN = configos.HolyTable(items=(
 def duplicates(lines, lang=None):
     if not lang:
         lang = 'germania'
-    stopwords = knlp.stopwords(lang=lang)
+    stopwords = analp.stopwords(lang=lang)
     duplicated_count_min = DUPLICATES_COUNT_MIN(len(lines))
     counter = collections.Counter()
     for line in lines:

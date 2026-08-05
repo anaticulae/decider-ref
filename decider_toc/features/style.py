@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import elements
+import elementae
 import iamraw
 import protoerror
 
@@ -36,7 +36,7 @@ dieses Wort um die Varianz der Sprache zu vergrößern.
 
 def check_1380_toc_duplicated_words(linter, driver):
     toc: iamraw.Toc = driver.toc
-    toc_flat = elements.toc_flat(toc)
+    toc_flat = elementae.toc_flat(toc)
     findings = decider_toc.duplicated.validate(toc)
     for item in findings:
         (word, count), lines = item

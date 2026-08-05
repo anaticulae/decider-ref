@@ -8,7 +8,7 @@
 # =============================================================================
 
 import iamraw
-import konrad
+import konradus
 import protoerror
 import serializeraw
 import utilo
@@ -94,7 +94,7 @@ def check_15015_abbreviation_not_required(linter: callable, driver):
     abbreviations: iamraw.AbbreviationResult = driver.abbrevtable
     for item in abbreviations:
         name = item.short.lower()
-        if name not in konrad.ABBREVIATION_LOWER:
+        if name not in konradus.ABBREVIATION_LOWER:
             continue
         linter(
             abbreviation=item.short,
@@ -119,7 +119,7 @@ def check_15016_abbreviation_missing(linter: callable, driver):
     references = utilo.flatten_content(driver.intext)
     references = [
         item for item in references
-        if item.short.lower() not in konrad.ABBREVIATION_LOWER
+        if item.short.lower() not in konradus.ABBREVIATION_LOWER
     ]
     single = utilo.Single()
     collected = [

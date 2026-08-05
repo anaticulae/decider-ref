@@ -11,7 +11,7 @@ import collections
 import re
 
 import germania
-import konrad
+import konradus
 import utilo
 
 LABEL = r'\[\d+\]'
@@ -62,7 +62,7 @@ def sentence_plain(sentence, marks) -> list:
 
 
 def selection_plain(items: list) -> str:
-    items = [konrad.mark2str(item) for item in items]
+    items = [konradus.mark2str(item) for item in items]
     raw = ' '.join(items)
     raw = raw.replace('( ', '(')
     raw = raw.replace('[ ', '[')

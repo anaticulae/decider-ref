@@ -80,16 +80,16 @@ def check_6303_no_caption(linter: callable, driver):
     missing_caption = baselinter.count_findings(msgid=6300)
     missing_caption += baselinter.count_findings(msgid=6301)
     missing_caption += baselinter.count_findings(msgid=6302)
-    elements = sum(
+    elementae = sum(
         len(item) for item in (
             driver.codero,
             driver.tablero,
             driver.figureo,
         ))
-    if elements < NO_CAPTION_COUNT_MIN:
-        utilo.debug(f'too few elements: {elements}, disable 6303')
+    if elementae < NO_CAPTION_COUNT_MIN:
+        utilo.debug(f'too few elements: {elementae}, disable 6303')
         return
-    rate = utilo.rate_rel(missing_caption, elements)
+    rate = utilo.rate_rel(missing_caption, elementae)
     if rate < NO_CAPTION_RATE_MIN:
         return
     linter()

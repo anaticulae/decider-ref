@@ -7,30 +7,30 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import elements
+import elementae
 import germania
 import iamraw
-import konrad
+import konradus
 
 import decider_toc.utils as dtu
 
 
 def validate_question_mark(toc: iamraw.Toc) -> dtu.InvalidTocItems:
-    result = collect_mark(toc, konrad.Mark.QUESTION_MARK)
+    result = collect_mark(toc, konradus.Mark.QUESTION_MARK)
     return result
 
 
 def validate_general_marks(toc: iamraw.Toc) -> dtu.InvalidTocItems:
     result = collect_mark(toc, (
-        konrad.Mark.EXCLAMATION_MARK,
-        konrad.Mark.COMMA,
+        konradus.Mark.EXCLAMATION_MARK,
+        konradus.Mark.COMMA,
     ))
     return result
 
 
-def collect_mark(toc: iamraw.Toc, mark: konrad.Mark) -> dtu.InvalidTocItems:
-    flatten = elements.toc_flat(toc)
-    marks = [mark] if isinstance(mark, konrad.Mark) else mark
+def collect_mark(toc: iamraw.Toc, mark: konradus.Mark) -> dtu.InvalidTocItems:
+    flatten = elementae.toc_flat(toc)
+    marks = [mark] if isinstance(mark, konradus.Mark) else mark
 
     result = []
     for index, item in enumerate(flatten):
@@ -42,7 +42,7 @@ def collect_mark(toc: iamraw.Toc, mark: konrad.Mark) -> dtu.InvalidTocItems:
 
 
 def collect_quotation_marks(toc: iamraw.Toc) -> dtu.InvalidTocItems:
-    flatten = elements.toc_flat(toc)
+    flatten = elementae.toc_flat(toc)
     lines = []
     for index, item in enumerate(flatten):
         words = germania.split_words(item.title, validate_sentences=False)

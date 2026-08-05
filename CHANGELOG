@@ -134,7 +134,7 @@ Every noteable change is logged here.
 * add method to determine toc language (ceed48996a70)
 * add abstract position linter (65fcfcb248c6)
 * add sections as data input (6185ae649bdf)
-* use elements LEGAL headline list (f618672820a9)
+* use elementae LEGAL headline list (f618672820a9)
 * improve bib diff view (bc7593a9b503)
 * add improved list diff view (622a3f1af21e)
 * add method to render simple list diff (ad5b93c4a0e0)

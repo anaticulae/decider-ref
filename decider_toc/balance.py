@@ -16,7 +16,7 @@ import contextlib
 import statistics
 
 import configos
-import elements
+import elementae
 import iamraw
 import utilo
 
@@ -142,7 +142,7 @@ def level(toc: iamraw.Toc, *, flat: bool = True, roman: bool = False) -> Level:
 
 
 def data(toc: iamraw.Toc) -> TocLines:
-    flat = elements.toc_flat(toc)
+    flat = elementae.toc_flat(toc)
     result = []
     for item in flat:
         page = item.page

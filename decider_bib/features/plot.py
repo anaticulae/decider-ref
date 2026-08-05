@@ -10,7 +10,7 @@
 import collections
 
 import configos
-import painter
+import upainter
 import utilo
 
 import decider_bib.order
@@ -43,7 +43,7 @@ def render_year_overview(bibliography, year_min=1970, year_max=2025) -> bytes:
     # TODO: DISPLAY EXCLUDES YEAR
     # TODO: DISPLAY VERY OLD YEARS ON THE BORDER OF THE IMAGE
     years, counted = count(years)
-    rendered = painter.bar_render(
+    rendered = upainter.bar_render(
         x=years,
         y=counted,
         width=15.0,
@@ -53,7 +53,7 @@ def render_year_overview(bibliography, year_min=1970, year_max=2025) -> bytes:
         xlabel='Jahr',
         ylabel='Anzahl',
     )
-    raw = painter.png(rendered)
+    raw = upainter.png(rendered)
     return raw
 
 

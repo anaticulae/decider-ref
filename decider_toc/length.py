@@ -8,10 +8,10 @@
 # =============================================================================
 
 import configos
-import elements
+import elementae
 import germania
 import iamraw
-import konrad
+import konradus
 
 import decider_toc.utils
 
@@ -19,12 +19,12 @@ WORD_COUNT_MAX = configos.HV_INT_PLUS(default=12)
 
 
 def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
-    flatten = elements.toc_flat(toc)
+    flatten = elementae.toc_flat(toc)
 
     lines = []
     for index, item in enumerate(flatten):
         words = germania.split_words(item.title, validate_sentences=False)
-        words = konrad.remove_marks(words)
+        words = konradus.remove_marks(words)
         linelength = len(words)
         if linelength > WORD_COUNT_MAX:
             lines.append((index, item.title, linelength, item.raw_location))

@@ -22,8 +22,8 @@ TODO: ADD SOLUTION TO COMPARE TOC AND OUTLINES
 
 import os
 
-import elements
-import elements.headline.lookup
+import elementae
+import elementae.headline.lookup
 import iamraw
 import protoerror
 import serializeraw
@@ -106,8 +106,8 @@ def check_1330_toc_document_sync(linter, driver):
         return
     headlines = iamraw.headlines_totoc(headlines)
     toc_firstpage = min((item.raw_location for item in toc))
-    toc = elements.toc_flat(toc)
-    headlines = elements.toc_flat(headlines)  # pylint:disable=R0204
+    toc = elementae.toc_flat(toc)
+    headlines = elementae.toc_flat(headlines)  # pylint:disable=R0204
     # TODO: ADD BETTER TOC SYNC TO COMPARE CORRECT LEVEL
     # TODO: RENAME VARIABLES
     # compare first level
@@ -133,5 +133,5 @@ def check_1330_toc_document_sync(linter, driver):
 def not_missing(items: list) -> list:
     return [
         item for item in items
-        if not utilo.verysimilar(item, expected=elements.headline.lookup.TOC)
+        if not utilo.verysimilar(item, expected=elementae.headline.lookup.TOC)
     ]

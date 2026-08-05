@@ -7,8 +7,8 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import elements
-import elements.headline.lookup
+import elementae
+import elementae.headline.lookup
 import iamraw
 import protoerror
 import utilo
@@ -70,8 +70,8 @@ Seite {{current}} folgt auf {{before}}.
 
 def check_1360_toc_ascending_pages(linter, driver):
     toc: iamraw.Toc = driver.toc
-    page_result: elements.InvalidPages = elements.validate_toc(toc)
-    # TODO: ADD SPECIAL CASE FOR elements.INVALID_ROMAN_NUMBER
+    page_result: elementae.InvalidPages = elementae.validate_toc(toc)
+    # TODO: ADD SPECIAL CASE FOR elementae.INVALID_ROMAN_NUMBER
     for item in page_result:
         location = iamraw.Location.from_page(item.raw_location)
         linter(
@@ -97,7 +97,7 @@ def check_1365_toc_legal_inside_toc(linter, driver):
     toc: iamraw.Toc = driver.toc
     if not toc:
         return
-    toc = elements.toc_flat(toc)
+    toc = elementae.toc_flat(toc)
 
     legal_intoc = [item for item in toc if islegal(item.title)]
     if not legal_intoc:
@@ -110,7 +110,7 @@ def check_1365_toc_legal_inside_toc(linter, driver):
         utilo.error(f'multiple legal toc detected {legal_intoc}')
 
 
-LEGAL = elements.headline.lookup.LEGAL
+LEGAL = elementae.headline.lookup.LEGAL
 
 
 def islegal(item: str) -> bool:

@@ -31,7 +31,7 @@ def test_abbrev_sorted_bachelor37(td, mp):
 
 def test_abbrev_table_sorted():
     table = iamraw.AbbreviationResult()
-    for item in ['Alpha', 'Beta', 'Gamma', 'helm']:
+    for item in ('Alpha', 'Beta', 'Gamma', 'helm'):
         table.append(iamraw.Abbreviation(item))
     driver = protoerror.driver(abbrevtable=table)
 

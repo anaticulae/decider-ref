@@ -44,11 +44,25 @@ content-type = "text/markdown"
 
 [project.optional-dependencies]
 dev = [
+    "callidus==1.7.1",
+    "capita==1.25.3",
+    "capita_ref==1.0.1",
+    "codero==1.0.1",
+    "decider-chapter==1.0.1",
+    "figureo==1.0.1",
+    "formulero==1.0.0",
     "gennex==1.1.0",
+    "headnote==1.0.3",
     "hoverpower==1.7.0",
+    "ibidem==1.0.2",
     "indagator==1.0.2",
+    "indicibus==1.0.2",
     "jamer==1.0.2",
     "mundare==1.0.2",
+    "pagenumber==1.0.0",
+    "protoerror==3.20.4",
+    "reftable==1.0.0",
+    "tablero==1.0.1",
     "titulum==1.0.2",
     "utilotest==1.1.1",
 ]

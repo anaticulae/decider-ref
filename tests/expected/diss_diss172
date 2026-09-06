@@ -1,91 +1,89 @@
 01300 p-1 Dokument enthält kein Inhaltsverzeichnis
-06007 p153 Anzahl der Quellen zu hoch
-06011 p156 Quellenangabe: Tippfehler erkannt
-06011 p158 Quellenangabe: Tippfehler erkannt
-06011 p158 Quellenangabe: Tippfehler erkannt
-06020 p154 Quellenangabe überprüfen
+06007 p159 Anzahl der Quellen zu hoch
+06010 p170 Quellenangabe: Klammern überprüfen
 06020 p162 Quellenangabe überprüfen
-06050 p112s3 Quelle nicht gefunden
-06050 p115s11 Quelle nicht gefunden
-06050 p116s11 Quelle nicht gefunden
-06050 p117s8 Quelle nicht gefunden
-06050 p118s5 Quelle nicht gefunden
-06050 p119s2 Quelle nicht gefunden
-06050 p121s5 Quelle nicht gefunden
+06050 p113s7 Quelle nicht gefunden
 06050 p121s6 Quelle nicht gefunden
-06050 p121s9 Quelle nicht gefunden
 06050 p123s16 Quelle nicht gefunden
-06050 p130s8 Quelle nicht gefunden
+06050 p124s18 Quelle nicht gefunden
+06050 p129s4 Quelle nicht gefunden
+06050 p130s14 Quelle nicht gefunden
+06050 p132s106 Quelle nicht gefunden
+06050 p133s0 Quelle nicht gefunden
 06050 p137s2 Quelle nicht gefunden
-06050 p137s9 Quelle nicht gefunden
 06050 p138s0 Quelle nicht gefunden
-06050 p145s19 Quelle nicht gefunden
-06050 p145s19 Quelle nicht gefunden
-06050 p145s3 Quelle nicht gefunden
-06050 p145s8 Quelle nicht gefunden
+06050 p138s3 Quelle nicht gefunden
+06050 p145s21 Quelle nicht gefunden
 06050 p146s0 Quelle nicht gefunden
-06050 p149s11 Quelle nicht gefunden
-06050 p150s2 Quelle nicht gefunden
 06050 p152s0 Quelle nicht gefunden
-06050 p152s11 Quelle nicht gefunden
-06050 p152s16 Quelle nicht gefunden
-06050 p152s22 Quelle nicht gefunden
-06050 p152s28 Quelle nicht gefunden
-06050 p152s3 Quelle nicht gefunden
-06050 p152s33 Quelle nicht gefunden
-06050 p152s6 Quelle nicht gefunden
-06051 p153 Quelle überflüssig
-06051 p153 Quelle überflüssig
-06051 p153 Quelle überflüssig
-06051 p153 Quelle überflüssig
-06051 p153 Quelle überflüssig
-06051 p153 Quelle überflüssig
-06051 p154 Quelle überflüssig
-06051 p154 Quelle überflüssig
-06051 p154 Quelle überflüssig
-06051 p154 Quelle überflüssig
-06051 p154 Quelle überflüssig
-06051 p154 Quelle überflüssig
-06051 p154 Quelle überflüssig
-06051 p154 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p155 Quelle überflüssig
-06051 p156 Quelle überflüssig
-06051 p156 Quelle überflüssig
-06051 p156 Quelle überflüssig
-06051 p156 Quelle überflüssig
-06051 p156 Quelle überflüssig
-06051 p156 Quelle überflüssig
-06051 p156 Quelle überflüssig
-06051 p156 Quelle überflüssig
-06051 p156 Quelle überflüssig
-06051 p157 Quelle überflüssig
-06051 p157 Quelle überflüssig
-06051 p157 Quelle überflüssig
-06051 p157 Quelle überflüssig
-06051 p157 Quelle überflüssig
-06051 p157 Quelle überflüssig
-06051 p157 Quelle überflüssig
-06051 p157 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
-06051 p158 Quelle überflüssig
+06050 p152s13 Quelle nicht gefunden
+06050 p152s18 Quelle nicht gefunden
+06050 p152s2 Quelle nicht gefunden
+06050 p152s23 Quelle nicht gefunden
+06050 p152s27 Quelle nicht gefunden
+06050 p152s32 Quelle nicht gefunden
+06050 p152s5 Quelle nicht gefunden
+06050 p152s9 Quelle nicht gefunden
+06050 p153s16 Quelle nicht gefunden
+06050 p153s19 Quelle nicht gefunden
+06050 p153s24 Quelle nicht gefunden
+06050 p153s28 Quelle nicht gefunden
+06050 p153s31 Quelle nicht gefunden
+06050 p153s34 Quelle nicht gefunden
+06050 p153s38 Quelle nicht gefunden
+06050 p153s4 Quelle nicht gefunden
+06050 p153s9 Quelle nicht gefunden
+06050 p154s0 Quelle nicht gefunden
+06050 p154s10 Quelle nicht gefunden
+06050 p154s16 Quelle nicht gefunden
+06050 p154s21 Quelle nicht gefunden
+06050 p154s29 Quelle nicht gefunden
+06050 p154s32 Quelle nicht gefunden
+06050 p154s36 Quelle nicht gefunden
+06050 p154s5 Quelle nicht gefunden
+06050 p155s0 Quelle nicht gefunden
+06050 p155s13 Quelle nicht gefunden
+06050 p155s18 Quelle nicht gefunden
+06050 p155s21 Quelle nicht gefunden
+06050 p155s24 Quelle nicht gefunden
+06050 p155s28 Quelle nicht gefunden
+06050 p155s31 Quelle nicht gefunden
+06050 p155s35 Quelle nicht gefunden
+06050 p155s39 Quelle nicht gefunden
+06050 p155s44 Quelle nicht gefunden
+06050 p155s49 Quelle nicht gefunden
+06050 p155s7 Quelle nicht gefunden
+06050 p156s0 Quelle nicht gefunden
+06050 p156s10 Quelle nicht gefunden
+06050 p156s12 Quelle nicht gefunden
+06050 p156s15 Quelle nicht gefunden
+06050 p156s21 Quelle nicht gefunden
+06050 p156s26 Quelle nicht gefunden
+06050 p156s3 Quelle nicht gefunden
+06050 p156s30 Quelle nicht gefunden
+06050 p156s34 Quelle nicht gefunden
+06050 p156s38 Quelle nicht gefunden
+06050 p156s7 Quelle nicht gefunden
+06050 p157s0 Quelle nicht gefunden
+06050 p157s13 Quelle nicht gefunden
+06050 p157s17 Quelle nicht gefunden
+06050 p157s21 Quelle nicht gefunden
+06050 p157s26 Quelle nicht gefunden
+06050 p157s32 Quelle nicht gefunden
+06050 p157s33 Quelle nicht gefunden
+06050 p157s4 Quelle nicht gefunden
+06050 p157s8 Quelle nicht gefunden
+06050 p158s0 Quelle nicht gefunden
+06050 p158s11 Quelle nicht gefunden
+06050 p158s13 Quelle nicht gefunden
+06050 p158s16 Quelle nicht gefunden
+06050 p158s19 Quelle nicht gefunden
+06050 p158s23 Quelle nicht gefunden
+06050 p158s28 Quelle nicht gefunden
+06050 p158s32 Quelle nicht gefunden
+06050 p158s35 Quelle nicht gefunden
+06050 p158s5 Quelle nicht gefunden
+06050 p158s9 Quelle nicht gefunden
 06051 p159 Quelle überflüssig
 06051 p159 Quelle überflüssig
 06051 p159 Quelle überflüssig
@@ -134,6 +132,60 @@
 06051 p163 Quelle überflüssig
 06051 p163 Quelle überflüssig
 06051 p163 Quelle überflüssig
+06051 p164 Quelle überflüssig
+06051 p164 Quelle überflüssig
+06051 p164 Quelle überflüssig
+06051 p164 Quelle überflüssig
+06051 p164 Quelle überflüssig
+06051 p164 Quelle überflüssig
+06051 p164 Quelle überflüssig
+06051 p164 Quelle überflüssig
+06051 p164 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p165 Quelle überflüssig
+06051 p166 Quelle überflüssig
+06051 p166 Quelle überflüssig
+06051 p166 Quelle überflüssig
+06051 p166 Quelle überflüssig
+06051 p166 Quelle überflüssig
+06051 p166 Quelle überflüssig
+06051 p166 Quelle überflüssig
+06051 p166 Quelle überflüssig
+06051 p167 Quelle überflüssig
+06051 p167 Quelle überflüssig
+06051 p167 Quelle überflüssig
+06051 p167 Quelle überflüssig
+06051 p167 Quelle überflüssig
+06051 p167 Quelle überflüssig
+06051 p167 Quelle überflüssig
+06051 p167 Quelle überflüssig
+06051 p168 Quelle überflüssig
+06051 p168 Quelle überflüssig
+06051 p168 Quelle überflüssig
+06051 p168 Quelle überflüssig
+06051 p168 Quelle überflüssig
+06051 p168 Quelle überflüssig
+06051 p168 Quelle überflüssig
+06051 p168 Quelle überflüssig
+06051 p168 Quelle überflüssig
+06051 p169 Quelle überflüssig
+06051 p169 Quelle überflüssig
+06051 p169 Quelle überflüssig
+06051 p169 Quelle überflüssig
+06051 p169 Quelle überflüssig
+06051 p169 Quelle überflüssig
+06051 p169 Quelle überflüssig
+06051 p170 Quelle überflüssig
+06051 p170 Quelle überflüssig
+06051 p170 Quelle überflüssig
 06063 p-1 Empfehlung: Quellenangaben konkretisieren
 06201 p-1 Unterschriften der Abbildungen falsch numeriert
 06202 p-1 Unterschriften der Tabellen falsch numeriert

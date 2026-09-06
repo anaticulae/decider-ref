@@ -12,16 +12,16 @@
 01370 p7 Abschnitt zu lang
 01384 p7 Sektion enthält Anführungszeichen
 06006 p59 Anzahl der Quellen zu gering
-06050 p10s15 Quelle nicht gefunden
-06050 p10s5 Quelle nicht gefunden
+06050 p10s18 Quelle nicht gefunden
+06050 p10s7 Quelle nicht gefunden
 06050 p11s6 Quelle nicht gefunden
 06050 p11s8 Quelle nicht gefunden
-06050 p12s11 Quelle nicht gefunden
-06050 p13s13 Quelle nicht gefunden
-06050 p13s5 Quelle nicht gefunden
-06050 p13s8 Quelle nicht gefunden
-06050 p14s15 Quelle nicht gefunden
-06050 p14s8 Quelle nicht gefunden
+06050 p12s10 Quelle nicht gefunden
+06050 p13s10 Quelle nicht gefunden
+06050 p13s16 Quelle nicht gefunden
+06050 p13s7 Quelle nicht gefunden
+06050 p14s16 Quelle nicht gefunden
+06050 p14s9 Quelle nicht gefunden
 06050 p15s3 Quelle nicht gefunden
 06050 p16s4 Quelle nicht gefunden
 06050 p17s0 Quelle nicht gefunden
@@ -43,16 +43,16 @@
 06051 p59 Quelle überflüssig
 06051 p59 Quelle überflüssig
 06051 p59 Quelle überflüssig
-06061 p10s15 Seitenangabe fehlt
-06061 p10s5 Seitenangabe fehlt
+06061 p10s18 Seitenangabe fehlt
+06061 p10s7 Seitenangabe fehlt
 06061 p11s6 Seitenangabe fehlt
 06061 p11s8 Seitenangabe fehlt
-06061 p12s11 Seitenangabe fehlt
-06061 p13s13 Seitenangabe fehlt
-06061 p13s5 Seitenangabe fehlt
-06061 p13s8 Seitenangabe fehlt
-06061 p14s15 Seitenangabe fehlt
-06061 p14s8 Seitenangabe fehlt
+06061 p12s10 Seitenangabe fehlt
+06061 p13s10 Seitenangabe fehlt
+06061 p13s16 Seitenangabe fehlt
+06061 p13s7 Seitenangabe fehlt
+06061 p14s16 Seitenangabe fehlt
+06061 p14s9 Seitenangabe fehlt
 06061 p15s3 Seitenangabe fehlt
 06061 p16s4 Seitenangabe fehlt
 06061 p17s0 Seitenangabe fehlt

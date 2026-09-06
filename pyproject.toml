@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "decider_ref"
+name = "decider-ref"
 version = "1.22.1"
 description = ""
 requires-python = ">=3.12"
@@ -68,8 +68,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/anaticulae/decider_ref"
-Repository = "https://github.com/anaticulae/decider_ref"
+Homepage = "https://github.com/anaticulae/decider-ref"
+Repository = "https://github.com/anaticulae/decider-ref"
 
 [project.scripts]
 decider_abbrev = "decider_abb.cli:main"

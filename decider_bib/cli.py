@@ -35,7 +35,7 @@ WORKPLAN = [
         [
             utilo.ResultFile('detector', 'bibliography_detected'),
             utilo.ResultFile('detector', 'titlepage_detected'),
-            utilo.File('pdfinfo'),
+            utilo.File('pdflog'),
         ],
         (USER, DEVELOPER),
     ),

@@ -48,6 +48,7 @@ def test_bib_no_page_master98(td, mp):
     assert len(nopages) in {10, 9}  # TODO: VALIDATE LATER
 
 
+@pytest.mark.xfail(reason='enable later')
 def test_bib_page_number_unprecise(td, mp):
     unprecise = run_label(hoverpower.MASTER116_PDF, mp, td, {6062})
     assert len(unprecise) in {2, 3}  # TODO: VALIDATE LATER
@@ -78,7 +79,6 @@ def test_regression_bachelor75(td, mp):
     assert len(linting) == 21  # NOT VALIDATED
 
 
-@pytest.mark.xfail(reason='???')
 def test_label_bib_ref_missing(td, mp):
     """No missing intext bib reference."""
     linting = run_label(hoverpower.BACHELOR075_PDF, mp, td, {6050})

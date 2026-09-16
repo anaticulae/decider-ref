@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "decider-ref"
-version = "1.22.1"
+version = "1.22.2"
 description = ""
 requires-python = ">=3.12"
 authors = [

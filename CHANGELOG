@@ -1,395 +1,1563 @@
-# Changelog
+# CHANGELOG
 
-Every noteable change is logged here.
+
+## v1.22.2 (2026-09-16)
+
+### Bug Fixes
+
+- **bib**: Adjust interface
+  ([`9eb135d`](https://github.com/anaticulae/decider-ref/commit/9eb135d0c4201a6f79ea05813a4aab4cfda3488e))
+
+### Chores
+
+- **docker**: Upgrade docker base images
+  ([`b0e3b5a`](https://github.com/anaticulae/decider-ref/commit/b0e3b5ab21ec92262443fbc39b781e0bbacd3e00))
+
+- **docs**: Add LICENSE file
+  ([`7661be9`](https://github.com/anaticulae/decider-ref/commit/7661be9f8019f7f32f82a3110ef36c4ad940aa8d))
+
+- **github**: Add .github
+  ([`76a8d74`](https://github.com/anaticulae/decider-ref/commit/76a8d742766e795f769880127f8c01acefffb40c))
+
+- **Jenkins**: Upgrade pipeline
+  ([`4b4698a`](https://github.com/anaticulae/decider-ref/commit/4b4698ac96d554bcc24ef29b092a8d73a063ffe9))
+
+- **pyproject**: Add missing generators
+  ([`7d0bf69`](https://github.com/anaticulae/decider-ref/commit/7d0bf698b1453e053626a40c5b0e25ed8b1ca147))
+
+- **pyproject**: Add missing ref
+  ([`2136cb9`](https://github.com/anaticulae/decider-ref/commit/2136cb9f98965e71cbe6730f7a8781fd11e3c6b6))
+
+- **pyproject**: Add modern layout
+  ([`814fb84`](https://github.com/anaticulae/decider-ref/commit/814fb8410019aa2de90203a6a75900989ddb9359))
+
+- **pyproject**: Adjust project name
+  ([`e7878a3`](https://github.com/anaticulae/decider-ref/commit/e7878a350c65cc5e335dd634cfd8267a4394c87a))
+
+- **pyproject**: Enable writers
+  ([`3df2b45`](https://github.com/anaticulae/decider-ref/commit/3df2b45a0f634b0fa4a16df19854edba8afc12d9))
+
+- **pyproject**: Remove outdated files
+  ([`2dec422`](https://github.com/anaticulae/decider-ref/commit/2dec4224343f8dfe4499f555419365765a07fd0a))
+
+- **requirements**: Upgrade pyproject.toml
+  ([`3b18c4d`](https://github.com/anaticulae/decider-ref/commit/3b18c4d2536450f6e59feee89c4b96f9f299278b))
+
+### Code Style
+
+- **test**: Solve linter warnings
+  ([`31a7c3c`](https://github.com/anaticulae/decider-ref/commit/31a7c3cb732091dc8ff3a51d7546a01c39a158ca))
+
+### Documentation
+
+- **readme**: Adjust file name
+  ([`34110eb`](https://github.com/anaticulae/decider-ref/commit/34110eb44027474c855d30392e5a17d3afcff81a))
+
+### Refactoring
+
+- **packages**: Adjust names
+  ([`c35eedf`](https://github.com/anaticulae/decider-ref/commit/c35eedfaf7f499b405588a9540647bb5ca6f66d7))
+
+- **packages**: Adjust package names
+  ([`f062130`](https://github.com/anaticulae/decider-ref/commit/f0621300ae2133bf00a1d3963fe4f9d95d522fac))
+
+### Testing
+
+- **skip**: Skip tests if not prepared
+  ([`72afcd9`](https://github.com/anaticulae/decider-ref/commit/72afcd92629ff9d0070656015fbbd5b11247ad2e))
+
+- **validate**: Disable to make package run
+  ([`4f0e62e`](https://github.com/anaticulae/decider-ref/commit/4f0e62e21f321a2f2ed64c786a71c96025274aae))
+
+- **xfail**: Adjust tests
+  ([`de67e29`](https://github.com/anaticulae/decider-ref/commit/de67e29493b825d7b20415d18e07442096935015))
+
 
 ## v1.22.1 (2022-11-11)
 
-### Chore
+### Chores
 
-* add missing generator (af186d516c0f)
-* save resources if all fails (e76809643b9c)
-* add pipe library (eab2a3a892bf)
-* upgrade requirements.txt (57043ce1b57b)
-* convert nightly to all (ea0cc13b8a29)
-* upgrade environment (292f75741e38)
-* add missing chapter (435cd4a4c8df)
-* add separate generate step (3ef0d8a8cd8f)
-* do not run as privileged user (214c811895c9)
-* upgrade requirements.txt (3c6b3aeebceb)
-* add Jenkinsfile (3c9376914458)
-* increase worker count on CI (c6a68300d4fa)
-* upgrade requirements.txt (4c19225191d9)
+- **ci**: Add Jenkinsfile
+  ([`3c93769`](https://github.com/anaticulae/decider-ref/commit/3c937691445839c4919f179c0bc319141f03600c))
 
-## v1.22.0
+- **ci**: Increase worker count on CI
+  ([`c6a6830`](https://github.com/anaticulae/decider-ref/commit/c6a68300d4fa56c83a4eb1a0faf3359753a11664))
 
-### Feature
+- **Jenkins**: Add pipe library
+  ([`eab2a3a`](https://github.com/anaticulae/decider-ref/commit/eab2a3a892bf0ef0dc21c1cb64974622398f0659))
 
-* verify that all abbreviation are given in abbrev table (9397b421443e)
-* add abbreviation intext reference (8fa4ed202edf)
-* shorten cli invocation (6997c495dc25)
+- **Jenkins**: Convert nightly to all
+  ([`ea0cc13`](https://github.com/anaticulae/decider-ref/commit/ea0cc13b8a29fe110bfad79272b6ede13393aebf))
 
-### Fix
+- **Jenkins**: Save resources if all fails
+  ([`e768096`](https://github.com/anaticulae/decider-ref/commit/e76809643b9cc9cd3beed63b72597da515a643e1))
 
-* adjust level access (931fc5d6581a)
+- **Jenkins**: Upgrade environment
+  ([`292f757`](https://github.com/anaticulae/decider-ref/commit/292f75741e38956df501ab684df789334f8afb83))
 
-## v1.21.0
+- **Jenkinsfile**: Add separate generate step
+  ([`3ef0d8a`](https://github.com/anaticulae/decider-ref/commit/3ef0d8a8cd8fec4896326e08e3175dcbb786b2e0))
 
-### Feature
+- **Jenkinsfile**: Do not run as privileged user
+  ([`214c811`](https://github.com/anaticulae/decider-ref/commit/214c811895c9e9503ba3df9cfcc5b0ec6d91365d))
 
-* add pdfpage of toc line source (46f65d1ec75f)
-* add reverse magic page number callable (c50d19a205fc)
-* load magic page numbers (6e79ac1caf0f)
-* add caption length check (2e29950742af)
+- **requirements**: Add missing chapter
+  ([`435cd4a`](https://github.com/anaticulae/decider-ref/commit/435cd4a4c8dfb54f4bac37ff9b05e7fe9cd6bdac))
 
-### Fix
+- **requirements**: Upgrade requirements.txt
+  ([`57043ce`](https://github.com/anaticulae/decider-ref/commit/57043ce1b57b559d7d718e1bdb359404c0c40166))
 
-* move finding to table of content (fb6b091ebdeb)
-* do not fail on missing table (4a34e3941f88)
+- **requirements**: Upgrade requirements.txt
+  ([`3c6b3ae`](https://github.com/anaticulae/decider-ref/commit/3c6b3aeebceb48feb8362a0e7ad49ab1c316abce))
 
-## v1.20.2
+- **requirements**: Upgrade requirements.txt
+  ([`4c19225`](https://github.com/anaticulae/decider-ref/commit/4c19225191d9a8a848355e654fc3cccbeccaad3e))
 
-## v1.20.1
+- **resources**: Add missing generator
+  ([`af186d5`](https://github.com/anaticulae/decider-ref/commit/af186d516c0f5674b603a85501fc53be94e2ff51))
 
-### Feature
+### Code Style
 
-* use modern table source (f435a4718098)
+- **changelog**: Adjust for automation tool
+  ([`186add8`](https://github.com/anaticulae/decider-ref/commit/186add826367cb2497b9501cee0622038b3f676e))
 
-## v1.20.0
+### Refactoring
 
-### Feature
+- **abbrev**: Simplify test runner
+  ([`5b02e19`](https://github.com/anaticulae/decider-ref/commit/5b02e19a7d3db7508ca5c0e16d0c90752b857a31))
 
-* add linter step to detect senseless headlines (c8094590da71)
+- **replace**: Automated replacement
+  ([`378dea3`](https://github.com/anaticulae/decider-ref/commit/378dea3371ab946d9b5d5235636a048612c3f3b9))
 
-### Fix
+### Testing
 
-* do not fail on multiple pages (a977e1d83c5a)
-* do not fail on missing toc (5cc0e0b035cf)
+- **baseline**: Adjust baseline
+  ([`cad157e`](https://github.com/anaticulae/decider-ref/commit/cad157e3c541b68f01e7374efd3efaaaa9a1f3c6))
 
-## v1.19.0
+- **refactor**: Replace with utila code
+  ([`34da6e5`](https://github.com/anaticulae/decider-ref/commit/34da6e556fc797941da8fe6c6d7d22c80c48ed97))
 
-### Feature
+- **refactor**: Use fixture shortcuts
+  ([`e6e1f3e`](https://github.com/anaticulae/decider-ref/commit/e6e1f3e5e0f327d664dd3bb51a9b0fa27a4c5951))
 
-* add step to detect no use of captions (52d109595ef7)
-* add missing step (56a6081b8ecd)
+- **skip**: Test if data is not generated
+  ([`d7f53bc`](https://github.com/anaticulae/decider-ref/commit/d7f53bc306c67c2acaa452d86c5dd425ac5fd384))
 
-### Fix
 
-* load empty bib correctly (abb82dc98ffe)
+## v1.22.0 (2022-07-06)
 
-## v1.18.2
+### Bug Fixes
 
-### Fix
+- **complexity**: Adjust level access
+  ([`931fc5d`](https://github.com/anaticulae/decider-ref/commit/931fc5d6581a10c9873fc07a0625c7813ecf1b86))
 
-* adjust modules path (fb2aa377de18)
+### Chores
 
-## v1.18.1
+- **requirements**: Upgrade requirements.txt
+  ([`3c9d078`](https://github.com/anaticulae/decider-ref/commit/3c9d078b77f48b6c84df07f4091b48c2172ebdd0))
 
-### Fix
+- **resources**: Extend test data generator
+  ([`332ceac`](https://github.com/anaticulae/decider-ref/commit/332ceaccf653f67b94d5a9bd64026472930ffde0))
 
-* do not fail on missing page number (f3fd079aac52)
+- **resources**: Extend test data generator
+  ([`9b08a01`](https://github.com/anaticulae/decider-ref/commit/9b08a010531b500ee6d9cb623dd63b48ec261197))
 
-## v1.18.0
+### Features
 
-### Feature
+- **cli**: Add abbreviation intext reference
+  ([`8fa4ed2`](https://github.com/anaticulae/decider-ref/commit/8fa4ed202edf0db947c03015f5aa5a642f27a6ea))
 
-* use improved toc style (7b4b7fa94133)
-* move longest duplication first (b6ebd91e70bb)
-* add style linter to verify looking (08c47b552f9a)
+- **setup**: Shorten cli invocation
+  ([`6997c49`](https://github.com/anaticulae/decider-ref/commit/6997c495dc2564802b1eb8048302dd2a84cbcb93))
 
-### Fix
+- **table**: Verify that all abbreviation are given in abbrev table
+  ([`9397b42`](https://github.com/anaticulae/decider-ref/commit/9397b421443edd50d7a5c33bdc9c4419f245e026))
 
-* use empty bib if no file is given (874fcf6c1948)
-* use empty toc if file does not exits (eb7e7de21418)
-* do not fail on missing abbr table (9e6d2dfe1c2c)
-* do not fail on missing title page (b7b108e1005e)
-* avoid ghost pattern (8eda815872a3)
-* add len to sort items by length (2fcffea66924)
+### Refactoring
 
-## v1.17.0
+- **table**: Reduce code complexity
+  ([`542724e`](https://github.com/anaticulae/decider-ref/commit/542724e16a259c2f468cbd619ce507bf84b31fee))
 
-### Feature
+### Testing
 
-* add uppercase checker (de860cf14021)
-* add dotted end checker (299295cbf462)
-* add pages flag to harmonize with common interface (fbc301142861)
-* add linter to verify caption order (0936bf0adaed)
-* load caption by type (75d97d59a30c)
-* add caption duplicated step (532ced3b5904)
-* add driver and protoerror invocation (e4796cb8dcbd)
-* add basic decider application (60e18b323d6f)
+- **adjust**: Adjust unit test
+  ([`d2f5688`](https://github.com/anaticulae/decider-ref/commit/d2f5688f6390a9c0d07cffa8bc2727d629af6a44))
 
-### Fix
+- **order**: Shorten test names
+  ([`23a71c2`](https://github.com/anaticulae/decider-ref/commit/23a71c22968c18ba4eea6d953e3e0513c7be6933))
 
-* harden start and end check (901f14be193c)
-* decrease verbosity (27ef3007c3b5)
-* fix spelling error (75d82d1cd9af)
-* show finding on overview page (7d8d6dbf7e7d)
 
-## v1.16.0
+## v1.21.0 (2022-06-29)
 
-### Feature
+### Bug Fixes
 
-* use language to select stop words (e0c5c517b432)
-* use toc language to improve toc validation (56c83ddb0c97)
-* add method to determine toc language (ceed48996a70)
-* add abstract position linter (65fcfcb248c6)
-* add sections as data input (6185ae649bdf)
-* use elementae LEGAL headline list (f618672820a9)
-* improve bib diff view (bc7593a9b503)
-* add improved list diff view (622a3f1af21e)
-* add method to render simple list diff (ad5b93c4a0e0)
-* make length of shorten configurable (b407027c7f50)
-* add hint to use numbered toc (d0fc0cba7660)
-* make duplicated toc length dependent (f239c9200d33)
-* do not judge stepped toc with complexity checker (ecb5113d7c8c)
+- **complexity**: Move finding to table of content
+  ([`fb6b091`](https://github.com/anaticulae/decider-ref/commit/fb6b091ebdeb2d9a3ebb74eb5348552c8dd036b6))
 
-### Fix
+- **table**: Do not fail on missing table
+  ([`4a34e39`](https://github.com/anaticulae/decider-ref/commit/4a34e3941f88e77542d9b7d964c02a941c2a3666))
 
-* align ticket to first page occurrence (edb61faa2c53)
-* use overview as default place if no page is given (e24836bd5518)
-* ignore case (0b8b50789eed)
-* do not judge order of labeled bib table (9e2c79705302)
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`f1bdd80`](https://github.com/anaticulae/decider-ref/commit/f1bdd800e7e7247aaabbaf0d496a5967b6acdb49))
+
+- **requirements**: Upgrade requirements.txt
+  ([`642f1c6`](https://github.com/anaticulae/decider-ref/commit/642f1c63c0bb26236c3aa0e1b5162258b49b182a))
+
+- **resources**: Remove default behavior
+  ([`d907000`](https://github.com/anaticulae/decider-ref/commit/d9070002506b021e91f58ee15159f0580931a890))
+
+### Code Style
+
+- **complexity**: Clarify finding
+  ([`7fe4839`](https://github.com/anaticulae/decider-ref/commit/7fe4839b28a1d823684145b19678901fda6972e1))
+
+### Features
+
+- **balance**: Add pdfpage of toc line source
+  ([`46f65d1`](https://github.com/anaticulae/decider-ref/commit/46f65d1ec75f4f0fd8a714c9d68d771e9782aebb))
+
+- **caption**: Add caption length check
+  ([`2e29950`](https://github.com/anaticulae/decider-ref/commit/2e29950742afa3f533ac9b5f92fe633a21b091be))
+
+- **features**: Add reverse magic page number callable
+  ([`c50d19a`](https://github.com/anaticulae/decider-ref/commit/c50d19a205fcf23adcd1255a3a4450797d99d67a))
+
+- **toc**: Load magic page numbers
+  ([`6e79ac1`](https://github.com/anaticulae/decider-ref/commit/6e79ac1caf0ffbeab14519e400f4deeafd06c90b))
+
+### Refactoring
+
+- **complexity**: Improve code style
+  ([`3f74683`](https://github.com/anaticulae/decider-ref/commit/3f74683a913ebf34afd35f76291d969c835a56ec))
+
+### Testing
+
+- **refactor**: Simplify code
+  ([`baf3e68`](https://github.com/anaticulae/decider-ref/commit/baf3e68f7474989ac75bbe6f6d47aac9238c8055))
+
+
+## v1.20.2 (2022-05-12)
+
+### Chores
+
+- **requirements**: Adjust reftable
+  ([`1a40ac9`](https://github.com/anaticulae/decider-ref/commit/1a40ac9d4a3af7c03d9448a3ce397076514de01c))
+
+- **requirements**: Upgrade requirements.txt
+  ([`3a4e3b8`](https://github.com/anaticulae/decider-ref/commit/3a4e3b865621768d9288c49953979101a1ac8b10))
+
+- **resources**: Sort resources alphabetically
+  ([`25bfbd6`](https://github.com/anaticulae/decider-ref/commit/25bfbd64ac8523dcede2c70d2e405fcaec78c65c))
+
+### Testing
+
+- **baseline**: Adjust baseline
+  ([`65a8f80`](https://github.com/anaticulae/decider-ref/commit/65a8f808fb551901dd764da5bc2d5996c48a9218))
+
+
+## v1.20.1 (2022-05-03)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`f8702f9`](https://github.com/anaticulae/decider-ref/commit/f8702f9150906bfd2b5eae50eed659300be2c134))
+
+### Features
+
+- **cli**: Use modern table source
+  ([`f435a47`](https://github.com/anaticulae/decider-ref/commit/f435a47180980dc7cb47b5d49ca458ef59dbf245))
+
+
+## v1.20.0 (2022-05-02)
+
+### Bug Fixes
+
+- **label**: Do not fail on multiple pages
+  ([`a977e1d`](https://github.com/anaticulae/decider-ref/commit/a977e1d83c5af2f6f08177dbf3cc525d49d1a871))
+
+- **sync**: Do not fail on missing toc
+  ([`5cc0e0b`](https://github.com/anaticulae/decider-ref/commit/5cc0e0b035cff079cabd06282f7c4f8b805987c9))
+
+### Features
+
+- **toc**: Add linter step to detect senseless headlines
+  ([`c809459`](https://github.com/anaticulae/decider-ref/commit/c8094590da7131bc8b717ca099329c1a24eb044a))
+
+### Refactoring
+
+- **validate**: Simplify code
+  ([`68a58f2`](https://github.com/anaticulae/decider-ref/commit/68a58f293b9ccd510d235ad6fe44b0d99aaddc6a))
+
+### Testing
+
+- **refactor**: Simplify code
+  ([`7f8de6e`](https://github.com/anaticulae/decider-ref/commit/7f8de6e90a031baef746124eafc4bec49092f4fe))
+
+- **validate**: Increase test coverage
+  ([`b24ec73`](https://github.com/anaticulae/decider-ref/commit/b24ec73d81f742ae6dd03a7652cce239606df494))
+
+- **validate**: Increase testing
+  ([`ccc7a45`](https://github.com/anaticulae/decider-ref/commit/ccc7a45949605f4934b0214228b1fa289d989026))
+
+
+## v1.19.0 (2022-04-28)
+
+### Bug Fixes
+
+- **serialize**: Load empty bib correctly
+  ([`abb82dc`](https://github.com/anaticulae/decider-ref/commit/abb82dc98ffe6b2ab4868a28db6c1f15349d11a3))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`752edca`](https://github.com/anaticulae/decider-ref/commit/752edca1fcbd14b0c8ae8e53b1e2afeba17a9190))
+
+- **resources**: Extend test data generator
+  ([`827c1f0`](https://github.com/anaticulae/decider-ref/commit/827c1f02640325909f1c3c1f2492b232e52f89cb))
+
+- **resources**: Extend test data generator
+  ([`116135a`](https://github.com/anaticulae/decider-ref/commit/116135a38b79a54e4d922c67a887ce75457c38ff))
+
+### Code Style
+
+- **docs**: Adjust headline
+  ([`2e19965`](https://github.com/anaticulae/decider-ref/commit/2e19965105de2613f0035bfebb36549e04e80667))
+
+### Features
+
+- **missing**: Add missing step
+  ([`56a6081`](https://github.com/anaticulae/decider-ref/commit/56a6081b8ecd21d56612863bc62b0511cc43c6b9))
+
+- **missing**: Add step to detect no use of captions
+  ([`52d1095`](https://github.com/anaticulae/decider-ref/commit/52d109595ef799e4b6f9d587979efb466c2778ce))
+
+### Refactoring
+
+- **missing**: Simplify code
+  ([`1431101`](https://github.com/anaticulae/decider-ref/commit/14311010f891a858f2a91baa5de3a0fab763ba8c))
+
+### Testing
+
+- **adjust**: Write baseline
+  ([`ed1359e`](https://github.com/anaticulae/decider-ref/commit/ed1359eb28d081b4a8cd9371c360f1ed8cf7e54a))
+
+- **caption**: Add missing figure caption test
+  ([`b6a6044`](https://github.com/anaticulae/decider-ref/commit/b6a6044dd51c8d3b02bf825aa618ab3f801d68cc))
+
+- **missing**: Add test to verify no caption hint
+  ([`de57126`](https://github.com/anaticulae/decider-ref/commit/de57126c64a182a24625b5df6edfa9290527882b))
+
+- **refactor**: Simplify code
+  ([`418ef2e`](https://github.com/anaticulae/decider-ref/commit/418ef2e4c3c5fc0ed9a79ac3d7e53b80c44a4318))
+
+- **refactor**: Use improved test run creator
+  ([`772e092`](https://github.com/anaticulae/decider-ref/commit/772e092a3b16a3e274565fb4fef621222047880e))
+
+- **xpassed**: Enable xpassed tests, adjust test
+  ([`22aceaa`](https://github.com/anaticulae/decider-ref/commit/22aceaa32390fd3e0b77085904b309fbe9dcdf52))
+
+
+## v1.18.2 (2022-03-28)
+
+### Bug Fixes
+
+- **import**: Adjust modules path
+  ([`fb2aa37`](https://github.com/anaticulae/decider-ref/commit/fb2aa377de183f82272977a66a6c31e857002e80))
+
+### Chores
+
+- **requirements**: Add caption package
+  ([`f366771`](https://github.com/anaticulae/decider-ref/commit/f3667714b7ed84ea0c7db7e8dd9d78eb5068b007))
+
+- **requirements**: Upgrade requirements.txt
+  ([`ea020b8`](https://github.com/anaticulae/decider-ref/commit/ea020b892afabed3c3389fc378a65153967a15e1))
+
+
+## v1.18.1 (2022-02-25)
+
+### Bug Fixes
+
+- **balance**: Do not fail on missing page number
+  ([`f3fd079`](https://github.com/anaticulae/decider-ref/commit/f3fd079aac523e03c43cc612ac7e1f6b19fdfb22))
+
+### Chores
+
+- **requirements**: Increase required detector
+  ([`2aba6bf`](https://github.com/anaticulae/decider-ref/commit/2aba6bf2d6694dd9849c2d7ec135cb5a896dae5f))
+
+- **requirements**: Upgrade requirements.txt
+  ([`225aed9`](https://github.com/anaticulae/decider-ref/commit/225aed93f9f423a7882ef0edc2c373bc17bd1392))
+
+### Refactoring
+
+- **bib**: Use improved bib table
+  ([`98a8795`](https://github.com/anaticulae/decider-ref/commit/98a879542b925f693a72ecad29c443d7120edd2d))
+
+
+## v1.18.0 (2022-02-24)
+
+### Bug Fixes
+
+- **bib**: Use empty bib if no file is given
+  ([`874fcf6`](https://github.com/anaticulae/decider-ref/commit/874fcf6c1948098c70f3acf8092ef440d6de312d))
+
+- **duplicated**: Add len to sort items by length
+  ([`2fcffea`](https://github.com/anaticulae/decider-ref/commit/2fcffea669240588fe445bf662974acba980c59b))
+
+- **duplicated**: Avoid ghost pattern
+  ([`8eda815`](https://github.com/anaticulae/decider-ref/commit/8eda815872a3eed53b828b54af0c43e9620232c9))
+
+- **table**: Do not fail on missing abbr table
+  ([`9e6d2df`](https://github.com/anaticulae/decider-ref/commit/9e6d2dfe1c2cc6dab9b95d9a2577643a9890345a))
+
+- **table**: Do not fail on missing title page
+  ([`b7b108e`](https://github.com/anaticulae/decider-ref/commit/b7b108e1005eef1003069eafd1a27d8634eedc88))
+
+- **toc**: Use empty toc if file does not exits
+  ([`eb7e7de`](https://github.com/anaticulae/decider-ref/commit/eb7e7de2141878ccdbc65f62e613e5fc87a0692c))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`1c0fd42`](https://github.com/anaticulae/decider-ref/commit/1c0fd422797eb2b0e2a25f65a465a3881208557d))
+
+- **test**: Do not run validation on release build
+  ([`2b3e5e7`](https://github.com/anaticulae/decider-ref/commit/2b3e5e749835c7c6ff06d8cd2a3c33b195552d23))
+
+### Features
+
+- **caption**: Add style linter to verify looking
+  ([`08c47b5`](https://github.com/anaticulae/decider-ref/commit/08c47b552f9a226be6f0ab9b6ad87657d4b30e05))
+
+- **duplicated**: Move longest duplication first
+  ([`b6ebd91`](https://github.com/anaticulae/decider-ref/commit/b6ebd91e70bbfcd1d377e861a6c8f0f293695355))
+
+- **toc**: Use improved toc style
+  ([`7b4b7fa`](https://github.com/anaticulae/decider-ref/commit/7b4b7fa941330a024210101c0982b0a1ae955806))
+
+### Refactoring
+
+- **utils**: Shorten naming
+  ([`fe5d8dc`](https://github.com/anaticulae/decider-ref/commit/fe5d8dca2c03495e83cfe51eb0efda61ac93944c))
+
+### Testing
+
+- **adjust**: Adjust unit tests
+  ([`a6d84e1`](https://github.com/anaticulae/decider-ref/commit/a6d84e12824905d1fb2423dbdef1dab7751f5097))
+
+- **style**: Format code
+  ([`e3640d3`](https://github.com/anaticulae/decider-ref/commit/e3640d307456ad416b413a8b5def4ebf0ed95d19))
+
+- **toc**: Add regression test
+  ([`4ce018e`](https://github.com/anaticulae/decider-ref/commit/4ce018e1445b7a8665da84a8c6ae274121abad4e))
+
+
+## v1.17.0 (2022-02-01)
+
+### Bug Fixes
+
+- **basic**: Harden start and end check
+  ([`901f14b`](https://github.com/anaticulae/decider-ref/commit/901f14be193c927f9d19a394612decc152fbc2b2))
+
+- **debug**: Decrease verbosity
+  ([`27ef300`](https://github.com/anaticulae/decider-ref/commit/27ef3007c3b58a47904afd451132774d804117eb))
+
+- **label**: Fix spelling error
+  ([`75d82d1`](https://github.com/anaticulae/decider-ref/commit/75d82d1cd9af1613b235cf04a33da75a5ba97962))
+
+- **label**: Show finding on overview page
+  ([`7d8d6db`](https://github.com/anaticulae/decider-ref/commit/7d8d6dbf7e7d01014e6875929acd87484ae0d409))
+
+### Chores
+
+- **project**: Add sub project
+  ([`2933749`](https://github.com/anaticulae/decider-ref/commit/293374967ca54e8d3839e05c66f04cf6d41050f2))
+
+### Code Style
+
+- **basic**: Format code
+  ([`25e9748`](https://github.com/anaticulae/decider-ref/commit/25e974869e6283edad09bbbf6aea622ce3b8ef8a))
+
+- **format**: Format code
+  ([`b6c210d`](https://github.com/anaticulae/decider-ref/commit/b6c210d94e8ee7ef03cea3d51c6ecedbc426e605))
+
+### Features
+
+- **basic**: Add caption duplicated step
+  ([`532ced3`](https://github.com/anaticulae/decider-ref/commit/532ced3b590417eafefa7987e2c56a9604576463))
+
+- **basic**: Add dotted end checker
+  ([`299295c`](https://github.com/anaticulae/decider-ref/commit/299295cbf4627b7e0f49a5055a5e82e7f33154bc))
+
+- **basic**: Add linter to verify caption order
+  ([`0936bf0`](https://github.com/anaticulae/decider-ref/commit/0936bf0adaed3f9299fa8c9d878dd13f7106b552))
+
+- **basic**: Add uppercase checker
+  ([`de860cf`](https://github.com/anaticulae/decider-ref/commit/de860cf14021bd58b034754a1885480a887367c1))
+
+- **caption**: Add basic decider application
+  ([`60e18b3`](https://github.com/anaticulae/decider-ref/commit/60e18b323d6f4543420b184b70342939b1d7606c))
+
+- **caption**: Add driver and protocol invocation
+  ([`e4796cb`](https://github.com/anaticulae/decider-ref/commit/e4796cb8dcbd7b4a6d38e80ac787ac0735259a55))
+
+- **cli**: Add pages flag to harmonize with common interface
+  ([`fbc3011`](https://github.com/anaticulae/decider-ref/commit/fbc301142861dcbbfe202f3338002f0d5f98754c))
+
+- **driver**: Load caption by type
+  ([`75d97d5`](https://github.com/anaticulae/decider-ref/commit/75d97d59a30c7e466cf9308aae4417fdd800bbb3))
+
+### Refactoring
+
+- **basic**: Simplify code
+  ([`f668b19`](https://github.com/anaticulae/decider-ref/commit/f668b19e55585b10cc59b2333474a71057eff02e))
+
+- **cli**: Replace with protocol code
+  ([`71de254`](https://github.com/anaticulae/decider-ref/commit/71de254e0163eb1578aae5345e9d92405f6ce89c))
+
+- **label**: Simplify code
+  ([`b9d8382`](https://github.com/anaticulae/decider-ref/commit/b9d8382a80a4f4420d2d77d4f51467bed02aa8b2))
+
+### Testing
+
+- **enable**: Enable xfailing unit tests
+  ([`cce6ae8`](https://github.com/anaticulae/decider-ref/commit/cce6ae82f35b72fe479befd104b8600667c5b82e))
+
+- **validate**: Increase test coverage
+  ([`e337f87`](https://github.com/anaticulae/decider-ref/commit/e337f87219c98b92cd6e61895e0da90c6d3d063f))
+
+- **validate**: Validate bachelor037
+  ([`b1c3899`](https://github.com/anaticulae/decider-ref/commit/b1c389984df367ba6b037cca86e4a1af779ee402))
+
+
+## v1.16.0 (2022-01-31)
+
+### Bug Fixes
+
+- **bib**: Do not judge order of labeled bib table
+  ([`9e2c797`](https://github.com/anaticulae/decider-ref/commit/9e2c797053022147c2de847f7a7569b77eac0a22))
+
+- **complexity**: Use overview as default place if no page is given
+  ([`e24836b`](https://github.com/anaticulae/decider-ref/commit/e24836bd5518abd09046a8c7b746f4732bd53818))
+
+- **duplicated**: Ignore case
+  ([`0b8b507`](https://github.com/anaticulae/decider-ref/commit/0b8b50789eedd0b2afee02bc23082fa578e0c854))
+
+- **style**: Align ticket to first page occurrence
+  ([`edb61fa`](https://github.com/anaticulae/decider-ref/commit/edb61faa2c533c747f40e0e29d1725cf64aac29f))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`dea9763`](https://github.com/anaticulae/decider-ref/commit/dea976303803330ff117116ec4ee5530d6f68f6b))
+
+- **requirements**: Upgrade requirements.txt
+  ([`dd1d386`](https://github.com/anaticulae/decider-ref/commit/dd1d386cf2bdf8fa272944cb947ac14256a9e610))
+
+- **requirements**: Upgrade requirements.txt
+  ([`2d050dc`](https://github.com/anaticulae/decider-ref/commit/2d050dcdd06b1898f910324f3ae88fa11c33dda5))
+
+- **resources**: Extend test data generator
+  ([`673e0ac`](https://github.com/anaticulae/decider-ref/commit/673e0ac76f7c87faef8d17970ff8bb2335955015))
+
+- **resources**: Extend test data generator
+  ([`57ae3f1`](https://github.com/anaticulae/decider-ref/commit/57ae3f19a4c3b1d2d0966bf56ae6e71e7dc8d693))
+
+- **resources**: Extend test data generator
+  ([`aed0cdf`](https://github.com/anaticulae/decider-ref/commit/aed0cdfad61b02a8a08eb0514a4542bee1047fb5))
+
+### Code Style
+
+- **format**: Format code
+  ([`2b3c4e8`](https://github.com/anaticulae/decider-ref/commit/2b3c4e83925717430de2b145f9bc5ce7286621db))
+
+- **imports**: Organize imports
+  ([`db4efc3`](https://github.com/anaticulae/decider-ref/commit/db4efc3174505bd923fe946f128de3aec0bbbda3))
+
+- **toc**: Fix spelling error
+  ([`36bd455`](https://github.com/anaticulae/decider-ref/commit/36bd455c043b2099a2762d0b55fff5802021f6bf))
 
 ### Documentation
 
-* adjust modules path (0dd27be0c85e)
-* Happy New Year! (13d790bd73e0)
+- **copyright**: Happy New Year!
+  ([`13d790b`](https://github.com/anaticulae/decider-ref/commit/13d790bd73e0dbaedc02dc0f40d5a26985b99785))
 
-## v1.15.0
+- **fix**: Adjust modules path
+  ([`0dd27be`](https://github.com/anaticulae/decider-ref/commit/0dd27be0c85ed434d8300d43fb2ae9d53de68a20))
 
-### Feature
+### Features
 
-* verify duplicated headline level (0fc2ff664118)
-* add headlines as optional resource (d7dd82ea3fc2)
+- **basic**: Add hint to use numbered toc
+  ([`d0fc0cb`](https://github.com/anaticulae/decider-ref/commit/d0fc0cba7660b786a418755ef519426ffe06c2ca))
 
-## v1.14.0
+- **basic**: Make length of shorten configurable
+  ([`b407027`](https://github.com/anaticulae/decider-ref/commit/b407027c7f508419319f996f950052f40ce573a8))
 
-### Feature
+- **bib**: Improve bib diff view
+  ([`bc7593a`](https://github.com/anaticulae/decider-ref/commit/bc7593a9b503ef059ea82763d1a30a0dd59259ea))
 
-* make max complexity doctype dependent (b414a74446ca)
-* use new protoerror feature (15a681e8daf7)
-* use new sentences extraction (5c1ffcc49582)
+- **complexity**: Do not judge stepped toc with complexity checker
+  ([`ecb5113`](https://github.com/anaticulae/decider-ref/commit/ecb5113d7c8c34ecfe00b4c9b29743e9764dfe96))
 
-## v1.13.0
+- **duplicated**: Use language to select stop words
+  ([`e0c5c51`](https://github.com/anaticulae/decider-ref/commit/e0c5c517b432b71365abd677a81b2e82fbeb75ba))
 
-### Feature
+- **duplicated**: Use toc language to improve toc validation
+  ([`56c83dd`](https://github.com/anaticulae/decider-ref/commit/56c83ddb0c97426d4a4133302bd556eaeaedf220))
 
-* add cloud lookup (12162f3185c0)
-* use holy values (54e7ab55c21d)
-* add hint to add page number to references (d791345c3eae)
+- **listdiff**: Add method to render simple list diff
+  ([`ad5b93c`](https://github.com/anaticulae/decider-ref/commit/ad5b93c4a0e00f3528b4f1e0800792caf59d3f41))
 
-## v1.12.2
+- **rules**: Add abstract position linter
+  ([`65fcfcb`](https://github.com/anaticulae/decider-ref/commit/65fcfcb248c6e7d9f739357c95cd00b0db007e7b))
 
-### Fix
+- **rules**: Use elements LEGAL headline list
+  ([`f618672`](https://github.com/anaticulae/decider-ref/commit/f618672820a9db5739456c8f4c280cf6ce16c073))
 
-* ensure that reference is converted correctly (fd28797b46ea)
+- **table**: Add improved list diff view
+  ([`622a3f1`](https://github.com/anaticulae/decider-ref/commit/622a3f1af21edd77c2653044d22c652741a4a1e9))
+
+- **toc**: Add method to determine toc language
+  ([`ceed489`](https://github.com/anaticulae/decider-ref/commit/ceed48996a70449985dda3ec72cbbac6df74d8b2))
+
+- **toc**: Add sections as data input
+  ([`6185ae6`](https://github.com/anaticulae/decider-ref/commit/6185ae649bdf11b1efed176b090fe7d869f0de0f))
+
+- **toc**: Make duplicated toc length dependent
+  ([`f239c92`](https://github.com/anaticulae/decider-ref/commit/f239c9200d330bd8ca3e7321e37f330cf6b979a1))
+
+### Refactoring
+
+- **duplicated**: Replace with utila code
+  ([`5dfba52`](https://github.com/anaticulae/decider-ref/commit/5dfba52ff17543426453205b9e7347438872338c))
+
+- **replace**: Replace with elements code
+  ([`c2ed1fc`](https://github.com/anaticulae/decider-ref/commit/c2ed1fc94af4ec780e8a2a3e9cd15196945d3094))
+
+- **style**: Improve code style
+  ([`240aa36`](https://github.com/anaticulae/decider-ref/commit/240aa360a9e6de793c5a7a9ef89bdfba5b789402))
+
+- **sync**: Replace with elements code
+  ([`7c14ec3`](https://github.com/anaticulae/decider-ref/commit/7c14ec34b12070c47fe2fbd989903a76b56c919d))
+
+- **table**: Move author check to separate method
+  ([`ab07351`](https://github.com/anaticulae/decider-ref/commit/ab07351509192e6014eeee659bbcd8cd607543af))
+
+- **table**: Move listdiff view
+  ([`e79c9d7`](https://github.com/anaticulae/decider-ref/commit/e79c9d7601bfeaf8e2f5a98f3124f17f38b718f3))
+
+- **toc**: Replace with protocol code
+  ([`bee5aa8`](https://github.com/anaticulae/decider-ref/commit/bee5aa818d42935ac1a4f0c362c6b75d0a22d14a))
+
+### Testing
+
+- **fix**: Make test config independent
+  ([`fe57f76`](https://github.com/anaticulae/decider-ref/commit/fe57f765030a047aa42b187d8b09552d0031e7c6))
+
+- **label**: Add test to verify bib label in text
+  ([`6a698ef`](https://github.com/anaticulae/decider-ref/commit/6a698efd249adc9893786471c652bbe1fd313f6b))
+
+- **skip**: Skip test if resource is not generated
+  ([`f6ce9da`](https://github.com/anaticulae/decider-ref/commit/f6ce9da42733ee569f5da6752411b126b194369b))
+
+- **toc**: Validate diss406 toc
+  ([`6bc5e71`](https://github.com/anaticulae/decider-ref/commit/6bc5e71344db075a20b52d6a13ef148984ddadf4))
+
+- **toc**: Verify diss406 duplicated words in toc
+  ([`e77878d`](https://github.com/anaticulae/decider-ref/commit/e77878de6104d958000de67889b40d9c15e6be75))
+
+
+## v1.15.0 (2021-12-07)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`357a493`](https://github.com/anaticulae/decider-ref/commit/357a493cb6470653455af5f2d57f3e0dff6564a0))
+
+- **resources**: Extend test data generator
+  ([`e3fc155`](https://github.com/anaticulae/decider-ref/commit/e3fc15543a6c53ded9b7e8c3f6dd5bfac6f93fbc))
+
+### Features
+
+- **basic**: Verify duplicated headline level
+  ([`0fc2ff6`](https://github.com/anaticulae/decider-ref/commit/0fc2ff66411864321a9b95ad0a3c6551af06b093))
+
+- **toc**: Add headlines as optional resource
+  ([`d7dd82e`](https://github.com/anaticulae/decider-ref/commit/d7dd82ea3fc20a667f520651bc902035069f38f8))
+
+### Refactoring
+
+- **complexity**: Improve toc line shrinker
+  ([`b68bcda`](https://github.com/anaticulae/decider-ref/commit/b68bcda8d42b1db1bfbef128b34ffea0c4359a76))
+
+
+## v1.14.0 (2021-11-11)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`3c9c3eb`](https://github.com/anaticulae/decider-ref/commit/3c9c3ebd0adb97b91d61294b9c0bd14a2cdb4d25))
+
+### Code Style
+
+- **complexity**: Shorten code
+  ([`167c78c`](https://github.com/anaticulae/decider-ref/commit/167c78c29de33993e67b693f9e7c32aa9224cb70))
+
+- **label**: Format code
+  ([`676df19`](https://github.com/anaticulae/decider-ref/commit/676df19903636fcd31feb4becd26e0679691915c))
+
+### Features
+
+- **cli**: Use new protocol feature
+  ([`15a681e`](https://github.com/anaticulae/decider-ref/commit/15a681e8daf76270aefddcb0b219fb3b3c5781d0))
+
+- **cli**: Use new sentences extraction
+  ([`5c1ffcc`](https://github.com/anaticulae/decider-ref/commit/5c1ffcc495829fe4c65846e28eafbb64bbc542df))
+
+- **complexity**: Make max complexity doctype dependent
+  ([`b414a74`](https://github.com/anaticulae/decider-ref/commit/b414a74446cacda00f30784bc8455f0372184527))
+
+### Refactoring
+
+- **level**: Increase code re usability
+  ([`3411818`](https://github.com/anaticulae/decider-ref/commit/3411818b1029f27a1019f1e627f54f35af3ce494))
+
+- **remove**: Remove words dependency
+  ([`3d374b0`](https://github.com/anaticulae/decider-ref/commit/3d374b0a50a1b778e1004ed3321334a3ac998c58))
+
+### Testing
+
+- **label**: Disable broken test
+  ([`6b6468c`](https://github.com/anaticulae/decider-ref/commit/6b6468ca6dfba21d8e761719bde25dafbda900cd))
+
+
+## v1.13.0 (2021-10-19)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`a3d664a`](https://github.com/anaticulae/decider-ref/commit/a3d664ab8702eed0b13bafeabaaca2a1f5603e61))
+
+- **requirements**: Upgrade requirements.txt
+  ([`f68f936`](https://github.com/anaticulae/decider-ref/commit/f68f9367dd80511efe4c8797fdae719b267496a5))
+
+### Features
+
+- **cli**: Add cloud lookup
+  ([`12162f3`](https://github.com/anaticulae/decider-ref/commit/12162f3185c0b165d68d2697debda391e0517760))
+
+- **hv**: Use holy values
+  ([`54e7ab5`](https://github.com/anaticulae/decider-ref/commit/54e7ab55c21d6f1f08e34df1f06566c47ebb7395))
+
+- **label**: Add hint to add page number to references
+  ([`d791345`](https://github.com/anaticulae/decider-ref/commit/d791345c3eae6e83218b6b22ff23c402e2d79509))
+
+### Refactoring
+
+- **rename**: Clarify naming
+  ([`337b7c8`](https://github.com/anaticulae/decider-ref/commit/337b7c85ca97ed2bc747040bc7fbd21bff053b00))
+
+### Testing
+
+- **adjust**: Adjust failing unit test
+  ([`4c262d3`](https://github.com/anaticulae/decider-ref/commit/4c262d3054d42098812ea15521f3256f37eaff3a))
+
+
+## v1.12.2 (2021-10-04)
+
+### Bug Fixes
+
+- **reference**: Ensure that reference is converted correctly
+  ([`fd28797`](https://github.com/anaticulae/decider-ref/commit/fd28797b46eae239ffeb01188c601e3702ac65ca))
+
+### Chores
+
+- **project**: Move project config
+  ([`6c99445`](https://github.com/anaticulae/decider-ref/commit/6c994453b7e0171faf8f2d2c4fa6c5b555fa9fd3))
+
+- **requirements**: Upgrade requirements.txt
+  ([`2b1e710`](https://github.com/anaticulae/decider-ref/commit/2b1e7106c5a113b138b0415f4954b5b7da80fdcf))
+
+- **resources**: Extend test data generator
+  ([`202e612`](https://github.com/anaticulae/decider-ref/commit/202e612a86d3b3720cc35f71ec5867041d371370))
+
+### Code Style
+
+- **complexity**: Add missing space
+  ([`fbc946c`](https://github.com/anaticulae/decider-ref/commit/fbc946c2e55dd5dbb5d328d9b51fa235ea5ceac0))
 
 ### Documentation
 
-* extend interface documentation (3d58e229fbef)
+- **reference**: Extend interface documentation
+  ([`3d58e22`](https://github.com/anaticulae/decider-ref/commit/3d58e229fbefe65d1cf0fa58c2d657212be76e87))
 
-## v1.12.1
 
-### Fix
+## v1.12.1 (2021-09-11)
 
-* adjust table in text lookup (d5d9223f6e44)
-* lookup [10]-bib references correctly (f65c8dd34b98)
+### Bug Fixes
 
-## v1.12.0
+- **label**: Adjust table in text lookup
+  ([`d5d9223`](https://github.com/anaticulae/decider-ref/commit/d5d9223f6e44632c89107ee2308ab9de7b14ba9a))
 
-### Feature
+- **label**: Lookup [10]-bib references correctly
+  ([`f65c8dd`](https://github.com/anaticulae/decider-ref/commit/f65c8dd34b988b9eea5f4308a8616e73d87d3833))
 
-* do not verify bib intext reference in bib table (4d686e7ef67d)
-* add sections input (ac3a1e3b7f65)
-* set default location to first toc page (d692fb0ecdbd)
+### Chores
 
-### Fix
+- **requirements**: Upgrade requirements.txt
+  ([`481892c`](https://github.com/anaticulae/decider-ref/commit/481892cd5463eddcfa7db850b93095d5027e0f83))
 
-* ensure that int reference are lowered correctly (29a82da51145)
-* skip invalid reference parsing (fdd2ec2ac298)
-* remove useless index number, replace quotation marks (ec12e4083eb7)
-* reduce verbosity (48eef8e2aa0b)
-* handle empty toc (42e3831e9595)
-* remove information about bib parsing error (b1c02c8b4c0d)
 
-### Documentation
+## v1.12.0 (2021-09-11)
 
-* extend interface documentation (b1aee2047945)
+### Bug Fixes
 
-## v1.11.0
+- **balance**: Reduce verbosity
+  ([`48eef8e`](https://github.com/anaticulae/decider-ref/commit/48eef8e2aa0bae12995a7beb8db8548794ab8d62))
 
-### Feature
+- **label**: Remove information about bib parsing error
+  ([`b1c02c8`](https://github.com/anaticulae/decider-ref/commit/b1c02c8b4c0d6e998224f0deb89b6f0a7a0d960a))
 
-* implement bib number checker (9d20b8dab8fe)
-* load more data (5cc60e6a495e)
-* add bib count checker (cb10c723c9dc)
+- **label**: Skip invalid reference parsing
+  ([`fdd2ec2`](https://github.com/anaticulae/decider-ref/commit/fdd2ec2ac298bd7d89bf6b2390d2deed4b71d1de))
 
-### Fix
+- **reference**: Ensure that int reference are lowered correctly
+  ([`29a82da`](https://github.com/anaticulae/decider-ref/commit/29a82da511453e2c3ac59eb0a1a297dc8e11bc8c))
 
-* do not fail on regex character (6fc6a9bc61dd)
-* adjust data type (c7d91539a255)
+- **style**: Handle empty toc
+  ([`42e3831`](https://github.com/anaticulae/decider-ref/commit/42e3831e9595184c118a902504180d8f052b9e01))
 
-## v1.10.0
+- **toc**: Remove useless index number, replace quotation marks
+  ([`ec12e40`](https://github.com/anaticulae/decider-ref/commit/ec12e4083eb74795e1e79eec505a118358629ba5))
 
-### Feature
+### Chores
 
-* move message to detected toc page (e963b7207ed4)
-* disable sorting check for not fully parsed bib (6b37b9cd3d09)
-* do not show number labels as bib reference (250944820a1e)
-* shrink display title (9f0ed3335ccb)
-* validate detected bib entrees (f7fb74a6989a)
+- **requirements**: Upgrade requirements.txt
+  ([`6a496d9`](https://github.com/anaticulae/decider-ref/commit/6a496d91f719eb7e1a7f40c47fbf03ac00669919))
 
-### Fix
+- **requirements**: Upgrade requirements.txt
+  ([`84fd5ee`](https://github.com/anaticulae/decider-ref/commit/84fd5ee1d73c570005998a8afc30825e419d5098))
 
-* skip chapter length checker for too short chapter (c845a938a6d0)
+- **requirements**: Upgrade requirements.txt
+  ([`b74369e`](https://github.com/anaticulae/decider-ref/commit/b74369ebffeeb1c0498741ddf425073cce980086))
 
-## v1.9.1
+- **resources**: Extend test data generator
+  ([`ab8d5ff`](https://github.com/anaticulae/decider-ref/commit/ab8d5ff7b9cb4a09a94ef5fbc9c8933f5948b386))
 
-## v1.9.0
+### Code Style
 
-### Feature
-
-* add description links to linter message (925d6576ab80)
-* make message more user friendly (24162caa90cc)
-* use improve inside approach (4814b9b25fde)
-* add typo error detector (014dba8f55e4)
-* verify opening and closing brackets (5a21470a1f57)
-* disable bib ref check if bib is not parsed properly (439d2d9c28ca)
-* use nltk stopwords (98cdb7169389)
-* disable balance check for very short sections (a50a7db13f73)
-* show bib on detected page (f9383901b33d)
-* show bib linter warning to bib page (bf0bfb1fbd17)
-* add location to detected abbr table message (e83167d5c800)
-* use improved legal checker (4eb75931f89f)
-* add hint to simplify bib label (7fe999a42246)
-
-### Fix
-
-* handle roman numbers later (440af2291f57)
-* clarify linter message (64f27ae1d2fb)
-* skip disabled check (579621035c5b)
-* clarify error message (652e479d2f9f)
-* adjust newlines (b1ad28f95458)
-* fix newlines (821c3e7a3943)
-* adjust newlines (d9f3e998c311)
-
-## v1.8.1
-
-## v1.8.0
-
-### Feature
-
-* disable plot on to few bib items (48760e2a4863)
-* add linter step to detect not required abbreviation (decbeae591b3)
-
-### Fix
-
-* skip invalid bib inside check (3db33d6979a3)
-* do not fail on invalid bib reference (58af1828db99)
-
-## v1.7.1
-
-### Fix
-
-* add protoerror show list to decider_abbreviation (fc69c49bfa38)
-
-## v1.7.0
-
-### Feature
-
-* add decider_abbreviation to judge different tables (0016d5453f52)
-
-## v1.6.0
-
-### Feature
-
-* add protoerror show list (e3aeb8d04b28)
-
-## v1.5.1
-
-### Feature
-
-* add valid bib year range (be52b394576b)
-
-### Fix
-
-* do not fail on empty bib (5219e3374de9)
-* do not mix Roman and Arabic numbers (a673823d53bd)
-
-## v1.5.0
-
-### Feature
-
-* check more than level one (36d94625f67d)
-* add location to toc finding (03fcd55fbbe4)
-* select best headlines (5b196b00fb8e)
-
-## v1.4.1
-
-## v1.4.0
-
-### Feature
-
-* add bib year histogram plotter (ae9750c83496)
-
-## v1.3.0
-
-### Feature
-
-* add missing bib table log (3a2480dfbd33)
-
-### Fix
-
-* fix theissen sort order (8eda9b308933)
-* skip None reference for bib check (a8700f424147)
-* do not inform user about not parse able reference (91c2b0411833)
+- **update**: Update interface docs
+  ([`fa6d61e`](https://github.com/anaticulae/decider-ref/commit/fa6d61e84f93de730781da963056280d39bb41d3))
 
 ### Documentation
 
-* Happy New Year! (a5c85d7f9e5b)
+- **label**: Extend interface documentation
+  ([`b1aee20`](https://github.com/anaticulae/decider-ref/commit/b1aee20479452f58d2ae78f662e98ffbacf74714))
 
-## v1.2.2
+### Features
 
-### Fix
+- **label**: Add sections input
+  ([`ac3a1e3`](https://github.com/anaticulae/decider-ref/commit/ac3a1e3b7f65f3c6a75aa704a17358da184fc025))
 
-* add missing import (53c6d57a963e)
+- **label**: Do not verify bib intext reference in bib table
+  ([`4d686e7`](https://github.com/anaticulae/decider-ref/commit/4d686e7ef67db46163a7d6da8113af0d0d6e7fd1))
 
-## v1.2.1
+- **toc:style**: Set default location to first toc page
+  ([`d692fb0`](https://github.com/anaticulae/decider-ref/commit/d692fb0ecdbd3c8c23d80c0c9c117c5fef0f919b))
 
-## v1.2.0
+### Refactoring
 
-### Feature
+- **label**: Clarify code
+  ([`cab5584`](https://github.com/anaticulae/decider-ref/commit/cab55841db54c7b806fa19c1df2e4d85206c8588))
 
-* move decider toc from decider project (9763c3512152)
+- **label**: Improve driver creation
+  ([`2b9fa4e`](https://github.com/anaticulae/decider-ref/commit/2b9fa4e171920a4ef6f4f728f9afe54b2ea4deda))
 
-## v1.1.0
+- **label**: Replace with protocol code
+  ([`5d0edae`](https://github.com/anaticulae/decider-ref/commit/5d0edaeb0ebb92706f78a7b738fecff918e71ca9))
 
-### Feature
+### Testing
 
-* add step to verify that bib source is not used (80f818ae5e7d)
-* verify that bib label exists in bib table (befcab56a56d)
-* improve bib page check (35d66f8d1cd3)
-* add label step to verify bib refs (4b8ee68d85fb)
-* add parsed text bib refs as step input (bded4fb63d54)
+- **adjust**: Adjust and clarify unit tests
+  ([`30b1f53`](https://github.com/anaticulae/decider-ref/commit/30b1f53bd89206b79c8fd0fe5b2b3fdefc88ece9))
 
-## v1.0.0
+- **label**: Add [42]-reference regression test
+  ([`ac09e8a`](https://github.com/anaticulae/decider-ref/commit/ac09e8a1cb107f8ddf42cd2e84ecfe13105da590))
 
-### Feature
+- **refactor**: Clarify code
+  ([`01bf59f`](https://github.com/anaticulae/decider-ref/commit/01bf59f817b35875c3380351542ce826510d3283))
 
-* rename repository name (c721b2aaa061)
-* enable using decider_bibliography as cli (b9f2054d2387)
-* shorten project name (bea93f770db1)
-* ease importing path module (409df76121b5)
+- **regression**: Add regression test after bug hunting story
+  ([`9477904`](https://github.com/anaticulae/decider-ref/commit/9477904e34900171c6e3bb7740cbe6b004e7928b))
 
-## v0.1.0
 
-### Feature
+## v1.11.0 (2021-07-25)
 
-* move bib-decider from decider project (9350d97050e5)
-* add cli and test infrastructure (051e319110db)
+### Bug Fixes
 
-### Fix
+- **table**: Adjust data type
+  ([`c7d9153`](https://github.com/anaticulae/decider-ref/commit/c7d91539a255ecefc11911ee569670a62d3d3531))
 
-* adjust setup path (888493955616)
+- **toc**: Do not fail on regex character
+  ([`6fc6a9b`](https://github.com/anaticulae/decider-ref/commit/6fc6a9bc61dd526cb77050d1988436ff8048b7ed))
 
-## v0.0.0 Initial release
+### Chores
+
+- **requirements**: Remove duplicated words
+  ([`b4c36ff`](https://github.com/anaticulae/decider-ref/commit/b4c36ff762cd8d8f6d8cb216d0ad729df5b077f3))
+
+- **requirements**: Upgrade requirements.txt
+  ([`ff32b03`](https://github.com/anaticulae/decider-ref/commit/ff32b0309f3d02e96bf52f742142b5c5ffd9e30f))
+
+- **requirements**: Upgrade requirements.txt
+  ([`77feb28`](https://github.com/anaticulae/decider-ref/commit/77feb28360d2d9ecea26f1bef33091e494df0987))
+
+- **resources**: Extend test data generator
+  ([`e8a08be`](https://github.com/anaticulae/decider-ref/commit/e8a08be203d062bf1bcf420280d4784be2f35c10))
+
+- **resources**: Extend test data generator
+  ([`f639784`](https://github.com/anaticulae/decider-ref/commit/f639784ad7633f9f80a36b0478e8e3e868fe93d1))
+
+### Features
+
+- **table**: Add bib count checker
+  ([`cb10c72`](https://github.com/anaticulae/decider-ref/commit/cb10c723c9dcacf7115e854823f83544091d431f))
+
+- **table**: Implement bib number checker
+  ([`9d20b8d`](https://github.com/anaticulae/decider-ref/commit/9d20b8dab8fec56c0a89db4e11ba32cc99409280))
+
+- **table**: Load more data
+  ([`5cc60e6`](https://github.com/anaticulae/decider-ref/commit/5cc60e6a495e8113c3daf6391c240e6b4c6d4122))
+
+
+## v1.10.0 (2021-07-06)
+
+### Bug Fixes
+
+- **complexity**: Skip chapter length checker for too short chapter
+  ([`c845a93`](https://github.com/anaticulae/decider-ref/commit/c845a938a6d02d7cce39788c25ee95e4b5b20231))
+
+### Chores
+
+- **requirements**: Split words
+  ([`4d36c33`](https://github.com/anaticulae/decider-ref/commit/4d36c330859ec01750e11c7bd386039f46559f23))
+
+- **requirements**: Upgrade requirements.txt
+  ([`33f2efa`](https://github.com/anaticulae/decider-ref/commit/33f2efa0060834d420235264391d79036e46067a))
+
+- **requirements**: Upgrade requirements.txt
+  ([`f52ba00`](https://github.com/anaticulae/decider-ref/commit/f52ba009f1e2f306fabc371bf7521a6e41f74159))
+
+- **resources**: Extend test data generator
+  ([`ea74fcb`](https://github.com/anaticulae/decider-ref/commit/ea74fcb801bde45d68ff20fec54605d848fcb999))
+
+- **resources**: Extend test data generator
+  ([`39469e4`](https://github.com/anaticulae/decider-ref/commit/39469e4c843c87c91e4dd28db91d6cb60ec36c65))
+
+- **resources**: Extend test data generator
+  ([`511e669`](https://github.com/anaticulae/decider-ref/commit/511e66902c521fb675beb208b3f6ffb55e3cc2bf))
+
+- **resources**: Generate missing resource data
+  ([`aae9fa9`](https://github.com/anaticulae/decider-ref/commit/aae9fa9b506f73dd2b35cbc31267d4a937e5af50))
+
+- **test**: Skip non tests which requires test data generation
+  ([`b09c6a0`](https://github.com/anaticulae/decider-ref/commit/b09c6a0c19816fa6b45c89606421d597bd0f5554))
+
+### Code Style
+
+- **fix**: Fix spelling error
+  ([`2717255`](https://github.com/anaticulae/decider-ref/commit/271725532c7ff9c247f76f7c94076227860d4706))
+
+- **format**: Format code
+  ([`dcf3263`](https://github.com/anaticulae/decider-ref/commit/dcf32639e30b04bd06237c316e6f4a3193bc3919))
+
+- **format**: Format code
+  ([`c0ffdae`](https://github.com/anaticulae/decider-ref/commit/c0ffdae32326ffba4368a84704d973784a946ccb))
+
+- **format**: Use improved yapf formatter
+  ([`2d112f8`](https://github.com/anaticulae/decider-ref/commit/2d112f89944bfb780e6fe8ab854f36ce627f2dc6))
+
+- **refactor**: Cleanup setup
+  ([`805c8c0`](https://github.com/anaticulae/decider-ref/commit/805c8c0b10b5300d1e13d7054531308e843f830c))
+
+### Features
+
+- **bib**: Do not show number labels as bib reference
+  ([`2509448`](https://github.com/anaticulae/decider-ref/commit/250944820a1ee52ec9d0a4e16e7612eab292660b))
+
+- **bib**: Shrink display title
+  ([`9f0ed33`](https://github.com/anaticulae/decider-ref/commit/9f0ed3335ccbce7506067628301965890dfed828))
+
+- **bib**: Validate detected bib entrees
+  ([`f7fb74a`](https://github.com/anaticulae/decider-ref/commit/f7fb74a6989ae20ed4482fc5167bdedb94f453c8))
+
+- **table**: Disable sorting check for not fully parsed bib
+  ([`6b37b9c`](https://github.com/anaticulae/decider-ref/commit/6b37b9cd3d09862eeab9c44f2df8e1aea8fa14ba))
+
+- **toc**: Move message to detected toc page
+  ([`e963b72`](https://github.com/anaticulae/decider-ref/commit/e963b7207ed44fd77d9ddd9ed6af37c2608044fa))
+
+### Refactoring
+
+- **table**: Move typos to separate constant
+  ([`b10c4d6`](https://github.com/anaticulae/decider-ref/commit/b10c4d68dc8907c204d3da5a7da874ac490e0f52))
+
+- **table**: Simplify bib runner
+  ([`d2a12a9`](https://github.com/anaticulae/decider-ref/commit/d2a12a90ba5dd265a492f4d0931d34ceb1855636))
+
+### Testing
+
+- **refactor**: Improve toc runner
+  ([`94f26d1`](https://github.com/anaticulae/decider-ref/commit/94f26d1603cc8a6b8a82e8e6fd7704501b99c885))
+
+- **refactor**: Simplify code
+  ([`d3da1df`](https://github.com/anaticulae/decider-ref/commit/d3da1df2c95efcfc6c8aab21d682dc3401f18fa1))
+
+
+## v1.9.1 (2021-06-05)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`5fae0bb`](https://github.com/anaticulae/decider-ref/commit/5fae0bbdafe9f7f78012b56bf320dac2459e4006))
+
+
+## v1.9.0 (2021-05-25)
+
+### Bug Fixes
+
+- **basic**: Clarify error message
+  ([`652e479`](https://github.com/anaticulae/decider-ref/commit/652e479d2f9f053739e2708f1ad751ce0db865b0))
+
+- **complexity**: Skip disabled check
+  ([`5796210`](https://github.com/anaticulae/decider-ref/commit/579621035c5b17f5523f415299f39c71234fd89b))
+
+- **docs**: Adjust newlines
+  ([`b1ad28f`](https://github.com/anaticulae/decider-ref/commit/b1ad28f95458ea578ac9bc102b2c026260b35b50))
+
+- **docs**: Adjust newlines
+  ([`d9f3e99`](https://github.com/anaticulae/decider-ref/commit/d9f3e998c3115c96b900edd0c2a8219027653bca))
+
+- **docs**: Fix newlines
+  ([`821c3e7`](https://github.com/anaticulae/decider-ref/commit/821c3e7a39434b80fa6bc4e2fb55c5af39767c20))
+
+- **style**: Clarify linter message
+  ([`64f27ae`](https://github.com/anaticulae/decider-ref/commit/64f27ae1d2fb9a3c8662d4a52b60c900b18d8bbc))
+
+- **toc**: Handle roman numbers later
+  ([`440af22`](https://github.com/anaticulae/decider-ref/commit/440af2291f57079d744dabbf584f1d4a0718d517))
+
+### Chores
+
+- **requirements**: Add knlp package
+  ([`683c960`](https://github.com/anaticulae/decider-ref/commit/683c9602ee16d96a62e280b081520f9f945d10d4))
+
+- **requirements**: Upgrade requirements.txt
+  ([`5afb6d1`](https://github.com/anaticulae/decider-ref/commit/5afb6d1ab3027fc997a74cb966ca86c3cd6f4644))
+
+- **requirements**: Upgrade requirements.txt
+  ([`b80fbb1`](https://github.com/anaticulae/decider-ref/commit/b80fbb1adb9b02ba5a6c6ae9fe29b9de06b62131))
+
+- **requirements**: Upgrade requirements.txt
+  ([`9ff9eec`](https://github.com/anaticulae/decider-ref/commit/9ff9eec8cb7f12dad89807ffcf8f6420a350d32b))
+
+- **requirements**: Upgrade requirements.txt
+  ([`a4b14fb`](https://github.com/anaticulae/decider-ref/commit/a4b14fb1cb64672ffaad9ab3b3383d5d78132527))
+
+- **resources**: Extend test data generator
+  ([`92171f4`](https://github.com/anaticulae/decider-ref/commit/92171f4b3df814c08b532fe0fb9ad90acf144a98))
+
+- **resources**: Extend test data generator
+  ([`f9b585c`](https://github.com/anaticulae/decider-ref/commit/f9b585c576309b5a352cdec2d24c5d8bc96555a8))
+
+- **resources**: Extend test data generator
+  ([`bd76918`](https://github.com/anaticulae/decider-ref/commit/bd76918388f536bc42ff159afad64d6b22791874))
+
+- **resources**: Extend test data generator
+  ([`a3fc983`](https://github.com/anaticulae/decider-ref/commit/a3fc983085a1718e4c4eed3246498d8a2f9ff277))
+
+### Code Style
+
+- **format**: Format code
+  ([`ae47636`](https://github.com/anaticulae/decider-ref/commit/ae4763666aa6d80396340b141869a07f1149c093))
+
+### Features
+
+- **abbr**: Add location to detected abbr table message
+  ([`e83167d`](https://github.com/anaticulae/decider-ref/commit/e83167d5c800c33ee9ae23600bcec5b24182e6a6))
+
+- **balance**: Disable balance check for very short sections
+  ([`a50a7db`](https://github.com/anaticulae/decider-ref/commit/a50a7db13f73753de0257e2d25867224f237c5fd))
+
+- **bib**: Make message more user friendly
+  ([`24162ca`](https://github.com/anaticulae/decider-ref/commit/24162caa90cc9bbb1ae0ab37877e5b502c538d35))
+
+- **bib**: Show bib linter warning to bib page
+  ([`bf0bfb1`](https://github.com/anaticulae/decider-ref/commit/bf0bfb1fbd17c46850ce8c886dadc51800e37869))
+
+- **bib**: Show bib on detected page
+  ([`f938390`](https://github.com/anaticulae/decider-ref/commit/f9383901b33d8bf5a1fe475c89b5072ca4599b2f))
+
+- **duplicated**: Use improve inside approach
+  ([`4814b9b`](https://github.com/anaticulae/decider-ref/commit/4814b9b25fde9aaee79d3fe2e8e58e169ee351cc))
+
+- **label**: Add hint to simplify bib label
+  ([`7fe999a`](https://github.com/anaticulae/decider-ref/commit/7fe999a4224627192ca0196ab06bdd8ea4dc8328))
+
+- **label**: Disable bib ref check if bib is not parsed properly
+  ([`439d2d9`](https://github.com/anaticulae/decider-ref/commit/439d2d9c28cab49c0f1ea3fc822acb3b5675f483))
+
+- **rules**: Use improved legal checker
+  ([`4eb7593`](https://github.com/anaticulae/decider-ref/commit/4eb75931f89f3b01ebd5c053d13b87b110459abc))
+
+- **table**: Add description links to linter message
+  ([`925d657`](https://github.com/anaticulae/decider-ref/commit/925d6576ab808955a5c273745da4f9b4361b1929))
+
+- **table**: Add typo error detector
+  ([`014dba8`](https://github.com/anaticulae/decider-ref/commit/014dba8f55e43182240088c2122517ad2bf36c9c))
+
+- **table**: Verify opening and closing brackets
+  ([`5a21470`](https://github.com/anaticulae/decider-ref/commit/5a21470a1f576d08bbff4ff5862522511bba3631))
+
+- **toc**: Use nltk stopwords
+  ([`98cdb71`](https://github.com/anaticulae/decider-ref/commit/98cdb71693894ba15f5d1a6e85ab0ee4e3e056f7))
+
+### Refactoring
+
+- **basic**: Use improved driver concept
+  ([`5abb416`](https://github.com/anaticulae/decider-ref/commit/5abb416a61807c56e11971ea0328621eb3f084d2))
+
+- **code**: Improve code style
+  ([`c86b112`](https://github.com/anaticulae/decider-ref/commit/c86b112962fdac6b9ab6dc73d0b08c2f83b27e96))
+
+- **complexity**: Use driver concept
+  ([`de98bdc`](https://github.com/anaticulae/decider-ref/commit/de98bdc84ebab96a31489261d5514368f7003d66))
+
+- **remove**: Remove outdated code
+  ([`50cb2b1`](https://github.com/anaticulae/decider-ref/commit/50cb2b1f743ab770a12b6a34818f578cdb309dd4))
+
+- **remove**: Remove outdated linting approach
+  ([`3134d89`](https://github.com/anaticulae/decider-ref/commit/3134d89736ca44aedfaffe5c303fb3228a10b565))
+
+- **replace**: Replace with genex code
+  ([`5b7dfb6`](https://github.com/anaticulae/decider-ref/commit/5b7dfb6d91b847d8af265fb979b2a386856b96a0))
+
+- **replace**: Replace with utila code
+  ([`820d3f2`](https://github.com/anaticulae/decider-ref/commit/820d3f26e93d8d4904d58fe754d1f947562c8f08))
+
+- **sync**: Use improved similar approach
+  ([`a06b897`](https://github.com/anaticulae/decider-ref/commit/a06b89792a41ab99f332ec5e5ea446680b817ed3))
+
+- **test**: Include all content pages
+  ([`064fe86`](https://github.com/anaticulae/decider-ref/commit/064fe863fc447da78b1dac63f9396f9c9f984296))
+
+- **test**: Increase re usability
+  ([`8ebd6c3`](https://github.com/anaticulae/decider-ref/commit/8ebd6c304b6ab45af80a1c00445df5257a29049b))
+
+### Testing
+
+- **abb**: Move test from decider project
+  ([`7d90154`](https://github.com/anaticulae/decider-ref/commit/7d90154834aca8531666c84dc30e1f5926cb2e6c))
+
+- **fix**: Adjust unit tests
+  ([`07cafb0`](https://github.com/anaticulae/decider-ref/commit/07cafb01b0e6cbdc3ff2aebbc7e5a07a98b98e5a))
+
+- **move**: Move regression test
+  ([`d347aaf`](https://github.com/anaticulae/decider-ref/commit/d347aaf5994198bf5154654fd8af1f617d3f0ed0))
+
+- **refactor**: Move linter to a more general place
+  ([`e5dd494`](https://github.com/anaticulae/decider-ref/commit/e5dd49420a31aaa828d39871afa5d301a6b6975e))
+
+- **refactor**: Simplify code
+  ([`af94197`](https://github.com/anaticulae/decider-ref/commit/af94197e60ef92df8a53b4f7928805cd09d43b18))
+
+- **reference**: Ensure that special pattern is detected
+  ([`db2dc58`](https://github.com/anaticulae/decider-ref/commit/db2dc581f8a12cbc60a4fc3041c8b14c39ebcd99))
+
+- **replace**: Use new driver creator
+  ([`4fad8c7`](https://github.com/anaticulae/decider-ref/commit/4fad8c7bbb01b66ebef385ec690d86b07cd5e63c))
+
+- **style**: Validate bachelor51 toc duplicated message
+  ([`3a5aa7b`](https://github.com/anaticulae/decider-ref/commit/3a5aa7b21cc492d664bf73316b8fa322960c0246))
+
+
+## v1.8.1 (2021-03-11)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`008fe98`](https://github.com/anaticulae/decider-ref/commit/008fe989f830f71b3a4009b7202a2ab50f436a0d))
+
+### Testing
+
+- **adjust**: Adjust unit tests
+  ([`bb57f72`](https://github.com/anaticulae/decider-ref/commit/bb57f724f3b235990c428857461db71d5e7bf2d3))
+
+
+## v1.8.0 (2021-03-11)
+
+### Bug Fixes
+
+- **bib**: Do not fail on invalid bib reference
+  ([`58af182`](https://github.com/anaticulae/decider-ref/commit/58af1828db994051221804015f953a4a5fd194da))
+
+- **reference**: Skip invalid bib inside check
+  ([`3db33d6`](https://github.com/anaticulae/decider-ref/commit/3db33d6979a3a299a7eedaded0f1a7284ffd32eb))
+
+### Chores
+
+- **requirements**: Add konrad package
+  ([`934f7ff`](https://github.com/anaticulae/decider-ref/commit/934f7ff4d43fd1c51046af68381cccdc0f8ff2ce))
+
+- **requirements**: Upgrade requirements.txt
+  ([`59585ac`](https://github.com/anaticulae/decider-ref/commit/59585ac91eac56444a0aaca9f59e3053152002cb))
+
+### Code Style
+
+- **table**: Fix typo
+  ([`2c24b05`](https://github.com/anaticulae/decider-ref/commit/2c24b0586ed7d7c53d17ce19864277df302e9650))
+
+### Features
+
+- **abbreviation**: Add linter step to detect not required abbreviation
+  ([`decbeae`](https://github.com/anaticulae/decider-ref/commit/decbeae591b3daa99c6395f6fd1ce7cbe2a008d7))
+
+- **bib**: Disable plot on to few bib items
+  ([`48760e2`](https://github.com/anaticulae/decider-ref/commit/48760e2a4863fede86ae15bedd5161d2136b5db7))
+
+### Refactoring
+
+- **replace**: Replace with utila code
+  ([`48020b0`](https://github.com/anaticulae/decider-ref/commit/48020b014b225de39db06f2ccb9425f051d8fa83))
+
+
+## v1.7.1 (2021-01-30)
+
+### Bug Fixes
+
+- **cli**: Add protocol show list to decider_abbreviation
+  ([`fc69c49`](https://github.com/anaticulae/decider-ref/commit/fc69c49bfa383e9eceebe46ced7443b42cb253ed))
+
+
+## v1.7.0 (2021-01-30)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`97bc994`](https://github.com/anaticulae/decider-ref/commit/97bc994eb06e32aa6730c9269cb2979b59419509))
+
+### Features
+
+- **tab**: Add decider_abbreviation to judge different tables
+  ([`0016d54`](https://github.com/anaticulae/decider-ref/commit/0016d5453f52d9b82b35512cf3464c2e9657d05c))
+
+
+## v1.6.0 (2021-01-30)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`e832a91`](https://github.com/anaticulae/decider-ref/commit/e832a91d237727cbac428b3f7f2547e005cef957))
+
+### Features
+
+- **cli**: Add protocol show list
+  ([`e3aeb8d`](https://github.com/anaticulae/decider-ref/commit/e3aeb8d04b28383e2ec7b81f66cc67b3870211ce))
+
+
+## v1.5.1 (2021-01-30)
+
+### Bug Fixes
+
+- **balance**: Do not mix Roman and Arabic numbers
+  ([`a673823`](https://github.com/anaticulae/decider-ref/commit/a673823d53bd33052c9763c08116bf56aa99e784))
+
+- **plot**: Do not fail on empty bib
+  ([`5219e33`](https://github.com/anaticulae/decider-ref/commit/5219e3374de96d0726e3f65524cead0acac06003))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`3f17eca`](https://github.com/anaticulae/decider-ref/commit/3f17eca319a19475ca2cc1cb3110e36b3db0af99))
+
+- **resources**: Extend test data generator
+  ([`d54edcb`](https://github.com/anaticulae/decider-ref/commit/d54edcb55454c134c2e1c2027c97a1e746e19762))
+
+### Features
+
+- **bib**: Add valid bib year range
+  ([`be52b39`](https://github.com/anaticulae/decider-ref/commit/be52b394576b7d0e0c86b924954b57a1d84383b2))
+
+### Refactoring
+
+- **bib**: Improve naming
+  ([`d103557`](https://github.com/anaticulae/decider-ref/commit/d103557e676fdee9bd65c7f11fb2d61c620a7ca3))
+
+### Testing
+
+- **fix**: Add regression test to handle invalid roman numbers
+  ([`857519b`](https://github.com/anaticulae/decider-ref/commit/857519bdcab55960df1ea71fa06fd585b2393bca))
+
+
+## v1.5.0 (2021-01-26)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`8365be7`](https://github.com/anaticulae/decider-ref/commit/8365be72e8f092fd37a116d1079d83592a3d6a4a))
+
+- **resources**: Add bachelor37 example
+  ([`9efe6a0`](https://github.com/anaticulae/decider-ref/commit/9efe6a07b3649094865f3777ebeb0e34e44f7dcc))
+
+### Code Style
+
+- **imports**: Organize imports
+  ([`1078d8c`](https://github.com/anaticulae/decider-ref/commit/1078d8c3e610069a858045647e08d280412c72c0))
+
+### Features
+
+- **toc**: Add location to toc finding
+  ([`03fcd55`](https://github.com/anaticulae/decider-ref/commit/03fcd55fbbe4acd0643009550227af12e0bd5684))
+
+- **toc**: Check more than level one
+  ([`36d9462`](https://github.com/anaticulae/decider-ref/commit/36d94625f67d69bca1aff80d69f0d45e42297ac3))
+
+- **toc**: Select best headlines
+  ([`5b196b0`](https://github.com/anaticulae/decider-ref/commit/5b196b00fb8ec8ede15efbcc7967355dc1b09634))
+
+### Refactoring
+
+- **test**: Use new base feature
+  ([`30516b2`](https://github.com/anaticulae/decider-ref/commit/30516b2f8d23b9cefc3a50d1a4e46020cd671391))
+
+- **toc**: Replace with protocol code
+  ([`af8ef2c`](https://github.com/anaticulae/decider-ref/commit/af8ef2cb1ffb631dcbfe32686fc934a7ab2e2d8a))
+
+
+## v1.4.1 (2021-01-25)
+
+### Chores
+
+- **requirements**: Add elements package
+  ([`8eb113f`](https://github.com/anaticulae/decider-ref/commit/8eb113f33c29afedae42cdce4faa6f0cb3c1cd08))
+
+### Code Style
+
+- **plot**: Fix typo
+  ([`ba6ed3b`](https://github.com/anaticulae/decider-ref/commit/ba6ed3b829e61d225ce117133042bdcfebb9295a))
+
+### Refactoring
+
+- **replace**: Replace with elements code
+  ([`36562c6`](https://github.com/anaticulae/decider-ref/commit/36562c617ab77b2cc91cb89d0b8f7a1237e5f49e))
+
+
+## v1.4.0 (2021-01-24)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`0b04717`](https://github.com/anaticulae/decider-ref/commit/0b0471798d5c0991ba756d9e15383413ce415944))
+
+- **requirements**: Use printer to print histogram
+  ([`c95078b`](https://github.com/anaticulae/decider-ref/commit/c95078baacc44bdd4d8261eb8e7ff455090ad01d))
+
+### Features
+
+- **bib**: Add bib year histogram plotter
+  ([`ae9750c`](https://github.com/anaticulae/decider-ref/commit/ae9750c83496d7c240a37a54453e8808ccc3bb00))
+
+
+## v1.3.0 (2021-01-24)
+
+### Bug Fixes
+
+- **label**: Do not inform user about not parse able reference
+  ([`91c2b04`](https://github.com/anaticulae/decider-ref/commit/91c2b04118337dc110db6679722a823f606c2514))
+
+- **order**: Fix theissen sort order
+  ([`8eda9b3`](https://github.com/anaticulae/decider-ref/commit/8eda9b30893373d210feb91e1d5cfefbe7019075))
+
+- **reference**: Skip None reference for bib check
+  ([`a8700f4`](https://github.com/anaticulae/decider-ref/commit/a8700f424147286f13c1094f8086e0f7cbde8fef))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`32b25fc`](https://github.com/anaticulae/decider-ref/commit/32b25fc015732265fd4874a56a1c138d1adcf6ce))
+
+- **resources**: Extend test data generator
+  ([`59e6b4d`](https://github.com/anaticulae/decider-ref/commit/59e6b4d316ad5ddf4d9d8e24f09310d7c517b907))
+
+- **resources**: Extend test data generator
+  ([`80c1e41`](https://github.com/anaticulae/decider-ref/commit/80c1e411bc135db02edf07e21de162d0c10f124a))
+
+### Documentation
+
+- **copyright**: Happy New Year!
+  ([`a5c85d7`](https://github.com/anaticulae/decider-ref/commit/a5c85d7f9e5bb2ade34a087263550f4f626a70f7))
+
+### Features
+
+- **label**: Add missing bib table log
+  ([`3a2480d`](https://github.com/anaticulae/decider-ref/commit/3a2480dfbd336727b4d74aa0de591c10a7246274))
+
+### Testing
+
+- **bib**: Add bib table loader
+  ([`9c8d6d5`](https://github.com/anaticulae/decider-ref/commit/9c8d6d591751795755339d60be82857b6ad1f1c8))
+
+- **bib**: Verify bachelor63 bib sorting order
+  ([`ea4c9c2`](https://github.com/anaticulae/decider-ref/commit/ea4c9c22b5062dd2dd705f7a3e271c185cf04564))
+
+- **label**: Add pages option to filter select findings
+  ([`2947522`](https://github.com/anaticulae/decider-ref/commit/294752262c552d13dc094c525ede77f3dbc0d817))
+
+- **label**: Do not detect existing reference as missing reference
+  ([`1a28193`](https://github.com/anaticulae/decider-ref/commit/1a28193a091ab23591a51e229428d85d56d14a8f))
+
+
+## v1.2.2 (2020-12-20)
+
+### Bug Fixes
+
+- **import**: Add missing import
+  ([`53c6d57`](https://github.com/anaticulae/decider-ref/commit/53c6d57a963e75c9f893ebe2540cb573b1e057b4))
+
+
+## v1.2.1 (2020-12-19)
+
+### Chores
+
+- **requirements**: Do not release so often
+  ([`349d98b`](https://github.com/anaticulae/decider-ref/commit/349d98b32a93cb0edd71608cee8ac6151b90af59))
+
+- **requirements**: Upgrade requirements.txt
+  ([`44596be`](https://github.com/anaticulae/decider-ref/commit/44596be3200647d0acde1bc89521dc30df15d892))
+
+
+## v1.2.0 (2020-12-13)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`e363f49`](https://github.com/anaticulae/decider-ref/commit/e363f4964615d98affbbe030e3f7b7def7622a11))
+
+### Code Style
+
+- **format**: Format code
+  ([`47e7dcc`](https://github.com/anaticulae/decider-ref/commit/47e7dcc311c0cd837eb4aee82afe31a6ace76378))
+
+- **imports**: Organize imports
+  ([`9aec0be`](https://github.com/anaticulae/decider-ref/commit/9aec0be82b0515a9d7fb71c7c21e303f9acd69c0))
+
+### Features
+
+- **toc**: Move decider toc from decider project
+  ([`9763c35`](https://github.com/anaticulae/decider-ref/commit/9763c3512152ae6412acf4dcf6584ff5e5bed9c9))
+
+### Refactoring
+
+- **remove**: Remove unused code
+  ([`dae0ea7`](https://github.com/anaticulae/decider-ref/commit/dae0ea7135af2ac6994a22e4c98fe478001728ab))
+
+
+## v1.1.0 (2020-12-12)
+
+### Chores
+
+- **requirements**: Add docref plain converter
+  ([`b34fd32`](https://github.com/anaticulae/decider-ref/commit/b34fd323a38548f6c609ad0fc029b0be50f1ebc8))
+
+### Features
+
+- **bib**: Add label step to verify bib refs
+  ([`4b8ee68`](https://github.com/anaticulae/decider-ref/commit/4b8ee68d85fb6058b1385d7920b6174848809962))
+
+- **bib**: Add parsed text bib refs as step input
+  ([`bded4fb`](https://github.com/anaticulae/decider-ref/commit/bded4fb63d549c7109eb1f28ec920bbdc7a11b79))
+
+- **bib**: Add step to verify that bib source is not used
+  ([`80f818a`](https://github.com/anaticulae/decider-ref/commit/80f818ae5e7d37daa413e6efd9fdbe61f058c883))
+
+- **bib**: Improve bib page check
+  ([`35d66f8`](https://github.com/anaticulae/decider-ref/commit/35d66f8d1cd366fe152d5a96067f3c46c1b239ed))
+
+- **bib**: Verify that bib label exists in bib table
+  ([`befcab5`](https://github.com/anaticulae/decider-ref/commit/befcab56a56d3c2287228b105611c0ecd80b4d65))
+
+### Refactoring
+
+- **bib**: Improve decider step name
+  ([`0fe71d0`](https://github.com/anaticulae/decider-ref/commit/0fe71d0786bf99c14c31b17da9a64429d6b3eb48))
+
+- **bib**: Use driver concept
+  ([`a9a52cb`](https://github.com/anaticulae/decider-ref/commit/a9a52cbc0480d0927a7d4f3ed5aabd884c6faae8))
+
+- **rename**: Avoid naming collision
+  ([`db7f507`](https://github.com/anaticulae/decider-ref/commit/db7f50700bca16bb28bfd69ff4f930ad946f1ea6))
+
+- **step**: Rename --order to --table
+  ([`e8d42dc`](https://github.com/anaticulae/decider-ref/commit/e8d42dc1c3324121e811ce9c45698dcbdedfd161))
+
+- **test**: Clarify file name
+  ([`d1f640f`](https://github.com/anaticulae/decider-ref/commit/d1f640f017c4505a09686b111915830dd2365839))
+
+- **test**: Simplify test code
+  ([`035b376`](https://github.com/anaticulae/decider-ref/commit/035b376a54ae455535131b2cec2ccd37545cc1af))
+
+
+## v1.0.0 (2020-12-10)
+
+### Features
+
+- **bib**: Enable using decider_bibliography as cli
+  ([`b9f2054`](https://github.com/anaticulae/decider-ref/commit/b9f2054d2387f95728f20b21c0a7495018f6688a))
+
+- **import**: Ease importing path module
+  ([`409df76`](https://github.com/anaticulae/decider-ref/commit/409df76121b5f5de2cea42c3f28d873a9839ee66))
+
+- **project**: Shorten project name
+  ([`bea93f7`](https://github.com/anaticulae/decider-ref/commit/bea93f770db1b0176f8764454276d1cb97105124))
+
+- **repository**: Rename repository name
+  ([`c721b2a`](https://github.com/anaticulae/decider-ref/commit/c721b2aaa061fc391f916d57b3625cf2005f4958))
+
+### Refactoring
+
+- **move**: Move bib format method to utils
+  ([`df17acd`](https://github.com/anaticulae/decider-ref/commit/df17acd3bc6d212ed087c68a2cf7367a15c922b9))
+
+- **order**: Move loading bib ref to separate module
+  ([`3e32194`](https://github.com/anaticulae/decider-ref/commit/3e3219466adf71c1260e0a7b23110c449c739ed4))
+
+
+## v0.1.0 (2020-12-10)
+
+### Bug Fixes
+
+- **setup**: Adjust setup path
+  ([`8884939`](https://github.com/anaticulae/decider-ref/commit/8884939556163f7288134377edb25cc30e1a89e6))
+
+### Chores
+
+- **requirements**: Add basic requirements
+  ([`1c3ae1f`](https://github.com/anaticulae/decider-ref/commit/1c3ae1f21427193ad7b0d2960770a7fb98282f34))
+
+- **resources**: Add test data generator
+  ([`c1b6829`](https://github.com/anaticulae/decider-ref/commit/c1b6829dc07f6268bf4173b06ea1bedc50047610))
+
+### Features
+
+- **bib**: Add cli and test infrastructure
+  ([`051e319`](https://github.com/anaticulae/decider-ref/commit/051e319110db79578794113cc2e48d28370e92dd))
+
+- **move**: Move bib-decider from decider project
+  ([`9350d97`](https://github.com/anaticulae/decider-ref/commit/9350d97050e5e8f3d5b2bd6d1f69f7964bd5abfa))
+
+
+## v0.0.0 (2020-12-10)
+
+- Initial Release

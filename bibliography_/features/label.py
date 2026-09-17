@@ -223,7 +223,7 @@ def check_6062_bib_ref_inaccurate_page(linter: callable, driver):
             page=reference.page,
         )
         for mark, item in zip(reference.marked, plain):  # pylint:disable=W0612
-            if bibliography_.reference.precise(item):
+            if bibliography_.reference.is_precise(item):
                 continue
             linter(
                 location=location,

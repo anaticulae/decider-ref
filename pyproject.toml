@@ -23,7 +23,7 @@ dependencies = [
     "protoerror>=3.20.4,<4.0.0",
     "texes>=1.0.1,<2.0.0",
     "upainter>=1.0.0,<2.0.0",
-    "utilo>=2.110.2,<3.0.0",
+    "utilo>=2.111.0,<3.0.0",
     "verbo>=1.23.4,<2.0.0",
     "writers>=1.7.1,<2.0.0",
 ]
@@ -72,11 +72,11 @@ Homepage = "https://github.com/anaticulae/decider-ref"
 Repository = "https://github.com/anaticulae/decider-ref"
 
 [project.scripts]
-decider_abbrev = "decider_abb.cli:main"
-decider_abbreviation = "decider_abb.cli:main"
-decider_bibliography = "decider_bib.cli:main"
-decider_caption = "decider_cap.cli:main"
-decider_toc = "decider_toc.cli:main"
+decider_abbrev = "abbreviation_.cli:main"
+decider_abbreviation = "abbreviation_.cli:main"
+decider_bibliography = "bibliography_.cli:main"
+decider_caption = "caption_.cli:main"
+decider_toc = "toc_.cli:main"
 
 [tool.semantic_release]
 version_toml = [
@@ -112,15 +112,15 @@ where = [
     ".",
 ]
 include = [
-    "decider_abb",
-    "decider_abb.features",
-    "decider_bib",
-    "decider_bib.features",
-    "decider_cap",
-    "decider_cap.features",
+    "abbreviation_",
+    "abbreviation_.features",
+    "bibliography_",
+    "bibliography_.features",
+    "caption_",
+    "caption_.features",
     "decider_ref",
-    "decider_toc",
-    "decider_toc.features",
+    "toc_",
+    "toc_.features",
 ]
 exclude = [
     "tests*",

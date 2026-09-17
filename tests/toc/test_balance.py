@@ -12,7 +12,7 @@ import pytest
 import serializeraw
 import utilotest
 
-import decider_toc.balance
+import toc_.balance
 
 
 @pytest.fixture
@@ -21,7 +21,7 @@ def master98_data():
     source = hoverpower.link(hoverpower.MASTER098_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
-    flat = decider_toc.balance.data(toc)
+    flat = toc_.balance.data(toc)
     return flat
 
 
@@ -31,7 +31,7 @@ def master99_data():
     source = hoverpower.link(hoverpower.MASTER099_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
-    flat = decider_toc.balance.data(toc)
+    flat = toc_.balance.data(toc)
     return flat
 
 
@@ -47,19 +47,19 @@ def test_toc_section_balance():
     utilotest.fixture_requires(hoverpower.MASTER098_PDF)
     source = hoverpower.link(hoverpower.MASTER098_PDF)
     toc = serializeraw.load_toc(source)
-    balance = decider_toc.balance.section_balance(toc)
+    balance = toc_.balance.section_balance(toc)
     assert balance.level1
     assert balance.level2
     assert balance.level3 is None
 
 
 def test_toc_master98_level_one(master98_data):  # pylint:disable=W0621
-    level1 = decider_toc.balance.level_one(master98_data)
+    level1 = toc_.balance.level_one(master98_data)
     assert level1 == [4, 20, 16, 25, 18, 3, 8, None]
 
 
 def test_toc_master98_level_two(master98_data):  # pylint:disable=W0621
-    level2 = decider_toc.balance.level_two(master98_data)
+    level2 = toc_.balance.level_two(master98_data)
     expected = [
         [6, 6, 3, 5],
         [4, 4, 3, 5],
@@ -71,25 +71,25 @@ def test_toc_master98_level_two(master98_data):  # pylint:disable=W0621
 
 
 def test_toc_master99_level_one(master99_data):  # pylint:disable=W0621
-    level1 = decider_toc.balance.level_one(master99_data)
+    level1 = toc_.balance.level_one(master99_data)
     assert level1 == [1, 3, 11, 12, 14, 2, 9, 23, 5, 5, 1, 8, None]
 
 
 def test_toc_master99_level_two(master99_data):  # pylint:disable=W0621
-    level2 = decider_toc.balance.level_two(master99_data)
+    level2 = toc_.balance.level_two(master99_data)
     expected = [[0, 1, 0, 2], [3, 8], [8, 5], [4, 1, 1, 1, 2], [1, 2, 5, 15]]
     assert level2 == expected
 
 
 def test_toc_master99_level_three(master99_data):  # pylint:disable=W0621
-    level3 = decider_toc.balance.level_three(master99_data)
+    level3 = toc_.balance.level_three(master99_data)
     expected = [[4, 3], [3, 1], [11, 3]]
     assert level3 == expected
 
 
 def test_toc_judge(master99_toc):  # pylint:disable=W0621
-    judged = decider_toc.balance.judge(master99_toc)
-    expected = decider_toc.balance.JudgedBalance(
+    judged = toc_.balance.judge(master99_toc)
+    expected = toc_.balance.JudgedBalance(
         level1=None,
         level2=[[(0,), (0,), (0,), (0,)], [(0,), (1, 8, 5.9)],
                 [(1, 8, 5.9), (0,)], [(0,), (0,), (0,), (0,), (0,)],

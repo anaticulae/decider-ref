@@ -12,9 +12,9 @@ import protoerror
 import serializeraw
 import utilotest
 
-import decider_abb
+import abbreviation_
 
-run, fail = utilotest.create_cli_runner(decider_abb)
+run, fail = utilotest.create_cli_runner(abbreviation_)
 
 
 def run_table(source, mp, td, msgid=None, pages=None):
@@ -23,7 +23,7 @@ def run_table(source, mp, td, msgid=None, pages=None):
     utilotest.fixture_requires(source)
     cmd = f'-i {source} --table'
     run(cmd, mp=mp)
-    path = decider_abb.path.decider_abb_table_user(td.tmpdir)
+    path = abbreviation_.path.decider_abb_table_user(td.tmpdir)
     result = protoerror.select_findings(
         serializeraw.load_findings(path),
         msgid=msgid,

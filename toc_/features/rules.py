@@ -13,13 +13,13 @@ import iamraw
 import protoerror
 import utilo
 
-import decider_toc.features
-import decider_toc.level as dtl
+import toc_.features
+import toc_.level as dtl
 
 
-def work(toc: str, sections: str) -> protoerror.ResultType:
-    driver = decider_toc.features.create_driver(
-        toc=toc,
+def work(tocs: str, sections: str) -> protoerror.ResultType:
+    driver = toc_.features.create_driver(
+        toc=tocs,
         sections=sections,
     )
     result = protoerror.run(
@@ -42,8 +42,8 @@ Unterkapitel in den Text eingeplegt werden.
 
 
 def check_1350_toc_level_to_few_children(linter, driver):
-    toc: iamraw.Toc = driver.toc
-    level_result: dtl.TocValidationResult = dtl.validate(toc)
+    tocs: iamraw.Toc = driver.toc
+    level_result: dtl.TocValidationResult = dtl.validate(tocs)
     for item in level_result.too_few_children:  # pylint:disable=E1133
         # TODO: REMOVE AFTER UPGRADING SERIALIZERAW
         try:
@@ -69,8 +69,8 @@ Seite {{current}} folgt auf {{before}}.
 
 
 def check_1360_toc_ascending_pages(linter, driver):
-    toc: iamraw.Toc = driver.toc
-    page_result: elementae.InvalidPages = elementae.validate_toc(toc)
+    tocs: iamraw.Toc = driver.toc
+    page_result: elementae.InvalidPages = elementae.validate_toc(tocs)
     # TODO: ADD SPECIAL CASE FOR elementae.INVALID_ROMAN_NUMBER
     for item in page_result:
         location = iamraw.Location.from_page(item.raw_location)
@@ -94,12 +94,12 @@ nicht bei der Seitenzählung berücksichtigt.
 
 
 def check_1365_toc_legal_inside_toc(linter, driver):
-    toc: iamraw.Toc = driver.toc
-    if not toc:
+    tocs: iamraw.Toc = driver.toc
+    if not tocs:
         return
-    toc = elementae.toc_flat(toc)
+    tocs = elementae.toc_flat(tocs)
 
-    legal_intoc = [item for item in toc if islegal(item.title)]
+    legal_intoc = [item for item in tocs if islegal(item.title)]
     if not legal_intoc:
         return
 

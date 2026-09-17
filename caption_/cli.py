@@ -10,7 +10,7 @@
 import protoerror
 import utilo
 
-import decider_cap
+import caption_
 import decider_ref
 
 DESCRIPTION = ''
@@ -51,13 +51,13 @@ WORKPLAN = [
 def main():
     hook = protoerror.integrate(
         root=decider_ref.ROOT,
-        features='decider_cap.features',
+        features='caption.features',
     )
     docinfo = protoerror.integrate_docinfo()
     utilo.featurepack(
         workplan=WORKPLAN,
         root=decider_ref.ROOT,
-        featurepackage='decider_cap.features',
+        featurepackage='caption_.features',
         config=utilo.FeaturePackConfig(
             cli_hook=[
                 docinfo,
@@ -65,7 +65,7 @@ def main():
             ],
             description=DESCRIPTION,
             multiprocessed=True,
-            name=decider_cap.PROCESS,
+            name=caption_.PROCESS,
             pages=True,
             version=decider_ref.__version__,
         ),

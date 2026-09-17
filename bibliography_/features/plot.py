@@ -13,27 +13,26 @@ import configos
 import upainter
 import utilo
 
-import decider_bib.order
-import decider_bib.serialize
+import bibliography_.serialize
 
 BILIOGRAPHY_COUNT_MIN = configos.HV_INT_PLUS(default=10)
 
 
 def work(bibtable: str) -> bytes:
-    bibliography = decider_bib.serialize.load_bibliography_reference(bibtable)
+    bib = bibliography_.serialize.load_bibliography_reference(bibtable)
     rendered = None
-    if len(bibliography.references) >= BILIOGRAPHY_COUNT_MIN:
-        rendered = render_year_overview(bibliography)
+    if len(bib.references) >= BILIOGRAPHY_COUNT_MIN:
+        rendered = render_year_overview(bib)
     else:
-        utilo.debug(f'too few bib items: {len(bibliography)}')
+        utilo.debug(f'too few bib items: {len(bib)}')
     if not rendered:
         # no bibs available
         return utilo.NO_RESULT
     return rendered
 
 
-def render_year_overview(bibliography, year_min=1970, year_max=2025) -> bytes:
-    years = [item.year for item in bibliography]
+def render_year_overview(bib, year_min=1970, year_max=2025) -> bytes:
+    years = [item.year for item in bib]
     years = [item for item in years if utilo.isnumber(item)]
     # filter invalid years
     years = [item for item in years if year_min <= item < year_max]

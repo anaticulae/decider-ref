@@ -12,8 +12,8 @@ import indagator.path
 import pytest
 import utilotest
 
-import decider_bib.order
-import decider_bib.serialize
+import bibliography_.order
+import bibliography_.serialize
 
 
 @pytest.mark.xfail(reason='broken bib')
@@ -21,6 +21,6 @@ import decider_bib.serialize
 def test_order_bib_bachelor63_theissen():
     source = hoverpower.link(hoverpower.BACHELOR063_PDF)
     table = indagator.path.bibliography_detected(source)
-    bibliography = decider_bib.serialize.load_bibliography_reference(table)
-    theissen = decider_bib.order.theissen_sort(bibliography)
+    bibliography = bibliography_.serialize.load_bibliography_reference(table)
+    theissen = bibliography_.order.theissen_sort(bibliography)
     assert theissen == bibliography

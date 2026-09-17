@@ -29,12 +29,12 @@ import iamraw
 import konradus
 import utilo
 
-import decider_toc.utils
+import toc_.utils
 
 
-def validate(toc: iamraw.Toc) -> decider_toc.utils.InvalidTocItems:
-    lang = decider_toc.utils.toc_lang(toc)
-    flatten = elementae.toc_flat(toc)
+def validate(tocs: iamraw.Toc) -> toc_.utils.InvalidTocItems:
+    lang = toc_.utils.toc_lang(tocs)
+    flatten = elementae.toc_flat(tocs)
     lines = []
     for item in flatten:
         words = germania.split_words(

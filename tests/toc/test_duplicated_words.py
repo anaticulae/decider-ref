@@ -12,7 +12,7 @@ import pytest
 import serializeraw
 import utilotest
 
-import decider_toc.duplicated
+import toc_.duplicated
 
 
 @pytest.mark.xfail(reason='check later')
@@ -21,7 +21,7 @@ def test_duplicated_words_master098():
     source = hoverpower.link(hoverpower.MASTER098_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
-    validated = decider_toc.duplicated.validate(toc)
+    validated = toc_.duplicated.validate(toc)
     assert len(validated) == 1  # TODO: VALIDATE LATER
 
 
@@ -31,6 +31,6 @@ def test_duplicated_words_diss406():
     source = hoverpower.link(hoverpower.DISS406_PDF)
     toc = serializeraw.load_toc(source)
     assert toc
-    validated = decider_toc.duplicated.validate(toc)
+    validated = toc_.duplicated.validate(toc)
     # DUPLICATES_COUNT_MIN dependent
     assert len(validated) == 3  # NOT VALIDATED

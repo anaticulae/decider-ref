@@ -12,19 +12,19 @@ import iamraw
 import protoerror
 import utilo
 
-import decider_toc.balance
-import decider_toc.features
-import decider_toc.length
-import decider_toc.level
+import toc_.balance
+import toc_.features
+import toc_.length
+import toc_.level
 
 
 def work(
-    toc: str,
+    tocs: str,
     magic_pages: str,
     docinfo: iamraw.DocInfo = None,
 ) -> protoerror.ResultType:
-    driver = decider_toc.features.create_driver(
-        toc=toc,
+    driver = toc_.features.create_driver(
+        toc=tocs,
         docinfo=docinfo,
         magic_pages=magic_pages,
     )
@@ -61,16 +61,16 @@ Begrenzen Sie die Gliederung auf maximal 3 Sektionen.
 
 
 def check_1351_toc_level_to_deep(linter, driver):
-    toc: iamraw.Toc = driver.toc
-    if not toc.style:
+    tocs: iamraw.Toc = driver.toc
+    if not tocs.style:
         return
-    if toc.style != iamraw.TocStyle.NUMBERED:
+    if tocs.style != iamraw.TocStyle.NUMBERED:
         return
-    deep_max = decider_toc.level.TOC_DEEPNESS_DEFAULT_MAX
+    deep_max = toc_.level.TOC_DEEPNESS_DEFAULT_MAX
     if complex_document(driver.docinfo):
-        deep_max = decider_toc.level.TOC_DEEPNESS_DISS_MAX
-    level_result: 'TocValidationResult' = decider_toc.level.validate(
-        toc=toc,
+        deep_max = toc_.level.TOC_DEEPNESS_DISS_MAX
+    level_result: 'TocValidationResult' = toc_.level.validate(
+        tocs=tocs,
         maxdeep=deep_max,
     )
     for item in level_result.level_to_deep:  # pylint:disable=E1133
@@ -103,19 +103,19 @@ Teilabschnitte einzuführen.
 
 
 def check_1370_section_too_long(linter, driver):
-    toc: iamraw.Toc = driver.toc
+    tocs: iamraw.Toc = driver.toc
     validate_chapter_length(
         linter,
-        toc,
+        tocs,
         level=2,
-        expected=decider_toc.balance.TOO_LONG,
+        expected=toc_.balance.TOO_LONG,
     )
 
     validate_chapter_length(
         linter,
-        toc,
+        tocs,
         level=3,
-        expected=decider_toc.balance.TOO_LONG,
+        expected=toc_.balance.TOO_LONG,
     )
 
 
@@ -132,28 +132,28 @@ führen.
 
 
 def check_1371_section_too_short(linter, driver):
-    toc: iamraw.Toc = driver.toc
+    tocs: iamraw.Toc = driver.toc
     validate_chapter_length(
         linter,
-        toc,
+        tocs,
         level=2,
-        expected=decider_toc.balance.TOO_SHORT,
+        expected=toc_.balance.TOO_SHORT,
     )
     validate_chapter_length(
         linter,
-        toc,
+        tocs,
         level=3,
-        expected=decider_toc.balance.TOO_SHORT,
+        expected=toc_.balance.TOO_SHORT,
     )
 
 
 CHAPTER_LENGTH_CHECKER_MIN = configos.HV_FLOAT_PLUS(default=2.0)
 
 
-def validate_chapter_length(linter, toc, level, expected):
-    balanced = decider_toc.balance.judge(toc)
+def validate_chapter_length(linter, tocs, level, expected):
+    balanced = toc_.balance.judge(tocs)
     level_x_balanced = utilo.flat(getattr(balanced, f'level{level}'))
-    flat = decider_toc.balance.data(toc)
+    flat = toc_.balance.data(tocs)
     level_x = [item for item in flat if item.level == level]
     for line, judged in zip(level_x, level_x_balanced):
         if judged[0] != expected:
@@ -183,8 +183,8 @@ werden.
 
 
 def check_1382_toc_long_lines(linter, driver):
-    toc: iamraw.Toc = driver.toc
-    findings = decider_toc.length.validate(toc)
+    tocs: iamraw.Toc = driver.toc
+    findings = toc_.length.validate(tocs)
     for item in findings:
         title, raw_location = item[1], item[3]
         location = iamraw.Location.from_page(raw_location)

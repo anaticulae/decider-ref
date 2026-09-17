@@ -13,11 +13,11 @@ import pytest
 import serializeraw
 import utilotest
 
-import decider_toc.features
-import decider_toc.features.complexity
-import decider_toc.features.rules
-import decider_toc.level
 import tests
+import toc_.features
+import toc_.features.complexity
+import toc_.features.rules
+import toc_.level
 
 TECHNICAL24_INVALID_CHILDREN = 1
 TECHNICAL24_INVALID_CHILDREN_TO_LONG = 1
@@ -27,10 +27,10 @@ TECHNICAL24_TOO_DEEP = 14
 @utilotest.requires(hoverpower.TECH024_PDF)
 def test_toc_invalid_children(mp):
     with mp.context() as context:
-        context.setattr(decider_toc.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
+        context.setattr(toc_.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
         failures = lint(
             hoverpower.link(hoverpower.TECH024_PDF),
-            decider_toc.features.rules,
+            toc_.features.rules,
         )
     failures = len(failures)
     assert failures == TECHNICAL24_INVALID_CHILDREN, str(failures)
@@ -39,10 +39,10 @@ def test_toc_invalid_children(mp):
 @utilotest.requires(hoverpower.TECH024_PDF)
 def test_toc_to_deep(mp):
     with mp.context() as context:
-        context.setattr(decider_toc.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
+        context.setattr(toc_.level, 'TOC_DEEPNESS_DEFAULT_MAX', 2)
         failures = lint(
             hoverpower.link(hoverpower.TECH024_PDF),
-            decider_toc.features.complexity,
+            toc_.features.complexity,
         )
     failures = len([item for item in failures if item in {1351, 1382}])
     expected = sum([
@@ -82,7 +82,7 @@ def test_toc_too_few_children(source, invalids, validate):
     utilotest.fixture_requires(source)
     source = hoverpower.link(source)
     toc = tests.toc.tableofcontent(source)
-    validated = decider_toc.level.validate_children(toc)
+    validated = toc_.level.validate_children(toc)
     assert len(validated) == invalids, str(len(validated))
     if not validate:
         return
@@ -102,13 +102,13 @@ def test_toc_validate_deepness(source, too_deep):
     source = hoverpower.link(source)
     toc = tests.toc.tableofcontent(source)
     maxdeep = 2
-    validated = decider_toc.level.validate_deepness(toc, maxdeep=maxdeep)
+    validated = toc_.level.validate_deepness(toc, maxdeep=maxdeep)
     # `too_deep` items with 1.2.3
     assert len(validated) == too_deep
 
 
 def lint(path: str, module):
-    driver = decider_toc.features.create_driver(toc=path)
+    driver = toc_.features.create_driver(toc=path)
     location = protoerror.OVERVIEW
     dumped = protoerror.run(
         module.__name__,

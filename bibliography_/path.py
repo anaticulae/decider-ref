@@ -7,14 +7,16 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configos
+import utilo
 
-import decider_ref
-import decider_toc.path
+import bibliography_
 
-ROOT = decider_ref.ROOT
-PROCESS = 'decider_toc'
 
-__version__ = decider_ref.__version__
+def decider_bib_label_user(path: str, prefix: str = '') -> str:
+    return utilo.pathconnector(path, bibliography_.PROCESS, 'label_user',
+                               prefix)
 
-configos.cloud_lookup(PROCESS)
+
+def decider_bib_table_user(path: str, prefix: str = '') -> str:
+    return utilo.pathconnector(path, bibliography_.PROCESS, 'table_user',
+                               prefix)

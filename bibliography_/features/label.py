@@ -14,9 +14,9 @@ import protoerror
 import serializeraw
 import utilo
 
-import decider_bib.reference
-import decider_bib.serialize
-import decider_bib.utils
+import bibliography_.reference
+import bibliography_.serialize
+import bibliography_.utils
 
 
 def work(  # pylint:disable=W0613
@@ -50,7 +50,7 @@ def create_driver(
     docinfo: iamraw.DocInfo,
     pages: tuple = None,
 ):
-    bibliography = decider_bib.serialize.load_bibliography_reference(bibtable)
+    bib = bibliography_.serialize.load_bibliography_reference(bibtable)
     docreference = serializeraw.load_docref(docreference, pages=pages)
     headlines = serializeraw.load_headlines(headlines, pages=pages)
     sections = serializeraw.load_sections(sections, pages=pages)
@@ -58,7 +58,7 @@ def create_driver(
     nobibs = nobibpages(sections)
     # create driver
     result = protoerror.driver(
-        bibliography=bibliography,
+        bibliography=bib,
         bibtextref=docreference,
         text=text,
         nobibs=nobibs,
@@ -117,7 +117,7 @@ def check_6050_ref_in_table(linter: callable, driver):
         )
         for mark, item in zip(reference.marked, plain):  # pylint:disable=W0612
             # verify that reference exists
-            inside = decider_bib.reference.inside(
+            inside = bibliography_.reference.inside(
                 reference=item,
                 table=driver.bibliography.references,
             )
@@ -148,7 +148,7 @@ def check_6051_table_in_text(linter: callable, driver):
         utilo.debug(f'None-Reference: {item}')
     not_required = [
         item for item in source
-        if not decider_bib.reference.reference_inside(item, insentence)
+        if not bibliography_.reference.reference_inside(item, insentence)
     ]
     for item in not_required:
         location = iamraw.Location.from_page(item.raw_pdfpage)
@@ -162,9 +162,9 @@ def check_6051_table_in_text(linter: callable, driver):
         )
 
 
-def insentence_reference(text, bibliography) -> set:
+def insentence_reference(text, bib) -> set:
     """Prepare references which are located inside sentences."""
-    insentence_ref = references_plain(bibliography, text)
+    insentence_ref = references_plain(bib, text)
     insentence_ref = utilo.flat(insentence_ref)
     result = set()
     for item in insentence_ref:
@@ -199,7 +199,7 @@ def check_6061_bib_ref_no_page(linter: callable, driver):
             page=reference.page,
         )
         for mark, item in zip(reference.marked, plain):  # pylint:disable=W0612
-            if decider_bib.reference.has_page(item):
+            if bibliography_.reference.has_page(item):
                 continue
             linter(
                 location=location,
@@ -223,7 +223,7 @@ def check_6062_bib_ref_inaccurate_page(linter: callable, driver):
             page=reference.page,
         )
         for mark, item in zip(reference.marked, plain):  # pylint:disable=W0612
-            if decider_bib.reference.precise(item):
+            if bibliography_.reference.is_precise(item):
                 continue
             linter(
                 location=location,
@@ -295,10 +295,10 @@ def check_6070_bib_ref_too_complicated(linter: callable, driver):
 
 def references_plain(references, text) -> list:
     result = []
-    sentences = decider_bib.utils.sentence_lookup(text)
+    sentences = bibliography_.utils.sentence_lookup(text)
     for ref in references:
         page, sentenceid, marked = ref.page, ref.sentence, ref.marked
-        selected = decider_bib.utils.sentence_plain(  # pylint:disable=E1101
+        selected = bibliography_.utils.sentence_plain(  # pylint:disable=E1101
             sentences[page][sentenceid],
             marks=marked,
         )

@@ -13,7 +13,7 @@ import pytest
 import serializeraw
 import utilotest
 
-import decider_bib
+import bibliography_
 import tests
 import tests.bibliography
 
@@ -24,7 +24,7 @@ def run_label(source, mp, td, msgid=None, pages=None):
     utilotest.fixture_requires(source)
     cmd = f'-i {source} --label'
     tests.bibliography.run(cmd, mp=mp)
-    path = decider_bib.path.decider_bib_label_user(td.tmpdir)
+    path = bibliography_.path.decider_bib_label_user(td.tmpdir)
     result = protoerror.select_findings(
         serializeraw.load_findings(path),
         msgid=msgid,

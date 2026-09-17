@@ -11,8 +11,8 @@ import hoverpower
 import protoerror
 import utilotest
 
-import decider_toc.features.complexity
 import tests.toc
+import toc_.features.complexity
 
 
 @utilotest.requires(hoverpower.BACHELOR063_PDF)
@@ -23,7 +23,7 @@ def test_bachelor63_regression_complexity(td, mp):
     source = hoverpower.link(hoverpower.BACHELOR063_PDF)
     with mp.context() as context:
         context.setattr(
-            decider_toc.features.complexity,
+            toc_.features.complexity,
             'CHAPTER_LENGTH_CHECKER_MIN',
             0.0,
         )
@@ -38,7 +38,7 @@ def test_toc_decider_toc_complexity_regression():
     """1351 fails with converting ROMAN number to int. In the future
     this will be resolved with ROMAN-number to pdf-page converter."""
     source = hoverpower.link(hoverpower.MASTER116_PDF)
-    tests.toc.lint(source, decider_toc.features.complexity)
+    tests.toc.lint(source, toc_.features.complexity)
 
 
 @utilotest.requires(hoverpower.BACHELOR128_PDF)
@@ -47,14 +47,14 @@ def test_decider_toc_complexity_bachelor128_regression():
     source = hoverpower.link(hoverpower.BACHELOR128_PDF)
     findings = tests.toc.linter(
         source,
-        decider_toc.features.complexity,
+        toc_.features.complexity,
         msgids=1351,
     )
     findings = [item for item in findings if item.location.page == 4]
     assert len(findings) == 2
     findings = tests.toc.linter(
         source,
-        decider_toc.features.complexity,
+        toc_.features.complexity,
         msgids=1370,
     )
     findings = [item for item in findings if item.location.page == 4]
@@ -73,7 +73,7 @@ def test_toc_complexity_bachelor077_regression():
     source = hoverpower.link(hoverpower.BACHELOR077_PDF)
     findings = tests.toc.linter(
         source,
-        decider_toc.features.complexity,
+        toc_.features.complexity,
         msgids=1370,
     )
     assert len(findings) == 4

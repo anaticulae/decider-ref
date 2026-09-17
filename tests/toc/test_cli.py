@@ -12,18 +12,18 @@ import protoerror
 import utilo
 import utilotest
 
-import decider_toc
-import decider_toc.features.complexity
 import tests.toc
+import toc_
+import toc_.features.complexity
 
 
 def test_decider_toc_cli_help(mp):
     tests.toc.run('--help', mp=mp)
 
 
-@utilotest.hasprog(decider_toc.PROCESS)
+@utilotest.hasprog(toc_.PROCESS)
 def test_decider_toc_nomonkey_cli_help():
-    utilo.run(f'{decider_toc.PROCESS} --help')
+    utilo.run(f'{toc_.PROCESS} --help')
 
 
 @utilotest.requires(hoverpower.MASTER099_PDF)
@@ -49,7 +49,7 @@ def test_toc_cli_master98_chapter_too_short(td, mp):
     source = hoverpower.link(hoverpower.MASTER098_PDF)
     with mp.context() as context:
         context.setattr(
-            decider_toc.features.complexity,
+            toc_.features.complexity,
             'CHAPTER_LENGTH_CHECKER_MIN',
             0.0,
         )

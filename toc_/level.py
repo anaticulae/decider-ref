@@ -11,15 +11,16 @@ import dataclasses
 
 import configos
 import iamraw
+import iamraw.toc
 
-import decider_toc.utils
+import toc_.utils
 
 
-class TooFewChildren(decider_toc.utils.InvalidTocItems):  # pylint:disable=too-many-ancestors
+class TooFewChildren(toc_.utils.InvalidTocItems):  # pylint:disable=too-many-ancestors
     pass
 
 
-class LevelToDeep(decider_toc.utils.InvalidTocItems):  # pylint:disable=too-many-ancestors
+class LevelToDeep(toc_.utils.InvalidTocItems):  # pylint:disable=too-many-ancestors
     pass
 
 
@@ -33,10 +34,10 @@ class TocValidationResult:
     too_few_children: TooFewChildren = None
 
 
-def validate(toc: iamraw.Toc, maxdeep: int = None) -> TocValidationResult:
-    too_few_children = validate_children(toc)
+def validate(tocs: iamraw.Toc, maxdeep: int = None) -> TocValidationResult:
+    too_few_children = validate_children(tocs)
     deepness = validate_deepness(
-        toc,
+        tocs,
         maxdeep=maxdeep,
     )
     result = TocValidationResult(
@@ -46,7 +47,7 @@ def validate(toc: iamraw.Toc, maxdeep: int = None) -> TocValidationResult:
     return result
 
 
-def validate_children(toc: iamraw.Toc) -> TooFewChildren:
+def validate_children(tocs: iamraw.Toc) -> TooFewChildren:
     result = TooFewChildren()
 
     def godown(item: iamraw.toc.TocLinkMixin):
@@ -57,12 +58,12 @@ def validate_children(toc: iamraw.Toc) -> TooFewChildren:
         for children in item:
             godown(children)
 
-    for item in toc:
+    for item in tocs:
         godown(item)
     return result
 
 
-def validate_deepness(toc: iamraw.Toc, maxdeep: int = None) -> LevelToDeep:
+def validate_deepness(tocs: iamraw.Toc, maxdeep: int = None) -> LevelToDeep:
     if maxdeep is None:
         maxdeep = TOC_DEEPNESS_DEFAULT_MAX
 
@@ -74,6 +75,6 @@ def validate_deepness(toc: iamraw.Toc, maxdeep: int = None) -> LevelToDeep:
         for children in item:
             godown(children)
 
-    for item in toc:
+    for item in tocs:
         godown(item)
     return result

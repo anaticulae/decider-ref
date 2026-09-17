@@ -13,9 +13,9 @@ import serializeraw
 import utilo
 import utilotest
 
-import decider_toc
+import toc_
 
-run, fail = utilotest.create_cli_runner(decider_toc)
+run, fail = utilotest.create_cli_runner(toc_)
 
 
 def tableofcontent(path: str) -> iamraw.Toc:

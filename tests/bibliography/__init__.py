@@ -11,14 +11,14 @@ import hoverpower
 import indagator.path
 import utilotest
 
-import decider_bib
-import decider_bib.serialize
+import bibliography_
+import bibliography_.serialize
 
-run, fail = utilotest.create_cli_runner(decider_bib)
+run, fail = utilotest.create_cli_runner(bibliography_)
 
 
 def load_bib_table(path: str):
     table = hoverpower.link(path)
     table = indagator.path.bibliography_detected(table)
-    bibliography = decider_bib.serialize.load_bibliography_reference(table)
+    bibliography = bibliography_.serialize.load_bibliography_reference(table)
     return bibliography

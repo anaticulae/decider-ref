@@ -10,7 +10,7 @@
 import protoerror
 import utilo
 
-import decider_toc
+import toc_
 
 DESCRIPTION = ''
 
@@ -62,14 +62,14 @@ WORKPLAN = [
 
 def main():
     hook = protoerror.integrate(
-        root=decider_toc.ROOT,
-        features='decider_toc.features',
+        root=toc_.ROOT,
+        features='toc.features',
     )
     docinfo = protoerror.integrate_docinfo()
     utilo.featurepack(
         workplan=WORKPLAN,
-        root=decider_toc.ROOT,
-        featurepackage='decider_toc.features',
+        root=toc_.ROOT,
+        featurepackage='toc_.features',
         config=utilo.FeaturePackConfig(
             cli_hook=[
                 docinfo,
@@ -77,8 +77,8 @@ def main():
             ],
             description=DESCRIPTION,
             multiprocessed=True,
-            name=decider_toc.PROCESS,
+            name=toc_.PROCESS,
             pages=True,
-            version=decider_toc.__version__,
+            version=toc_.__version__,
         ),
     )

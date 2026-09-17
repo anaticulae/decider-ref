@@ -10,7 +10,7 @@
 import protoerror
 import utilo
 
-import decider_abb
+import abbreviation_
 
 DESCRIPTION = ''
 
@@ -28,19 +28,19 @@ WORKPLAN = [
 
 def main():
     hook = protoerror.integrate(
-        root=decider_abb.ROOT,
-        features='decider_abb.features',
+        root=abbreviation_.ROOT,
+        features='abbreviation.features',
     )
     utilo.featurepack(
         workplan=WORKPLAN,
-        root=decider_abb.ROOT,
-        featurepackage='decider_abb.features',
+        root=abbreviation_.ROOT,
+        featurepackage='abbreviation_.features',
         config=utilo.FeaturePackConfig(
             cli_hook=hook,
             description=DESCRIPTION,
             multiprocessed=True,
-            name=decider_abb.PROCESS,
+            name=abbreviation_.PROCESS,
             pages=True,
-            version=decider_abb.__version__,
+            version=abbreviation_.__version__,
         ),
     )

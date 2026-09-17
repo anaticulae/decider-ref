@@ -13,8 +13,8 @@ import iamraw
 import protoerror
 import utilo
 
-import decider_cap.basic
-import decider_cap.driver
+import caption_.basic
+import caption_.driver
 
 
 def work(
@@ -22,7 +22,7 @@ def work(
     docinfo: iamraw.DocInfo,
     pages: tuple = None,
 ) -> protoerror.ResultType:
-    driver = decider_cap.driver.create_driver(
+    driver = caption_.driver.create_driver(
         captions,
         pages=pages,
     )
@@ -45,9 +45,9 @@ Die Unterschrift **{{line}}** wurde **{{count}}-mal** auf den Seiten \
 def check_6200_duplication(linter: callable, driver):
     collected = collections.defaultdict(list)
     for pagecaption in driver.captions:
-        for caption in pagecaption.content:
+        for item in pagecaption.content:
             # TODO: DECIDE BETWEEN LABEL AND CAPTION TEXT
-            collected[caption.text].append(pagecaption.page)
+            collected[item.text].append(pagecaption.page)
     for key, value in collected.items():
         if len(value) <= 1:
             continue
@@ -79,15 +79,15 @@ Unterschriften der Codes falsch numeriert
 
 
 def check_6201_order_figures(linter: callable, driver):
-    decider_cap.basic.check_order(driver.figures, linter)
+    caption_.basic.check_order(driver.figures, linter)
 
 
 def check_6202_order_tables(linter: callable, driver):
-    decider_cap.basic.check_order(driver.tables, linter)
+    caption_.basic.check_order(driver.tables, linter)
 
 
 def check_6203_order_codes(linter: callable, driver):
-    decider_cap.basic.check_order(driver.codes, linter)
+    caption_.basic.check_order(driver.codes, linter)
 
 
 SOLUTION_6205 = """\
@@ -100,15 +100,15 @@ SOLUTION_6207 = SOLUTION_6205
 
 
 def check_6205_dotted_figures(linter: callable, driver):
-    decider_cap.basic.check_dotted(driver.figures, linter)
+    caption_.basic.check_dotted(driver.figures, linter)
 
 
 def check_6206_dotted_tables(linter: callable, driver):
-    decider_cap.basic.check_dotted(driver.tables, linter)
+    caption_.basic.check_dotted(driver.tables, linter)
 
 
 def check_6207_dotted_codes(linter: callable, driver):
-    decider_cap.basic.check_dotted(driver.codes, linter)
+    caption_.basic.check_dotted(driver.codes, linter)
 
 
 SOLUTION_6210 = """\
@@ -121,15 +121,15 @@ SOLUTION_6212 = SOLUTION_6210
 
 
 def check_6210_upper_figures(linter: callable, driver):
-    decider_cap.basic.check_upper(driver.figures, linter)
+    caption_.basic.check_upper(driver.figures, linter)
 
 
 def check_6211_upper_tables(linter: callable, driver):
-    decider_cap.basic.check_upper(driver.tables, linter)
+    caption_.basic.check_upper(driver.tables, linter)
 
 
 def check_6212_upper_codes(linter: callable, driver):
-    decider_cap.basic.check_upper(driver.codes, linter)
+    caption_.basic.check_upper(driver.codes, linter)
 
 
 SOLUTION_6220 = """\
@@ -143,12 +143,12 @@ SOLUTION_6222 = SOLUTION_6220
 
 
 def check_6220_length_figures(linter: callable, driver):
-    decider_cap.basic.check_length(driver.figures, linter)
+    caption_.basic.check_length(driver.figures, linter)
 
 
 def check_6221_length_tables(linter: callable, driver):
-    decider_cap.basic.check_length(driver.tables, linter)
+    caption_.basic.check_length(driver.tables, linter)
 
 
 def check_6222_length_codes(linter: callable, driver):
-    decider_cap.basic.check_length(driver.codes, linter)
+    caption_.basic.check_length(driver.codes, linter)

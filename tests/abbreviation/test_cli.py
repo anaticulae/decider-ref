@@ -10,7 +10,7 @@
 import utilo
 import utilotest
 
-import decider_abb
+import abbreviation_
 import tests.abbreviation
 
 
@@ -18,6 +18,6 @@ def test_decider_abbr_cli_help(mp):
     tests.abbreviation.run('--help', mp=mp)
 
 
-@utilotest.hasprog(decider_abb.PROCESS)
+@utilotest.hasprog(abbreviation_.PROCESS)
 def test_decider_abbr_nomonkey_cli_help():
-    utilo.run(f'{decider_abb.PROCESS} --help')
+    utilo.run(f'{abbreviation_.PROCESS} --help')

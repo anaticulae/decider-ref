@@ -1,19 +1,29 @@
 # =============================================================================
 # C O P Y R I G H T
 # -----------------------------------------------------------------------------
-# Copyright (c) 2020-2022 by Helmut Konrad Fahrendholz. All rights reserved.
+# Copyright (c) 2021-2022 by Helmut Konrad Fahrendholz. All rights reserved.
 # This file is property of Helmut Konrad Fahrendholz. Any unauthorized copy,
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
+"""Abbreviation Analyzer
+=====================
+
+* verify order/sorted
+* check obvious abbrevation and give advice to delete abbreviation
+
+TODO: INFORM ABOUT NOT USED ABBREVIATION
+TODO: VERIFY FIRST USAGE
+"""
 
 import configos
 
-# ease importing path module when using decider_bib
-import decider_bib.path
+import abbreviation_.path
 import decider_ref
 
+__version__ = decider_ref.__version__
+
 ROOT = decider_ref.ROOT
-PROCESS = 'decider_bibliography'
+PROCESS = 'decider_abbrev'
 
 configos.cloud_lookup(PROCESS)

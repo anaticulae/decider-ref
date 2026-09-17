@@ -28,7 +28,13 @@ def has_page(item) -> bool:
     return parsed[0].page is not None
 
 
-def precise(item) -> bool:
+def is_precise(item: str) -> bool:
+    """\
+    >>> is_precise('S. 43 ff')
+    False
+    >>> is_precise('S. 43')
+    True
+    """
     if ' ff ' in item:
         return False
     if 'ff.' in item:

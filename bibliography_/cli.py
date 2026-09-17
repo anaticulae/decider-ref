@@ -10,7 +10,7 @@
 import protoerror
 import utilo
 
-import decider_bib
+import bibliography_
 import decider_ref
 
 DESCRIPTION = ''
@@ -54,13 +54,13 @@ WORKPLAN = [
 def main():
     hook = protoerror.integrate(
         root=decider_ref.ROOT,
-        features='decider_bib.features',
+        features='bibliography.features',
     )
     docinfo = protoerror.integrate_docinfo()
     utilo.featurepack(
         workplan=WORKPLAN,
         root=decider_ref.ROOT,
-        featurepackage='decider_bib.features',
+        featurepackage='bibliography_.features',
         config=utilo.FeaturePackConfig(
             cli_hook=[
                 docinfo,
@@ -68,7 +68,7 @@ def main():
             ],
             description=DESCRIPTION,
             multiprocessed=True,
-            name=decider_bib.PROCESS,
+            name=bibliography_.PROCESS,
             pages=True,
             version=decider_ref.__version__,
         ),

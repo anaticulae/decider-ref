@@ -2,10 +2,10 @@
 short = decider_ref
 name = decider_ref
 
-source = decider_abb
-    decider_bib
-    decider_cap
-    decider_toc
+source = abbreviation_
+    bibliography_
+    caption_
+    toc_
 
 [release]
 fail_on_finding = True

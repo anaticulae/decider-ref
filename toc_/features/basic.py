@@ -19,14 +19,16 @@ import iamraw
 import protoerror
 import utilo
 
-import decider_toc.features
+import toc_.features
 
 
-def work(toc: str,
-         outlines: str,
-         headlines: str = None) -> protoerror.ResultType:
-    driver = decider_toc.features.create_driver(
-        toc,
+def work(
+    tocs: str,
+    outlines: str,
+    headlines: str = None,
+) -> protoerror.ResultType:
+    driver = toc_.features.create_driver(
+        tocs,
         outlines,
         headlines=headlines,
     )
@@ -49,8 +51,8 @@ TODO: ADD LINK TO TECHNIK
 
 
 def check_1300_toc_existence(linter, driver):
-    toc = driver.toc
-    if toc.children:
+    tocs = driver.toc
+    if tocs.children:
         return
     linter(location=protoerror.OVERVIEW)
 
@@ -151,9 +153,9 @@ ist eine eindeutigere Struktur möglich.
 
 
 def check_1315_stepped_toc(linter, driver):
-    toc: iamraw.Toc = driver.toc
-    if not toc:
+    tocs: iamraw.Toc = driver.toc
+    if not tocs:
         return
-    if toc.style != iamraw.TocStyle.STEPPED:
+    if tocs.style != iamraw.TocStyle.STEPPED:
         return
     linter(location=protoerror.OVERVIEW)

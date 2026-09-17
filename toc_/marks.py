@@ -12,7 +12,7 @@ import germania
 import iamraw
 import konradus
 
-import decider_toc.utils as dtu
+import toc_.utils as dtu
 
 
 def validate_question_mark(toc: iamraw.Toc) -> dtu.InvalidTocItems:

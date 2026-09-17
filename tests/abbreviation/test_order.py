@@ -14,7 +14,7 @@ import iamraw
 import protoerror
 import utilo
 
-import decider_abb.features.table
+import abbreviation_.features.table
 import tests.abbreviation
 
 
@@ -36,7 +36,7 @@ def test_abbrev_table_sorted():
     driver = protoerror.driver(abbrevtable=table)
 
     linter = protoerror.Linter()
-    decider_abb.features.table.check_15010_not_sorted_alphabetically(
+    abbreviation_.features.table.check_15010_not_sorted_alphabetically(
         linter.add_finding,
         driver,
     )
@@ -44,7 +44,7 @@ def test_abbrev_table_sorted():
 
 
 def abbreviation_linter(method):
-    linter = protoerror.from_module(decider_abb.features.table)
+    linter = protoerror.from_module(abbreviation_.features.table)
     location = iamraw.Location.from_page(5)
     msgid = vars(method)['msgid']
     call = functools.partial(
@@ -74,8 +74,8 @@ def test_abbrev_table_unsorted():
     driver = protoerror.driver(abbrevtable=table)
 
     linter = abbreviation_linter(
-        decider_abb.features.table.check_15010_not_sorted_alphabetically)
-    decider_abb.features.table.check_15010_not_sorted_alphabetically(
+        abbreviation_.features.table.check_15010_not_sorted_alphabetically)
+    abbreviation_.features.table.check_15010_not_sorted_alphabetically(
         linter.add_finding,
         driver,
     )

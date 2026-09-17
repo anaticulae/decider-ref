@@ -9,6 +9,6 @@
 
 import utilotest
 
-import decider_cap
+import caption_
 
-run, fail = utilotest.create_cli_runner(decider_cap)
+run, fail = utilotest.create_cli_runner(caption_)

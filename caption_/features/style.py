@@ -11,8 +11,7 @@ import iamraw
 import protoerror
 import utilo
 
-import decider_cap.basic
-import decider_cap.driver
+import caption_.driver
 
 
 def work(
@@ -20,7 +19,7 @@ def work(
     docinfo: iamraw.DocInfo,
     pages: tuple = None,
 ) -> protoerror.ResultType:
-    driver = decider_cap.driver.create_driver(
+    driver = caption_.driver.create_driver(
         captions,
         pages=pages,
     )
@@ -43,10 +42,10 @@ dem beschriebenen Objekt.
 
 
 def check_6250_overlap(linter: callable, driver):
-    for caption in utilo.flatten_content(driver.captions):
-        if not caption.overlap:
+    for item in utilo.flatten_content(driver.captions):
+        if not item.overlap:
             continue
         linter(
-            text=caption.raw,
-            location=iamraw.Location.from_page(caption.pdfpage),
+            text=item.raw,
+            location=iamraw.Location.from_page(item.pdfpage),
         )

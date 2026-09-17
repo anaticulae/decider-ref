@@ -11,15 +11,15 @@ import hoverpower
 import protoerror
 import utilotest
 
-import decider_toc.features.basic
 import tests.toc
+import toc_.features.basic
 
 
 @utilotest.requires(hoverpower.DOCU035_PDF, folder='notoc')
 def test_toc_extraction_no_toc():
     expected_failures = [1300, 1301]
     source = hoverpower.link(hoverpower.DOCU035_PDF, folder='notoc')
-    failures = tests.toc.lint(source, decider_toc.features.basic)
+    failures = tests.toc.lint(source, toc_.features.basic)
     assert failures == expected_failures, str(failures)
 
 
@@ -34,7 +34,7 @@ def test_toc_duplicated_level_bachelor067():
     source = hoverpower.link(hoverpower.BACHELOR067_PDF)
     linted = tests.toc.linter(
         source,
-        decider_toc.features.basic,
+        toc_.features.basic,
         msgids=1310,
     )
     assert len(linted) in {5, 6}

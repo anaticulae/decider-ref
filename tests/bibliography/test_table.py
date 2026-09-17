@@ -12,7 +12,8 @@ import protoerror
 import serializeraw
 import utilotest
 
-import decider_bib
+import bibliography_
+import bibliography_.path
 import tests.bibliography
 
 
@@ -21,7 +22,7 @@ def run_table(source, mp, td, msgid=None):
     source = hoverpower.link(source)
     cmd = f'-i {source} --table'
     tests.bibliography.run(cmd, mp=mp)
-    path = decider_bib.path.decider_bib_table_user(td.tmpdir)
+    path = bibliography_.path.decider_bib_table_user(td.tmpdir)
     result = protoerror.select_findings(
         serializeraw.load_findings(path),
         msgid=msgid,

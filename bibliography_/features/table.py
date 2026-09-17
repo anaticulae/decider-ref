@@ -14,10 +14,10 @@ import protoerror
 import serializeraw
 import utilo
 
-import decider_bib.order
-import decider_bib.serialize
-import decider_bib.table
-import decider_bib.utils
+import bibliography_.order
+import bibliography_.serialize
+import bibliography_.table
+import bibliography_.utils
 import decider_ref.listdiff
 
 
@@ -36,7 +36,7 @@ def work(
 
 
 def create_driver(table: str, titlepage: str, pdfinfo: str, docinfo: str):
-    bibliography = decider_bib.serialize.load_bibliography_reference(table)
+    bib = bibliography_.serialize.load_bibliography_reference(table)
     if utilo.exists(titlepage):
         titlepage = serializeraw.load_titlepage(titlepage)
     else:
@@ -46,7 +46,7 @@ def create_driver(table: str, titlepage: str, pdfinfo: str, docinfo: str):
     # TODO: USE CONTENT SECTION LENGTH INSTEAD OF PAGES. THIS IMPROVES
     # JUDGEMENT OF THESIS WITH LONG APPENDIX
     driver = protoerror.driver(
-        bibliography=bibliography,
+        bibliography=bib,
         titlepage=titlepage,
         pages=pages,
         docinfo=docinfo,
@@ -75,13 +75,13 @@ def check_6000_not_sorted_alphabetically(linter: callable, driver):
         utilo.error('could not parse all authors, skip 6000')
         return
     current = list(references)
-    expected = decider_bib.order.theissen_sort(current)
+    expected = bibliography_.order.theissen_sort(current)
     if current == expected:
         return
     location = pagelocation(current[0])
     # TODO: CHECK REPRESENTATION
-    current = [decider_bib.utils.format_bibline(item) for item in current]
-    expected = [decider_bib.utils.format_bibline(item) for item in expected]
+    current = [bibliography_.utils.format_bibline(item) for item in current]
+    expected = [bibliography_.utils.format_bibline(item) for item in expected]
     advice = decider_ref.listdiff.diffview(expected, current)
     linter(
         advice=advice,
@@ -128,7 +128,7 @@ def check_6006_bibs_too_old(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography.references
     if not references:
         return
-    if not decider_bib.table.too_old(references):
+    if not bibliography_.table.too_old(references):
         return
     location = pagelocation(references[0])
     linter(location=location)
@@ -150,7 +150,7 @@ def check_6006_too_few_bibs(linter: callable, driver):
     if not driver.titlepage:
         return
     thesis = driver.titlepage.thesis.typ if driver.titlepage.thesis else None
-    if not decider_bib.table.too_few(
+    if not bibliography_.table.too_few(
             references=references,
             pages=driver.pages,
             thesis=thesis,
@@ -176,7 +176,7 @@ def check_6007_too_many_bibs(linter: callable, driver):
     if not driver.titlepage:
         return
     thesis = driver.titlepage.thesis.typ if driver.titlepage.thesis else None
-    if not decider_bib.table.too_many(
+    if not bibliography_.table.too_many(
             references=references,
             pages=driver.pages,
             thesis=thesis,
@@ -245,7 +245,7 @@ Stil der Quellenangabe **{{bibraw}}** weicht ab.
 
 def check_6020_bib_differs(linter: callable, driver):
     references: iamraw.BibliographyReferences = driver.bibliography.references
-    invalid = decider_bib.table.invalid_references(references)
+    invalid = bibliography_.table.invalid_references(references)
     for reference in invalid:
         raw = reference.raw
         linter(

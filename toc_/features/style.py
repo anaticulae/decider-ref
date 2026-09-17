@@ -11,12 +11,13 @@ import elementae
 import iamraw
 import protoerror
 
-import decider_toc.duplicated
-import decider_toc.marks
+import toc_.duplicated
+import toc_.features
+import toc_.marks
 
 
-def work(toc: str) -> protoerror.ResultType:
-    driver = decider_toc.features.create_driver(toc)
+def work(tocs: str) -> protoerror.ResultType:
+    driver = toc_.features.create_driver(tocs)
     result = protoerror.run(
         __name__,
         driver=driver,
@@ -35,9 +36,9 @@ dieses Wort um die Varianz der Sprache zu vergrößern.
 
 
 def check_1380_toc_duplicated_words(linter, driver):
-    toc: iamraw.Toc = driver.toc
-    toc_flat = elementae.toc_flat(toc)
-    findings = decider_toc.duplicated.validate(toc)
+    tocs: iamraw.Toc = driver.toc
+    toc_flat = elementae.toc_flat(tocs)
+    findings = toc_.duplicated.validate(tocs)
     for item in findings:
         (word, count), lines = item
         location = iamraw.Location.from_page(toc_flat[lines[0]].raw_location)
@@ -64,8 +65,8 @@ Fragesatz formuliert werden.
 
 
 def check_1383_toc_contains_question_mark(linter, driver):
-    toc: iamraw.Toc = driver.toc
-    findings = decider_toc.marks.validate_question_mark(toc)
+    tocs: iamraw.Toc = driver.toc
+    findings = toc_.marks.validate_question_mark(tocs)
     for item in findings:
         _, title, raw_location = item
         location = iamraw.Location.from_page(raw_location)
@@ -89,8 +90,8 @@ verständlich wird.
 
 
 def check_1384_toc_contains_quotation_mark(linter, driver):
-    toc: iamraw.Toc = driver.toc
-    findings = decider_toc.marks.collect_quotation_marks(toc)
+    tocs: iamraw.Toc = driver.toc
+    findings = toc_.marks.collect_quotation_marks(tocs)
     for item in findings:
         _, title, raw_location = item
         location = iamraw.Location.from_page(raw_location)

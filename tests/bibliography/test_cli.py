@@ -10,7 +10,7 @@
 import utilo
 import utilotest
 
-import decider_bib
+import bibliography_
 import tests.bibliography
 
 
@@ -18,6 +18,6 @@ def test_decider_bib_cli_help(mp):
     tests.bibliography.run('--help', mp=mp)
 
 
-@utilotest.hasprog(decider_bib.PROCESS)
+@utilotest.hasprog(bibliography_.PROCESS)
 def test_decider_bib_nomonkey_cli_help():
-    utilo.run(f'{decider_bib.PROCESS} --help')
+    utilo.run(f'{bibliography_.PROCESS} --help')

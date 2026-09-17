@@ -10,7 +10,7 @@
 import utilo
 import utilotest
 
-import decider_cap
+import caption_
 import tests.caption
 
 
@@ -18,6 +18,6 @@ def test_cap_cli_help(mp):
     tests.caption.run('--help', mp=mp)
 
 
-@utilotest.hasprog(decider_cap.PROCESS)
+@utilotest.hasprog(caption_.PROCESS)
 def test_cap_nomonkey_cli_help():
-    utilo.run(f'{decider_cap.PROCESS} --help')
+    utilo.run(f'{caption_.PROCESS} --help')

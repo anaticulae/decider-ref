@@ -11,7 +11,7 @@ import elementae
 import hoverpower
 import utilotest
 
-import tests
+import tests.toc
 
 
 @utilotest.requires(hoverpower.TECH024_PDF)

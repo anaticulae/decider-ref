@@ -13,8 +13,8 @@ import pytest
 import utilo
 import utilotest
 
-import decider_toc.duplicated
 import tests.toc
+import toc_.duplicated
 
 
 def test_toc_style_bachelor76_duplicated_words(td, mp):
@@ -28,7 +28,7 @@ def test_toc_style_bachelor51_duplicated_words(td, mp):
     with mp.context() as context:
         # make this test config independent
         context.setattr(
-            decider_toc.duplicated,
+            toc_.duplicated,
             'DUPLICATES_COUNT_MIN',
             lambda _: 5,
         )

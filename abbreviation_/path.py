@@ -9,8 +9,9 @@
 
 import utilo
 
-import decider_abb
+import abbreviation_
 
 
 def decider_abb_table_user(path: str, prefix: str = '') -> str:
-    return utilo.pathconnector(path, decider_abb.PROCESS, 'table_user', prefix)
+    return utilo.pathconnector(path, abbreviation_.PROCESS, 'table_user',
+                               prefix)

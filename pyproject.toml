@@ -1,7 +1,7 @@
 [build-system]
 requires = [
-    "setuptools>=83.0.0",
-    "wheel>=0.47.0",
+    "setuptools>=84.0.0",
+    "wheel>=0.48.0",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -23,7 +23,7 @@ dependencies = [
     "protoerror>=3.20.4,<4.0.0",
     "texes>=1.0.1,<2.0.0",
     "upainter>=1.0.0,<2.0.0",
-    "utilo>=2.110.2,<3.0.0",
+    "utilo>=2.112.0,<3.0.0",
     "verbo>=1.23.4,<2.0.0",
     "writers>=1.7.1,<2.0.0",
 ]
@@ -48,7 +48,7 @@ dev = [
     "capita==1.25.3",
     "capita_ref==1.0.1",
     "codero==1.0.1",
-    "decider-chapter==1.0.1",
+    "decider-chapter==1.0.2",
     "figureo==1.0.1",
     "formulero==1.0.0",
     "gennex==1.1.0",
